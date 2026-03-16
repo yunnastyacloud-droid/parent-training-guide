@@ -72,6 +72,7 @@ body{
   background:var(--dark);color:#fff;overflow-y:auto;z-index:100;
   display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.4,0,.2,1);
 }
+.sidebar.open{transform:translateX(0);box-shadow:4px 0 24px rgba(0,0,0,.2)}
 .sidebar-header{
   padding:2.2rem 1.5rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;
   position:relative;overflow:hidden;
@@ -493,6 +494,7 @@ body.present .sidebar{transform:translateX(-100%)}body.present .main{margin-left
     <button class="btn" id="btnTop" title="Наверх">↑ Наверх</button>
   </div>
 </aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <main class="main">
   <div class="content" id="content">
@@ -4667,7 +4669,7 @@ window.addEventListener('scroll', () => {
 });
 
 // === CONTROLS ===
-const mb = document.getElementById('menuToggle');
+// menuToggle handled in overlay section below
 
 
 const pb2 = document.getElementById('btnPresent');
@@ -4698,10 +4700,10 @@ const overlay = document.getElementById('sidebarOverlay');
 const sidebar = document.getElementById('sidebar');
 const menuBtn = document.getElementById('menuToggle');
 
-if (menuBtn) {
+if (menuBtn && sidebar) {
   menuBtn.addEventListener('click', () => {
     sidebar.classList.toggle('open');
-    overlay.classList.toggle('active');
+    if (overlay) overlay.classList.toggle('active');
   });
 }
 
@@ -4715,8 +4717,8 @@ if (overlay) {
 // Close sidebar when clicking a nav link
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
-    sidebar.classList.remove('open');
-    overlay.classList.remove('active');
+    if (sidebar) sidebar.classList.remove('open');
+    if (overlay) overlay.classList.remove('active');
   });
 });
 
