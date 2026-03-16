@@ -62,7 +62,8 @@
 
 html{scroll-behavior:smooth}
 
-body{
+html,body{overflow:hidden;}
+body{overflow:hidden;
   background:var(--bg);color:var(--text);font-family:var(--bf);line-height:1.8;font-size:16px;overflow-x:hidden;
 }
 
@@ -4722,6 +4723,27 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
+
+// Send height to parent for auto-resize
+function sendHeight() {
+  const h = document.documentElement.scrollHeight;
+  window.parent.postMessage({type:'iframeHeight', height: h}, '*');
+}
+window.addEventListener('load', () => { setTimeout(sendHeight, 500); setTimeout(sendHeight, 2000); });
+new MutationObserver(sendHeight).observe(document.body, {childList:true, subtree:true});
+// Also send on every section becoming visible
+const resizeObs = new ResizeObserver(sendHeight);
+resizeObs.observe(document.body);
+
+
+// Send height to parent for auto-resize
+function sendHeight() {
+  const h = document.documentElement.scrollHeight;
+  window.parent.postMessage({type:'resize', height: h}, '*');
+}
+window.addEventListener('load', sendHeight);
+new MutationObserver(sendHeight).observe(document.body, {childList:true, subtree:true});
+setInterval(sendHeight, 2000);
 </script>
 </body>
 </html>
