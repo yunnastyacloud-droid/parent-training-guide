@@ -94,7 +94,7 @@ body{
   background:linear-gradient(180deg,rgba(212,132,90,.04),transparent);
   pointer-events:none;z-index:1;
 }
-.content{max-width:800px;margin:0 auto;padding:2rem 5rem 6rem;position:relative;overflow:hidden;box-sizing:border-box;}
+.content{margin:0 auto;position:relative}
 
 /* ===== PART HEADERS ===== */
 .part-header{padding:4rem 0 2.5rem;margin-bottom:2.5rem;position:relative}
@@ -370,13 +370,13 @@ body{
 
 
 @media(min-width:901px) and (max-width:1200px){
-  .content{padding:2rem 4rem 4rem}
+  
   .section-body{overflow-x:hidden}
 }
-@media(max-width:900px){.content{padding:1.5rem 2rem 3rem}.part-header h1{font-size:1.6rem}.viz-grid-2,.viz-grid-3,.viz-two-col,.viz-triad{grid-template-columns:1fr}.viz-flow{flex-direction:column}.viz-flow-arrow{transform:rotate(90deg);align-self:center}.viz-stat-compare{flex-direction:column}.intake-grid{grid-template-columns:1fr}.form-field-row{flex-direction:column}}
-@media print{.sidebar,.menu-toggle,.sidebar-controls,.progress-bar,.main::before{display:none!important}.main{margin-left:0!important}.content{max-width:100%;padding:1rem 2rem}.section,.part-header,.viz-card,.viz-triad-item,.viz-col-box,.viz-flow-step,.viz-tl-item,.intake-form{opacity:1!important;transform:none!important}.intake-form{break-inside:avoid;border:1px solid #999}.intake-header{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+@media(max-width:900px){.part-header h1{font-size:1.6rem}.viz-grid-2,.viz-grid-3,.viz-two-col,.viz-triad{grid-template-columns:1fr}.viz-flow{flex-direction:column}.viz-flow-arrow{transform:rotate(90deg);align-self:center}.viz-stat-compare{flex-direction:column}.intake-grid{grid-template-columns:1fr}.form-field-row{flex-direction:column}}
+@media print{.sidebar,.menu-toggle,.sidebar-controls,.progress-bar,.main::before{display:none!important}.main{margin-left:0!important}.section,.part-header,.viz-card,.viz-triad-item,.viz-col-box,.viz-flow-step,.viz-tl-item,.intake-form{opacity:1!important;transform:none!important}.intake-form{break-inside:avoid;border:1px solid #999}.intake-header{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.section,.part-header,.viz-card,.viz-triad-item,.viz-col-box,.viz-flow-step,.viz-tl-item,.intake-form{opacity:1!important;transform:none!important}}
-body.present .sidebar{transform:translateX(-100%)}body.present .main{margin-left:0}body.present .main::before{left:0}body.present .content{max-width:880px}body.present .section{min-height:85vh;display:flex;flex-direction:column;justify-content:center;padding:2rem 0}body.present .part-header{min-height:75vh;display:flex;flex-direction:column;justify-content:center;text-align:center}body.present .part-header::before{left:50%;transform:translateX(-50%)}body.present .part-header h1{font-size:3rem}body.present .section-body p{font-size:1.05rem;line-height:2}
+body.present .sidebar{transform:translateX(-100%)}body.present .main{margin-left:0}body.present .main::before{left:0}body.present body.present .section{min-height:85vh;display:flex;flex-direction:column;justify-content:center;padding:2rem 0}body.present .part-header{min-height:75vh;display:flex;flex-direction:column;justify-content:center;text-align:center}body.present .part-header::before{left:50%;transform:translateX(-50%)}body.present .part-header h1{font-size:3rem}body.present .section-body p{font-size:1.05rem;line-height:2}
 
 
 
@@ -4714,8 +4714,9 @@ document.querySelectorAll('section.part').forEach(part => {
 // Also for the content div and transition blocks
 const content = document.querySelector('.content');
 if (content) {
-  content.style.maxWidth = '860px';
+  content.style.maxWidth = '100%';
   content.style.margin = '0 auto';
+  content.style.padding = '2rem 0 6rem';
 }
 // Catch any loose divs between sections
 document.querySelectorAll('.content > div:not(.section):not(section)').forEach(el => {
@@ -4777,5 +4778,5 @@ window.addEventListener('load', sendHeight);
 new MutationObserver(sendHeight).observe(document.body, {childList:true, subtree:true});
 setInterval(sendHeight, 2000);
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v5.0</div></body>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v7.0</div></body>
 </html>
