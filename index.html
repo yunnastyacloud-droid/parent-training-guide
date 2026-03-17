@@ -33,11 +33,12 @@ body{
 
 /* ===== SIDEBAR ===== */
 .sidebar{
-  position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;z-index:100;transform:translateX(-100%);transition:transform .3s ease;
-  background:var(--dark);color:#fff;overflow-y:auto;z-index:100;
-  display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.4,0,.2,1);
+  position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;z-index:1000;
+  background:#1a1e28;color:#fff;overflow-y:auto;
+  display:flex;flex-direction:column;
+  transform:translateX(-100%);transition:transform .35s ease;
 }
-.sidebar.open{transform:translateX(0);box-shadow:4px 0 24px rgba(0,0,0,.2)}
+.sidebar.open{transform:translateX(0) !important;box-shadow:4px 0 24px rgba(0,0,0,.4)}
 .sidebar-header{
   padding:2.2rem 1.5rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;
   position:relative;
@@ -350,7 +351,7 @@ body{
 .warn-mark{display:inline-block;width:15px;height:15px;border-radius:50%;background:var(--acc2);color:#fff;text-align:center;line-height:15px;font-size:9px;font-weight:700;margin-right:6px;vertical-align:middle}
 .warn-mark::after{content:'!'}
 .star-mark{color:var(--acc2);margin-right:2px}.star-mark::after{content:'\2726'}
-.menu-toggle{display:flex;align-items:center;justify-content:center;position:fixed;top:14px;left:14px;z-index:200;width:40px;height:40px;border-radius:10px;border:none;background:var(--dark);color:#fff;font-size:1.1rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.menu-toggle{display:flex;align-items:center;justify-content:center;position:fixed;top:14px;left:14px;z-index:2000;width:40px;height:40px;border-radius:10px;border:none;background:var(--dark);color:#fff;font-size:1.1rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 
 /* Animations */
 .section{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
@@ -418,7 +419,7 @@ body.present .sidebar{transform:translateX(-100%)}body.present .main{margin-left
 /* Sidebar overlay */
 .sidebar-overlay{
   position:fixed;top:0;left:0;right:0;bottom:0;
-  background:rgba(0,0,0,.3);z-index:99;
+  background:rgba(0,0,0,.3);z-index:999;
   opacity:0;pointer-events:none;
   transition:opacity .3s ease;
 }
@@ -440,6 +441,17 @@ body.present .sidebar{transform:translateX(-100%)}body.present .main{margin-left
 
 
 
+
+/* Sidebar nav visibility fix */
+.nav-part-title {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.sidebar-nav {
+  display: block !important;
+  opacity: 1 !important;
+}
 </style>
 </head>
 <body><a href="https://www.abapsy.com" target="_blank" style="position:fixed;top:12px;right:12px;z-index:200;opacity:.85;transition:opacity .2s;font-size:0;line-height:0;text-decoration:none;color:transparent;overflow:hidden" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.85"><img src="data:image/png;base64,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" alt="" style="width:50px;height:50px;border-radius:50%;object-fit:cover"></a>
@@ -452,55 +464,101 @@ body.present .sidebar{transform:translateX(-100%)}body.present .main{margin-left
   <div class="sidebar-header">
     <h1>Родительский тренинг в ПАП</h1><p style="font-size:.55rem;color:rgba(255,255,255,.55);margin-top:.2rem">РУКОВОДСТВО ДЛЯ СПЕЦИАЛИСТОВ</p>
 
-<p><strong>Критерии готовности к завершению:</strong></p>
-<ul>
-<li>Точность выполнения ≥80% по всем целевым процедурам в течение 3+ последовательных сессий</li>
-<li>Родитель самостоятельно определяет функцию нового поведения и выбирает стратегию</li>
-<li>Данные о поведении ребёнка дома показывают стабильное улучшение</li>
-<li>Родитель выражает уверенность: «Я знаю, что делать, если...»</li>
-<li>Опросник социальной валидности показывает удовлетворённость</li>
-</ul>
-
-<p><strong>План фейдинга (типичный):</strong></p>
-<ol>
-<li><strong>Недели 15–16:</strong> Сессии каждые 2 недели вместо каждой недели. Родитель ведёт программу самостоятельно, вы проверяете данные.</li>
-<li><strong>Неделя 17:</strong> Финальная сессия. Обзор всего прогресса, обновлённый BSP, опросник.</li>
-<li><strong>Через 2 недели:</strong> Первая поддерживающая сессия (30 мин, может быть по телехелс). «Как прошли 2 недели без меня?»</li>
-<li><strong>Через 1 месяц:</strong> Вторая поддерживающая сессия. Фокус: новые ситуации.</li>
-<li><strong>Через 3 месяца:</strong> Контрольная проверка. Если всё стабильно — следующая через 6 месяцев.</li>
-<li><strong>Через 6 месяцев:</strong> Финальная проверка. Если навыки сохранились — официальное завершение.</li>
-</ol>
-
-<p><strong>Что отдать родителю при завершении:</strong></p>
-<ul>
-<li>Распечатанный BSP (финальная версия) — это его главный документ</li>
-<li>Графики прогресса (до/после) — визуальное доказательство роста</li>
-<li>Памятка «Что делать, если...» — 1 страница с алгоритмом для новых ситуаций</li>
-<li>Контакт BCBA для экстренных вопросов</li>
-</ul>
-
-<p><strong>Фраза для родителя на финальной сессии:</strong> «Это не конец — это переход. Вы теперь знаете и умеете то, чего не знали 17 недель назад. Я горжусь вашей работой. И если что-то изменится — я на связи.»</p>
-    <p>Руководство для специалистов по ПАП</p>
-  </div>
+</div>
   <nav class="sidebar-nav" id="sidebarNav">
     <div class="nav-part">
-    <a href="javascript:void(0)" data-target="part_0" class="nav-part-title" style="--pc:#3b82f6" data-part="0">РОДИТЕЛЬСКИЙ ТРЕНИНГ В ПРИКЛАДНОМ АНАЛИЗЕ ПОВЕДЕНИЯ</a>
-    <div class="nav-sections"><a href="javascript:void(0)" data-target="s_0_0" class="nav-link" data-idx="0">Руководство для специалистов по ПАП (ABA)</a><a href="javascript:void(0)" data-target="s_0_1" class="nav-link" data-idx="1">УТОЧНЕНИЕ ПО ТЕРМИНОЛОГИИ</a><a href="javascript:void(0)" data-target="s_0_2" class="nav-link" data-idx="2">ЦЕЛИ ОБУЧЕНИЯ</a><a href="javascript:void(0)" data-target="s_0_3" class="nav-link" data-idx="3">БЫСТРЫЙ СТАРТ: ВАША ПЕРВАЯ СЕССИЯ</a></div></div><div class="nav-part">
-    <a href="javascript:void(0)" data-target="part_1" class="nav-part-title" style="--pc:#ef6461" data-part="1">ЧАСТЬ I. ОСНОВЫ И ОБОСНОВАНИЕ</a>
-    <div class="nav-sections"><a href="javascript:void(0)" data-target="s_1_0" class="nav-link" data-idx="4">ЗАЧЕМ ОБУЧАТЬ РОДИТЕЛЕЙ: ДАННЫЕ И ОБОСНОВАНИЕ</a><a href="javascript:void(0)" data-target="s_1_1" class="nav-link" data-idx="5"> ЭТИЧЕСКИЙ КОДЕКС</a><a href="javascript:void(0)" data-target="s_1_2" class="nav-link" data-idx="6"> ЧТО ТАКОЕ ПАП</a><a href="javascript:void(0)" data-target="s_1_3" class="nav-link" data-idx="7"> ТРЕНИНГ VS КОНСУЛЬТИРОВАНИЕ</a></div></div><div class="nav-part">
-    <a href="javascript:void(0)" data-target="part_2" class="nav-part-title" style="--pc:#14b8a6" data-part="2">ЧАСТЬ II. ПОСТРОЕНИЕ ОТНОШЕНИЙ</a>
-    <div class="nav-sections"><a href="javascript:void(0)" data-target="s_2_0" class="nav-link" data-idx="8">КАК ПОСТРОИТЬ ОТНОШЕНИЯ С РОДИТЕЛЕМ</a><a href="javascript:void(0)" data-target="s_2_1" class="nav-link" data-idx="9"> УСТАНОВЛЕНИЕ СВЯЗИ: ПРИНЦИПЫ ПАП</a><a href="javascript:void(0)" data-target="s_2_2" class="nav-link" data-idx="10">ТЕРАПЕВТИЧЕСКИЙ АЛЬЯНС</a><a href="javascript:void(0)" data-target="s_2_3" class="nav-link" data-idx="11">МОТИВАЦИОННОЕ ИНТЕРВЬЮИРОВАНИЕ</a><a href="javascript:void(0)" data-target="s_2_4" class="nav-link" data-idx="12">ГРАНИЦЫ КОМПЕТЕНЦИИ BCBA</a><a href="javascript:void(0)" data-target="s_2_5" class="nav-link" data-idx="13"> ПАРТНЁРСТВО С РОДИТЕЛЕМ</a><a href="javascript:void(0)" data-target="s_2_6" class="nav-link" data-idx="14"> ЧТО ДЕЛАТЬ И ЧЕГО ИЗБЕГАТЬ</a><a href="javascript:void(0)" data-target="s_2_7" class="nav-link" data-idx="15">ACT-ТРЕНИНГ ДЛЯ РОДИТЕЛЯ</a><a href="javascript:void(0)" data-target="s_2_8" class="nav-link" data-idx="16">УПРАЖНЕНИЯ ACT-ТРЕНИНГА</a><a href="javascript:void(0)" data-target="s_2_9" class="nav-link" data-idx="17">ВЫГОРАНИЕ РОДИТЕЛЕЙ</a><a href="javascript:void(0)" data-target="s_2_10" class="nav-link" data-idx="18">ТИПИЧНЫЕ ОШИБКИ СПЕЦИАЛИСТОВ: РАЗБОР С ПРИМЕРАМИ</a><a href="javascript:void(0)" data-target="s_2_11" class="nav-link" data-idx="19"> ОЦЕНКА НАВЫКОВ РОДИТЕЛЯ</a><a href="javascript:void(0)" data-target="s_2_12" class="nav-link" data-idx="20">ОБРАТНАЯ СВЯЗЬ ОТ РОДИТЕЛЯ: СОЦИАЛЬНАЯ ВАЛИДНОСТЬ</a><a href="javascript:void(0)" data-target="s_2_13" class="nav-link" data-idx="21">ОПРОСНИК СОЦИАЛЬНОЙ ВАЛИДНОСТИ ДЛЯ РОДИТЕЛЯ</a><a href="javascript:void(0)" data-target="s_2_14" class="nav-link" data-idx="22"> ГРУППОВОЙ VS ИНДИВИДУАЛЬНЫЙ</a></div></div><div class="nav-part">
-    <a href="javascript:void(0)" data-target="part_3" class="nav-part-title" style="--pc:#f59e0b" data-part="3">ЧАСТЬ III. МЕТОДЫ ОБУЧЕНИЯ РОДИТЕЛЕЙ</a>
-    <div class="nav-sections"><a href="javascript:void(0)" data-target="s_3_0" class="nav-link" data-idx="23">КАК ВЫБРАТЬ МЕТОД: BST ИЛИ TIP</a><a href="javascript:void(0)" data-target="s_3_1" class="nav-link" data-idx="24"> BST: ПРОТОКОЛ ОБУЧЕНИЯ</a><a href="javascript:void(0)" data-target="s_3_2" class="nav-link" data-idx="25">TIP: ПРОТОКОЛ С ОБОСНОВАНИЕМ</a></div></div><div class="nav-part">
-    <a href="javascript:void(0)" data-target="part_weekly" class="nav-part-title" style="--pc:#14b8a6" data-part="weekly">17-НЕДЕЛЬНАЯ ПРОГРАММА</a>
-    <div class="nav-sections"><a href="javascript:void(0)" data-target="s_6_8" class="nav-link" data-idx="47">ЕЖЕНЕДЕЛЬНЫЙ ШАБЛОН (17 НЕДЕЛЬ)</a></div></div><div class="nav-part">
-    <a href="javascript:void(0)" data-target="part_4" class="nav-part-title" style="--pc:#8b5cf6" data-part="4">ЧАСТЬ VI. МОТИВАЦИЯ И БАРЬЕРЫ</a>
-    <div class="nav-sections"><a href="javascript:void(0)" data-target="s_4_0" class="nav-link" data-idx="26"> МОТИВАЦИЯ РОДИТЕЛЕЙ</a><a href="javascript:void(0)" data-target="s_4_1" class="nav-link" data-idx="27"> БАРЬЕРЫ К УЧАСТИЮ</a><a href="javascript:void(0)" data-target="s_4_2" class="nav-link" data-idx="28">ФУНКЦИОНАЛЬНЫЙ ПОДХОД К ВОЗРАЖЕНИЯМ РОДИТЕЛЕЙ</a><a href="javascript:void(0)" data-target="s_4_3" class="nav-link" data-idx="29"> СВЯЗЬ С ПРОГРАММОЙ РЕБЁНКА</a><a href="javascript:void(0)" data-target="s_4_4" class="nav-link" data-idx="30"> РАБОТА СО ШКОЛОЙ</a><a href="javascript:void(0)" data-target="s_4_5" class="nav-link" data-idx="31">ШАБЛОН: ПИСЬМО УЧИТЕЛЮ ОТ РОДИТЕЛЯ</a><a href="javascript:void(0)" data-target="s_4_6" class="nav-link" data-idx="32"> ПЛАН РАБОТЫ: ШАБЛОН</a></div></div><div class="nav-part">
+    <a href="javascript:void(0)" data-target="part_0" class="nav-part-title" style="--pc:#3b82f6" data-part="0">ЧАСТЬ I. ВВЕДЕНИЕ</a>
+    <div class="nav-sections">
+      <a href="javascript:void(0)" data-target="s_0_0" class="nav-link">О руководстве</a>
+      <a href="javascript:void(0)" data-target="s_0_1" class="nav-link">Терминология и глоссарий</a>
+      <a href="javascript:void(0)" data-target="s_0_2" class="nav-link">Цели обучения</a>
+      <a href="javascript:void(0)" data-target="s_0_3" class="nav-link">Быстрый старт</a>
+    </div></div>
+
+    <div class="nav-part">
+    <a href="javascript:void(0)" data-target="part_1" class="nav-part-title" style="--pc:#ef6461" data-part="1">ЧАСТЬ II. ОСНОВЫ</a>
+    <div class="nav-sections">
+      <a href="javascript:void(0)" data-target="s_1_0" class="nav-link">Зачем обучать родителей</a>
+      <a href="javascript:void(0)" data-target="s_1_1" class="nav-link">Этический кодекс</a>
+      <a href="javascript:void(0)" data-target="s_1_2" class="nav-link">Что такое ПАП</a>
+      <a href="javascript:void(0)" data-target="s_1_3" class="nav-link">Тренинг vs консультирование</a>
+    </div></div>
+
+    <div class="nav-part">
+    <a href="javascript:void(0)" data-target="part_2" class="nav-part-title" style="--pc:#14b8a6" data-part="2">ЧАСТЬ III. ОТНОШЕНИЯ</a>
+    <div class="nav-sections">
+      <a href="javascript:void(0)" data-target="s_2_0" class="nav-link">Как построить отношения</a>
+      <a href="javascript:void(0)" data-target="s_2_1" class="nav-link">Установление связи (ПАП)</a>
+      <a href="javascript:void(0)" data-target="s_2_2" class="nav-link">Терапевтический альянс</a>
+      <a href="javascript:void(0)" data-target="s_2_3" class="nav-link">Мотивационное интервьюирование</a>
+      <a href="javascript:void(0)" data-target="s_2_4" class="nav-link">Границы компетенции BCBA</a>
+      <a href="javascript:void(0)" data-target="s_2_5" class="nav-link">Партнёрство с родителем</a>
+      <a href="javascript:void(0)" data-target="s_2_6" class="nav-link">Что делать и чего избегать</a>
+      <a href="javascript:void(0)" data-target="s_2_7" class="nav-link">ACT-тренинг для родителя</a>
+      <a href="javascript:void(0)" data-target="s_2_8" class="nav-link">Упражнения ACT</a>
+      <a href="javascript:void(0)" data-target="s_2_9" class="nav-link">Выгорание родителей</a>
+      <a href="javascript:void(0)" data-target="s_2_10" class="nav-link">Ошибки специалистов</a>
+      <a href="javascript:void(0)" data-target="s_2_11" class="nav-link">Оценка навыков родителя</a>
+      <a href="javascript:void(0)" data-target="s_2_12" class="nav-link">Социальная валидность</a>
+      <a href="javascript:void(0)" data-target="s_2_13" class="nav-link">Опросник валидности</a>
+      <a href="javascript:void(0)" data-target="s_2_14" class="nav-link">Групповой vs индивидуальный</a>
+    </div></div>
+
+    <div class="nav-part">
+    <a href="javascript:void(0)" data-target="part_3" class="nav-part-title" style="--pc:#f59e0b" data-part="3">ЧАСТЬ IV. МЕТОДЫ И ПРОТОКОЛЫ</a>
+    <div class="nav-sections">
+      <a href="javascript:void(0)" data-target="s_3_0" class="nav-link">BST или TIP: как выбрать</a>
+      <a href="javascript:void(0)" data-target="s_3_1" class="nav-link">BST: протокол</a>
+      <a href="javascript:void(0)" data-target="s_3_2" class="nav-link">TIP: протокол</a>
+      <a href="javascript:void(0)" data-target="s_6_4" class="nav-link">Протокол первой сессии</a>
+      <a href="javascript:void(0)" data-target="s_6_5" class="nav-link">Протокол BST-сессии</a>
+      <a href="javascript:void(0)" data-target="s_6_6" class="nav-link">Протокол TIP-сессии</a>
+      <a href="javascript:void(0)" data-target="s_6_7" class="nav-link">Оценка точности</a>
+    </div></div>
+
+    <div class="nav-part">
+    <a href="javascript:void(0)" data-target="part_4" class="nav-part-title" style="--pc:#8b5cf6" data-part="4">ЧАСТЬ V. МОТИВАЦИЯ И БАРЬЕРЫ</a>
+    <div class="nav-sections">
+      <a href="javascript:void(0)" data-target="s_4_0" class="nav-link">Мотивация родителей</a>
+      <a href="javascript:void(0)" data-target="s_4_1" class="nav-link">Барьеры к участию</a>
+      <a href="javascript:void(0)" data-target="s_4_2" class="nav-link">Функциональный подход к возражениям</a>
+      <a href="javascript:void(0)" data-target="s_4_3" class="nav-link">Связь с программой ребёнка</a>
+      <a href="javascript:void(0)" data-target="s_4_4" class="nav-link">Работа со школой</a>
+      <a href="javascript:void(0)" data-target="s_4_5" class="nav-link">Письмо учителю</a>
+      <a href="javascript:void(0)" data-target="s_4_6" class="nav-link">План работы: шаблон</a>
+    </div></div>
+
+    <div class="nav-part">
+    <a href="javascript:void(0)" data-target="part_weekly" class="nav-part-title" style="--pc:#14b8a6" data-part="weekly">ЧАСТЬ VI. 17-НЕДЕЛЬНАЯ ПРОГРАММА</a>
+    <div class="nav-sections">
+      <a href="javascript:void(0)" data-target="s_6_8" class="nav-link">Еженедельный шаблон (17 недель)</a>
+      <a href="javascript:void(0)" data-target="s_6_3" class="nav-link">Когда всё идёт не по плану</a>
+    </div></div>
+
+    <div class="nav-part">
     <a href="javascript:void(0)" data-target="part_5" class="nav-part-title" style="--pc:#22c55e" data-part="5">ЧАСТЬ VII. ОСОБЫЕ СИТУАЦИИ</a>
-    <div class="nav-sections"><a href="javascript:void(0)" data-target="s_5_0" class="nav-link" data-idx="33"> ЭТИЧЕСКИЕ ДИЛЕММЫ</a><a href="javascript:void(0)" data-target="s_5_1" class="nav-link" data-idx="34">КРАСНЫЕ ФЛАГИ: УГАСАНИЕ ДОМА</a><a href="javascript:void(0)" data-target="s_5_2" class="nav-link" data-idx="35"> НЕСОГЛАСНЫЙ ВТОРОЙ РОДИТЕЛЬ</a><a href="javascript:void(0)" data-target="s_5_3" class="nav-link" data-idx="36"> ОБУЧЕНИЕ СИБЛИНГОВ</a><a href="javascript:void(0)" data-target="s_5_4" class="nav-link" data-idx="37">АДАПТАЦИЯ ДЛЯ ПОДРОСТКОВ (12–17 ЛЕТ)</a><a href="javascript:void(0)" data-target="s_5_5" class="nav-link" data-idx="38"> ДИСТАНЦИОННЫЙ ТРЕНИНГ</a></div></div><div class="nav-part">
-    <a href="javascript:void(0)" data-target="part_6" class="nav-part-title" style="--pc:#64748b" data-part="6">ЧАСТЬ VIII. ИНСТРУМЕНТЫ И ФОРМЫ</a>
-    <div class="nav-sections"><a href="javascript:void(0)" data-target="s_6_0" class="nav-link" data-idx="39"> ГОТОВЫЕ ШАБЛОНЫ И ЧЕК-ЛИСТЫ</a><a href="javascript:void(0)" data-target="s_6_1" class="nav-link" data-idx="40"> ДОКУМЕНТАЦИЯ (США: CPT 97156)</a><a href="javascript:void(0)" data-target="s_6_2" class="nav-link" data-idx="41">ДИСКЛЕЙМЕР: БИЛЛИНГ И ЮРИСДИКЦИЯ</a><a href="javascript:void(0)" data-target="s_6_3" class="nav-link" data-idx="42"> КОГДА ВСЁ ИДЁТ НЕ ПО ПЛАНУ</a><a href="javascript:void(0)" data-target="s_6_4" class="nav-link" data-idx="43">ПРОТОКОЛ ПЕРВОЙ СЕССИИ</a><a href="javascript:void(0)" data-target="s_6_5" class="nav-link" data-idx="44">ПРОТОКОЛ СЕССИИ BST С РОДИТЕЛЕМ (ПОШАГОВО)</a><a href="javascript:void(0)" data-target="s_6_6" class="nav-link" data-idx="45">ПРОТОКОЛ СЕССИИ TIP С РОДИТЕЛЕМ (ПОШАГОВО)</a><a href="javascript:void(0)" data-target="s_6_7" class="nav-link" data-idx="46">ПРОТОКОЛ ОЦЕНКИ ТОЧНОСТИ ВЫПОЛНЕНИЯ</a><a href="javascript:void(0)" data-target="s_6_9" class="nav-link" data-idx="48">ПРИМЕРЫ СБОРА ДАННЫХ</a><a href="javascript:void(0)" data-target="s_6_10" class="nav-link" data-idx="49"> ФЕЙДИНГ И ЗАВЕРШЕНИЕ ТРЕНИНГА</a><a href="javascript:void(0)" data-target="s_6_11" class="nav-link" data-idx="50">ДЕЛЕГИРОВАНИЕ: РАБОТА С RBT</a></div></div><div class="nav-part">
-    <a href="javascript:void(0)" data-target="part_7" class="nav-part-title" style="--pc:#3b82f6" data-part="7">ПОЛНЫЙ СПИСОК ЛИТЕРАТУРЫ (Peer-Reviewed)</a>
+    <div class="nav-sections">
+      <a href="javascript:void(0)" data-target="s_5_0" class="nav-link">Этические дилеммы</a>
+      <a href="javascript:void(0)" data-target="s_5_1" class="nav-link">Красные флаги: угасание</a>
+      <a href="javascript:void(0)" data-target="s_5_2" class="nav-link">Несогласный второй родитель</a>
+      <a href="javascript:void(0)" data-target="s_5_3" class="nav-link">Обучение сиблингов</a>
+      <a href="javascript:void(0)" data-target="s_5_4" class="nav-link">Адаптация для подростков</a>
+      <a href="javascript:void(0)" data-target="s_5_5" class="nav-link">Дистанционный тренинг</a>
+    </div></div>
+
+    <div class="nav-part">
+    <a href="javascript:void(0)" data-target="part_6" class="nav-part-title" style="--pc:#64748b" data-part="6">ЧАСТЬ VIII. ИНСТРУМЕНТЫ</a>
+    <div class="nav-sections">
+      <a href="javascript:void(0)" data-target="s_6_0" class="nav-link">Шаблоны и чек-листы</a>
+      <a href="javascript:void(0)" data-target="s_6_1" class="nav-link">Документация (США: CPT)</a>
+      <a href="javascript:void(0)" data-target="s_6_2" class="nav-link">Дисклеймер: биллинг</a>
+      <a href="javascript:void(0)" data-target="s_6_9" class="nav-link">Примеры сбора данных</a>
+      <a href="javascript:void(0)" data-target="s_6_10" class="nav-link">Фейдинг и завершение</a>
+      <a href="javascript:void(0)" data-target="s_6_11" class="nav-link">Работа с RBT</a>
+    </div></div>
+
+    <div class="nav-part">
+    <a href="javascript:void(0)" data-target="part_7" class="nav-part-title" style="--pc:#3b82f6" data-part="7">ЛИТЕРАТУРА</a>
     <div class="nav-sections"></div></div>
   </nav>
   <div class="sidebar-controls">
@@ -704,7 +762,7 @@ body.present .sidebar{transform:translateX(-100%)}body.present .main{margin-left
   <div style="background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:1.1rem 1.3rem">
     <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem">
       <div style="width:28px;height:28px;border-radius:6px;background:var(--pri);display:flex;align-items:center;justify-content:center">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M9 5H7a2 2 0 00-2 2v23a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M9 5H7a2 2 0 00-2 2v26a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
       </div>
       <span style="font-family:var(--hf);font-size:.95rem;font-weight:500;color:var(--dark)">Что взять с собой</span>
     </div>
@@ -1594,11 +1652,485 @@ body.present .sidebar{transform:translateX(-100%)}body.present .main{margin-left
 <p>Если родитель испытывает сложности с любым из этих требований, может потребоваться дополнительная подготовка перед началом TIP, или адаптация процедуры (например, добавление визуальных опор, как это сделали Ng, Schulze, Rudrud, &amp; Leaf, 2016).</p>
 </div>
     
-    <div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:10px;border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
+    <div class="section" id="s_6_4" data-idx="43">
+      <h2>ПРОТОКОЛ ПЕРВОЙ СЕССИИ С РОДИТЕЛЕМ</h2>
+      <div class="section-body"><div class="visual-block"><div class="viz-timeline"><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-blue">1</div><div class="viz-tl-content"><div class="viz-tl-title">Раппорт и контекст</div><div class="viz-tl-text">15–20 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-red">2</div><div class="viz-tl-content"><div class="viz-tl-title">Оценка знаний</div><div class="viz-tl-text">10–15 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-teal">3</div><div class="viz-tl-content"><div class="viz-tl-title">Наблюдение</div><div class="viz-tl-text">15–20 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-gold">4</div><div class="viz-tl-content"><div class="viz-tl-title">Ресурсы и барьеры</div><div class="viz-tl-text">10–15 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-blue">5</div><div class="viz-tl-content"><div class="viz-tl-title">Приоритеты и план</div><div class="viz-tl-text">15–20 мин</div></div></div></div></div>
+<p><strong>Продолжительность:</strong> 60--90 минут | <strong>Формат:</strong> Индивидуальный | <strong>Код:</strong> CPT 97156 (если обучение) или 97155 (если оценка)</p>
+<p><strong>Цель:</strong> Определить исходный уровень, ресурсы, барьеры и приоритеты для составления индивидуального плана тренинга.</p>
+<p><strong>Фаза 1: Раппорт и контекст (15--20 мин)</strong></p>
+<ul>
+<li>Неформальное знакомство</li>
+<li>«Расскажите мне о [имя ребёнка]. Какой он/она?» (не начинайте с проблем)</li>
+<li>«Что для вас как семьи сейчас самое важное?»</li>
+<li>«Какой у вас предыдущий опыт с терапиями / тренингами?»</li>
+<li>Отмечайте: язык общения, культурный контекст, эмоциональное состояние</li>
+</ul>
+<p><strong>Фаза 2: Оценка знаний (10--15 мин)</strong></p>
+<ul>
+<li>Используйте шкалу 0--5 по каждому пункту (см. форму первичной оценки, Раздел B)</li>
+<li>Не экзаменуйте — спрашивайте: «Как вы думаете, почему Саша кричит, когда вы говорите &#39;нет&#39;?»</li>
+<li>Оцените: понимание функций, подкрепления, генерализации</li>
+</ul>
+<p><strong>Фаза 3: Наблюдение за взаимодействием (15--20 мин)</strong></p>
+<ul>
+<li>Попросите родителя выполнить типичную рутину с ребёнком (игра, инструкция, переход)</li>
+<li>Заполняйте чек-лист навыков (Раздел C формы первичной оценки)</li>
+<li>НЕ вмешивайтесь и НЕ комментируйте во время наблюдения</li>
+<li>Записывайте конкретные примеры для обратной связи</li>
+</ul>
+<p><strong>Фаза 4: Оценка ресурсов и барьеров (10--15 мин)</strong></p>
+<ul>
+<li>Стресс (шкала 1--10)</li>
+<li>Система поддержки: кто ещё участвует в воспитании?</li>
+<li>Временные ресурсы: реалистично — сколько времени в неделю?</li>
+<li>Физические/когнитивные ограничения</li>
+<li>Финансовые факторы, влияющие на участие</li>
+</ul>
+<p><strong>Фаза 5: Совместное определение приоритетов (10 мин)</strong></p>
+<ul>
+<li>Покажите результаты наблюдения (без осуждения)</li>
+<li>«Вот что я заметила. Вот в чём вы уже сильны. Вот где мы можем поработать»</li>
+<li>Спросите: «Что из этого для вас приоритет?»</li>
+<li>Согласуйте 2--3 цели для первого этапа тренинга</li>
+</ul>
+<p><strong>Фаза 6: План и ожидания (5--10 мин)</strong></p>
+<ul>
+<li>Объясните формат: частота, длительность, что будет происходить</li>
+<li>Дайте информированное согласие (включая для телехелс, если применимо — стандарт 2.04 BACB)</li>
+<li>Обсудите социальную валидность: «Этот формат вам подходит? Что бы вы хотели изменить?»</li>
+<li>Назначьте первую тренинговую сессию</li>
+</ul>
+</div>
+    </div><div class="section" id="s_6_5" data-idx="44">
+      <h2>ПРОТОКОЛ СЕССИИ BST С РОДИТЕЛЕМ (ПОШАГОВО)</h2>
+      <div class="section-body"><div class="visual-block"><div class="viz-timeline"><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-blue">1</div><div class="viz-tl-content"><div class="viz-tl-title">Контакт + обзор</div><div class="viz-tl-text">8 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-red">2</div><div class="viz-tl-content"><div class="viz-tl-title">Инструкция</div><div class="viz-tl-text">5–7 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-red">3</div><div class="viz-tl-content"><div class="viz-tl-title">Моделирование</div><div class="viz-tl-text">5–10 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-teal">4</div><div class="viz-tl-content"><div class="viz-tl-title">Практика родителя</div><div class="viz-tl-text">15–20 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-teal">5</div><div class="viz-tl-content"><div class="viz-tl-title">Обратная связь</div><div class="viz-tl-text">5–7 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-gold">6</div><div class="viz-tl-content"><div class="viz-tl-title">Задание + завершение</div><div class="viz-tl-text">5 мин</div></div></div></div></div>
+<p>Этот протокол описывает структуру одной типичной BST-сессии с родителем. Адаптируйте под конкретного родителя и конкретный навык.</p>
+<p><strong>Продолжительность:</strong> 45--60 минут | <strong>Формат:</strong> Индивидуальный | <strong>Код:</strong> CPT 97156</p>
+<p><strong>Подготовка (до сессии, 10--15 мин):</strong></p>
+<ol>
+<li>Просмотрите данные с предыдущей сессии: точность %, области для работы</li>
+<li>Подготовьте материалы: визуальная памятка, чек-лист точность выполнения, лист данных для родителя</li>
+<li>Определите конкретный навык для сессии, привязанный к текущей программе ребёнка</li>
+<li>Подготовьте сценарии для ролевой игры, основанные на реальных ситуациях семьи</li>
+</ol>
+<p><strong>Фаза 1: Установление контакта (5 мин)</strong></p>
+<ul>
+<li>Неформальный разговор: «Как дела? Как неделя?»</li>
+<li>Спросите, были ли ситуации, где родитель пробовал стратегию с прошлой сессии</li>
+<li>Если да — подкрепите: «Расскажите! Как прошло?»</li>
+<li>Если нет — не осуждайте, спросите, что помешало</li>
+</ul>
+<p><strong>Фаза 2: Краткий обзор (3 мин)</strong></p>
+<ul>
+<li>Напомните цель: «На прошлой сессии мы начали работать над [навык]. Сегодня мы продолжим»</li>
+<li>Покажите данные прогресса: «Вот ваш график точности — видите рост?»</li>
+</ul>
+<p><strong>Фаза 3: Инструкция (5--7 мин)</strong></p>
+<ul>
+<li>Объясните процедуру простым языком</li>
+<li>Дайте визуальную памятку (распечатка, ламинированная карточка)</li>
+<li>Проверьте понимание: «Расскажите мне своими словами — что вы будете делать, когда [ситуация]?»</li>
+<li>Ответьте на вопросы</li>
+</ul>
+<p><strong>Фаза 4: Моделирование (5--10 мин)</strong></p>
+<ul>
+<li>Продемонстрируйте процедуру (с ребёнком, если присутствует, или в ролевой игре)</li>
+<li>Комментируйте свои действия вслух: «Видите, я жду... сейчас он просит... и я сразу даю»</li>
+<li>Если используете TIP — покажите и «Неправильно» вариант сначала</li>
+</ul>
+<p><strong>Фаза 5: Практика родителя (15--20 мин)</strong></p>
+<ul>
+<li>Родитель практикует навык</li>
+<li>Если ребёнок присутствует — с ребёнком, под вашим наблюдением</li>
+<li>Если нет — ролевая игра (вы играете ребёнка с типичными реакциями)</li>
+<li>Записывайте данные точности в реальном времени</li>
+<li>НЕ вмешивайтесь, если нет прямого риска для ребёнка</li>
+<li>Делайте заметки для обратной связи</li>
+</ul>
+<p><strong>Фаза 6: Обратная связь (5--7 мин)</strong></p>
+<ul>
+<li>Начните с конкретного позитива: «Вы отлично [конкретное действие]!»</li>
+<li>Укажите 1--2 области для улучшения: «В следующий раз попробуйте [конкретно]»</li>
+<li>Предложите повторить, если время позволяет</li>
+<li>Объявите % точности выполнения: «Сегодня — 75%. На прошлой неделе было 60%. Прогресс!»</li>
+</ul>
+<p><strong>Фаза 7: Домашнее задание и завершение (5 мин)</strong></p>
+<ul>
+<li>Дайте конкретное, посильное задание: «На этой неделе попробуйте стратегию 3 раза. Запишите результат в лист данных»</li>
+<li>Подтвердите дату следующей сессии</li>
+<li>Завершите позитивно: «Вы делаете большую работу для [имя ребёнка]»</li>
+</ul>
+<p><strong>Документация (после сессии, 10 мин):</strong></p>
+<ul>
+<li>Запишите всё в соответствии с требованиями 97156 (см. секцию Документация)</li>
+<li>Обновите данные точности в графике прогресса</li>
+</ul>
+</div>
+    </div><div class="section" id="s_6_6" data-idx="45">
+      <h2>ПРОТОКОЛ СЕССИИ TIP С РОДИТЕЛЕМ (ПОШАГОВО)</h2>
+      <div class="section-body">
+<p><strong>Продолжительность:</strong> 45--60 минут | <strong>Формат:</strong> Индивидуальный | <strong>Код:</strong> CPT 97156</p>
+<p><strong>Подготовка (до сессии):</strong></p>
+<ol>
+<li>Определите навык, который будете обучать</li>
+<li>Подготовьте обоснование, значимый для ЭТОГО родителя и ЭТОГО ребёнка</li>
+<li>Подготовьте «Правильно» и «Неправильно» демонстрации, основанные на реальных ситуациях</li>
+<li>Подготовьте материалы для оценки точности</li>
+</ol>
+<p><strong>Шаг 1: Обозначение (2 мин)</strong></p>
+<ul>
+<li>«Сегодня мы будем учиться навыку [название навыка на языке родителя]»</li>
+<li>«Скажите мне — какой навык мы сегодня разбираем?» (проверка)</li>
+</ul>
+<p><strong>Шаг 2: обоснование (5--7 мин)</strong></p>
+<ul>
+<li>Объясните ЗАЧЕМ: используйте данные, примеры из жизни семьи</li>
+<li>Свяжите с ценностями родителя: «Вы говорили, что хотите [ценность]. Этот навык поможет, потому что...»</li>
+<li>Спросите: «В каких ситуациях дома это было бы полезно?»</li>
+<li>Это ключевой момент — не торопитесь. Обоснование = вовлечённость</li>
+</ul>
+<p><strong>Шаг 3: Описание (3--5 мин)</strong></p>
+<ul>
+<li>Пошаговая инструкция на языке родителя</li>
+<li>Визуальная памятка</li>
+<li>«Расскажите мне шаги своими словами»</li>
+</ul>
+<p><strong>Шаг 4: Демонстрация «Правильно / Неправильно» («Правильно / Неправильно», 7--10 мин)</strong></p>
+<ul>
+<li>Сначала «Неправильно»: продемонстрируйте неправильный вариант</li>
+<li>«Видите, что произошло? Что я сделала не так?» (пусть родитель определит)</li>
+<li>Затем «Правильно»: продемонстрируйте правильный вариант</li>
+<li>«Заметили разницу? Когда я [ключевое действие]?»</li>
+<li>Пусть родитель опишет различия своими словами</li>
+</ul>
+<p><strong>Шаг 5: Практика (15--20 мин)</strong></p>
+<ul>
+<li>Ролевая игра и/или с ребёнком</li>
+<li>Записывайте точность</li>
+<li>Создайте безопасную атмосферу: «Ошибки — это часть обучения»</li>
+</ul>
+<p><strong>Шаг 6: Обратная связь (5--7 мин)</strong></p>
+<ul>
+<li>Позитив → корректировка → позитив</li>
+<li>Конкретно: что именно получилось, что именно улучшить</li>
+<li>Предложите повторить при необходимости</li>
+</ul>
+<p><strong>Завершение:</strong> домашнее задание, подкрепление усилий, документация.</p>
+</div>
+    </div><div class="section" id="s_6_7" data-idx="46">
+      <h2>ПРОТОКОЛ ОЦЕНКИ ТОЧНОСТИ ВЫПОЛНЕНИЯ</h2>
+      <div class="section-body"><div class="visual-block"><div class="viz-flow"><div class="viz-flow-step"><div class="viz-flow-num">1</div><div class="viz-flow-title">Чек-лист</div></div><div class="viz-flow-arrow"><svg width="24" height="12" viewBox="0 0 24 12"><path d="M0 6h18M14 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="viz-flow-step"><div class="viz-flow-num">2</div><div class="viz-flow-title">+/–/N/A</div></div><div class="viz-flow-arrow"><svg width="24" height="12" viewBox="0 0 24 12"><path d="M0 6h18M14 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="viz-flow-step"><div class="viz-flow-num">3</div><div class="viz-flow-title">Расчёт %</div></div><div class="viz-flow-arrow"><svg width="24" height="12" viewBox="0 0 24 12"><path d="M0 6h18M14 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="viz-flow-step"><div class="viz-flow-num">4</div><div class="viz-flow-title">График</div></div><div class="viz-flow-arrow"><svg width="24" height="12" viewBox="0 0 24 12"><path d="M0 6h18M14 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="viz-flow-step viz-flow-accent"><div class="viz-flow-num">IOA</div><div class="viz-flow-title">Каждая 4–5-я</div></div></div></div>
+<p><strong>Частота:</strong> Каждая сессия BST/TIP (во время практики родителя) + периодические проверки между сессиями</p>
+<p><strong>Шаг 1:</strong> Подготовьте чек-лист точности для конкретной процедуры (см. шаблон в секции Шаблоны)</p>
+<p><strong>Шаг 2:</strong> Наблюдайте за родителем во время практики. Отмечайте каждый компонент: +, --, N/A</p>
+
+<p><strong>Как рассчитать точность:</strong></p>
+<div style="margin:.6rem 0;padding:.8rem 1rem;background:var(--cream);border-radius:8px;border:1px solid var(--border)">
+<p><strong>Формула:</strong> (количество правильно выполненных компонентов ÷ общее количество компонентов) × 100 = % точности</p>
+<p><strong>Пример:</strong> FCT имеет 8 компонентов. Родитель правильно выполнил 6 → (6 ÷ 8) × 100 = 75%</p>
+</div>
+
+<p><strong>Что считать «правильно» и «неправильно»:</strong></p>
+<ul>
+<li><strong>Рабочее определение каждого компонента</strong> должно быть записано ДО наблюдения. Не «вроде правильно», а чёткие критерии: «подкрепление предоставлено в течение 3 секунд после целевой реакции — ДА/НЕТ».</li>
+<li><strong>N/A (не применимо)</strong> — если ситуация не возникла, компонент не оценивается и не включается в расчёт. Например, «реакция на всплеск угасания» — если всплеска не было, ставим N/A.</li>
+<li><strong>Частично правильно = неправильно.</strong> Если в чек-листе нет промежуточной оценки — бинарно: + или –.</li>
+</ul>
+
+<p><strong>Как давать обратную связь по результатам:</strong></p>
+<ul>
+<li>Всегда начинайте с того, что получилось: «Вы правильно создали ситуацию и подсказали — это самые сложные компоненты, и вы их освоили.»</li>
+<li>Фокусируйтесь на 1–2 компонентах для улучшения, не на всех сразу</li>
+<li>Покажите тренд: «На прошлой неделе было 50%, сейчас 75% — это серьёзный прогресс.»</li>
+<li>Свяжите с поведением ребёнка: «Заметьте — когда вы стали подкреплять быстрее, ребёнок стал чаще просить словами.»</li>
+</ul>
+
+<p><strong>Согласованность наблюдателей (IOA):</strong></p>
+<ul>
+<li>Периодически (каждая 4–5-я сессия) записывайте практику родителя на видео</li>
+<li>Попросите второго специалиста независимо оценить точность по видео</li>
+<li>Рассчитайте IOA: (количество согласий ÷ общее количество компонентов) × 100</li>
+<li>Приемлемый уровень IOA: ≥80%</li>
+<li>Если IOA менее 80% — пересмотрите рабочие определения компонентов чек-листа</li>
+</ul>
+<p><strong>Шаг 3:</strong> Рассчитайте процент: (количество + / общее количество оцениваемых) × 100</p>
+<p><strong>Шаг 4:</strong> Запишите результат в график прогресса родителя</p>
+<p><strong>Шаг 5:</strong> Сообщите родителю результат (с акцентом на прогресс, не на недостатки)</p>
+<p><strong>Inter-Observer Agreement (согласованность наблюдателей (IOA)):</strong></p>
+<p>Точность, оценённая только одним наблюдателем, имеет ограниченную надёжность. Рекомендуется:</p>
+<ul>
+<li>Периодически (каждая 4--5-я сессия) записывайте практику родителя на видео</li>
+<li>Попросите второго специалиста независимо оценить точность по видео</li>
+<li>Рассчитайте IOA: (количество согласий / общее количество компонентов) × 100</li>
+<li>Приемлемый уровень IOA: ≥80%</li>
+<li>Если IOA &lt;80% — пересмотрите рабочие определения компонентов чек-листа</li>
+</ul>
+</div>
+    </div>
+<div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:10px;border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
       <span style="font-weight:600;color:var(--dark)">Далее:</span> Вы знаете, как строить отношения и как учить. Теперь — <strong>готовый план на 17 недель</strong>, который можно адаптировать под любой кейс.
-    </div></div></section><section class="part " id="part_weekly" style="--pc:#14b8a6">
+    </div></div></section><section class="part " id="part_4" style="--pc:#8b5cf6">
     <div class="part-header">
       <div class="part-num">ЧАСТЬ V</div>
+      <h1>МОТИВАЦИЯ, БАРЬЕРЫ И СВЯЗЬ С ПРОГРАММОЙ</h1>
+    </div><div class="section" id="s_4_0" data-idx="26">
+      <h2>МОТИВАЦИЯ: КАКИЕ ВЫГОДЫ ПОКАЗАТЬ РОДИТЕЛЮ</h2>
+      <div class="section-body"><div class="visual-block"><div class="viz-grid viz-grid-3"><div class="viz-card viz-card-red"><div class="viz-card-title">↓ Поведение</div><div class="viz-card-text">–47.7% (Bearss)</div></div><div class="viz-card viz-card-blue"><div class="viz-card-title">↑ Генерализация</div><div class="viz-card-text">Дом · Школа · Сообщество</div></div><div class="viz-card viz-card-teal"><div class="viz-card-title">↓ Стресс</div><div class="viz-card-text">↑ Компетентность</div></div><div class="viz-card viz-card-gold"><div class="viz-card-title">↑ Самоэффективность</div><div class="viz-card-text">«Я могу справиться»</div></div><div class="viz-card viz-card-blue"><div class="viz-card-title">↑ Независимость</div><div class="viz-card-text">Меньше часов терапии</div></div><div class="viz-card viz-card-teal"><div class="viz-card-title">↓ Затраты</div><div class="viz-card-text">Инвестиция окупается</div></div></div></div><p>Родителям нужно понимать, зачем тратить своё и без того ограниченное время на тренинг. Наша задача — показать конкретные выгоды, подкреплённые данными:</p>
+<p><strong>Снижение проблемного поведения.</strong> Исследование Bearss et al. (2015) показало снижение на 47,7% по шкале раздражительности за 24 недели. Для родителей это означает: меньше истерик, меньше агрессии, более спокойная жизнь.</p>
+<p><strong>Генерализация навыков.</strong> Ребёнок учится навыкам в терапии, но без практики дома они не закрепляются. Родитель — это агент генерализации. Dillenburger и коллеги (2010) подтвердили: навыки, выученные в терапии, значительно лучше переносятся в домашнюю среду при активном участии родителей.</p>
+<p><strong>Снижение родительского стресса.</strong> Парадоксально, но участие в тренинге снижает стресс. Iadarola и коллеги (2018) показали, что родители, прошедшие тренинг, сообщали о повышении чувства компетентности и снижении стресса (Iadarola et al., 2018, J Autism Dev Disord, 48(4), 1031--1040).</p>
+<p><strong>Самоэффективность.</strong> Когда родители понимают, что они МОГУТ влиять на поведение ребёнка, их самоэффективность растёт. Это одно из самых мощных подкреплений.</p>
+<p><strong>Независимость от специалистов.</strong> Долгосрочная цель — чтобы семья могла функционировать без круглосуточной поддержки терапевтов. Обученный родитель — это инвестиция в будущее.</p>
+<p><strong>Экономия.</strong> Если родитель может поддерживать и практиковать навыки дома, потребность в интенсивных часах терапии со временем снижается.</p>
+</div>
+    </div><div class="section" id="s_4_1" data-idx="27">
+      <h2>БАРЬЕРЫ: ПОЧЕМУ РОДИТЕЛИ НЕ УЧАСТВУЮТ И ЧТО ДЕЛАТЬ</h2>
+      <div class="section-body"><div class="visual-block">
+<div style="text-align:center;font-family:var(--hf);font-size:.95rem;font-style:italic;color:var(--dark);margin-bottom:1rem">Возражение → определите функцию → подберите стратегию</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:.7rem">
+  <div style="background:#fff;border:1.5px solid #e0c8bc;border-radius:10px;overflow:hidden">
+    <div style="background:#d4845a;color:#fff;padding:.45rem .7rem;font-size:.78rem;font-weight:600;text-align:center">«Нет времени»</div>
+    <div style="padding:.7rem .8rem;font-size:.78rem;line-height:1.55">
+      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Функция</div>
+      <div style="color:var(--text2);margin-bottom:.5rem">Правда или избегание</div>
+      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Стратегия</div>
+      <div style="color:var(--text2)">Адаптируйте: 15 мин лучше, чем 0. Телехелс.</div>
+    </div>
+  </div>
+  <div style="background:#fff;border:1.5px solid #bcd0e0;border-radius:10px;overflow:hidden">
+    <div style="background:#4a7c9b;color:#fff;padding:.45rem .7rem;font-size:.78rem;font-weight:600;text-align:center">«Терапевт справится»</div>
+    <div style="padding:.7rem .8rem;font-size:.78rem;line-height:1.55">
+      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Функция</div>
+      <div style="color:var(--text2);margin-bottom:.5rem">Доступ (делегирование)</div>
+      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Стратегия</div>
+      <div style="color:var(--text2)">Покажите данные: «Терапевт 10ч, вы 50ч»</div>
+    </div>
+  </div>
+  <div style="background:#fff;border:1.5px solid #bcdcca;border-radius:10px;overflow:hidden">
+    <div style="background:#4a9a7a;color:#fff;padding:.45rem .7rem;font-size:.78rem;font-weight:600;text-align:center">«Мне и так тяжело»</div>
+    <div style="padding:.7rem .8rem;font-size:.78rem;line-height:1.55">
+      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Функция</div>
+      <div style="color:var(--text2);margin-bottom:.5rem">Внимание (быть услышанным)</div>
+      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Стратегия</div>
+      <div style="color:var(--text2)">Выслушайте. Отложите обучение.</div>
+    </div>
+  </div>
+  <div style="background:#fff;border:1.5px solid #ddd5b8;border-radius:10px;overflow:hidden">
+    <div style="background:#d4a34e;color:#fff;padding:.45rem .7rem;font-size:.78rem;font-weight:600;text-align:center">«Мне страшно»</div>
+    <div style="padding:.7rem .8rem;font-size:.78rem;line-height:1.55">
+      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Функция</div>
+      <div style="color:var(--text2);margin-bottom:.5rem">Избегание (страх оценки)</div>
+      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Стратегия</div>
+      <div style="color:var(--text2)">Наблюдение вместо практики. Установление связи.</div>
+    </div>
+  </div>
+</div></div><p>Исследование, опубликованное в PMC (2025), на основе фокус-групп с родителями и BCBA/RBT, выявило три ключевые темы: барьеры к вовлечению, факторы, способствующие вовлечению, и рекомендации по улучшению. Среди логистических барьеров — то, что домашняя терапия часто проводится в вечерние часы, когда семья и так занята множеством дел. Родители также отмечали неясность своей роли и сложности в коммуникации с RBT в отличие от BCBA.</p>
+<p>Ниже — самые частые аргументы родителей и стратегии ответа:</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1.2rem 0">
+  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
+    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«У меня нет времени»</div>
+    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Мы не просим дополнительного времени. Мы покажем, как использовать моменты, которые уже есть — завтрак, дорога, купание — более эффективно. Участие в итоге <em>экономит</em> время, снижая частоту кризисов.</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
+    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«Пусть терапевт занимается»</div>
+    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Терапевт — X часов в неделю. Вы — 24/7. Без переноса навыков домой эффект ограничен. Ваше участие — мультипликатор эффективности терапии.</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
+    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«Я всё перепробовал(а)»</div>
+    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Вы много сделали. Научный подход отличается от интуитивного — мы используем данные, не догадки. Давайте попробуем вместе, с измерением результатов.</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
+    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«Мне слишком тяжело»</div>
+    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Ваши чувства важны. Стресс родителей детей с РАС значительно выше среднего. Мы двигаемся в вашем темпе. Одна стратегия за раз. Цель — снизить стресс, не добавить. <div style="margin-top:.3rem;font-size:.7rem;color:var(--plum,#8a6a98);font-style:italic">Если за словами «мне тяжело» стоят признаки депрессии или тревожного расстройства — порекомендуйте поддержку психолога. Родитель выбирает специалиста сам. Подробнее о психологической поддержке: <a href="https://www.abapsy.com/psychologist" target="_blank" style="color:var(--plum,#8a6a98);text-decoration:none;font-weight:500">abapsy.com/psychologist</a></div></div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
+    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«Не хочу, чтобы меня оценивали»</div>
+    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Мы не оцениваем вас как родителя. Мы оцениваем конкретные навыки, которым можно научиться. Ошибки — нормальная часть обучения.</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
+    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«Дома всё нормально»</div>
+    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Это ценная информация! Разное поведение в разных средах — это влияние среды. Давайте разберём, что дома работает, и перенесём в другие контексты.</div>
+  </div>
+</div>
+</div>
+    </div><div class="section" id="s_4_2" data-idx="28">
+      <h2>ФУНКЦИОНАЛЬНЫЙ ПОДХОД К ВОЗРАЖЕНИЯМ РОДИТЕЛЕЙ</h2>
+      <div class="section-body"><div class="visual-block"><div class="viz-grid viz-grid-2"><div class="viz-card viz-card-blue"><div class="viz-card-badge">Ф: Избегание</div><div class="viz-card-title">Тренинг аверсивен</div><div class="viz-card-text">→ Снизьте неприятность процесса, упростите, вернитесь к установлению связи</div></div><div class="viz-card viz-card-red"><div class="viz-card-badge">Ф: Доступ</div><div class="viz-card-title">Хочет делегировать</div><div class="viz-card-text">→ Покажите данные, не спорьте</div></div><div class="viz-card viz-card-teal"><div class="viz-card-badge">Ф: Внимание</div><div class="viz-card-title">Хочет быть услышанным</div><div class="viz-card-text">→ Отложите обучение, выслушайте</div></div><div class="viz-card viz-card-gold"><div class="viz-card-badge">Ф: Правда</div><div class="viz-card-title">Реально нет ресурсов</div><div class="viz-card-text">→ Адаптируйте формат</div></div></div></div><p>Скрипты полезны для начинающих, но опытному специалисту нужен фреймворк. Каждое возражение родителя — это поведение с функцией. Определите функцию — и подберите стратегию.</p>
+<h3>Алгоритм</h3>
+<p><strong>Шаг 1. Выслушайте, не реагируйте.</strong> Не спорьте, не защищайтесь, не убеждайте. Рефлективное слушание: «Я слышу, что вам сейчас...»</p>
+<p><strong>Шаг 2. Определите функцию возражения:</strong></p>
+<ul>
+<li><strong>Избегание (неприятный стимул):</strong> Тренинг воспринимается как неприятный — страх оценки, страх неудачи, дискомфорт с ролевыми играми. Признаки: родитель отменяет, не приходит, отвечает формально.</li>
+<li><strong>Доступ (к альтернативному подкреплению):</strong> Родитель хочет, чтобы проблему решил кто-то другой — терапевт, школа, препараты. Признаки: «пусть терапевт делает», «может, нужны лекарства».</li>
+<li><strong>Внимание:</strong> Родитель хочет быть услышанным, а не обученным. Его боль, стресс, усталость не были признаны. Признаки: эмоциональность, слёзы, длинные рассказы.</li>
+<li><strong>Буквальная правда:</strong> У родителя действительно нет времени, сил, ресурсов. Признаки: конкретные, детальные объяснения; готовность участвовать при другом формате.</li>
+</ul>
+<p><strong>Шаг 3. Подберите стратегию по функции:</strong></p>
+<ul>
+<li><strong>Избегание</strong> → Снизьте дискомфорт: упростите формат, начните с наблюдения (не с практики), дайте больше поддержки, уменьшите количество «требований». Вернитесь к установлению связи.</li>
+<li><strong>Доступ</strong> → Покажите данные: «Терапевт — X часов, вы — Y часов. Вот что происходит, когда оба работают». Не спорьте — дайте увидеть самому.</li>
+<li><strong>Внимание</strong> → Дайте внимание: отложите обучение, выслушайте, признайте. «Сегодня мы не будем учиться новому. Расскажите, как дела — мне важно знать.»</li>
+<li><strong>Буквальная правда</strong> → Адаптируйте: сократите сессии, измените частоту, предложите телехелс, снизьте домашнее задание. Два пробы в день лучше, чем ноль.</li>
+</ul>
+</div>
+    </div><div class="section" id="s_4_3" data-idx="29">
+      <h2>СВЯЗЬ ТРЕНИНГА С ПРОГРАММОЙ РЕБЁНКА</h2>
+      <div class="section-body"><div class="visual-block">
+<svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:720px;display:block;margin:0 auto">
+  <defs><linearGradient id="gvenn" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4a7c9b" stop-opacity=".05"/><stop offset="100%" stop-color="#d4845a" stop-opacity=".05"/></linearGradient></defs>
+  <rect width="720" height="220" rx="12" fill="url(#gvenn)"/>
+  <circle cx="290" cy="110" r="88" fill="#4a7c9b" opacity=".08" stroke="#4a7c9b" stroke-width="1.5"/>
+  <circle cx="430" cy="110" r="88" fill="#d4845a" opacity=".08" stroke="#d4845a" stroke-width="1.5"/>
+  <text x="240" y="85" text-anchor="middle" fill="#4a7c9b" font-family="Playfair Display,serif" font-size="13" font-weight="600">Программа</text>
+  <text x="240" y="102" text-anchor="middle" fill="#4a7c9b" font-family="Playfair Display,serif" font-size="13" font-weight="600">ребёнка</text>
+  <text x="240" y="125" text-anchor="middle" fill="#4a7c9b" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Цели · Навыки</text>
+  <text x="240" y="140" text-anchor="middle" fill="#4a7c9b" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Процедуры · Данные</text>
+  <text x="480" y="85" text-anchor="middle" fill="#d4845a" font-family="Playfair Display,serif" font-size="13" font-weight="600">Тренинг</text>
+  <text x="480" y="102" text-anchor="middle" fill="#d4845a" font-family="Playfair Display,serif" font-size="13" font-weight="600">родителя</text>
+  <text x="480" y="125" text-anchor="middle" fill="#d4845a" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Навыки · BST/TIP</text>
+  <text x="480" y="140" text-anchor="middle" fill="#d4845a" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Верность · Фейдинг</text>
+  <text x="360" y="92" text-anchor="middle" fill="#1a1e28" font-family="Playfair Display,serif" font-size="11" font-weight="700">СИНХРОНИЗАЦИЯ</text>
+  <text x="360" y="110" text-anchor="middle" fill="#3a3e48" font-family="Plus Jakarta Sans,sans-serif" font-size="9">Те же цели</text>
+  <text x="360" y="125" text-anchor="middle" fill="#3a3e48" font-family="Plus Jakarta Sans,sans-serif" font-size="9">Те же процедуры</text>
+  <text x="360" y="140" text-anchor="middle" fill="#3a3e48" font-family="Plus Jakarta Sans,sans-serif" font-size="9">Общие данные</text>
+</svg></div><p>Один из ключевых принципов, который отличает индивидуальный кейсовый тренинг от общих курсов: всё обучение привязано к текущей программе конкретного ребёнка.
+
+<div style="margin:1rem 0;padding:1rem 1.2rem;background:var(--cream);border-radius:8px;border:1px solid var(--border)">
+<p><strong>Почему это критично:</strong> Когда родитель учит стратегии «вообще», без привязки к своему ребёнку — навык не переносится домой. Исследования показывают, что генерализация значительно выше, когда тренинг проводится на материале конкретного кейса (Bearss et al., 2015).</p>
+</div>
+
+<p><strong>Как связать на практике:</strong></p>
+<ul>
+<li><strong>Каждую сессию начинайте с плана терапии ребёнка.</strong> Откройте текущие цели и покажите родителю: «Сегодня мы работаем над целью №3 — FCT для запроса внимания. Вот как это связано с тем, что ребёнок делает дома.»</li>
+<li><strong>Используйте данные ребёнка как мотиватор.</strong> «Посмотрите — на сессиях с терапевтом ребёнок уже просит словами в 70% случаев. Дома — 20%. Наша задача — закрыть этот разрыв.»</li>
+<li><strong>Домашнее задание = цель из программы.</strong> Не абстрактное «практикуйте подкрепление», а конкретное: «Эту неделю: 3 раза в день создайте ситуацию, где ребёнок может попросить сок словом. Запишите результат в лист.»</li>
+<li><strong>BSP обновляется параллельно с программой.</strong> Если в программе ребёнка добавилась новая цель — она появляется и в BSP. Если стратегия поменялась — родитель узнаёт на следующей сессии.</li>
+<li><strong>Обсуждайте данные вместе.</strong> Раз в 2–3 недели покажите родителю графики: данные терапевтических сессий рядом с данными дома. «Видите? Дома прогресс идёт медленнее — и это нормально. Но тренд растёт.»</li>
+</ul>
+
+<p><strong>Типичная ошибка:</strong> BCBA проводит тренинг «по программе руководства», не заглядывая в актуальный план терапии ребёнка. Родитель учит стратегии, которые не совпадают с тем, что делает терапевт. Результат — путаница и снижение доверия.</p></p>
+<p><strong>Как это работает на практике:</strong></p>
+<p><strong>Если ребёнок работает над функциональной коммуникацией</strong> — родителя обучают процедуре FCT: как создавать мотивирующие ситуации, как подсказывать функциональную реакцию, как подкреплять правильный ответ, как реагировать на нежелательное поведение.</p>
+<p><strong>Если в программе ребёнка стоит обучение навыкам самообслуживания</strong> — родителя обучают цепочковому обучению (обучение цепочкам): как разбить навык на шаги, когда помогать, когда отступать.</p>
+<p><strong>Если ребёнок работает над социальными навыками</strong> — родителя обучают создавать дома ситуации для практики: как организовать совместную игру с сиблингами, как использовать естественные ситуации для обучения.</p>
+<p>Важно: обновляйте тренинг родителя при каждом значимом изменении программы ребёнка. Программа ребёнка изменилась — тренинг родителя адаптируется.</p>
+</div>
+    </div><div class="section" id="s_4_4" data-idx="30">
+      <h2>РАБОТА СО ШКОЛОЙ: КАК КООРДИНИРОВАТЬ</h2>
+      <div class="section-body"><p>Школьная среда — это отдельный вызов, который нужно обсуждать с родителями в рамках тренинга.</p>
+<h3>10.1. Типичные ситуации</h3>
+<p><strong>Разрыв между терапией и школой.</strong> Ребёнок может демонстрировать навыки в терапевтическом контексте, но не в школе. Родитель должен понимать, что это нормально и объясняется принципом генерализации. Мы обучаем родителя быть мостом между терапией и школой.</p>
+<p><strong>IEP (Individualized Education Program).</strong> Родитель имеет право участвовать в составлении и пересмотре IEP. Обученный родитель может более эффективно защищать интересы ребёнка. Мы можем включить в тренинг базовые знания о правах родителей в образовательной системе.</p>
+<p><strong>Коммуникация со школьным персоналом.</strong> Обученный родитель может говорить на языке данных. Вместо «мой ребёнок плохо себя ведёт» родитель может сказать: «мой ребёнок демонстрирует агрессивное поведение, которое, по данным функциональной оценки, поддерживается функцией избегания требований».</p>
+<p><strong>Согласованность подходов.</strong> Если дома используется одна стратегия, а в школе другая — ребёнок получает противоречивые сигналы. Тренинг помогает родителю координировать подходы.</p>
+<p><strong>Практические шаги координации:</strong></p>
+<ul>
+<li><strong>Шаг 1: Получите согласие родителя.</strong> Без письменного согласия вы не можете контактировать со школой. Используйте стандартную форму Release of Information.</li>
+<li><strong>Шаг 2: Узнайте, кто ключевой контакт.</strong> Классный руководитель? Тьютор? Школьный психолог? Иногда это разные люди для разных вопросов.</li>
+<li><strong>Шаг 3: Подготовьте краткую памятку.</strong> Не весь BSP — а 1 страницу: 3 целевых поведения, функции, что делать/не делать. Язык — простой, без профессионального жаргона.</li>
+<li><strong>Шаг 4: Предложите наблюдение.</strong> Если возможно — одно посещение школы (30 мин) даёт больше информации, чем 10 разговоров по телефону.</li>
+<li><strong>Шаг 5: Регулярные обновления.</strong> Раз в месяц — короткий email учителю: «Вот что мы сейчас работаем дома. Видите ли вы изменения в классе?»</li>
+</ul>
+
+<p><strong>Что обсудить с родителем на сессии:</strong></p>
+<ul>
+<li>«Что говорит учитель о поведении ребёнка?» — часто родитель не спрашивает, потому что боится услышать плохое</li>
+<li>«Какие ситуации в школе самые сложные?» — переходы, столовая, перемена, групповые задания</li>
+<li>«Есть ли у ребёнка тьютор/ассистент?» — если да, можно обучить и его</li>
+<li>«Хотите ли вы, чтобы я связался с учителем?» — предложите, но не настаивайте</li>
+</ul>
+
+<p><strong>Важно:</strong> BCBA НЕ диктует школе, что делать. Вы предлагаете стратегии, делитесь данными и помогаете родителю стать адвокатом своего ребёнка. Конечное решение — за школьной командой.</p>
+</div>
+    </div><div class="section" id="s_4_5" data-idx="31">
+      <h2>ШАБЛОН: ПИСЬМО УЧИТЕЛЮ ОТ РОДИТЕЛЯ</h2>
+      <div class="section-body"><p>Используйте этот шаблон, чтобы помочь родителю наладить коммуникацию со школой. Адаптируйте под конкретную ситуацию.</p>
+<p><strong>Тема:</strong> Стратегии поддержки [имя ребёнка] в классе</p>
+<p>Уважаемый/ая [имя учителя],</p>
+<p>Меня зовут [имя родителя], я мама/папа [имя ребёнка] из вашего класса. [Имя ребёнка] получает поведенческую терапию (прикладной анализ поведения), и мы хотели бы координировать подходы дома и в школе, чтобы помочь ему/ей быть более успешным/ой.</p>
+<p>Вот несколько стратегий, которые работают дома и могут быть полезны в классе:</p>
+<ul>
+<li><strong>[Стратегия 1]:</strong> [краткое описание]. Например: «Перед переходом к новому заданию предупреждаем за 2 минуты: &#39;Через 2 минуты мы закончим рисование и начнём математику&#39;. Это снижает сопротивление.»</li>
+<li><strong>[Стратегия 2]:</strong> [краткое описание].</li>
+</ul>
+<p>Если у вас возникнут вопросы или вы хотели бы обсудить подходы подробнее, наш поведенческий аналитик [имя BCBA] готов(а) провести консультацию. Контакт: [email/телефон].</p>
+<p>Будем рады сотрудничеству.</p>
+<p>С уважением, [имя родителя]</p>
+</div>
+    </div><div class="section" id="s_4_6" data-idx="32">
+      <h2>ПЛАН РАБОТЫ С РОДИТЕЛЯМИ: ШАБЛОН</h2>
+      <div class="section-body"><div class="visual-block"><div class="viz-timeline"><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-blue">1</div><div class="viz-tl-content"><div class="viz-tl-time">Нед. 1–3</div><div class="viz-tl-title">Оценка и планирование</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-red">2</div><div class="viz-tl-content"><div class="viz-tl-time">Нед. 2–4</div><div class="viz-tl-title">Теоретическая база</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-teal">3</div><div class="viz-tl-content"><div class="viz-tl-time">Нед. 4–12</div><div class="viz-tl-title">BST / TIP практика</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-gold">4</div><div class="viz-tl-content"><div class="viz-tl-time">Постоянно</div><div class="viz-tl-title">Мониторинг и поддержка</div></div></div></div></div><h3>9.1. Этап 1: Оценка и планирование (недели 1--2)</h3>
+<ol>
+<li><p>Оценка текущих навыков родителя (наблюдение, интервью, опросники)</p>
+</li>
+<li><p>Оценка ресурсов и возможностей семьи</p>
+</li>
+<li><p>Построение раппорта: обсуждение приоритетов семьи</p>
+</li>
+<li><p>Определение целей тренинга, привязанных к программе ребёнка</p>
+</li>
+<li><p>Составление индивидуального учебного плана для родителя</p>
+</li>
+</ol>
+<h3>9.2. Этап 2: Теоретическая база (недели 2--4)</h3>
+<p>Дидактическая часть, адаптированная под уровень конкретного родителя. Содержание привязывается к программе ребёнка:</p>
+<ul>
+<li><p>Основы поведения: что такое подкрепление, наказание, угасание — на примерах из жизни ИХ ребёнка</p>
+</li>
+<li><p>Функции поведения: зачем ребёнок делает то, что делает? Разбираем на реальных кейсах семьи</p>
+</li>
+<li><p>Краткие презентации (10--15 минут) + обсуждение + тесты для проверки понимания</p>
+</li>
+<li><p>Визуальные материалы, памятки, видеоролики — всё адаптированное под конкретного ребёнка</p>
+</li>
+</ul>
+<h3>9.3. Этап 3: Практическое обучение навыкам (BST) (недели 4--12)</h3>
+<p>Это ядро тренинга. Каждый навык обучается по модели BST:</p>
+<ol>
+<li><p>Инструкция: объясняем процедуру, привязанную к программе ребёнка</p>
+</li>
+<li><p>Моделирование: демонстрируем с ребёнком или в ролевой игре</p>
+</li>
+<li><p>Практика: родитель пробует сам под наблюдением специалиста</p>
+</li>
+<li><p>Обратная связь: корректирующая + позитивная</p>
+</li>
+<li><p>Повторение до достижения критерия мастерства</p>
+</li>
+</ol>
+<p><strong>Примерные навыки для обучения (подбираются индивидуально):</strong></p>
+<ul>
+<li><p>Предоставление подкрепления (своевременно, привязано к поведению, разнообразно)</p>
+</li>
+<li><p>Предъявление инструкций (ясно, кратко, на уровне ребёнка)</p>
+</li>
+<li><p>Реакция на нежелательное поведение (по функции)</p>
+</li>
+<li><p>Проведение функциональной коммуникации (FCT)</p>
+</li>
+<li><p>Работа с переходами и расписанием</p>
+</li>
+<li><p>Сбор данных в упрощённом формате</p>
+</li>
+</ul>
+<h3>9.4. Этап 4: Мониторинг и поддержка (постоянно)</h3>
+<ul>
+<li><p>Регулярная оценка точности выполнения (проверки точности выполнения (проверка точности выполнения)</p>
+</li>
+<li><p>Адаптация программы по мере роста навыков ребёнка</p>
+</li>
+<li><p>Поддерживающие сессии (поддерживающие сессии) при необходимости</p>
+</li>
+<li><p>Документирование всех сессий (требование этического кодекса; в США — также требование страховых компаний)</p>
+</li>
+</ul>
+</div>
+    
+    <div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:10px;border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
+      <span style="font-weight:600;color:var(--dark)">Далее:</span> Барьеры разобраны. Далее — <strong>особые ситуации</strong>: этические дилеммы, несогласный второй родитель, подростки, телехелс.
+    </div></div></section><section class="part " id="part_weekly" style="--pc:#14b8a6">
+    <div class="part-header">
+      <div class="part-num">ЧАСТЬ VI</div>
       <h1>17-НЕДЕЛЬНАЯ ПРОГРАММА</h1>
     </div><div class="section" id="s_6_8" data-idx="47">
       <h2>ЕЖЕНЕДЕЛЬНЫЙ ШАБЛОН: 17-НЕДЕЛЬНАЯ ПРОГРАММА ТРЕНИНГА РОДИТЕЛЕЙ</h2>
@@ -3254,269 +3786,71 @@ iv>
 </div>
 </div>
     
-    <div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:10px;border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
+    <div class="section" id="s_6_3" data-idx="42">
+      <h2>КОГДА ВСЁ ИДЁТ НЕ ПО ПЛАНУ: РЕШЕНИЯ</h2>
+      <div class="section-body"><div class="visual-block"><div class="viz-grid viz-grid-2"><div class="viz-card viz-card-red"><div class="viz-card-title">Всплеск угасания</div><div class="viz-card-text">Предупредите с цифрами · поддерживающая сессия через 2–3 дня</div></div><div class="viz-card viz-card-gold"><div class="viz-card-title">Саботаж второго родителя</div><div class="viz-card-text">MI · привлеките отдельно · 1 стратегия</div></div><div class="viz-card viz-card-blue"><div class="viz-card-title">Дифференциация сред</div><div class="viz-card-text">Видеоанализ · передача контроля</div></div><div class="viz-card viz-card-teal"><div class="viz-card-title">Родитель перестал приходить</div><div class="viz-card-text">Функция ухода · упростить · установление связи</div></div></div></div><h3>2.1. Всплеск угасания (всплеск угасания) дома</h3>
+<p>Это САМАЯ частая проблема. Родитель начинает применять стратегию угасания, и поведение ребёнка временно ухудшается. Родитель пугается и сдаётся — подкрепляя ещё более интенсивное поведение.</p>
+<p><strong>Что делать:</strong></p>
+<ul>
+<li><p>ОБЯЗАТЕЛЬНО предупредите заранее: «Когда вы начнёте игнорировать крик, первые 2--3 дня он будет кричать ГРОМЧЕ и ДОЛЬШЕ. Это называется всплеск угасания и это нормально. Это признак того, что стратегия работает»</p>
+</li>
+<li><p>Дайте конкретные цифры: «Если сейчас истерика длится 5 минут, в первые дни она может длиться 15--20 минут. К концу первой недели — уменьшится до 3 минут»</p>
+</li>
+<li><p>Дайте «план побега»: «Если ребёнок причиняет вред себе или другим — вот что делать... Если вы чувствуете, что не справляетесь — позвоните мне»</p>
+</li>
+<li><p>Запросите данные: попросите родителя записывать длительность и интенсивность — так он увидит тренд снижения</p>
+</li>
+<li><p>Запланируйте поддерживающая сессияную сессию через 2--3 дня после начала, не через неделю</p>
+</li>
+</ul>
+<h3>2.2. Один родитель саботирует</h3>
+<p>Один родитель применяет стратегии, другой — нет. Или бабушка жалеет и подкрепляет нежелательное поведение. Это проблема непоследовательности, которая может полностью нивелировать результаты.</p>
+<p><strong>Стратегии:</strong></p>
+<ul>
+<li><p>Привлеките второго взрослого на сессию. Не обвиняйте — объясните через данные: «Когда подход одинаковый у обоих — ребёнок учится быстрее. Когда разный — ребёнок путается и поведение ухудшается»</p>
+</li>
+<li><p>Используйте MI: «Что вас беспокоит в этом подходе?» — часто за «саботажем» стоят страхи, непонимание или культурные убеждения</p>
+</li>
+<li><p>Найдите компромисс: может, второй родитель готов применять одну стратегию из пяти? Начните с этого</p>
+</li>
+<li><p>Дайте второму родителю отдельную, адаптированную версию обучения — не через пересказ первого</p>
+</li>
+<li><p>В крайнем случае: договоритесь хотя бы о «не навреди» — если не можете применять стратегию, хотя бы не подкрепляйте нежелательное поведение</p>
+</li>
+</ul>
+<h3>2.3. Ребёнок ведёт себя иначе при родителе</h3>
+<p>Это нормальная поведенческая дифференциация: ребёнок научился, что при терапевте одни правила, при родителе — другие. Это не вина родителя, это данные о средовом контроле.</p>
+<p><strong>Стратегии:</strong></p>
+<ul>
+<li><p>Объясните: «Это означает, что ваш ребёнок очень умный — он различает условия. Наша задача — сделать условия дома похожими на терапию»</p>
+</li>
+<li><p>Проведите наблюдение в натуральной среде: придите домой и понаблюдайте за взаимодействием</p>
+</li>
+<li><p>Используйте видео: попросите родителя записать типичный эпизод — это даст вам данные для анализа</p>
+</li>
+<li><p>Постепенно передавайте контроль: начните с совместных сессий (вы + родитель), затем родитель ведёт — вы наблюдаете, затем родитель ведёт самостоятельно</p>
+</li>
+<li><p>Работайте над антецедентами: визуальное расписание, структура среды, предсказуемые рутины дома</p>
+</li>
+</ul>
+<h3>2.4. Родитель перестал приходить / отвечать</h3>
+<p>Это не «несоблюдение» — это поведение, у которого есть функция. Проведите функциональную оценку:</p>
+<ul>
+<li><p>Функция избегания: тренинг воспринимается как неприятный стимул → Упростите требования, верните установление связи</p>
+</li>
+<li><p>Функция внимания: родитель чувствует себя непонятым → Дайте больше пространства для голоса родителя</p>
+</li>
+<li><p>Базовые потребности: просто нет сил и времени → Адаптируйте формат (короче, реже, дистанционно)</p>
+</li>
+<li><p>Кризис в семье → Поставьте тренинг на паузу, предложите ресурсы поддержки</p>
+</li>
+</ul>
+</div>
+    </div>
+<div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:10px;border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
       <span style="font-weight:600;color:var(--dark)">Далее:</span> Программа готова. Далее — что делать, когда <strong>родители не хотят участвовать</strong>, и как работать с барьерами.
     </div></div>
-    </section><section class="part " id="part_4" style="--pc:#8b5cf6">
-    <div class="part-header">
-      <div class="part-num">ЧАСТЬ VI</div>
-      <h1>МОТИВАЦИЯ, БАРЬЕРЫ И РЕАЛИЗАЦИЯ ПРОГРАММЫ</h1>
-    </div><div class="section" id="s_4_0" data-idx="26">
-      <h2>МОТИВАЦИЯ: КАКИЕ ВЫГОДЫ ПОКАЗАТЬ РОДИТЕЛЮ</h2>
-      <div class="section-body"><div class="visual-block"><div class="viz-grid viz-grid-3"><div class="viz-card viz-card-red"><div class="viz-card-title">↓ Поведение</div><div class="viz-card-text">–47.7% (Bearss)</div></div><div class="viz-card viz-card-blue"><div class="viz-card-title">↑ Генерализация</div><div class="viz-card-text">Дом · Школа · Сообщество</div></div><div class="viz-card viz-card-teal"><div class="viz-card-title">↓ Стресс</div><div class="viz-card-text">↑ Компетентность</div></div><div class="viz-card viz-card-gold"><div class="viz-card-title">↑ Самоэффективность</div><div class="viz-card-text">«Я могу справиться»</div></div><div class="viz-card viz-card-blue"><div class="viz-card-title">↑ Независимость</div><div class="viz-card-text">Меньше часов терапии</div></div><div class="viz-card viz-card-teal"><div class="viz-card-title">↓ Затраты</div><div class="viz-card-text">Инвестиция окупается</div></div></div></div><p>Родителям нужно понимать, зачем тратить своё и без того ограниченное время на тренинг. Наша задача — показать конкретные выгоды, подкреплённые данными:</p>
-<p><strong>Снижение проблемного поведения.</strong> Исследование Bearss et al. (2015) показало снижение на 47,7% по шкале раздражительности за 24 недели. Для родителей это означает: меньше истерик, меньше агрессии, более спокойная жизнь.</p>
-<p><strong>Генерализация навыков.</strong> Ребёнок учится навыкам в терапии, но без практики дома они не закрепляются. Родитель — это агент генерализации. Dillenburger и коллеги (2010) подтвердили: навыки, выученные в терапии, значительно лучше переносятся в домашнюю среду при активном участии родителей.</p>
-<p><strong>Снижение родительского стресса.</strong> Парадоксально, но участие в тренинге снижает стресс. Iadarola и коллеги (2018) показали, что родители, прошедшие тренинг, сообщали о повышении чувства компетентности и снижении стресса (Iadarola et al., 2018, J Autism Dev Disord, 48(4), 1031--1040).</p>
-<p><strong>Самоэффективность.</strong> Когда родители понимают, что они МОГУТ влиять на поведение ребёнка, их самоэффективность растёт. Это одно из самых мощных подкреплений.</p>
-<p><strong>Независимость от специалистов.</strong> Долгосрочная цель — чтобы семья могла функционировать без круглосуточной поддержки терапевтов. Обученный родитель — это инвестиция в будущее.</p>
-<p><strong>Экономия.</strong> Если родитель может поддерживать и практиковать навыки дома, потребность в интенсивных часах терапии со временем снижается.</p>
-</div>
-    </div><div class="section" id="s_4_1" data-idx="27">
-      <h2>БАРЬЕРЫ: ПОЧЕМУ РОДИТЕЛИ НЕ УЧАСТВУЮТ И ЧТО ДЕЛАТЬ</h2>
-      <div class="section-body"><div class="visual-block">
-<div style="text-align:center;font-family:var(--hf);font-size:.95rem;font-style:italic;color:var(--dark);margin-bottom:1rem">Возражение → определите функцию → подберите стратегию</div>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:.7rem">
-  <div style="background:#fff;border:1.5px solid #e0c8bc;border-radius:10px;overflow:hidden">
-    <div style="background:#d4845a;color:#fff;padding:.45rem .7rem;font-size:.78rem;font-weight:600;text-align:center">«Нет времени»</div>
-    <div style="padding:.7rem .8rem;font-size:.78rem;line-height:1.55">
-      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Функция</div>
-      <div style="color:var(--text2);margin-bottom:.5rem">Правда или избегание</div>
-      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Стратегия</div>
-      <div style="color:var(--text2)">Адаптируйте: 15 мин лучше, чем 0. Телехелс.</div>
-    </div>
-  </div>
-  <div style="background:#fff;border:1.5px solid #bcd0e0;border-radius:10px;overflow:hidden">
-    <div style="background:#4a7c9b;color:#fff;padding:.45rem .7rem;font-size:.78rem;font-weight:600;text-align:center">«Терапевт справится»</div>
-    <div style="padding:.7rem .8rem;font-size:.78rem;line-height:1.55">
-      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Функция</div>
-      <div style="color:var(--text2);margin-bottom:.5rem">Доступ (делегирование)</div>
-      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Стратегия</div>
-      <div style="color:var(--text2)">Покажите данные: «Терапевт 10ч, вы 50ч»</div>
-    </div>
-  </div>
-  <div style="background:#fff;border:1.5px solid #bcdcca;border-radius:10px;overflow:hidden">
-    <div style="background:#4a9a7a;color:#fff;padding:.45rem .7rem;font-size:.78rem;font-weight:600;text-align:center">«Мне и так тяжело»</div>
-    <div style="padding:.7rem .8rem;font-size:.78rem;line-height:1.55">
-      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Функция</div>
-      <div style="color:var(--text2);margin-bottom:.5rem">Внимание (быть услышанным)</div>
-      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Стратегия</div>
-      <div style="color:var(--text2)">Выслушайте. Отложите обучение.</div>
-    </div>
-  </div>
-  <div style="background:#fff;border:1.5px solid #ddd5b8;border-radius:10px;overflow:hidden">
-    <div style="background:#d4a34e;color:#fff;padding:.45rem .7rem;font-size:.78rem;font-weight:600;text-align:center">«Мне страшно»</div>
-    <div style="padding:.7rem .8rem;font-size:.78rem;line-height:1.55">
-      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Функция</div>
-      <div style="color:var(--text2);margin-bottom:.5rem">Избегание (страх оценки)</div>
-      <div style="color:var(--mut);font-weight:600;font-size:.68rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em">Стратегия</div>
-      <div style="color:var(--text2)">Наблюдение вместо практики. Установление связи.</div>
-    </div>
-  </div>
-</div></div><p>Исследование, опубликованное в PMC (2025), на основе фокус-групп с родителями и BCBA/RBT, выявило три ключевые темы: барьеры к вовлечению, факторы, способствующие вовлечению, и рекомендации по улучшению. Среди логистических барьеров — то, что домашняя терапия часто проводится в вечерние часы, когда семья и так занята множеством дел. Родители также отмечали неясность своей роли и сложности в коммуникации с RBT в отличие от BCBA.</p>
-<p>Ниже — самые частые аргументы родителей и стратегии ответа:</p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1.2rem 0">
-  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
-    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«У меня нет времени»</div>
-    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Мы не просим дополнительного времени. Мы покажем, как использовать моменты, которые уже есть — завтрак, дорога, купание — более эффективно. Участие в итоге <em>экономит</em> время, снижая частоту кризисов.</div>
-  </div>
-  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
-    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«Пусть терапевт занимается»</div>
-    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Терапевт — X часов в неделю. Вы — 24/7. Без переноса навыков домой эффект ограничен. Ваше участие — мультипликатор эффективности терапии.</div>
-  </div>
-  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
-    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«Я всё перепробовал(а)»</div>
-    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Вы много сделали. Научный подход отличается от интуитивного — мы используем данные, не догадки. Давайте попробуем вместе, с измерением результатов.</div>
-  </div>
-  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
-    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«Мне слишком тяжело»</div>
-    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Ваши чувства важны. Стресс родителей детей с РАС значительно выше среднего. Мы двигаемся в вашем темпе. Одна стратегия за раз. Цель — снизить стресс, не добавить. <div style="margin-top:.3rem;font-size:.7rem;color:var(--plum,#8a6a98);font-style:italic">Если за словами «мне тяжело» стоят признаки депрессии или тревожного расстройства — порекомендуйте поддержку психолога. Родитель выбирает специалиста сам. Подробнее о психологической поддержке: <a href="https://www.abapsy.com/psychologist" target="_blank" style="color:var(--plum,#8a6a98);text-decoration:none;font-weight:500">abapsy.com/psychologist</a></div></div>
-  </div>
-  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
-    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«Не хочу, чтобы меня оценивали»</div>
-    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Мы не оцениваем вас как родителя. Мы оцениваем конкретные навыки, которым можно научиться. Ошибки — нормальная часть обучения.</div>
-  </div>
-  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden">
-    <div style="background:var(--dark);color:#fff;padding:.5rem .8rem;font-size:.8rem;font-weight:600">«Дома всё нормально»</div>
-    <div style="padding:.8rem;font-size:.8rem;color:var(--text2);line-height:1.6">Это ценная информация! Разное поведение в разных средах — это влияние среды. Давайте разберём, что дома работает, и перенесём в другие контексты.</div>
-  </div>
-</div>
-</div>
-    </div><div class="section" id="s_4_2" data-idx="28">
-      <h2>ФУНКЦИОНАЛЬНЫЙ ПОДХОД К ВОЗРАЖЕНИЯМ РОДИТЕЛЕЙ</h2>
-      <div class="section-body"><div class="visual-block"><div class="viz-grid viz-grid-2"><div class="viz-card viz-card-blue"><div class="viz-card-badge">Ф: Избегание</div><div class="viz-card-title">Тренинг аверсивен</div><div class="viz-card-text">→ Снизьте неприятность процесса, упростите, вернитесь к установлению связи</div></div><div class="viz-card viz-card-red"><div class="viz-card-badge">Ф: Доступ</div><div class="viz-card-title">Хочет делегировать</div><div class="viz-card-text">→ Покажите данные, не спорьте</div></div><div class="viz-card viz-card-teal"><div class="viz-card-badge">Ф: Внимание</div><div class="viz-card-title">Хочет быть услышанным</div><div class="viz-card-text">→ Отложите обучение, выслушайте</div></div><div class="viz-card viz-card-gold"><div class="viz-card-badge">Ф: Правда</div><div class="viz-card-title">Реально нет ресурсов</div><div class="viz-card-text">→ Адаптируйте формат</div></div></div></div><p>Скрипты полезны для начинающих, но опытному специалисту нужен фреймворк. Каждое возражение родителя — это поведение с функцией. Определите функцию — и подберите стратегию.</p>
-<h3>Алгоритм</h3>
-<p><strong>Шаг 1. Выслушайте, не реагируйте.</strong> Не спорьте, не защищайтесь, не убеждайте. Рефлективное слушание: «Я слышу, что вам сейчас...»</p>
-<p><strong>Шаг 2. Определите функцию возражения:</strong></p>
-<ul>
-<li><strong>Избегание (неприятный стимул):</strong> Тренинг воспринимается как неприятный — страх оценки, страх неудачи, дискомфорт с ролевыми играми. Признаки: родитель отменяет, не приходит, отвечает формально.</li>
-<li><strong>Доступ (к альтернативному подкреплению):</strong> Родитель хочет, чтобы проблему решил кто-то другой — терапевт, школа, препараты. Признаки: «пусть терапевт делает», «может, нужны лекарства».</li>
-<li><strong>Внимание:</strong> Родитель хочет быть услышанным, а не обученным. Его боль, стресс, усталость не были признаны. Признаки: эмоциональность, слёзы, длинные рассказы.</li>
-<li><strong>Буквальная правда:</strong> У родителя действительно нет времени, сил, ресурсов. Признаки: конкретные, детальные объяснения; готовность участвовать при другом формате.</li>
-</ul>
-<p><strong>Шаг 3. Подберите стратегию по функции:</strong></p>
-<ul>
-<li><strong>Избегание</strong> → Снизьте дискомфорт: упростите формат, начните с наблюдения (не с практики), дайте больше поддержки, уменьшите количество «требований». Вернитесь к установлению связи.</li>
-<li><strong>Доступ</strong> → Покажите данные: «Терапевт — X часов, вы — Y часов. Вот что происходит, когда оба работают». Не спорьте — дайте увидеть самому.</li>
-<li><strong>Внимание</strong> → Дайте внимание: отложите обучение, выслушайте, признайте. «Сегодня мы не будем учиться новому. Расскажите, как дела — мне важно знать.»</li>
-<li><strong>Буквальная правда</strong> → Адаптируйте: сократите сессии, измените частоту, предложите телехелс, снизьте домашнее задание. Два пробы в день лучше, чем ноль.</li>
-</ul>
-</div>
-    </div><div class="section" id="s_4_3" data-idx="29">
-      <h2>СВЯЗЬ ТРЕНИНГА С ПРОГРАММОЙ РЕБЁНКА</h2>
-      <div class="section-body"><div class="visual-block">
-<svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:720px;display:block;margin:0 auto">
-  <defs><linearGradient id="gvenn" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4a7c9b" stop-opacity=".05"/><stop offset="100%" stop-color="#d4845a" stop-opacity=".05"/></linearGradient></defs>
-  <rect width="720" height="220" rx="12" fill="url(#gvenn)"/>
-  <circle cx="290" cy="110" r="88" fill="#4a7c9b" opacity=".08" stroke="#4a7c9b" stroke-width="1.5"/>
-  <circle cx="430" cy="110" r="88" fill="#d4845a" opacity=".08" stroke="#d4845a" stroke-width="1.5"/>
-  <text x="240" y="85" text-anchor="middle" fill="#4a7c9b" font-family="Playfair Display,serif" font-size="13" font-weight="600">Программа</text>
-  <text x="240" y="102" text-anchor="middle" fill="#4a7c9b" font-family="Playfair Display,serif" font-size="13" font-weight="600">ребёнка</text>
-  <text x="240" y="125" text-anchor="middle" fill="#4a7c9b" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Цели · Навыки</text>
-  <text x="240" y="140" text-anchor="middle" fill="#4a7c9b" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Процедуры · Данные</text>
-  <text x="480" y="85" text-anchor="middle" fill="#d4845a" font-family="Playfair Display,serif" font-size="13" font-weight="600">Тренинг</text>
-  <text x="480" y="102" text-anchor="middle" fill="#d4845a" font-family="Playfair Display,serif" font-size="13" font-weight="600">родителя</text>
-  <text x="480" y="125" text-anchor="middle" fill="#d4845a" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Навыки · BST/TIP</text>
-  <text x="480" y="140" text-anchor="middle" fill="#d4845a" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Верность · Фейдинг</text>
-  <text x="360" y="92" text-anchor="middle" fill="#1a1e28" font-family="Playfair Display,serif" font-size="11" font-weight="700">СИНХРОНИЗАЦИЯ</text>
-  <text x="360" y="110" text-anchor="middle" fill="#3a3e48" font-family="Plus Jakarta Sans,sans-serif" font-size="9">Те же цели</text>
-  <text x="360" y="125" text-anchor="middle" fill="#3a3e48" font-family="Plus Jakarta Sans,sans-serif" font-size="9">Те же процедуры</text>
-  <text x="360" y="140" text-anchor="middle" fill="#3a3e48" font-family="Plus Jakarta Sans,sans-serif" font-size="9">Общие данные</text>
-</svg></div><p>Один из ключевых принципов, который отличает индивидуальный кейсовый тренинг от общих курсов: всё обучение привязано к текущей программе конкретного ребёнка.
-
-<div style="margin:1rem 0;padding:1rem 1.2rem;background:var(--cream);border-radius:8px;border:1px solid var(--border)">
-<p><strong>Почему это критично:</strong> Когда родитель учит стратегии «вообще», без привязки к своему ребёнку — навык не переносится домой. Исследования показывают, что генерализация значительно выше, когда тренинг проводится на материале конкретного кейса (Bearss et al., 2015).</p>
-</div>
-
-<p><strong>Как связать на практике:</strong></p>
-<ul>
-<li><strong>Каждую сессию начинайте с плана терапии ребёнка.</strong> Откройте текущие цели и покажите родителю: «Сегодня мы работаем над целью №3 — FCT для запроса внимания. Вот как это связано с тем, что ребёнок делает дома.»</li>
-<li><strong>Используйте данные ребёнка как мотиватор.</strong> «Посмотрите — на сессиях с терапевтом ребёнок уже просит словами в 70% случаев. Дома — 20%. Наша задача — закрыть этот разрыв.»</li>
-<li><strong>Домашнее задание = цель из программы.</strong> Не абстрактное «практикуйте подкрепление», а конкретное: «Эту неделю: 3 раза в день создайте ситуацию, где ребёнок может попросить сок словом. Запишите результат в лист.»</li>
-<li><strong>BSP обновляется параллельно с программой.</strong> Если в программе ребёнка добавилась новая цель — она появляется и в BSP. Если стратегия поменялась — родитель узнаёт на следующей сессии.</li>
-<li><strong>Обсуждайте данные вместе.</strong> Раз в 2–3 недели покажите родителю графики: данные терапевтических сессий рядом с данными дома. «Видите? Дома прогресс идёт медленнее — и это нормально. Но тренд растёт.»</li>
-</ul>
-
-<p><strong>Типичная ошибка:</strong> BCBA проводит тренинг «по программе руководства», не заглядывая в актуальный план терапии ребёнка. Родитель учит стратегии, которые не совпадают с тем, что делает терапевт. Результат — путаница и снижение доверия.</p></p>
-<p><strong>Как это работает на практике:</strong></p>
-<p><strong>Если ребёнок работает над функциональной коммуникацией</strong> — родителя обучают процедуре FCT: как создавать мотивирующие ситуации, как подсказывать функциональную реакцию, как подкреплять правильный ответ, как реагировать на нежелательное поведение.</p>
-<p><strong>Если в программе ребёнка стоит обучение навыкам самообслуживания</strong> — родителя обучают цепочковому обучению (обучение цепочкам): как разбить навык на шаги, когда помогать, когда отступать.</p>
-<p><strong>Если ребёнок работает над социальными навыками</strong> — родителя обучают создавать дома ситуации для практики: как организовать совместную игру с сиблингами, как использовать естественные ситуации для обучения.</p>
-<p>Важно: обновляйте тренинг родителя при каждом значимом изменении программы ребёнка. Программа ребёнка изменилась — тренинг родителя адаптируется.</p>
-</div>
-    </div><div class="section" id="s_4_4" data-idx="30">
-      <h2>РАБОТА СО ШКОЛОЙ: КАК КООРДИНИРОВАТЬ</h2>
-      <div class="section-body"><p>Школьная среда — это отдельный вызов, который нужно обсуждать с родителями в рамках тренинга.</p>
-<h3>10.1. Типичные ситуации</h3>
-<p><strong>Разрыв между терапией и школой.</strong> Ребёнок может демонстрировать навыки в терапевтическом контексте, но не в школе. Родитель должен понимать, что это нормально и объясняется принципом генерализации. Мы обучаем родителя быть мостом между терапией и школой.</p>
-<p><strong>IEP (Individualized Education Program).</strong> Родитель имеет право участвовать в составлении и пересмотре IEP. Обученный родитель может более эффективно защищать интересы ребёнка. Мы можем включить в тренинг базовые знания о правах родителей в образовательной системе.</p>
-<p><strong>Коммуникация со школьным персоналом.</strong> Обученный родитель может говорить на языке данных. Вместо «мой ребёнок плохо себя ведёт» родитель может сказать: «мой ребёнок демонстрирует агрессивное поведение, которое, по данным функциональной оценки, поддерживается функцией избегания требований».</p>
-<p><strong>Согласованность подходов.</strong> Если дома используется одна стратегия, а в школе другая — ребёнок получает противоречивые сигналы. Тренинг помогает родителю координировать подходы.</p>
-<p><strong>Практические шаги координации:</strong></p>
-<ul>
-<li><strong>Шаг 1: Получите согласие родителя.</strong> Без письменного согласия вы не можете контактировать со школой. Используйте стандартную форму Release of Information.</li>
-<li><strong>Шаг 2: Узнайте, кто ключевой контакт.</strong> Классный руководитель? Тьютор? Школьный психолог? Иногда это разные люди для разных вопросов.</li>
-<li><strong>Шаг 3: Подготовьте краткую памятку.</strong> Не весь BSP — а 1 страницу: 3 целевых поведения, функции, что делать/не делать. Язык — простой, без профессионального жаргона.</li>
-<li><strong>Шаг 4: Предложите наблюдение.</strong> Если возможно — одно посещение школы (30 мин) даёт больше информации, чем 10 разговоров по телефону.</li>
-<li><strong>Шаг 5: Регулярные обновления.</strong> Раз в месяц — короткий email учителю: «Вот что мы сейчас работаем дома. Видите ли вы изменения в классе?»</li>
-</ul>
-
-<p><strong>Что обсудить с родителем на сессии:</strong></p>
-<ul>
-<li>«Что говорит учитель о поведении ребёнка?» — часто родитель не спрашивает, потому что боится услышать плохое</li>
-<li>«Какие ситуации в школе самые сложные?» — переходы, столовая, перемена, групповые задания</li>
-<li>«Есть ли у ребёнка тьютор/ассистент?» — если да, можно обучить и его</li>
-<li>«Хотите ли вы, чтобы я связался с учителем?» — предложите, но не настаивайте</li>
-</ul>
-
-<p><strong>Важно:</strong> BCBA НЕ диктует школе, что делать. Вы предлагаете стратегии, делитесь данными и помогаете родителю стать адвокатом своего ребёнка. Конечное решение — за школьной командой.</p>
-</div>
-    </div><div class="section" id="s_4_5" data-idx="31">
-      <h2>ШАБЛОН: ПИСЬМО УЧИТЕЛЮ ОТ РОДИТЕЛЯ</h2>
-      <div class="section-body"><p>Используйте этот шаблон, чтобы помочь родителю наладить коммуникацию со школой. Адаптируйте под конкретную ситуацию.</p>
-<p><strong>Тема:</strong> Стратегии поддержки [имя ребёнка] в классе</p>
-<p>Уважаемый/ая [имя учителя],</p>
-<p>Меня зовут [имя родителя], я мама/папа [имя ребёнка] из вашего класса. [Имя ребёнка] получает поведенческую терапию (прикладной анализ поведения), и мы хотели бы координировать подходы дома и в школе, чтобы помочь ему/ей быть более успешным/ой.</p>
-<p>Вот несколько стратегий, которые работают дома и могут быть полезны в классе:</p>
-<ul>
-<li><strong>[Стратегия 1]:</strong> [краткое описание]. Например: «Перед переходом к новому заданию предупреждаем за 2 минуты: &#39;Через 2 минуты мы закончим рисование и начнём математику&#39;. Это снижает сопротивление.»</li>
-<li><strong>[Стратегия 2]:</strong> [краткое описание].</li>
-</ul>
-<p>Если у вас возникнут вопросы или вы хотели бы обсудить подходы подробнее, наш поведенческий аналитик [имя BCBA] готов(а) провести консультацию. Контакт: [email/телефон].</p>
-<p>Будем рады сотрудничеству.</p>
-<p>С уважением, [имя родителя]</p>
-</div>
-    </div><div class="section" id="s_4_6" data-idx="32">
-      <h2>ПЛАН РАБОТЫ С РОДИТЕЛЯМИ: ШАБЛОН</h2>
-      <div class="section-body"><div class="visual-block"><div class="viz-timeline"><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-blue">1</div><div class="viz-tl-content"><div class="viz-tl-time">Нед. 1–3</div><div class="viz-tl-title">Оценка и планирование</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-red">2</div><div class="viz-tl-content"><div class="viz-tl-time">Нед. 2–4</div><div class="viz-tl-title">Теоретическая база</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-teal">3</div><div class="viz-tl-content"><div class="viz-tl-time">Нед. 4–12</div><div class="viz-tl-title">BST / TIP практика</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-gold">4</div><div class="viz-tl-content"><div class="viz-tl-time">Постоянно</div><div class="viz-tl-title">Мониторинг и поддержка</div></div></div></div></div><h3>9.1. Этап 1: Оценка и планирование (недели 1--2)</h3>
-<ol>
-<li><p>Оценка текущих навыков родителя (наблюдение, интервью, опросники)</p>
-</li>
-<li><p>Оценка ресурсов и возможностей семьи</p>
-</li>
-<li><p>Построение раппорта: обсуждение приоритетов семьи</p>
-</li>
-<li><p>Определение целей тренинга, привязанных к программе ребёнка</p>
-</li>
-<li><p>Составление индивидуального учебного плана для родителя</p>
-</li>
-</ol>
-<h3>9.2. Этап 2: Теоретическая база (недели 2--4)</h3>
-<p>Дидактическая часть, адаптированная под уровень конкретного родителя. Содержание привязывается к программе ребёнка:</p>
-<ul>
-<li><p>Основы поведения: что такое подкрепление, наказание, угасание — на примерах из жизни ИХ ребёнка</p>
-</li>
-<li><p>Функции поведения: зачем ребёнок делает то, что делает? Разбираем на реальных кейсах семьи</p>
-</li>
-<li><p>Краткие презентации (10--15 минут) + обсуждение + тесты для проверки понимания</p>
-</li>
-<li><p>Визуальные материалы, памятки, видеоролики — всё адаптированное под конкретного ребёнка</p>
-</li>
-</ul>
-<h3>9.3. Этап 3: Практическое обучение навыкам (BST) (недели 4--12)</h3>
-<p>Это ядро тренинга. Каждый навык обучается по модели BST:</p>
-<ol>
-<li><p>Инструкция: объясняем процедуру, привязанную к программе ребёнка</p>
-</li>
-<li><p>Моделирование: демонстрируем с ребёнком или в ролевой игре</p>
-</li>
-<li><p>Практика: родитель пробует сам под наблюдением специалиста</p>
-</li>
-<li><p>Обратная связь: корректирующая + позитивная</p>
-</li>
-<li><p>Повторение до достижения критерия мастерства</p>
-</li>
-</ol>
-<p><strong>Примерные навыки для обучения (подбираются индивидуально):</strong></p>
-<ul>
-<li><p>Предоставление подкрепления (своевременно, привязано к поведению, разнообразно)</p>
-</li>
-<li><p>Предъявление инструкций (ясно, кратко, на уровне ребёнка)</p>
-</li>
-<li><p>Реакция на нежелательное поведение (по функции)</p>
-</li>
-<li><p>Проведение функциональной коммуникации (FCT)</p>
-</li>
-<li><p>Работа с переходами и расписанием</p>
-</li>
-<li><p>Сбор данных в упрощённом формате</p>
-</li>
-</ul>
-<h3>9.4. Этап 4: Мониторинг и поддержка (постоянно)</h3>
-<ul>
-<li><p>Регулярная оценка точности выполнения (проверки точности выполнения (проверка точности выполнения)</p>
-</li>
-<li><p>Адаптация программы по мере роста навыков ребёнка</p>
-</li>
-<li><p>Поддерживающие сессии (поддерживающие сессии) при необходимости</p>
-</li>
-<li><p>Документирование всех сессий (требование этического кодекса; в США — также требование страховых компаний)</p>
-</li>
-</ul>
-</div>
-    
-    <div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:10px;border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
-      <span style="font-weight:600;color:var(--dark)">Далее:</span> Барьеры разобраны. Далее — <strong>особые ситуации</strong>: этические дилеммы, несогласный второй родитель, подростки, телехелс.
-    </div></div></section><section class="part " id="part_5" style="--pc:#22c55e">
+    </section><section class="part " id="part_5" style="--pc:#22c55e">
     <div class="part-header">
       <div class="part-num">ЧАСТЬ VII</div>
       <h1>ОСОБЫЕ СИТУАЦИИ</h1>
@@ -4357,280 +4691,6 @@ iv>
 <li>ABA Coding Coalition (Коалиция по кодированию АВА) (abacodes.org) — актуальный ресурс по CPT-кодам для АВА</li>
 </ul>
 </div>
-    </div><div class="section" id="s_6_3" data-idx="42">
-      <h2>КОГДА ВСЁ ИДЁТ НЕ ПО ПЛАНУ: РЕШЕНИЯ</h2>
-      <div class="section-body"><div class="visual-block"><div class="viz-grid viz-grid-2"><div class="viz-card viz-card-red"><div class="viz-card-title">Всплеск угасания</div><div class="viz-card-text">Предупредите с цифрами · поддерживающая сессия через 2–3 дня</div></div><div class="viz-card viz-card-gold"><div class="viz-card-title">Саботаж второго родителя</div><div class="viz-card-text">MI · привлеките отдельно · 1 стратегия</div></div><div class="viz-card viz-card-blue"><div class="viz-card-title">Дифференциация сред</div><div class="viz-card-text">Видеоанализ · передача контроля</div></div><div class="viz-card viz-card-teal"><div class="viz-card-title">Родитель перестал приходить</div><div class="viz-card-text">Функция ухода · упростить · установление связи</div></div></div></div><h3>2.1. Всплеск угасания (всплеск угасания) дома</h3>
-<p>Это САМАЯ частая проблема. Родитель начинает применять стратегию угасания, и поведение ребёнка временно ухудшается. Родитель пугается и сдаётся — подкрепляя ещё более интенсивное поведение.</p>
-<p><strong>Что делать:</strong></p>
-<ul>
-<li><p>ОБЯЗАТЕЛЬНО предупредите заранее: «Когда вы начнёте игнорировать крик, первые 2--3 дня он будет кричать ГРОМЧЕ и ДОЛЬШЕ. Это называется всплеск угасания и это нормально. Это признак того, что стратегия работает»</p>
-</li>
-<li><p>Дайте конкретные цифры: «Если сейчас истерика длится 5 минут, в первые дни она может длиться 15--20 минут. К концу первой недели — уменьшится до 3 минут»</p>
-</li>
-<li><p>Дайте «план побега»: «Если ребёнок причиняет вред себе или другим — вот что делать... Если вы чувствуете, что не справляетесь — позвоните мне»</p>
-</li>
-<li><p>Запросите данные: попросите родителя записывать длительность и интенсивность — так он увидит тренд снижения</p>
-</li>
-<li><p>Запланируйте поддерживающая сессияную сессию через 2--3 дня после начала, не через неделю</p>
-</li>
-</ul>
-<h3>2.2. Один родитель саботирует</h3>
-<p>Один родитель применяет стратегии, другой — нет. Или бабушка жалеет и подкрепляет нежелательное поведение. Это проблема непоследовательности, которая может полностью нивелировать результаты.</p>
-<p><strong>Стратегии:</strong></p>
-<ul>
-<li><p>Привлеките второго взрослого на сессию. Не обвиняйте — объясните через данные: «Когда подход одинаковый у обоих — ребёнок учится быстрее. Когда разный — ребёнок путается и поведение ухудшается»</p>
-</li>
-<li><p>Используйте MI: «Что вас беспокоит в этом подходе?» — часто за «саботажем» стоят страхи, непонимание или культурные убеждения</p>
-</li>
-<li><p>Найдите компромисс: может, второй родитель готов применять одну стратегию из пяти? Начните с этого</p>
-</li>
-<li><p>Дайте второму родителю отдельную, адаптированную версию обучения — не через пересказ первого</p>
-</li>
-<li><p>В крайнем случае: договоритесь хотя бы о «не навреди» — если не можете применять стратегию, хотя бы не подкрепляйте нежелательное поведение</p>
-</li>
-</ul>
-<h3>2.3. Ребёнок ведёт себя иначе при родителе</h3>
-<p>Это нормальная поведенческая дифференциация: ребёнок научился, что при терапевте одни правила, при родителе — другие. Это не вина родителя, это данные о средовом контроле.</p>
-<p><strong>Стратегии:</strong></p>
-<ul>
-<li><p>Объясните: «Это означает, что ваш ребёнок очень умный — он различает условия. Наша задача — сделать условия дома похожими на терапию»</p>
-</li>
-<li><p>Проведите наблюдение в натуральной среде: придите домой и понаблюдайте за взаимодействием</p>
-</li>
-<li><p>Используйте видео: попросите родителя записать типичный эпизод — это даст вам данные для анализа</p>
-</li>
-<li><p>Постепенно передавайте контроль: начните с совместных сессий (вы + родитель), затем родитель ведёт — вы наблюдаете, затем родитель ведёт самостоятельно</p>
-</li>
-<li><p>Работайте над антецедентами: визуальное расписание, структура среды, предсказуемые рутины дома</p>
-</li>
-</ul>
-<h3>2.4. Родитель перестал приходить / отвечать</h3>
-<p>Это не «несоблюдение» — это поведение, у которого есть функция. Проведите функциональную оценку:</p>
-<ul>
-<li><p>Функция избегания: тренинг воспринимается как неприятный стимул → Упростите требования, верните установление связи</p>
-</li>
-<li><p>Функция внимания: родитель чувствует себя непонятым → Дайте больше пространства для голоса родителя</p>
-</li>
-<li><p>Базовые потребности: просто нет сил и времени → Адаптируйте формат (короче, реже, дистанционно)</p>
-</li>
-<li><p>Кризис в семье → Поставьте тренинг на паузу, предложите ресурсы поддержки</p>
-</li>
-</ul>
-</div>
-    </div><div class="section" id="s_6_4" data-idx="43">
-      <h2>ПРОТОКОЛ ПЕРВОЙ СЕССИИ С РОДИТЕЛЕМ</h2>
-      <div class="section-body"><div class="visual-block"><div class="viz-timeline"><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-blue">1</div><div class="viz-tl-content"><div class="viz-tl-title">Раппорт и контекст</div><div class="viz-tl-text">15–20 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-red">2</div><div class="viz-tl-content"><div class="viz-tl-title">Оценка знаний</div><div class="viz-tl-text">10–15 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-teal">3</div><div class="viz-tl-content"><div class="viz-tl-title">Наблюдение</div><div class="viz-tl-text">15–20 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-gold">4</div><div class="viz-tl-content"><div class="viz-tl-title">Ресурсы и барьеры</div><div class="viz-tl-text">10–15 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-blue">5</div><div class="viz-tl-content"><div class="viz-tl-title">Приоритеты и план</div><div class="viz-tl-text">15–20 мин</div></div></div></div></div>
-<p><strong>Продолжительность:</strong> 60--90 минут | <strong>Формат:</strong> Индивидуальный | <strong>Код:</strong> CPT 97156 (если обучение) или 97155 (если оценка)</p>
-<p><strong>Цель:</strong> Определить исходный уровень, ресурсы, барьеры и приоритеты для составления индивидуального плана тренинга.</p>
-<p><strong>Фаза 1: Раппорт и контекст (15--20 мин)</strong></p>
-<ul>
-<li>Неформальное знакомство</li>
-<li>«Расскажите мне о [имя ребёнка]. Какой он/она?» (не начинайте с проблем)</li>
-<li>«Что для вас как семьи сейчас самое важное?»</li>
-<li>«Какой у вас предыдущий опыт с терапиями / тренингами?»</li>
-<li>Отмечайте: язык общения, культурный контекст, эмоциональное состояние</li>
-</ul>
-<p><strong>Фаза 2: Оценка знаний (10--15 мин)</strong></p>
-<ul>
-<li>Используйте шкалу 0--5 по каждому пункту (см. форму первичной оценки, Раздел B)</li>
-<li>Не экзаменуйте — спрашивайте: «Как вы думаете, почему Саша кричит, когда вы говорите &#39;нет&#39;?»</li>
-<li>Оцените: понимание функций, подкрепления, генерализации</li>
-</ul>
-<p><strong>Фаза 3: Наблюдение за взаимодействием (15--20 мин)</strong></p>
-<ul>
-<li>Попросите родителя выполнить типичную рутину с ребёнком (игра, инструкция, переход)</li>
-<li>Заполняйте чек-лист навыков (Раздел C формы первичной оценки)</li>
-<li>НЕ вмешивайтесь и НЕ комментируйте во время наблюдения</li>
-<li>Записывайте конкретные примеры для обратной связи</li>
-</ul>
-<p><strong>Фаза 4: Оценка ресурсов и барьеров (10--15 мин)</strong></p>
-<ul>
-<li>Стресс (шкала 1--10)</li>
-<li>Система поддержки: кто ещё участвует в воспитании?</li>
-<li>Временные ресурсы: реалистично — сколько времени в неделю?</li>
-<li>Физические/когнитивные ограничения</li>
-<li>Финансовые факторы, влияющие на участие</li>
-</ul>
-<p><strong>Фаза 5: Совместное определение приоритетов (10 мин)</strong></p>
-<ul>
-<li>Покажите результаты наблюдения (без осуждения)</li>
-<li>«Вот что я заметила. Вот в чём вы уже сильны. Вот где мы можем поработать»</li>
-<li>Спросите: «Что из этого для вас приоритет?»</li>
-<li>Согласуйте 2--3 цели для первого этапа тренинга</li>
-</ul>
-<p><strong>Фаза 6: План и ожидания (5--10 мин)</strong></p>
-<ul>
-<li>Объясните формат: частота, длительность, что будет происходить</li>
-<li>Дайте информированное согласие (включая для телехелс, если применимо — стандарт 2.04 BACB)</li>
-<li>Обсудите социальную валидность: «Этот формат вам подходит? Что бы вы хотели изменить?»</li>
-<li>Назначьте первую тренинговую сессию</li>
-</ul>
-</div>
-    </div><div class="section" id="s_6_5" data-idx="44">
-      <h2>ПРОТОКОЛ СЕССИИ BST С РОДИТЕЛЕМ (ПОШАГОВО)</h2>
-      <div class="section-body"><div class="visual-block"><div class="viz-timeline"><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-blue">1</div><div class="viz-tl-content"><div class="viz-tl-title">Контакт + обзор</div><div class="viz-tl-text">8 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-red">2</div><div class="viz-tl-content"><div class="viz-tl-title">Инструкция</div><div class="viz-tl-text">5–7 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-red">3</div><div class="viz-tl-content"><div class="viz-tl-title">Моделирование</div><div class="viz-tl-text">5–10 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-teal">4</div><div class="viz-tl-content"><div class="viz-tl-title">Практика родителя</div><div class="viz-tl-text">15–20 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-teal">5</div><div class="viz-tl-content"><div class="viz-tl-title">Обратная связь</div><div class="viz-tl-text">5–7 мин</div></div></div><div class="viz-tl-item"><div class="viz-tl-marker viz-tl-gold">6</div><div class="viz-tl-content"><div class="viz-tl-title">Задание + завершение</div><div class="viz-tl-text">5 мин</div></div></div></div></div>
-<p>Этот протокол описывает структуру одной типичной BST-сессии с родителем. Адаптируйте под конкретного родителя и конкретный навык.</p>
-<p><strong>Продолжительность:</strong> 45--60 минут | <strong>Формат:</strong> Индивидуальный | <strong>Код:</strong> CPT 97156</p>
-<p><strong>Подготовка (до сессии, 10--15 мин):</strong></p>
-<ol>
-<li>Просмотрите данные с предыдущей сессии: точность %, области для работы</li>
-<li>Подготовьте материалы: визуальная памятка, чек-лист точность выполнения, лист данных для родителя</li>
-<li>Определите конкретный навык для сессии, привязанный к текущей программе ребёнка</li>
-<li>Подготовьте сценарии для ролевой игры, основанные на реальных ситуациях семьи</li>
-</ol>
-<p><strong>Фаза 1: Установление контакта (5 мин)</strong></p>
-<ul>
-<li>Неформальный разговор: «Как дела? Как неделя?»</li>
-<li>Спросите, были ли ситуации, где родитель пробовал стратегию с прошлой сессии</li>
-<li>Если да — подкрепите: «Расскажите! Как прошло?»</li>
-<li>Если нет — не осуждайте, спросите, что помешало</li>
-</ul>
-<p><strong>Фаза 2: Краткий обзор (3 мин)</strong></p>
-<ul>
-<li>Напомните цель: «На прошлой сессии мы начали работать над [навык]. Сегодня мы продолжим»</li>
-<li>Покажите данные прогресса: «Вот ваш график точности — видите рост?»</li>
-</ul>
-<p><strong>Фаза 3: Инструкция (5--7 мин)</strong></p>
-<ul>
-<li>Объясните процедуру простым языком</li>
-<li>Дайте визуальную памятку (распечатка, ламинированная карточка)</li>
-<li>Проверьте понимание: «Расскажите мне своими словами — что вы будете делать, когда [ситуация]?»</li>
-<li>Ответьте на вопросы</li>
-</ul>
-<p><strong>Фаза 4: Моделирование (5--10 мин)</strong></p>
-<ul>
-<li>Продемонстрируйте процедуру (с ребёнком, если присутствует, или в ролевой игре)</li>
-<li>Комментируйте свои действия вслух: «Видите, я жду... сейчас он просит... и я сразу даю»</li>
-<li>Если используете TIP — покажите и «Неправильно» вариант сначала</li>
-</ul>
-<p><strong>Фаза 5: Практика родителя (15--20 мин)</strong></p>
-<ul>
-<li>Родитель практикует навык</li>
-<li>Если ребёнок присутствует — с ребёнком, под вашим наблюдением</li>
-<li>Если нет — ролевая игра (вы играете ребёнка с типичными реакциями)</li>
-<li>Записывайте данные точности в реальном времени</li>
-<li>НЕ вмешивайтесь, если нет прямого риска для ребёнка</li>
-<li>Делайте заметки для обратной связи</li>
-</ul>
-<p><strong>Фаза 6: Обратная связь (5--7 мин)</strong></p>
-<ul>
-<li>Начните с конкретного позитива: «Вы отлично [конкретное действие]!»</li>
-<li>Укажите 1--2 области для улучшения: «В следующий раз попробуйте [конкретно]»</li>
-<li>Предложите повторить, если время позволяет</li>
-<li>Объявите % точности выполнения: «Сегодня — 75%. На прошлой неделе было 60%. Прогресс!»</li>
-</ul>
-<p><strong>Фаза 7: Домашнее задание и завершение (5 мин)</strong></p>
-<ul>
-<li>Дайте конкретное, посильное задание: «На этой неделе попробуйте стратегию 3 раза. Запишите результат в лист данных»</li>
-<li>Подтвердите дату следующей сессии</li>
-<li>Завершите позитивно: «Вы делаете большую работу для [имя ребёнка]»</li>
-</ul>
-<p><strong>Документация (после сессии, 10 мин):</strong></p>
-<ul>
-<li>Запишите всё в соответствии с требованиями 97156 (см. секцию Документация)</li>
-<li>Обновите данные точности в графике прогресса</li>
-</ul>
-</div>
-    </div><div class="section" id="s_6_6" data-idx="45">
-      <h2>ПРОТОКОЛ СЕССИИ TIP С РОДИТЕЛЕМ (ПОШАГОВО)</h2>
-      <div class="section-body">
-<p><strong>Продолжительность:</strong> 45--60 минут | <strong>Формат:</strong> Индивидуальный | <strong>Код:</strong> CPT 97156</p>
-<p><strong>Подготовка (до сессии):</strong></p>
-<ol>
-<li>Определите навык, который будете обучать</li>
-<li>Подготовьте обоснование, значимый для ЭТОГО родителя и ЭТОГО ребёнка</li>
-<li>Подготовьте «Правильно» и «Неправильно» демонстрации, основанные на реальных ситуациях</li>
-<li>Подготовьте материалы для оценки точности</li>
-</ol>
-<p><strong>Шаг 1: Обозначение (2 мин)</strong></p>
-<ul>
-<li>«Сегодня мы будем учиться навыку [название навыка на языке родителя]»</li>
-<li>«Скажите мне — какой навык мы сегодня разбираем?» (проверка)</li>
-</ul>
-<p><strong>Шаг 2: обоснование (5--7 мин)</strong></p>
-<ul>
-<li>Объясните ЗАЧЕМ: используйте данные, примеры из жизни семьи</li>
-<li>Свяжите с ценностями родителя: «Вы говорили, что хотите [ценность]. Этот навык поможет, потому что...»</li>
-<li>Спросите: «В каких ситуациях дома это было бы полезно?»</li>
-<li>Это ключевой момент — не торопитесь. Обоснование = вовлечённость</li>
-</ul>
-<p><strong>Шаг 3: Описание (3--5 мин)</strong></p>
-<ul>
-<li>Пошаговая инструкция на языке родителя</li>
-<li>Визуальная памятка</li>
-<li>«Расскажите мне шаги своими словами»</li>
-</ul>
-<p><strong>Шаг 4: Демонстрация «Правильно / Неправильно» («Правильно / Неправильно», 7--10 мин)</strong></p>
-<ul>
-<li>Сначала «Неправильно»: продемонстрируйте неправильный вариант</li>
-<li>«Видите, что произошло? Что я сделала не так?» (пусть родитель определит)</li>
-<li>Затем «Правильно»: продемонстрируйте правильный вариант</li>
-<li>«Заметили разницу? Когда я [ключевое действие]?»</li>
-<li>Пусть родитель опишет различия своими словами</li>
-</ul>
-<p><strong>Шаг 5: Практика (15--20 мин)</strong></p>
-<ul>
-<li>Ролевая игра и/или с ребёнком</li>
-<li>Записывайте точность</li>
-<li>Создайте безопасную атмосферу: «Ошибки — это часть обучения»</li>
-</ul>
-<p><strong>Шаг 6: Обратная связь (5--7 мин)</strong></p>
-<ul>
-<li>Позитив → корректировка → позитив</li>
-<li>Конкретно: что именно получилось, что именно улучшить</li>
-<li>Предложите повторить при необходимости</li>
-</ul>
-<p><strong>Завершение:</strong> домашнее задание, подкрепление усилий, документация.</p>
-</div>
-    </div><div class="section" id="s_6_7" data-idx="46">
-      <h2>ПРОТОКОЛ ОЦЕНКИ ТОЧНОСТИ ВЫПОЛНЕНИЯ</h2>
-      <div class="section-body"><div class="visual-block"><div class="viz-flow"><div class="viz-flow-step"><div class="viz-flow-num">1</div><div class="viz-flow-title">Чек-лист</div></div><div class="viz-flow-arrow"><svg width="24" height="12" viewBox="0 0 24 12"><path d="M0 6h18M14 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="viz-flow-step"><div class="viz-flow-num">2</div><div class="viz-flow-title">+/–/N/A</div></div><div class="viz-flow-arrow"><svg width="24" height="12" viewBox="0 0 24 12"><path d="M0 6h18M14 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="viz-flow-step"><div class="viz-flow-num">3</div><div class="viz-flow-title">Расчёт %</div></div><div class="viz-flow-arrow"><svg width="24" height="12" viewBox="0 0 24 12"><path d="M0 6h18M14 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="viz-flow-step"><div class="viz-flow-num">4</div><div class="viz-flow-title">График</div></div><div class="viz-flow-arrow"><svg width="24" height="12" viewBox="0 0 24 12"><path d="M0 6h18M14 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="viz-flow-step viz-flow-accent"><div class="viz-flow-num">IOA</div><div class="viz-flow-title">Каждая 4–5-я</div></div></div></div>
-<p><strong>Частота:</strong> Каждая сессия BST/TIP (во время практики родителя) + периодические проверки между сессиями</p>
-<p><strong>Шаг 1:</strong> Подготовьте чек-лист точности для конкретной процедуры (см. шаблон в секции Шаблоны)</p>
-<p><strong>Шаг 2:</strong> Наблюдайте за родителем во время практики. Отмечайте каждый компонент: +, --, N/A</p>
-
-<p><strong>Как рассчитать точность:</strong></p>
-<div style="margin:.6rem 0;padding:.8rem 1rem;background:var(--cream);border-radius:8px;border:1px solid var(--border)">
-<p><strong>Формула:</strong> (количество правильно выполненных компонентов ÷ общее количество компонентов) × 100 = % точности</p>
-<p><strong>Пример:</strong> FCT имеет 8 компонентов. Родитель правильно выполнил 6 → (6 ÷ 8) × 100 = 75%</p>
-</div>
-
-<p><strong>Что считать «правильно» и «неправильно»:</strong></p>
-<ul>
-<li><strong>Рабочее определение каждого компонента</strong> должно быть записано ДО наблюдения. Не «вроде правильно», а чёткие критерии: «подкрепление предоставлено в течение 3 секунд после целевой реакции — ДА/НЕТ».</li>
-<li><strong>N/A (не применимо)</strong> — если ситуация не возникла, компонент не оценивается и не включается в расчёт. Например, «реакция на всплеск угасания» — если всплеска не было, ставим N/A.</li>
-<li><strong>Частично правильно = неправильно.</strong> Если в чек-листе нет промежуточной оценки — бинарно: + или –.</li>
-</ul>
-
-<p><strong>Как давать обратную связь по результатам:</strong></p>
-<ul>
-<li>Всегда начинайте с того, что получилось: «Вы правильно создали ситуацию и подсказали — это самые сложные компоненты, и вы их освоили.»</li>
-<li>Фокусируйтесь на 1–2 компонентах для улучшения, не на всех сразу</li>
-<li>Покажите тренд: «На прошлой неделе было 50%, сейчас 75% — это серьёзный прогресс.»</li>
-<li>Свяжите с поведением ребёнка: «Заметьте — когда вы стали подкреплять быстрее, ребёнок стал чаще просить словами.»</li>
-</ul>
-
-<p><strong>Согласованность наблюдателей (IOA):</strong></p>
-<ul>
-<li>Периодически (каждая 4–5-я сессия) записывайте практику родителя на видео</li>
-<li>Попросите второго специалиста независимо оценить точность по видео</li>
-<li>Рассчитайте IOA: (количество согласий ÷ общее количество компонентов) × 100</li>
-<li>Приемлемый уровень IOA: ≥80%</li>
-<li>Если IOA менее 80% — пересмотрите рабочие определения компонентов чек-листа</li>
-</ul>
-<p><strong>Шаг 3:</strong> Рассчитайте процент: (количество + / общее количество оцениваемых) × 100</p>
-<p><strong>Шаг 4:</strong> Запишите результат в график прогресса родителя</p>
-<p><strong>Шаг 5:</strong> Сообщите родителю результат (с акцентом на прогресс, не на недостатки)</p>
-<p><strong>Inter-Observer Agreement (согласованность наблюдателей (IOA)):</strong></p>
-<p>Точность, оценённая только одним наблюдателем, имеет ограниченную надёжность. Рекомендуется:</p>
-<ul>
-<li>Периодически (каждая 4--5-я сессия) записывайте практику родителя на видео</li>
-<li>Попросите второго специалиста независимо оценить точность по видео</li>
-<li>Рассчитайте IOA: (количество согласий / общее количество компонентов) × 100</li>
-<li>Приемлемый уровень IOA: ≥80%</li>
-<li>Если IOA &lt;80% — пересмотрите рабочие определения компонентов чек-листа</li>
-</ul>
-</div>
     </div><div class="section" id="s_6_9" data-idx="48">
       <h2>ПРИМЕРЫ СБОРА ДАННЫХ ПО РОДИТЕЛЬСКОМУ ТРЕНИНГУ</h2>
       <div class="section-body"><p>Ниже представлены примеры заполненных форм. <strong>Все примеры являются иллюстративными — адаптируйте форматы и содержание под ваш конкретный кейс, организацию и требования плательщика.</strong></p>
@@ -4677,6 +4737,34 @@ iv>
 <li><p>Родитель инициирует решения, а не ждёт указаний</p>
 </li>
 </ul>
+<p><strong>Критерии готовности к завершению:</strong></p>
+<ul>
+<li>Точность выполнения ≥80% по всем целевым процедурам в течение 3+ последовательных сессий</li>
+<li>Родитель самостоятельно определяет функцию нового поведения и выбирает стратегию</li>
+<li>Данные о поведении ребёнка дома показывают стабильное улучшение</li>
+<li>Родитель выражает уверенность: «Я знаю, что делать, если...»</li>
+<li>Опросник социальной валидности показывает удовлетворённость</li>
+</ul>
+
+<p><strong>План фейдинга (типичный):</strong></p>
+<ol>
+<li><strong>Недели 15–16:</strong> Сессии каждые 2 недели вместо каждой недели. Родитель ведёт программу самостоятельно, вы проверяете данные.</li>
+<li><strong>Неделя 17:</strong> Финальная сессия. Обзор всего прогресса, обновлённый BSP, опросник.</li>
+<li><strong>Через 2 недели:</strong> Первая поддерживающая сессия (30 мин, может быть по телехелс). «Как прошли 2 недели без меня?»</li>
+<li><strong>Через 1 месяц:</strong> Вторая поддерживающая сессия. Фокус: новые ситуации.</li>
+<li><strong>Через 3 месяца:</strong> Контрольная проверка. Если всё стабильно — следующая через 6 месяцев.</li>
+<li><strong>Через 6 месяцев:</strong> Финальная проверка. Если навыки сохранились — официальное завершение.</li>
+</ol>
+
+<p><strong>Что отдать родителю при завершении:</strong></p>
+<ul>
+<li>Распечатанный BSP (финальная версия) — это его главный документ</li>
+<li>Графики прогресса (до/после) — визуальное доказательство роста</li>
+<li>Памятка «Что делать, если...» — 1 страница с алгоритмом для новых ситуаций</li>
+<li>Контакт BCBA для экстренных вопросов</li>
+</ul>
+
+<p><strong>Фраза для родителя на финальной сессии:</strong> «Это не конец — это переход. Вы теперь знаете и умеете то, чего не знали 17 недель назад. Я горжусь вашей работы. И если что-то изменится — я на связи.»</p>
 <h3>4.2. Протокол фейдинга</h3>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1.2rem 0">
   <div style="background:#fff;border:1.5px solid #bcd0e0;border-radius:10px;padding:1rem 1.1rem;border-left:3px solid #4a7c9b">
