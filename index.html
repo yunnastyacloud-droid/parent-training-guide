@@ -58,10 +58,10 @@ body{
 .sidebar-nav{flex:1;overflow-y:auto;padding:.8rem 0}
 .nav-part{margin-bottom:.15rem}
 .nav-part-title{
-  display:block;padding:.55rem 1.5rem;font-size:.64rem;font-weight:600;
-  color:rgba(255,255,255,.4);text-decoration:none;
+  display:block;padding:.65rem 1.5rem;font-size:.68rem;font-weight:600;
+  color:rgba(255,255,255,.5);text-decoration:none;cursor:pointer;
   letter-spacing:.1em;text-transform:uppercase;
-  border-left:2px solid transparent;transition:.3s;
+  border-left:2px solid transparent;transition:.2s;
 }
 .nav-part-title:hover,.nav-part-title.active{
   color:rgba(255,255,255,.85);border-left-color:var(--acc);
@@ -69,11 +69,12 @@ body{
 }
 /* nav-sections: see collapsible rules below */
 .nav-link{
-  display:block;padding:.28rem 1.5rem .28rem 2rem;font-size:.7rem;
-  color:rgba(255,255,255,.35);text-decoration:none;
-  transition:.3s;border-left:2px solid transparent;line-height:1.5;
+  display:block;padding:.45rem 1.5rem .45rem 2rem;font-size:.75rem;
+  color:rgba(255,255,255,.45);text-decoration:none;cursor:pointer;
+  transition:.2s;border-left:2px solid transparent;line-height:1.5;
 }
-.nav-link:hover{color:rgba(255,255,255,.7);padding-left:2.2rem;background:rgba(255,255,255,.02)}
+.nav-link:hover{color:rgba(255,255,255,.8);padding-left:2.2rem;background:rgba(255,255,255,.04)}
+.nav-link,.nav-part-title{pointer-events:auto}
 .nav-link.active{
   color:#fff;border-left-color:var(--acc);
   background:linear-gradient(90deg,rgba(212,132,90,.1),transparent);
@@ -87,7 +88,7 @@ body{
 .btn:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.15)}
 
 /* ===== MAIN ===== */
-.main{margin-left:0;min-height:100vh;position:relative;overflow-x:hidden;transition:margin-left .3s ease;padding:0 2rem}
+.main{margin-left:0;min-height:100vh;position:relative;overflow-x:hidden;transition:margin-left .3s ease}
 .main::before{
   content:'';position:fixed;top:0;left:0;right:0;height:200px;
   background:linear-gradient(180deg,rgba(212,132,90,.04),transparent);
@@ -369,10 +370,10 @@ body{
 
 
 @media(min-width:901px) and (max-width:1200px){
-  .content{padding:2rem 1.5rem 4rem;max-width:100%}
+  .content{padding:2rem 3rem 4rem}
   .section-body{overflow-x:hidden}
 }
-@media(max-width:900px){.content{padding:1.5rem 1.2rem 3rem}.part-header h1{font-size:1.6rem}.viz-grid-2,.viz-grid-3,.viz-two-col,.viz-triad{grid-template-columns:1fr}.viz-flow{flex-direction:column}.viz-flow-arrow{transform:rotate(90deg);align-self:center}.viz-stat-compare{flex-direction:column}.intake-grid{grid-template-columns:1fr}.form-field-row{flex-direction:column}}
+@media(max-width:900px){.content{padding:1.5rem 2rem 3rem}.part-header h1{font-size:1.6rem}.viz-grid-2,.viz-grid-3,.viz-two-col,.viz-triad{grid-template-columns:1fr}.viz-flow{flex-direction:column}.viz-flow-arrow{transform:rotate(90deg);align-self:center}.viz-stat-compare{flex-direction:column}.intake-grid{grid-template-columns:1fr}.form-field-row{flex-direction:column}}
 @media print{.sidebar,.menu-toggle,.sidebar-controls,.progress-bar,.main::before{display:none!important}.main{margin-left:0!important}.content{max-width:100%;padding:1rem}.section,.part-header,.viz-card,.viz-triad-item,.viz-col-box,.viz-flow-step,.viz-tl-item,.intake-form{opacity:1!important;transform:none!important}.intake-form{break-inside:avoid;border:1px solid #999}.intake-header{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.section,.part-header,.viz-card,.viz-triad-item,.viz-col-box,.viz-flow-step,.viz-tl-item,.intake-form{opacity:1!important;transform:none!important}}
 body.present .sidebar{transform:translateX(-100%)}body.present .main{margin-left:0}body.present .main::before{left:0}body.present .content{max-width:880px}body.present .section{min-height:85vh;display:flex;flex-direction:column;justify-content:center;padding:2rem 0}body.present .part-header{min-height:75vh;display:flex;flex-direction:column;justify-content:center;text-align:center}body.present .part-header::before{left:50%;transform:translateX(-50%)}body.present .part-header h1{font-size:3rem}body.present .section-body p{font-size:1.05rem;line-height:2}
@@ -391,6 +392,8 @@ body.present .sidebar{transform:translateX(-100%)}body.present .main{margin-left
 }
 .nav-part.expanded .nav-sections {
   display: block;
+  position: relative;
+  z-index: 1;
 }
 .nav-part-title {
   position: relative;
@@ -414,11 +417,12 @@ body.present .sidebar{transform:translateX(-100%)}body.present .main{margin-left
 
 /* Sidebar overlay */
 .sidebar-overlay{
-  display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+  position:fixed;top:0;left:0;right:0;bottom:0;
   background:rgba(0,0,0,.3);z-index:99;
+  opacity:0;pointer-events:none;
   transition:opacity .3s ease;
 }
-.sidebar-overlay.active{display:block}
+.sidebar-overlay.active{opacity:1;pointer-events:auto}
 </style>
 </head>
 <body>
@@ -4618,7 +4622,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
 document.querySelectorAll('.nav-part-title').forEach(title => {
   title.addEventListener('click', function(e) {
     e.preventDefault();
-    e.stopPropagation();
     const navPart = this.closest('.nav-part');
     // Just toggle this part (don't close others — user might want multiple open)
     navPart.classList.toggle('expanded');
