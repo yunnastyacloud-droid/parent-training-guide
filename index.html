@@ -1236,6 +1236,858 @@ section.part {
   word-break: break-word;
 }
 
+
+/* Mobile wrappers for tables and SVGs */
+.table-mobile-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+}
+.table-mobile-wrap table {
+  margin: 0;
+}
+.svg-mobile-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+@media (max-width: 768px) {
+  .table-mobile-wrap {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 2px;
+  }
+  .table-mobile-wrap table {
+    min-width: 480px;
+    font-size: .72rem !important;
+  }
+  .table-mobile-wrap table th,
+  .table-mobile-wrap table td {
+    padding: .3rem .35rem !important;
+    font-size: .72rem !important;
+  }
+  /* Visual hint: shadow on right edge to indicate horizontal scroll */
+  .table-mobile-wrap::after {
+    content: '';
+    position: sticky;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,.04));
+    pointer-events: none;
+  }
+  
+  /* SVG containers */
+  .svg-mobile-wrap svg {
+    min-width: 500px;
+  }
+  .visual-block {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100% !important;
+  }
+  
+  /* Force ALL inline grids via CSS as well (belt and suspenders) */
+  .section-body > div[style*='display:grid'] {
+    grid-template-columns: 1fr !important;
+  }
+  .section-body > div > div[style*='display:grid'] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* ===== VISUAL UPGRADE: Premium Polish ===== */
+
+/* --- Part Headers: editorial-grade --- */
+.part-header {
+  padding: 5rem 0 3.5rem !important;
+  position: relative;
+  overflow: hidden;
+}
+.part-header::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -40px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: .5;
+}
+.part-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--acc), var(--acc2));
+  border-radius: 2px;
+}
+.part-num {
+  font-family: var(--mono) !important;
+  font-size: .6rem !important;
+  letter-spacing: .3em !important;
+  color: var(--acc) !important;
+  text-transform: uppercase;
+  margin-bottom: 1rem !important;
+  position: relative;
+}
+.part-header h1 {
+  font-family: var(--hf) !important;
+  font-size: 2.6rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -.03em !important;
+  color: var(--dark) !important;
+  line-height: 1.1 !important;
+  position: relative;
+}
+
+/* --- Section headers: magazine style --- */
+.section h2 {
+  font-family: var(--hf) !important;
+  font-size: 1.55rem !important;
+  font-weight: 600 !important;
+  color: var(--dark) !important;
+  letter-spacing: -.015em !important;
+  position: relative;
+  padding-bottom: 1rem !important;
+  margin-bottom: 1.5rem !important;
+  line-height: 1.25 !important;
+}
+.section h2::before {
+  content: '' !important;
+  display: none !important;
+}
+.section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--acc), transparent);
+  border-radius: 1px;
+}
+
+/* --- Body text: polished reading --- */
+.section-body {
+  font-size: .95rem !important;
+  line-height: 1.85 !important;
+  color: var(--text2) !important;
+}
+.section-body p {
+  margin-bottom: 1.1rem !important;
+}
+.section-body strong {
+  color: var(--dark) !important;
+  font-weight: 600 !important;
+}
+.section-body h3 {
+  font-family: var(--hf) !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  color: var(--dark) !important;
+  margin: 2rem 0 .8rem !important;
+  letter-spacing: -.01em;
+}
+
+/* --- Lists: cleaner bullets --- */
+.section-body ul {
+  padding-left: 1.3rem !important;
+}
+.section-body li {
+  margin-bottom: .5rem !important;
+  line-height: 1.75 !important;
+}
+.section-body li::marker {
+  color: var(--acc);
+}
+
+/* --- Cards: depth and texture --- */
+.viz-card {
+  border: none !important;
+  border-radius: var(--radius-lg) !important;
+  background: #fff !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.04) !important;
+  transition: all .35s cubic-bezier(.4,0,.2,1) !important;
+  position: relative;
+  overflow: hidden;
+}
+.viz-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pri), var(--teal));
+  opacity: 0;
+  transition: opacity .3s;
+}
+.viz-card:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 12px 40px rgba(0,0,0,.07) !important;
+  transform: translateY(-3px) !important;
+}
+.viz-card:hover::before {
+  opacity: 1;
+}
+
+/* --- Badge styling in cards --- */
+.viz-card-badge {
+  font-family: var(--mono) !important;
+  letter-spacing: .05em;
+}
+
+/* --- Timeline: vertical line refinement --- */
+.viz-timeline {
+  position: relative;
+}
+.viz-timeline::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--acc), var(--teal), var(--pri));
+  border-radius: 1px;
+  opacity: .2;
+}
+
+/* --- Intake forms: premium feel --- */
+.intake-form {
+  border: none !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.04) !important;
+  overflow: hidden;
+}
+.intake-header {
+  position: relative;
+  overflow: hidden;
+}
+.intake-header::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(255,255,255,.1), transparent 70%);
+  border-radius: 50%;
+}
+.intake-title {
+  font-family: var(--bf) !important;
+  font-size: .8rem !important;
+  letter-spacing: .12em !important;
+  font-weight: 600 !important;
+}
+
+/* --- Weekly cards: phased color bands --- */
+[style*='margin-bottom:2.5rem'][style*='overflow:hidden'] {
+  border: none !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 6px 24px rgba(0,0,0,.05) !important;
+  border-radius: var(--radius-lg) !important;
+  transition: box-shadow .35s ease !important;
+}
+[style*='margin-bottom:2.5rem'][style*='overflow:hidden']:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,.06), 0 16px 48px rgba(0,0,0,.08) !important;
+}
+
+/* --- Self-check blocks: distinctive style --- */
+[style*='background:linear-gradient(135deg,#f0f4f8,#e8eef4)'] {
+  position: relative;
+  overflow: hidden;
+}
+[style*='background:linear-gradient(135deg,#f0f4f8,#e8eef4)']::before {
+  content: '✓';
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  font-size: 5rem;
+  color: rgba(74,124,155,.04);
+  font-weight: 900;
+  pointer-events: none;
+}
+
+/* --- Supervision banner: premium CTA --- */
+.supervision-banner {
+  border-radius: var(--radius-lg) !important;
+  position: relative;
+  overflow: hidden;
+}
+.supervision-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(201,123,90,.08), transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(74,124,155,.06), transparent 50%);
+  pointer-events: none;
+}
+
+/* --- Dark theory blocks: depth --- */
+[style*='background:var(--dark)'][style*='color:rgba(255,255,255'] {
+  position: relative;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+}
+[style*='background:var(--dark)'][style*='color:rgba(255,255,255']::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(201,123,90,.08), transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* --- Sidebar: glass effect --- */
+.sidebar {
+  background: linear-gradient(180deg, #181b22, #1e2129) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.nav-link {
+  padding: .45rem .8rem !important;
+  border-radius: var(--radius-sm) !important;
+  transition: all .2s ease !important;
+  font-size: .8rem !important;
+}
+.nav-link:hover {
+  background: rgba(255,255,255,.05) !important;
+  color: #fff !important;
+}
+
+/* --- Menu toggle: premium --- */
+.menu-toggle {
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  transition: all .25s cubic-bezier(.4,0,.2,1) !important;
+}
+.menu-toggle:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,.2) !important;
+  border-color: rgba(255,255,255,.15) !important;
+}
+
+/* --- Progress bar: gradient glow --- */
+.progress-bar {
+  background: rgba(0,0,0,.02) !important;
+}
+.progress-bar > div {
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 8px rgba(201,123,90,.3);
+}
+
+/* --- Smooth entrance for all major elements --- */
+.part-header, .viz-card, .intake-form {
+  animation: fadeSlideUp .6s ease both;
+}
+@keyframes fadeSlideUp {
+  from { opacity: .7; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Scrollbar: refined --- */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.12);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,.2);
+}
+
+/* --- Selection color --- */
+::selection {
+  background: rgba(201,123,90,.12);
+  color: var(--dark);
+}
+
+/* --- Subtle page texture --- */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+    radial-gradient(ellipse at 15% 30%, rgba(74,124,155,.03), transparent 50%),
+    radial-gradient(ellipse at 85% 70%, rgba(201,123,90,.025), transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(90,143,123,.015), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+body.embed-mode::before {
+  display: none;
+}
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Back to top: floating pill --- */
+#backToTop {
+  border-radius: 24px !important;
+  width: 46px !important;
+  height: 46px !important;
+  font-size: 1.1rem !important;
+  border: 1px solid rgba(255,255,255,.06) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+
+/* ============================================
+   VISUAL ELEGANCE UPGRADE
+   ============================================ */
+
+/* Subtle background texture */
+body {
+  background-image: 
+    radial-gradient(ellipse at 15% 30%, rgba(74,124,155,.04), transparent 50%),
+    radial-gradient(ellipse at 85% 70%, rgba(201,123,90,.03), transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(143,166,138,.02), transparent 60%) !important;
+}
+
+/* Part headers: more dramatic, editorial feel */
+.part-header {
+  padding: 5rem 0 3rem !important;
+  position: relative;
+}
+.part-header::before {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  left: -2rem;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(201,123,90,.08), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.part-header .part-num {
+  font-family: var(--mono) !important;
+  font-size: .6rem !important;
+  letter-spacing: .3em !important;
+  color: var(--acc) !important;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  padding-right: 2rem;
+}
+.part-header .part-num::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 1.2rem;
+  height: 1px;
+  background: var(--acc);
+}
+.part-header h1 {
+  font-family: var(--hf) !important;
+  font-weight: 600 !important;
+  font-size: 2.4rem !important;
+  line-height: 1.15 !important;
+  letter-spacing: -.03em !important;
+  color: var(--dark) !important;
+  position: relative;
+}
+
+/* Section headers: refined with accent details */
+.section h2 {
+  font-family: var(--hf) !important;
+  font-weight: 600 !important;
+  font-size: 1.4rem !important;
+  color: var(--dark) !important;
+  letter-spacing: -.015em !important;
+  line-height: 1.3 !important;
+  padding-bottom: 1rem !important;
+  margin-bottom: 1.5rem !important;
+  border-bottom: none !important;
+  position: relative;
+}
+.section h2::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 50px !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, var(--acc), var(--acc2)) !important;
+  border-radius: 1px !important;
+}
+
+/* h3 - cleaner, with subtle left accent */
+.section-body h3 {
+  font-family: var(--hf) !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  color: var(--dark) !important;
+  margin: 2rem 0 .8rem !important;
+  padding-left: .8rem !important;
+  border-left: 2px solid var(--acc) !important;
+}
+
+/* Body text - better readability */
+.section-body {
+  font-size: var(--fs-base) !important;
+  line-height: 1.85 !important;
+  color: var(--text2) !important;
+}
+.section-body p {
+  margin-bottom: 1rem !important;
+}
+.section-body strong {
+  color: var(--dark) !important;
+  font-weight: 600 !important;
+}
+.section-body li {
+  margin-bottom: .3rem;
+}
+
+/* Lists - cleaner bullets */
+.section-body ul {
+  padding-left: 1.2rem !important;
+}
+.section-body ul li::marker {
+  color: var(--acc);
+}
+.section-body ol li::marker {
+  color: var(--pri);
+  font-weight: 600;
+}
+
+/* Viz cards - elevated, with hover micro-interaction */
+.viz-card {
+  background: #fff !important;
+  border: 1px solid rgba(0,0,0,.06) !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 1.2rem 1.4rem !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: all .35s cubic-bezier(.4,0,.2,1) !important;
+  position: relative;
+  overflow: hidden;
+}
+.viz-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pri), var(--acc));
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.viz-card:hover {
+  box-shadow: var(--shadow-lg) !important;
+  transform: translateY(-3px) !important;
+}
+.viz-card:hover::before {
+  opacity: 1;
+}
+.viz-card-badge {
+  font-family: var(--mono) !important;
+  letter-spacing: .05em;
+}
+.viz-card-title {
+  font-family: var(--hf) !important;
+  font-weight: 600 !important;
+  font-size: .95rem !important;
+}
+
+/* Column boxes - softer colors */
+.viz-col-box {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid rgba(0,0,0,.05) !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: transform .2s ease;
+}
+.viz-col-box:hover {
+  transform: translateY(-1px);
+}
+.viz-col-header {
+  font-family: var(--hf) !important;
+  font-weight: 600 !important;
+  letter-spacing: -.01em;
+}
+
+/* Timeline items - refined */
+.viz-tl-item {
+  position: relative;
+}
+.viz-tl-marker {
+  font-family: var(--mono) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+/* Flow steps */
+.viz-flow-step {
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: transform .2s ease;
+}
+.viz-flow-step:hover {
+  transform: scale(1.02);
+}
+
+/* Stat boxes - more dramatic */
+.viz-stat-num {
+  font-family: var(--hf) !important;
+  font-weight: 700 !important;
+  letter-spacing: -.02em;
+}
+
+/* Intake forms - premium feel */
+.intake-form {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-md) !important;
+  border: none !important;
+  overflow: hidden !important;
+}
+.intake-header {
+  background: linear-gradient(135deg, var(--dark), #2a2f3a) !important;
+  padding: 1rem 1.5rem !important;
+}
+.intake-title {
+  font-family: var(--mono) !important;
+  font-size: .7rem !important;
+  letter-spacing: .15em !important;
+  font-weight: 500 !important;
+}
+.intake-section-header {
+  font-family: var(--hf) !important;
+  font-weight: 600 !important;
+  font-size: .95rem !important;
+  letter-spacing: .02em;
+}
+
+/* Weekly cards - the hero element */
+[style*='overflow:hidden;transition:.2s;margin-bottom:2.5rem'] {
+  border: none !important;
+  box-shadow: var(--shadow-md) !important;
+  border-radius: var(--radius-lg) !important;
+  transition: box-shadow .35s ease !important;
+  position: relative;
+}
+[style*='overflow:hidden;transition:.2s;margin-bottom:2.5rem']:hover {
+  box-shadow: var(--shadow-lg) !important;
+}
+/* Weekly card phase header bar */
+[style*='overflow:hidden;transition:.2s;margin-bottom:2.5rem'] > div:first-child[style*='height:3px'] {
+  height: 4px !important;
+}
+
+/* Blockquotes / callouts */
+.section-body blockquote {
+  border-left: 3px solid var(--acc) !important;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0 !important;
+  background: linear-gradient(135deg, rgba(201,123,90,.04), transparent) !important;
+  padding: 1.3rem 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  font-style: normal !important;
+}
+
+/* Disclaimer boxes - refined */
+.disclaimer-box {
+  border-radius: var(--radius-md) !important;
+  border-left: 3px solid var(--acc2) !important;
+  background: linear-gradient(135deg, rgba(184,149,106,.06), transparent) !important;
+  padding: .8rem 1rem !important;
+  font-size: .85rem !important;
+}
+
+/* Self-check blocks - more visual weight */
+[style*='background:linear-gradient(135deg,#f0f4f8,#e8eef4)'] {
+  border: none !important;
+  box-shadow: var(--shadow-md) !important;
+  position: relative;
+  overflow: hidden;
+}
+[style*='background:linear-gradient(135deg,#f0f4f8,#e8eef4)']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pri), var(--teal));
+}
+
+/* Check items ☐ - cleaner */
+.check-item, [style*='padding:.35rem 0;font-size:.88rem'] {
+  border-bottom: 1px solid rgba(0,0,0,.04) !important;
+  padding: .5rem 0 !important;
+  transition: background .15s ease;
+}
+.check-item:hover, [style*='padding:.35rem 0;font-size:.88rem']:hover {
+  background: rgba(74,124,155,.03);
+}
+
+/* Links - refined underline animation */
+.section-body a:not([style*='background']) {
+  color: var(--pri) !important;
+  text-decoration: none !important;
+  background-image: linear-gradient(var(--pri), var(--pri));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .3s ease;
+}
+.section-body a:not([style*='background']):hover {
+  background-size: 100% 1px;
+}
+
+/* Supervision banner - refined */
+.supervision-banner {
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Scrollbar - more refined */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.12);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,.2);
+}
+
+/* Selection */
+::selection {
+  background: rgba(201,123,90,.12) !important;
+  color: var(--dark) !important;
+}
+
+/* Progress bar - gradient shimmer */
+.progress-bar > div {
+  background: linear-gradient(90deg, var(--acc), var(--pri), var(--acc)) !important;
+  background-size: 200% 100%;
+}
+
+/* Sidebar - refined glass-like */
+.sidebar {
+  background: linear-gradient(180deg, #191c23, #1e222b, #191c23) !important;
+  backdrop-filter: blur(20px);
+}
+.sidebar-header {
+  border-bottom: 1px solid rgba(255,255,255,.04) !important;
+  padding: 2rem 1.5rem 1.2rem !important;
+}
+.sidebar-header h1 {
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  letter-spacing: -.01em !important;
+}
+.nav-part-title {
+  font-size: .72rem !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  padding: .7rem 1.5rem !important;
+  transition: color .2s, padding-left .2s !important;
+}
+.nav-part-title:hover {
+  padding-left: 1.7rem !important;
+}
+.nav-link {
+  font-size: .82rem !important;
+  padding: .35rem 1.5rem .35rem 2rem !important;
+  transition: all .2s ease !important;
+  border-left: 2px solid transparent;
+}
+.nav-link:hover {
+  background: rgba(255,255,255,.04) !important;
+  border-left-color: rgba(201,123,90,.3);
+}
+.nav-link.active {
+  color: #fff !important;
+  font-weight: 500 !important;
+  background: rgba(201,123,90,.1) !important;
+  border-left-color: var(--acc) !important;
+  border-radius: 0 !important;
+  padding-left: 2rem !important;
+}
+
+/* Menu toggle - polished */
+.menu-toggle {
+  background: var(--dark) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15) !important;
+  transition: all .25s ease !important;
+}
+.menu-toggle:hover {
+  transform: scale(1.05) !important;
+  border-color: rgba(255,255,255,.15) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,.2) !important;
+}
+
+/* Smooth appearance for all sections */
+.section, .part-header {
+  transition: opacity .4s ease !important;
+}
+
+/* Table refinement */
+.section-body table {
+  border-radius: var(--radius-md) !important;
+  overflow: hidden !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border: 1px solid var(--border) !important;
+}
+.section-body th {
+  font-family: var(--bf) !important;
+  font-weight: 600 !important;
+  font-size: .8rem !important;
+  letter-spacing: .02em !important;
+  background: var(--dark) !important;
+  color: #fff !important;
+}
+.section-body td {
+  font-size: .85rem !important;
+  border-bottom: 1px solid rgba(0,0,0,.04) !important;
+}
+.section-body tr:last-child td {
+  border-bottom: none !important;
+}
+.section-body tr:hover td {
+  background: rgba(74,124,155,.02);
+}
+
+/* Dark theory blocks in weekly cards */
+[style*='background:var(--dark);color:rgba(255,255,255'] {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid rgba(255,255,255,.06) !important;
+}
+
+/* Version badge */
+[style*='position:fixed;bottom:5px;right:5px;font-size:10px'] {
+  font-family: var(--mono) !important;
+  background: var(--dark);
+  color: rgba(255,255,255,.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
 </style>
 </head>
 <body><div id="siteLogo" style="position:fixed;top:14px;right:16px;z-index:9999;cursor:pointer" onclick="window.open('https://www.abapsy.com','_blank')"><img src="data:image/png;base64,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" alt="" style="width:48px;height:48px;display:block"></div>
@@ -2930,7 +3782,7 @@ section.part {
 <div style="background:#fff;border:1.5px solid #d0d8e0;border-radius:var(--radius-md);padding:1rem 1.3rem;margin:1rem 0">
   <div style="font-family:var(--hf);font-size:.95rem;font-weight:500;color:var(--dark);margin-bottom:.5rem">Ресурсы для подготовки</div>
   <div style="font-size:.84rem;color:var(--text2);line-height:1.7;margin-bottom:.8rem">
-    <strong style="color:var(--dark)">О данном руководстве:</strong> это пособие для специалистов по ПАП (BCBA, BCaBA, RBT, IBA, QBA, QASP-S) по <em>обучению родителей</em> — как проводить тренинг, структурировать сессии, оценивать точность, работать с барьерами. Фокус — на клинических навыках специалиста, а не на содержании для родителя.
+    <strong style="color:var(--dark)">О данном руководстве:</strong> это пособие для специалистов по ПАП (BCBA-D, BCBA, BCaBA, IBA, QBA, QASP-S) по <em>обучению родителей</em> — как проводить тренинг, структурировать сессии, оценивать точность, работать с барьерами. Фокус — на клинических навыках специалиста, а не на содержании для родителя.
     <br><br>
     Ниже — дополнительные ресурсы, которые полезны <strong>и специалисту</strong> (для понимания, что рекомендовать), <strong>и родителю</strong> (для самостоятельного изучения между сессиями). Не вся информация на сайте привязана к конкретной неделе — специалисту стоит самостоятельно ознакомиться с материалами и подобрать релевантные для каждой семьи.
   </div>
@@ -6003,7 +6855,88 @@ window.addEventListener('load', function() { setTimeout(sendHeight, 500); setTim
 window.addEventListener('resize', sendHeight);
 new ResizeObserver(sendHeight).observe(document.body);
 
+
+// === MOBILE LAYOUT FIX ===
+function fixMobileLayouts() {
+  var isMobile = window.innerWidth <= 768;
+  
+  // 1. Fix ALL inline grids -> single column on mobile
+  document.querySelectorAll('[style]').forEach(function(el) {
+    var s = el.getAttribute('style') || '';
+    if (s.indexOf('grid-template-columns') > -1 && s.indexOf('1fr 1fr') > -1) {
+      if (isMobile) {
+        el.style.gridTemplateColumns = '1fr';
+        el.style.gap = '.6rem';
+      }
+    }
+  });
+  
+  // 2. Fix ALL tables - wrap in scrollable container
+  document.querySelectorAll('table').forEach(function(table) {
+    if (table.parentElement.classList.contains('table-mobile-wrap')) return;
+    var wrapper = document.createElement('div');
+    wrapper.className = 'table-mobile-wrap';
+    wrapper.style.cssText = 'overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.5rem 0;max-width:100%';
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+    table.style.minWidth = isMobile ? '500px' : '';
+    table.style.fontSize = isMobile ? '.75rem' : '';
+  });
+  
+  // 3. Fix SVGs - ensure they fit
+  document.querySelectorAll('svg').forEach(function(svg) {
+    if (svg.closest('.sidebar') || svg.closest('.menu-toggle') || svg.closest('#backToTop')) return;
+    var vb = svg.getAttribute('viewBox');
+    if (vb) {
+      svg.style.maxWidth = '100%';
+      svg.style.height = 'auto';
+      svg.style.display = 'block';
+    }
+    // Wrap large SVGs in scrollable container
+    var width = parseInt(svg.getAttribute('width') || '0');
+    if (width > 300 && isMobile) {
+      if (!svg.parentElement.classList.contains('svg-mobile-wrap')) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'svg-mobile-wrap';
+        wrapper.style.cssText = 'overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:.5rem 0';
+        svg.parentNode.insertBefore(wrapper, svg);
+        wrapper.appendChild(svg);
+      }
+    }
+  });
+  
+  // 4. Fix inline flex with min-width
+  if (isMobile) {
+    document.querySelectorAll('[style]').forEach(function(el) {
+      var s = el.getAttribute('style') || '';
+      if (s.indexOf('min-width') > -1) {
+        var match = s.match(/min-width:s*(d+)px/);
+        if (match && parseInt(match[1]) > 80) {
+          el.style.minWidth = '0';
+          el.style.width = '100%';
+        }
+      }
+    });
+  }
+  
+  // 5. Fix intake forms - ensure fields wrap
+  if (isMobile) {
+    document.querySelectorAll('.intake-grid, .intake-row, .form-field-row').forEach(function(el) {
+      el.style.gridTemplateColumns = '1fr';
+    });
+    // Fix inline-block fields with fixed widths
+    document.querySelectorAll('[style*="display:inline-block"][style*="width:"]').forEach(function(el) {
+      el.style.display = 'block';
+      el.style.width = '100%';
+    });
+  }
+}
+
+// Run on load and resize
+fixMobileLayouts();
+window.addEventListener('resize', fixMobileLayouts);
+
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v50</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:var(--dark);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v52</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:var(--dark);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 </body>
 </html>
