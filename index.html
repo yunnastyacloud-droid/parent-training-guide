@@ -1194,8 +1194,8 @@ section.part {
 @media (max-width: 768px) {
   section.part {
     max-width: 100%;
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
+    padding-left: .8rem;
+    padding-right: .8rem;
   }
 }
 
@@ -7050,87 +7050,114 @@ window.addEventListener('resize', sendHeight);
 new ResizeObserver(sendHeight).observe(document.body);
 
 
-// === MOBILE LAYOUT FIX ===
-function fixMobileLayouts() {
-  var isMobile = window.innerWidth <= 768;
+// === MOBILE LAYOUT FIX v3 (aggressive) ===
+function fixMobile() {
+  if (window.innerWidth > 768) return;
   
-  // 1. Fix ALL inline grids -> single column on mobile
+  // 1. ALL grids -> stack vertically
   document.querySelectorAll('[style]').forEach(function(el) {
-    var s = el.getAttribute('style') || '';
-    if (s.indexOf('grid-template-columns') > -1 && (s.indexOf('1fr 1fr') > -1 || s.indexOf('auto 1fr') > -1)) {
-      if (isMobile) {
-        el.style.display = 'block';
-        el.style.gap = '.6rem';
+    var s = el.style;
+    if (s.display === 'grid' || s.getPropertyValue('display') === 'grid') {
+      var cols = s.gridTemplateColumns || s.getPropertyValue('grid-template-columns');
+      if (cols && cols.indexOf('1fr') > -1 && cols.indexOf('1fr 1fr') > -1) {
+        s.setProperty('display', 'block', 'important');
       }
+    }
+    // Also catch grids set via attribute
+    var attr = el.getAttribute('style') || '';
+    if (attr.indexOf('grid-template-columns') > -1 && attr.indexOf('1fr 1fr') > -1) {
+      el.style.setProperty('display', 'block', 'important');
     }
   });
   
-  // 2. Fix ALL tables - wrap in scrollable container
+  // 2. ALL wide paddings -> tight
+  document.querySelectorAll('[style]').forEach(function(el) {
+    var attr = el.getAttribute('style') || '';
+    // Weekly card bodies and callout blocks
+    if (attr.indexOf('padding:1.5rem 1.8rem') > -1 ||
+        attr.indexOf('padding:1.8rem 2rem') > -1 ||
+        attr.indexOf('padding: 1.8rem 2rem') > -1) {
+      el.style.setProperty('padding', '.8rem', 'important');
+    }
+    if (attr.indexOf('padding:1rem 1.2rem') > -1 ||
+        attr.indexOf('padding:1.2rem 1.5rem') > -1 ||
+        attr.indexOf('padding: 1.2rem 1.5rem') > -1 ||
+        attr.indexOf('padding:1rem 1.5rem') > -1) {
+      el.style.setProperty('padding', '.6rem .7rem', 'important');
+    }
+  });
+  
+  // 3. Dark blocks with flex -> column
+  document.querySelectorAll('[style]').forEach(function(el) {
+    var attr = el.getAttribute('style') || '';
+    var isDark = attr.indexOf('background:var(--dark)') > -1 || 
+                 attr.indexOf('background:#1c1f26') > -1 ||
+                 attr.indexOf('background:#2d3142') > -1;
+    if (isDark) {
+      el.style.setProperty('padding', '.6rem .7rem', 'important');
+      el.style.setProperty('font-size', '.8rem', 'important');
+      // Fix inner flex children
+      el.querySelectorAll('[style*="display:flex"]').forEach(function(child) {
+        child.style.setProperty('flex-direction', 'column', 'important');
+        child.style.setProperty('gap', '.3rem', 'important');
+      });
+    }
+  });
+  
+  // 4. Session time rows -> inline text
+  document.querySelectorAll('[style*="display:flex"][style*="align-items:baseline"]').forEach(function(el) {
+    el.style.setProperty('display', 'block', 'important');
+    el.querySelectorAll('[style*="min-width"]').forEach(function(child) {
+      child.style.setProperty('min-width', '0', 'important');
+      child.style.setProperty('display', 'inline', 'important');
+    });
+  });
+  
+  // 5. Tables -> scrollable
   document.querySelectorAll('table').forEach(function(table) {
-    if (table.parentElement.classList.contains('table-mobile-wrap')) return;
-    var wrapper = document.createElement('div');
-    wrapper.className = 'table-mobile-wrap';
-    wrapper.style.cssText = 'overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.5rem 0;max-width:100%';
-    table.parentNode.insertBefore(wrapper, table);
-    wrapper.appendChild(table);
-    table.style.minWidth = isMobile ? '500px' : '';
-    table.style.fontSize = isMobile ? '.75rem' : '';
+    if (table.closest('.table-mobile-wrap')) return;
+    if (!table.closest('.section-body') && !table.closest('.intake-form')) return;
+    var w = document.createElement('div');
+    w.className = 'table-mobile-wrap';
+    w.style.cssText = 'overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;border:1px solid #eae6df;border-radius:6px';
+    table.parentNode.insertBefore(w, table);
+    w.appendChild(table);
+    table.style.setProperty('min-width', '480px', 'important');
   });
   
-  // 3. Fix SVGs - ensure they fit
+  // 6. Fix min-width on spans/divs
+  document.querySelectorAll('[style*="min-width"]').forEach(function(el) {
+    var mw = parseInt(el.style.minWidth);
+    if (mw > 60) {
+      el.style.setProperty('min-width', '0', 'important');
+    }
+  });
+  
+  // 7. Inline-block with fixed width -> block 100%
+  document.querySelectorAll('[style*="display:inline-block"][style*="width:"]').forEach(function(el) {
+    var w = parseInt(el.style.width);
+    if (w > 100) {
+      el.style.setProperty('display', 'block', 'important');
+      el.style.setProperty('width', '100%', 'important');
+    }
+  });
+  
+  // 8. SVGs -> max-width
   document.querySelectorAll('svg').forEach(function(svg) {
-    if (svg.closest('.sidebar') || svg.closest('.menu-toggle') || svg.closest('#backToTop')) return;
-    var vb = svg.getAttribute('viewBox');
-    if (vb) {
-      svg.style.maxWidth = '100%';
-      svg.style.height = 'auto';
-      svg.style.display = 'block';
-    }
-    // Wrap large SVGs in scrollable container
-    var width = parseInt(svg.getAttribute('width') || '0');
-    if (width > 300 && isMobile) {
-      if (!svg.parentElement.classList.contains('svg-mobile-wrap')) {
-        var wrapper = document.createElement('div');
-        wrapper.className = 'svg-mobile-wrap';
-        wrapper.style.cssText = 'overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:.5rem 0';
-        svg.parentNode.insertBefore(wrapper, svg);
-        wrapper.appendChild(svg);
-      }
+    if (svg.closest('.sidebar') || svg.closest('.menu-toggle')) return;
+    if (svg.getAttribute('viewBox')) {
+      svg.style.setProperty('max-width', '100%', 'important');
+      svg.style.setProperty('height', 'auto', 'important');
     }
   });
-  
-  // 4. Fix inline flex with min-width
-  if (isMobile) {
-    document.querySelectorAll('[style]').forEach(function(el) {
-      var s = el.getAttribute('style') || '';
-      if (s.indexOf('min-width') > -1) {
-        var match = s.match(/min-width:s*(d+)px/);
-        if (match && parseInt(match[1]) > 80) {
-          el.style.minWidth = '0';
-          el.style.width = '100%';
-        }
-      }
-    });
-  }
-  
-  // 5. Fix intake forms - ensure fields wrap
-  if (isMobile) {
-    document.querySelectorAll('.intake-grid, .intake-row, .form-field-row').forEach(function(el) {
-      el.style.gridTemplateColumns = '1fr';
-    });
-    // Fix inline-block fields with fixed widths
-    document.querySelectorAll('[style*="display:inline-block"][style*="width:"]').forEach(function(el) {
-      el.style.display = 'block';
-      el.style.width = '100%';
-    });
-  }
 }
 
-// Run on load and resize
-fixMobileLayouts();
-window.addEventListener('resize', fixMobileLayouts);
+// Run immediately + after load + on resize
+fixMobile();
+window.addEventListener('load', function() { setTimeout(fixMobile, 100); setTimeout(fixMobile, 1000); });
+window.addEventListener('resize', fixMobile);
 
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v54</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:var(--dark);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v55</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:var(--dark);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 </body>
 </html>
