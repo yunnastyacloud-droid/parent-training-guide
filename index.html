@@ -258,6 +258,16 @@ section.part {
   align-items: center;
   gap: .5rem;
 }
+.section h2::before {
+  content: '▾';
+  font-size: .7em;
+  color: var(--acc);
+  transition: transform .25s ease;
+  flex-shrink: 0;
+}
+.section.collapsed h2::before {
+  content: '▸';
+}
 .section h2::after {
   content: '';
   position: absolute; bottom: 0; left: 0;
@@ -267,7 +277,7 @@ section.part {
   border-radius: 1px;
 }
 .section-body {
-  display: none;
+  display: block;
   font-size: .92rem;
   line-height: 1.85;
   color: var(--text2);
@@ -275,7 +285,7 @@ section.part {
   overflow-x: hidden;
   word-break: break-word;
 }
-.section.expanded .section-body { display: block }
+.section.collapsed .section-body { display: none }
 .section-body p { margin-bottom: 1rem }
 .section-body strong { color: var(--dark); font-weight: 600 }
 .section-body h3 {
@@ -716,7 +726,7 @@ body.embed-mode #backToTop { display: none }
       <a href="javascript:void(0)" data-target="s_2_9" class="nav-link">Выгорание родителей</a>
       <a href="javascript:void(0)" data-target="s_2_10" class="nav-link">Ошибки специалистов</a>
       <a href="javascript:void(0)" data-target="s_2_12" class="nav-link">Социальная валидность</a>
-      <a href="javascript:void(0)" data-target="s_2_13" class="nav-link"><a href="javascript:void(0)" data-scroll="s_2_13" onclick="document.getElementById(this.dataset.scroll).scrollIntoView({behavior:'smooth'})" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">Опросник валидности</a></a>
+      <a href="javascript:void(0)" data-target="s_2_13" class="nav-link">Опросник валидности</a>
     </div></div>
 
     <div class="nav-part">
@@ -778,10 +788,13 @@ body.embed-mode #backToTop { display: none }
 
     <div class="nav-part">
     <a href="javascript:void(0)" data-target="part_7" class="nav-part-title" style="--pc:#7c92ab" data-part="7">ЛИТЕРАТУРА</a>
-    <div class="nav-sections"></div></div>
+    <div class="nav-sections">
+      <a href="javascript:void(0)" data-target="s_8_0" class="nav-link">Список литературы</a>
+    </div></div>
   </nav>
   <div class="sidebar-controls">
     <button class="btn" id="btnPresent" title="Презентационный режим">🖥 Режим</button>
+    <button class="btn" id="btnExpandAll" title="Раскрыть / свернуть все секции">▾ Свернуть все</button>
     <button class="btn" id="btnPrint" title="Печать">🖨 Печать</button>
     <button class="btn" id="btnTop" title="Наверх">↑ Наверх</button>
   </div>
@@ -1134,14 +1147,14 @@ body.embed-mode #backToTop { display: none }
     <div class="part-header">
       <div class="part-num">ЧАСТЬ III</div>
       <h1>ПОСТРОЕНИЕ ОТНОШЕНИЙ</h1>
-    </div><div style="margin:0 auto 1.5rem;max-width:860px;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);opacity:.6">Часть III-А · Установление контакта</div><div class="section" <div style="margin:1.5rem auto;max-width:800px;padding:1rem 1.2rem;background:linear-gradient(135deg,#f5f8fb,#eef3f9);border-radius:var(--radius-md);border:1px solid #e5e7eb;box-sizing:border-box">
+    </div><div style="margin:0 auto 1.5rem;max-width:860px;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);opacity:.6">Часть III-А · Установление контакта</div><div style="margin:1.5rem auto;max-width:800px;padding:1rem 1.2rem;background:linear-gradient(135deg,#f5f8fb,#eef3f9);border-radius:var(--radius-md);border:1px solid #e5e7eb;box-sizing:border-box">
 <p style="font-family:var(--hf);font-weight:600;font-size:1.05rem;color:var(--dark);margin-bottom:.6rem">Прежде чем начать: горевание родителя</p>
-<p style="font-size:.88rem;color:var(--text2);line-height:1.7">Для многих родителей диагноз ребёнка — это потеря «ожидаемого будущего». Родитель горюет — и это нормальная, здоровая реакция. Горевание проявляется по-разному: отрицание («может, ошиблись»), гнев («почему мой ребёнок?»), торг («если мы будем делать больше терапии — всё пройдёт»), депрессия, и — со временем — принятие.</p>
+<p style="font-size:.88rem;color:var(--text2);line-height:1.7">Для многих родителей диагноз ребёнка — это потеря «ожидаемого будущего». Родитель горюет — и это нормальная, здоровая реакция. Горевание может проявляться по-разному: неверие («может, ошиблись»), гнев («почему мой ребёнок?»), попытки контролировать ситуацию («если мы будем делать больше терапии — всё пройдёт»), глубокая печаль, растерянность — и, со временем, принятие. Это не линейный процесс: родитель может возвращаться к одним и тем же переживаниям многократно.</p>
 <p style="font-size:.88rem;color:var(--text2);line-height:1.7"><strong>Что это значит для вас:</strong> если родитель только получил диагноз — <strong>не начинайте с BST</strong>. Начните с раппорта и MI. Дайте время. Родитель, который плачет на первой сессии, не готов практиковать FCT. Но через 2–3 встречи, когда он почувствует, что его слышат — готовность появится.</p>
 <p style="font-size:.88rem;color:var(--text2);line-height:1.7"><strong>Фраза:</strong> «Я вижу, что вам сейчас тяжело. Это нормально. Мы начнём тренинг, когда вы будете готовы. А пока — я здесь, чтобы ответить на вопросы и поддержать.»</p>
-<p style="font-size:.82rem;color:var(--mut);font-style:italic;margin-top:.3rem">Если горевание затягивается или переходит в клиническую депрессию — направьте к психологу (abapsy.com/psychologist).</p>
+<p style="font-size:.88rem;color:var(--text2);line-height:1.7"><strong>Когда направить к психологу или психотерапевту.</strong> Диагностика психического состояния родителя — <strong>не в компетенции BCBA</strong>. Однако вы можете заметить наблюдаемые изменения, которые указывают на необходимость направления: родитель перестал приходить на сессии или систематически отменяет встречи; заметно снизился уровень вовлечённости в программу ребёнка (перестал выполнять домашние задания, не реагирует на сообщения); сам сообщает о том, что не справляется, плохо спит, потерял интерес к повседневным делам; вы замечаете значительные изменения во внешнем виде или поведении по сравнению с предыдущими встречами. В таких случаях — мягко предложите обратиться к специалисту по психическому здоровью.</p>
 </div>
-id="s_2_0" data-idx="8">
+<div class="section" id="s_2_0" data-idx="8">
       <h2>КАК ПОСТРОИТЬ ОТНОШЕНИЯ С РОДИТЕЛЕМ</h2>
       <div class="section-body">
 <div style="background:linear-gradient(135deg,#f0f4f8,#e9eef4);border:1px solid #e5e7eb;border-radius:var(--radius-md);padding:1rem 1.3rem;margin:1.2rem 0">
@@ -1586,7 +1599,7 @@ id="s_2_0" data-idx="8">
 <p>Помните: поведенческое изменение без учёта мнения потребителя — это, по определению, не прикладной анализ поведения (Baer et al., 1968; Wolf, 1978).</p>
 </div>
     <div style="font-size:.82rem;color:var(--mut);font-style:italic;margin-bottom:.5rem">Готовый опросник — в следующей секции ниже.</div></div><div class="section" id="s_2_13" data-idx="21">
-      <h2><a href="javascript:void(0)" data-scroll="s_2_13" onclick="document.getElementById(this.dataset.scroll).scrollIntoView({behavior:'smooth'})" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">ОПРОСНИК СОЦИАЛЬНОЙ ВАЛИДНОСТИ</a> ДЛЯ РОДИТЕЛЯ</h2>
+      <h2>ОПРОСНИК СОЦИАЛЬНОЙ ВАЛИДНОСТИ ДЛЯ РОДИТЕЛЯ</h2>
       <div class="section-body"><div class="intake-form" style="border-color:var(--acc2)">
   <div class="intake-header" style="background:var(--acc2)">
     <div class="intake-title"><a href="javascript:void(0)" data-scroll="s_2_13" onclick="document.getElementById(this.dataset.scroll).scrollIntoView({behavior:'smooth'})" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">ОПРОСНИК СОЦИАЛЬНОЙ ВАЛИДНОСТИ</a></div>
@@ -5248,8 +5261,8 @@ iv>
       <h1>ПОЛНЫЙ СПИСОК ЛИТЕРАТУРЫ (Peer-Reviewed)</h1>
     </div>
 <div class="section" id="s_8_0" data-idx="51">
-      
-      <div class="section-body"><p>СПИСОК ЛИТЕРАТУРЫ (Peer-Reviewed)</p>
+      <h2>СПИСОК ЛИТЕРАТУРЫ</h2>
+      <div class="section-body">
 <p>Bearss, K., Burrell, T. L., Stewart, L., &amp; Scahill, L. (2015). Parent Training in Autism Spectrum Disorder: What&#39;s in a Name? Clinical Child and Family Psychology Review, 18(2), 170--182. doi:10.1007/s10567-015-0179-5</p>
 <p>Bearss, K., Johnson, C., Smith, T., Lecavalier, L., Swiezy, N., Aman, M., ... &amp; Scahill, L. (2015). Effect of Parent Training vs Parent Education on Behavioral Problems in Children With Autism Spectrum Disorder: A Randomized Clinical Trial. JAMA, 313(15), 1524--1533. doi:10.1001/jama.2015.3150</p>
 <p>Behavior Analyst Certification Board (2020, updated 2024). Ethics Code for Behavior Analysts. Littleton, CO: BACB.</p>
@@ -5303,16 +5316,26 @@ iv>
 </main>
 
 <script>
+// === SECTION TOGGLE (click h2 to expand/collapse) ===
+document.querySelectorAll('.section h2').forEach(h2 => {
+  h2.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') return;
+    const section = this.closest('.section');
+    if (section) section.classList.toggle('collapsed');
+  });
+});
+
 // === SIDEBAR NAVIGATION ===
 
-// Section links: scroll to target
+// Section links: scroll to target AND expand it
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
     const t = document.getElementById(this.getAttribute('data-target'));
-    if (t) t.scrollIntoView({behavior:'smooth', block:'start'});
-    // Close mobile sidebar
-    // sidebar close handled by overlay JS
+    if (t) {
+      t.classList.remove('collapsed');
+      t.scrollIntoView({behavior:'smooth', block:'start'});
+    }
   });
 });
 
@@ -5371,6 +5394,19 @@ if (pb2) pb2.addEventListener('click', () => {
 
 const pp = document.getElementById('btnPrint');
 if (pp) pp.addEventListener('click', () => window.print());
+
+const btnExp = document.getElementById('btnExpandAll');
+if (btnExp) {
+  let allCollapsed = false;
+  btnExp.addEventListener('click', () => {
+    allCollapsed = !allCollapsed;
+    document.querySelectorAll('.section').forEach(s => {
+      if (allCollapsed) s.classList.add('collapsed');
+      else s.classList.remove('collapsed');
+    });
+    btnExp.textContent = allCollapsed ? '▸ Раскрыть все' : '▾ Свернуть все';
+  });
+}
 
 const pt = document.getElementById('btnTop');
 if (pt) pt.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
@@ -5641,6 +5677,6 @@ window.addEventListener('load', function() { setTimeout(fixMobile, 100); setTime
 window.addEventListener('resize', fixMobile);
 
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v76</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v78</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 </body>
 </html>
