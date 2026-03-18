@@ -7065,8 +7065,15 @@ function fixMobile() {
     }
     // Also catch grids set via attribute
     var attr = el.getAttribute('style') || '';
-    if (attr.indexOf('grid-template-columns') > -1 && attr.indexOf('1fr 1fr') > -1) {
-      el.style.setProperty('display', 'block', 'important');
+    if (attr.indexOf('grid-template-columns') > -1 && (attr.indexOf('1fr 1fr') > -1 || attr.indexOf('repeat(') > -1)) {
+      // Check if it's a 5-col grid (phase cards) -> make 2 cols instead of 1
+      if (attr.indexOf('repeat(5') > -1) {
+        el.style.setProperty('display', 'grid', 'important');
+        el.style.setProperty('grid-template-columns', '1fr 1fr', 'important');
+        el.style.setProperty('gap', '.4rem', 'important');
+      } else {
+        el.style.setProperty('display', 'block', 'important');
+      }
     }
   });
   
@@ -7104,13 +7111,32 @@ function fixMobile() {
     }
   });
   
-  // 4. Session time rows -> inline text
+  // 4. Session time rows -> title+time on line 1, description on line 2
   document.querySelectorAll('[style*="display:flex"][style*="align-items:baseline"]').forEach(function(el) {
     el.style.setProperty('display', 'block', 'important');
-    el.querySelectorAll('[style*="min-width"]').forEach(function(child) {
-      child.style.setProperty('min-width', '0', 'important');
-      child.style.setProperty('display', 'inline', 'important');
-    });
+    el.style.setProperty('padding', '.4rem 0', 'important');
+    var children = el.children;
+    if (children.length >= 3) {
+      // First span: title (bold)
+      children[0].style.setProperty('display', 'inline', 'important');
+      children[0].style.setProperty('min-width', '0', 'important');
+      children[0].style.setProperty('font-size', '.85rem', 'important');
+      // Second span: time
+      children[1].style.setProperty('display', 'inline', 'important');
+      children[1].style.setProperty('min-width', '0', 'important');
+      children[1].style.setProperty('margin-left', '.4rem', 'important');
+      children[1].style.setProperty('font-size', '.78rem', 'important');
+      // Third span: description -> new line
+      children[2].style.setProperty('display', 'block', 'important');
+      children[2].style.setProperty('margin-top', '.2rem', 'important');
+      children[2].style.setProperty('font-size', '.82rem', 'important');
+      children[2].style.setProperty('line-height', '1.5', 'important');
+    } else {
+      // Fallback: just remove min-width
+      for (var i = 0; i < children.length; i++) {
+        children[i].style.setProperty('min-width', '0', 'important');
+      }
+    }
   });
   
   // 5. Tables -> scrollable
@@ -7158,6 +7184,6 @@ window.addEventListener('load', function() { setTimeout(fixMobile, 100); setTime
 window.addEventListener('resize', fixMobile);
 
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v55</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:var(--dark);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v57</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:var(--dark);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 </body>
 </html>
