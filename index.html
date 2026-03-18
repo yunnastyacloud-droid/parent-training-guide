@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" style="scroll-behavior:smooth">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1094,6 +1094,47 @@ a[style*='background:var(--pri)']:hover {
 /* Progress bar gradient animation */
 .progress-bar > div {
   transition: width .3s ease;
+}
+
+
+/* Scroll offset for fixed headers */
+.section, .part-header, section.part {
+  scroll-margin-top: 20px;
+}
+
+
+/* Mobile sidebar improvements */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 85vw !important;
+    max-width: 320px !important;
+  }
+  .menu-toggle {
+    width: 40px !important;
+    height: 40px !important;
+    top: 8px !important;
+    left: 8px !important;
+  }
+  #backToTop {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1rem !important;
+  }
+}
+
+
+/* Active nav link highlight */
+.nav-link.active {
+  color: var(--acc) !important;
+  font-weight: 500 !important;
+  background: rgba(201,123,90,.08);
+  border-radius: var(--radius-sm);
+  padding-left: .6rem;
+}
+.nav-part-title.active {
+  color: var(--acc) !important;
 }
 
 </style>
@@ -5825,8 +5866,31 @@ document.querySelectorAll('.section-body table, .intake-form table, table').forE
 if (window.location.search.includes('embed=1')) {
   document.getElementById('siteLogo')?.style.setProperty('display','none','important');
   document.querySelector('.progress-bar')?.style.setProperty('display','none','important');
+  document.getElementById('backToTop')?.style.setProperty('display','none','important');
   document.body.style.background = 'transparent';
   document.documentElement.style.background = 'transparent';
+}
+
+
+// ESC key closes sidebar
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var sb = document.getElementById('sidebar');
+    var ov = document.getElementById('sidebarOverlay');
+    if (sb) sb.classList.remove('open');
+    if (ov) ov.classList.remove('active');
+  }
+});
+
+
+// Back-to-top button
+var btt = document.getElementById('backToTop');
+if (btt) {
+  window.addEventListener('scroll', function() {
+    btt.style.display = window.scrollY > 800 ? 'block' : 'none';
+  });
+  btt.addEventListener('mouseenter', function() { this.style.opacity = '1'; });
+  btt.addEventListener('mouseleave', function() { this.style.opacity = '.7'; });
 }
 
 // Expand first part by default
@@ -5860,36 +5924,16 @@ document.querySelectorAll('.nav-link').forEach(link => {
 });
 
 
-// Send height to parent for auto-resize
+// Send height to parent iframe
 function sendHeight() {
-  const h = document.documentElement.scrollHeight;
-  window.parent.postMessage({type:'iframeHeight', height: h}, '*');
-}
-window.addEventListener('load', () => { setTimeout(sendHeight, 500); setTimeout(sendHeight, 2000); });
-new MutationObserver(sendHeight).observe(document.body, {childList:true, subtree:true});
-// Also send on every section becoming visible
-const resizeObs = new ResizeObserver(sendHeight);
-resizeObs.observe(document.body);
-
-
-// Send height to parent for auto-resize
-function sendHeight() {
-  const h = document.documentElement.scrollHeight;
-  window.parent.postMessage({type:'resize', height: h}, '*');
-}
-window.addEventListener('load', sendHeight);
-new MutationObserver(sendHeight).observe(document.body, {childList:true, subtree:true});
-setInterval(sendHeight, 2000);
-
-// Auto-resize iframe: send height to parent
-function sendHeight() {
-  const h = document.documentElement.scrollHeight;
+  var h = document.documentElement.scrollHeight;
   window.parent.postMessage({ type: 'resize', height: h }, '*');
 }
-window.addEventListener('load', () => { setTimeout(sendHeight, 500); setTimeout(sendHeight, 2000); });
+window.addEventListener('load', function() { setTimeout(sendHeight, 500); setTimeout(sendHeight, 2000); });
 window.addEventListener('resize', sendHeight);
-new MutationObserver(sendHeight).observe(document.body, { childList: true, subtree: true, attributes: true });
+new ResizeObserver(sendHeight).observe(document.body);
 
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v7.0</div></body>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v45</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:var(--dark);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+</body>
 </html>
