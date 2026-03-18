@@ -662,7 +662,7 @@ body.embed-mode #backToTop { display: none }
   .sidebar { width: 85vw; max-width: 320px }
   .menu-toggle { top: 8px; left: 8px; width: 36px; height: 36px; font-size: .95rem }
   #siteLogo { top: 6px !important; right: 6px !important }
-  #siteLogo img { width: 30px !important; height: 30px !important }
+  #siteLogo img { width: 38px !important; height: 38px !important; object-fit: contain !important }
   #backToTop { width: 34px; height: 34px; bottom: 12px; right: 12px; font-size: .9rem }
 
   .viz-grid-2, .viz-grid-3, .viz-two-col, .viz-triad { grid-template-columns: 1fr }
@@ -692,7 +692,7 @@ body.embed-mode #backToTop { display: none }
 
 </style>
 </head>
-<body><div id="siteLogo" style="position:fixed;top:14px;right:16px;z-index:9999;cursor:pointer" onclick="window.open('https://www.abapsy.com','_blank')"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAej0lEQVR42uV9e3hU1bn3711r77lkcg/I3UttpSZWv1p6tRaorVZr1XN6JrWtd2ACVoSAiMhlzwZBKARIRCUDorTa1hl7vtZjFW0todZ6v9ak3jhFQbkEcp/r3nu93x8zA0NMIAkBfZ5vPc88yTOT2Xvt33qvv3etN4TP3iBmRjAYpNw3g8EgExEA8Gdqsp/mvQ3DIKBBABMAQJmmqfryRcMwBAABNACYoEzT5E8L2BMNIIXDfgEAlZURp/uHfr9fnv5lT7HboxU5zD5Jwg0AKdtOCTeimuVpb+h8p22buc3u/t1w2C8BoNIfUaATB+YJAdAwDFFR0US5oFVX+73Fp5ecLSDOZYUzmTCCoXzEzKzgQFAymbR0ArPu0hwCdCKhMREJRgyCPmbwu2B+Re3HG6YZiuWC2dhYzn2V6M8sgP6wX4b9YUVEDACzVgWGFHrExZJoAoBRzOgAq3cU81sstHcQ7/h493t5raFQyOrpeuPHj9cm/GhsMaQaLYX8PGk4C8BYZiqTRB+xwNZoS+rJO+fftxcAmJkqI5Ui0oO0f6YBNAxDZIw+A4BZO228ptPPQHSqY6vtrOjJ9hb72dVmaH9P32cGBYMGIZj1IEAwaDL1oprVxqTSkqHubwiBC4XAF0H0IVv88Pyb7nk6C2QwGKTjIZF0PGxcVlUX3z3tCiK6QQA2oB5p+3fqf1au3NR5EGg2BIIQFRVNnFG5vjgDMgyDKiqaqLGxnBCEMukQMAEjkHfaSP1iBf4JM/vslHoweHP9b7Oq7fdHFA2ijRw0AMNhv8wCZ9ZOmyg0NYcIXax43cKbQn/LkU6tqaKJI5URNYiek/x+vygvLyfTNA86GPOuwDelFNMVuIxY1Cz8xb1PdZ/rZ2IYhqEBwCzjp0PMuqoHltw97S9L6qZ9L1elM17yRDgt8of90mBDHATynqnnL7m7aot5V+A3t98RGJE75091MIMyMRkWrZ3kN+8KvBqsC8zOlcrs58dqUzPXof5+LxveAIBRN+Ums67qtWBt1c+7z//TkLqDN160JnBXsLZq24IVN4zt9sDH7MW7Q5YLyAAWAMaaa081awN/Dq4NbMiNP08oeP7MQxi10wuN2qq/LKoN3N1dnQdzgeYuD5w8f+Xk03r6bCCmBgCCdYGVwdqqbfOWXj90oAtzTODNXzVtTLAu8KqxturGwZS6XIAWrpxy8Z31N76wdP3U2B3rpyaWhW58c8EvJ111jCCK7DMsWDPlBqM28OaCFVVfGCiI/bIpfr9fRiIRZ5Zx9RmFpd7/ZmUvMKs3/SFQH9BDVT0HvwNZoEhlxFmwasplhaWePwoJpJLpS2u6Bl3X0LKva9qSWRvXZ+czkPtk57xwzeSLpBBrbEf575i1sbG/Hpr6s3KmaSqjdvpoQnILMVUbM+v/XF8f0KsGCbw0EwNUVV3qHX32qH95fPrJqYRtkYCW8VqO1KWwUirWtgen15jr9zGDBhrXZUGct2Ly+W6PDNmJ5GV3zH3gveyz9uUafVID5jTQc5cHioiSj7Li242Z9X8OHAN42Wt2kz5BBB5WPqLC5ZEnWylLkYCeWWgCkWZbDnvzXPl5hc75aZpr/IBtV6gqZAXqA/qdczc+YzlquubW/+/slVedZJom99VE9OWPKBg0pGmayuOl37NSIbN6w6P1A1BbZqatWw2NCCACEwFbtxpaOBw+LEbUSMsTouepEYEFQbHggvQ7E45J5LMgLp214S+WclYUuPIe8fv9Gbrs6Boq+qC60jRN21gzea1S6m1z5sb1A1FbZiYi4okTTZsZqK2d7mYGJk407crKSocIfOPQcgKAZKd6P5Wyk0IIZj5cPQmEVMoWVkK9AQBNFU3HnM2EqkJWfX1AXzpr068BeqbivNL1pmnahmHIY7KBWYO+cPXky6WUs4Iz6scbhqGZpun0Jw3Lgrd587KyM8pdczUXfV85TjEDLcrhV6wkPTL+27c+BQAvv1yvjxtXZRlrp6wbMqLwFx1tXXb2TkzERcU+/cCerj9xy9tXTJgwARMnplM3f9gvyxvLqb9zO0xYthqaOdG0g7VVW5Tj/HrxrI0PHc2paEeyUcFgOd+27OoyIbEk4aSuyHzUrxw2Y0s4/Khx8qlj3H8uG5J3RiyWhFICUopTdZc8N5V0prz4+uoXOzrid44bV/UHAMi34nMP7BVlvkL3lZomQAJQDqNtf9ejwRn1lwOAaW47eJ9cymrAjqUBiplp/pqq610aPTVnxQ1bGxvH7DmSU6GjkQNG7ZRNUPS6WR2qy0if3T/VNQSRqf723J1PjhpdfOGB/Z1JEOlEADNABMXMwudzC4DQ1ZWM/Ou91urrKpd9lM4cqiZoLnxN2ZxKxZzXu9q6dpSMKT5PCvo2FI8lgSEQpIjELuXQE29u3bcpEonEM8/WbxANY7xmmtvsRWsD1wvgB8GZoZ8cSQrpSPHewtWTzxeClpozN3xnIAxGFrz/2bL4nFGjfK87rBwwZC9qrojAhYV5srMzuaulOT7rwgsWRLLzXFw37T+EzlcLQT9w57k8BIJSCkqlBUMIgqbriLbFX967s/XS2mW/3TdQDjArKMG6wJNsYY05O7Qla876pMLl5eWc8XgGmBYAQCTSf5vS0AABQPnytQt8+R50dMR6lQgiEoqZ29piatiwotGOxdfOWXzd60VDPVOFFNd4fe4hSjlIJizEo0mHiLOmNV2qY2LEU3ZhqW9cKmWtJKJrsvWXAQwFgFJxe77LI2sMw3gKjT1Ls+jJcZimqRauDvwI4C6zOvS3cHjgET8ASI3GHi0gUIrhdmmUn+fp/Gfj3t9uee7990tG5L3kK/TMEgJDop0xJx5NOayYiSAB0jI/BUCCCJIIeiyaUNIlL6yu9nszGtNvCs00TWUYhlw2d9PLgPgQJbuvNE1T9ZTqfQLA8saM9Anc5DjOLwHQQKQPACZMqGAAcCynBMxH8tLwuDWOxay2p5/bvv2lt3eeX1DsnkFAUawzbtu2w0Qk04D1DggzESsWAOentIKSjDoOlINUzCBO2iuJMAkANWaw6RXArLeZvyrwbRDbS2954B+GYdBApa+hoZEAQErZBqIegSMiuHQNH3zcRk+/8L+e9kTy3Px81+hYV9JxHMUg0oio7yAQgUBKauSkM5XggEIa0zRVZcQvzFvve5OB1oVrpl5omqbyd5NC0ROguobrocSDAKiioumYWWQmbO/uEZkZuiZhOw5ee2c3Xnt3D6ROHinAqaTDGZXs172JmIUgENBS4upozdjWgRMbmcsqB5tJqOty3usRQDJN066umVTKwOlRO/oo0HMBvK+juTmtwlYCLyQTFgEQzGkddOkSe1ui+PvrH+KD3e3QNQHmgzHcgJ6amVjTJDsO/mWakVTGZg04U6msjDhg4O321ieJMWLOihtGZt6jTwBoGOmkvIDED5n5nZo5D0b7ksocmf6qVACwe+f+l7o6krs1XQpNSqUY+Of7+/DiWx8hnrDh0uWRTGS/JJBIkJ1SfwKAxsbyY9YeI2jIiBlJseJXvJIuz773CQArKn7BACCk/C4zPQaAjjXPJAJv3Wpo11xTE7Ud9XBxYR72t0fVs298iO27WqBJgpQEHgT0mMFCShntTLTHOuLhtP0zj7ny1tSUxoAlPUa6GJ/G6hAu4pC4VjqGca0HUKMEJZ8BkC09HtNoaIACACtmr3vh9Z3Jl5p2ia5Yit0uDWnHQmmdPfg6hEk/IXQ8XhcpG+tqzAf3hcNhORj136wD3duCF4ipbO7yQFFueCRy6XFVLM5hpTrM6s1tmULLMU8gGz9dcMHC7a81fbzBm+cRzOykLAfpl53zcmDbCgxASCIhCACr7oxMT1mM7tJkV3t8V+wjtdIwDJE1H4MxwmG/DJmhGIj3eFzqK7nhUUYCG0SaDpbjiPhfmWxk0Gq4jY3lzGwIj9BNJ2HvOamsQA4v9amThxfhc6NKcfqoUnxuVClOHlGEsiIvXCRSVtLpiCespO7She6SxMyqV9UVpAQRJbp40ooVofamiiYazN0Hh2wpvUUkvpKrvdohUnIbiOhMVvjbYPFsuVJYUeGX5i2R/U/99Y7rRo0u3GLbtqMUU26Mx2AoxbBtplTKSR5oi7/z9r+bd6eUc25+vnt0LJZURHRY6EUCdp7Pqx/Y07lw6a0bnzoeuw6yWDDTPyH4P3sKY1TG6I8A4d3cjGSwRmVlxNm61dAu/O6CJ/fs7pzn9Xk0y3HsZOqQCluWA6UYUpJeUOAa+vlTS7962QVnnvXFEUPu6mhPbsnzeUQ3SbR8Pq/eeiB675LZG+8wDEM7Hls2DmJhO+8T1NBMgO4cxsb4/X555nkFj1lRvubO+fc3D5QOOtrYutXQJk407YZnl68eNaawur0taivFsnu2wcysFCPP5yaNKPb6P/df9d6efcvz8vQvJJO2EgKc5/NqHa3x9YtuWj8tI3kKx3GnqmHcmI9SO9yxo/XHa9akKbODvP/pX/YUC9IcV+rk1oF5wb6NiRNNhzksJ5x326ydH7StLCjI04QgMLPTjZ0hKQUl4ilbc+t5Z5xefG2sK/nfuksyEeD2uLW2ltiyEwVe2hTdEwUrpQ8rKsvYX4hsDOb2aEVKOWyapt1TxWwQBxNVKuaw/O75t9+688PW6Zqm2T6fWzKzzZ8MCmUsmlQEdVZRvtcWUgpBItneHL8hOL1+/okCL8usM3OKdLskK2MHDXIixT4ISqb12zjeu6iYqNJhDsvvjV+wbteHbRNi0dQbxcU+Tdc1YobNDJUB09ZdUjCoVEGNj3Wm3urclzpv8ezQ/YYxPmvzjvue6CwnIDU9midceRk7SCJ7nMAl4bFTTjpFCeKEDKJKZ+tWQ7v0B+Y/1q157Bt793bOUw72FBfnaV6vLtxunYqKfXo8bjXvb4mvb2+NPfD3P+74+rIFG19Ps8bbbJzg4Vi2aO3qKshkKdSNkT7xJwXSZU5DEJmJzZu3Lf/Vr4xNp43Nu97lEtcKQn57R7J+x674hmt+bO7rRrudcPAytpmFIP4EpW+zSrrcLudESuChSZkKADGHBVHlPgArAKyor6/Xq6qqLAAIc1hGIhFE/JHDtvSe6CE0waUFJZ3Z0ocWDAbZNE0IIMoMVyYJZ9M84XNjokqnuqba67U6viQ123nt3Wd2bt1qtDQ0QFVS5ae6JTfLRjuOk2c5yXiWrBXZ8EuLetrBpI8fP16j43hQhRkUDvtlhtml7La47N69QldqjLdAe37IiNKXh4/Jr5owIeiUlrbovW2CZOYerzfYkUS2ukeCdGa0ZXQH2iHD906boDPwzYvOKtq2bduB4xFIG0a6zAkcyhYyO/MPZkNSs5mIUgrsIqGyRyWSuQuQXeD09UgB+MT1BlmDCADPXnmVD0xac6frQCZzS9vArFEOrj0j5tbUKAAHDMOgnIcbBMljIiL1s2k/LBk7dvQ4xbb12IPy2a+c3zykYKivzE7Jrlpz844stUwEUoyuWUZgSPEQ/RuWbTUvqQ69kAGPMvNTN8+7ctjQ4YVfti3uMG/Z8PxVN/3olGFlRb4uK9lavyzy0WAIQhYLr9JGgtkOmRti2YXUcnJiRRC7ycVfAPBm0yDUQg6XPFK3L598UUGpa5PQxEghXLjsusTrrIYU5xd7T+1qj78M4KuarZHSHJlMWBBS/LRkGG71+uQIxwbuuGdqw76dbVeWuMY2p4tfk3+eX+yuE4JKXQAWr5v6HCt1Wn6Jd3iGVP1J7rmVYyBV0zGgR55ORM2ZWFkCpp0BsCHjie13iehsAL8vbxwcOiu9UiZPn3f9UG+h/J3ulsWOrWBbCkVl+f8nEU+CmSHloR0LRExWykZ+kedrrBi25UAphcLSvAm2rdYFbzb9C5ZPOjOvwLVZCEiAoRxGUZn3m9HOBAiA5hq8zfdZao8VnQPCez2wMRMyYQG/BEFfHEw6K71S4JKh4pK8fHexYzsqHk093rEv+e2WvdEblcOxtJJRTmhCSndriHemmvZ/2HVR24HYj5SDDxOxlCM1umz69Olu4RVXeHy6ZKVUrMva3PJx+3da9nQuJCKLmeEMos/OUvhCULmC80ou1S9yPczeNu0NYpTNXR4oigywqv+JMSH9w+XSTyYiti1FHQcS1XfOv+/ZxdWhe+2U84zH4zroRLIOxeXSYSXtmuULNz21fO79j9kptV53a1JqQkdh+2hJapQQgm1LxXbutKevNB56xqzeeEcqab3jcusAeNBixcrKSKbcQSOtePzlDNWvDquJhMNhGTJDMQJ95HLzt5A5PnXMd2/IpEDMcWaG1AR5CvRvAcCkan+pEOIU23bAYJGr9koxhEbjDqqKTucoR0EphpVQnQwZBzMLTbqHldE3AGCGce2pUpNDHccBHUtBOGdkwydVpH8VhJbl837T6s8pl2qHAsW7KRPNPi2ILwbwxGDQ+llRt+PWsyrfRcxse336PWZdwA/Bp0tdjLWSlg1QJoyRzLA5EU/aultONe8KjAXgkhLfchzFyuad62se3Ldw7ZTnmSHASuUVamGzbsrfSaNzpKShtuXYlMPq+MN+6U9LUr9ZmywGJMWl4DRbn+sfDp0nM7elrUaKHyfCl6pr/N7Mbs9jrmoZhiGW3LrpuVhX6sH8wjzN63N5h4wsuqSw2DcWAPKLfBoIJQCQVJbm8bldeT6PRkRUNqzgu6Un5X/b43UJKQTZCb4VDGrb7nmsozX214JCn5aX7y4eOrL40rx8zxgiEvlFeRoEFRycQ2XEGShrEwyajmEYmgDGcVz9EQDMnHJpLpnAaW4ttD9YO+VDHxX9EMDvB6PGYJomMzNVVlZe96Xz6XWh4+JU1EkkutTDVipxilL8+UQ0uR0AnBgfaEt0haRGnq5Oe2s8mjrF43V9BwptXe2JTctu2/Qno9MQ5l1mcvbsqy7ThJzNgickuuy2WGfyYUelvuw4PDzWZT2XsV9q4drABbpbK9vxv7ue2LTy0c6+xob+sF8SRdT8ml3fc0E0B2/buCsc9stKivQI4ME9gI5ND0gdMwA8MtCdWZ/McwkAnEgENQBqegV7zvp9AKqOFpADoJqaB6MAFmde2fHwYRK0dspM3aPdRCS2nzJq+MWGYUzqlgH1DiCACMCaJq6zHfVQT3+j9aRu5mxz66LayfNvX33DuGXVm14xgn0/eHLEgHqroWHHDm1kyu18XDKC0NgEVJSjNL+FRnTtsbMF60B9QKsY4xYtXaU8snU3A0BJyQhqbGxQRGRnTqDLkSN3U/o6sCsqmqi1tUQkxrhFy94OKu0o5Bkz7koyk0OEdjuptucVeiZ2WB9ftGTOhieOdsopXVs21byV15czY8Tbz3U8bhiGqKw83KxpvTGvynFCmhBzQfBXhJsGJSo10zvq7d4C7uyvRzt/ksmPe7qO00MWWy4ENFtZp2q6aywr1UfH2CCIYC9aK+YS8/1p4RqvdQu3PglgOuYxhDnLjARrp1QtXBP4emVl6IX+HH/6ZCYC/vn0HxSeftoYM7/Y42lpjv7T7RIeT57nB4pVMtaV+B3Rpoey9wgEAvrIs8VkXaMLHMcpIyn3OxYeD06/dzMAtXjV1C9r+bJKSMHRtsSjS+ZseAIAFq6YfH5BqfdnibgtOtviq1YueuC91r2O4f2c63oSYk+sw35I12Q8y+UdSfrMoOnM8006G6DPN7S9N6k3ErfHPdKZPFixI5dK6SwDcEE2Xx6o9Pmk1+fKkzPdeTqKyjzIL/CCCEgkUvAVFF26oGbySHO2ubK62u8tOg1/KCnLu5AI0F0abNuBY6v/CtYFLm98pvXHKdtKeFx6VUGRF8lE8usAtgBgzStuKz7Jd8nej9qspEwsAoC6O+/bC2B5b/RUb7wpCLZeK+5kh3+5zdxmnxQ+SfZG0/Q4Dh5zWDvlN4q4YcmMjaHsEYCBSOCkm68cdsrYwrd1l8wHSLNTzjPMiEudvqtpkqyknXzjvZYh5aeUfKWw1PuMbVmpRMx53rF4k9RxldujXVBcVkC7P2idYVaH6oy6KX8oLPFekopb1NGuzlH7Wz7KP7VsZ0Ghx9t+IH6vcXP9zdlDQcZWQ1Y0N3Fmi8YROyRln3tBzaSfSSkqzZkbrjhSJKIdiYE1DENEW3fM8pW4/mIsn/x4cO6Gj4DggB0KM8jtdWldrck/LppefwUALF5XVeP2iFkMPe+LJ5ecbVv2zlTSQn6R15VKxUqZlctKWr8lRQ37km2vpWxrBwByUrzRTqnLPT43EonYFXZZ4XsFhZ6CWDTJyZjzm5x8njO2t0/zCwbL2VgVGEI6bmOFSw3DEI2NvYc84kgMbFNFE60yN+9hpiXw0gNExJiAfvcuOGT8wVKTSKWcxux7qaT9SnpLKiuvRytbOmfTB3t3tV/U2ty1hYiHFpd6Q6XDCu7TveIWoYmZyQR3AuCXP9j152TCep+ZWUhcq3vkbBLEdsp5ddltG19kZupvw52qUEAzTVORjvuhqNacGfqwoqLpiGdNjuhdI2mHoi2uDj0smN436qYsNyeadn19QBugBMpkPAWvT7/WXB344cKawER3njbPth1HKRYH9icaF/wy8LOTRhbeYlu2iHbYSz94r/MLbQcSdwgpiotLfd8vLvbMB4Atd21Jsq0eAkCaJr6gu8XXHVuRYvo1ABUMBvu1u/bQAewpiwBqC86sv73ve22OGp6YpumEw2GpWkfcSIxvLlgz+ZqqzBHRAUgg2bYDl0eOKhjqfcxXpP1V08RZbo9LphL28zULN31AxO+53K7vjxhTdqGvUKstOUl/SHPx1Y5SSNNUakf2cp0dyV/Ho6kkEZgEVLQrGY3utyK5JYK+xqehqpBlrp38H5Loh9zSMimcPi9zVAnuS3zHjY2NHAyafKDL/i9BNHf+6hsuDA0ARGawrktEO+JNnR3xf2u6BiEFYp2JV+OdsasNwxBL5mx4qXVP+3ktzZ0vCkFUVOr9mi/fewpBdDXv7ty0u+njukwhSaxa+KvtVtJ5WnNpwuXS4aScJ1eamz7OPHxfW+lp5kTTnl973bcg6I6UQ/9pmpFUpgp31GylT6qYnowh7jLNZqNm0uW6rj06f1UgsLQq9Pf+9EsgAdvt1tFhd23b+1Z03ue+OuJr8agVN2e+8zywzc5W1czbzH8A+PqCmsCXCNZQO6XseJuzfdmC0EcAMKI+KMzKiDJqp2zKK3B91bGclHTrLiuJe/urtmaVaRmrA+MIuD+RcPx33rrhI7+/b9LX7xE+2O6kqtysm9q4cG3V9wGg/giSmM0wJt185bDFdwdaa39TzYtW37C5p+C1p98P+5t0NyLKdiVasi7w6vo/zOWaX81go3ZK6Ejf7Qk8ADDrJp0XrJ3yjrH6hnG5z9ifcl2/QaysjDjGqslnCJ1+bymuuaN64wO99ezrFge+W1SaX7h/T9vmxTM3XV9XN9319xF77F76aB1sMpYNq7LXzp4yXFAzeU5BsWd4rM162pxd/3jmXjiS6jGDIpF0oWnR2oBfCA7Go4mrVsz79WsDiXOPSRJnr7zqpGBt4BmzbtryXJvSs60Zry2+e9qZa383+6zba6pGDXQBezewR79WJpcFACxaGzCNNZNfNJZPHj0QycOxPkAOm0FG7ZT7iMRIZmeyOWPjrszx++PeQdIf9svyoeVU0dzERwo3cjto3vLLa4fnu90bAOr4uJGvC4VCVm9ngY/7yN1CYaypus5cV/VqsK6qKrfO0t22pb/DJ6z1aKYjSJobvCtwrbku8KqxNjD1aPb2uEtgd9UwzW32rcsnj87P11YRoSCVtJYtmXXfs1n1iODwvgbHG7jcnq2La6d9hTQscpgdK27PXjpn478Ha2frcWnAaKyZcpnmkjcLoX3INq9bMP3uV7vZyMFuXZxpqYzDKCdj7aSzpabNFIJOtSy+x5xR/0jugg/KjQdz5XM9XDrMmHq1kPKnQqAlZXHkrW3NT0QikVQu6I2N5dRU0cSZZrXoA6jEzKisrBTl5eVUUXG4/fP7/fJL40svkpp2JSseDqV+t+Cm9fcD4O5NcT9zAB7mYMKH+jkvXnfjJVKjn4AxHApvKMfZ0pbseqFmzoPRI6lgd3aoN6dUXeP3FmtDvqbpdBEI5xLQrBznkQU31f8x1+EcDxNyXI1596av81dNG+PxqEtIiPOZMYSAfcpW/2ISb1pO8v1kCh+vnHuoSW1PY86KGwqkFCO8Ljqdmc7WNHkmA8MBtBLkM1bKetysrt/Rk2k5HuNTa8R9253TSrxe51wS4lwWfIYAhjjMbihmgBOATAiiZPoAGLscpbxCCBcIkpgsEtzMSrwvQC9Hu8Rry2+/+0AuaCfKaZ3QVvBZG5mtvXwivTICeSNKVSlYFetCz9N0PV05soCE1RVnRltit92SKWf2GNwPdpvjzxSAvXlOoAHBYIPTV+OeXYgciv7/m39GcNT5MPd+0CfTzRz4DP1LjP8HkXF0qYSMtxIAAAAASUVORK5CYII=" alt="" style="width:48px;height:48px;display:block"></div>
+<body><div id="siteLogo" style="position:fixed;top:14px;right:16px;z-index:9999;cursor:pointer;transition:opacity .3s ease,transform .3s ease;overflow:visible" onclick="window.open('https://www.abapsy.com','_blank')"><img src="data:image/png;base64,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" alt="" style="width:48px;height:48px;display:block;object-fit:contain;opacity:.85;filter:drop-shadow(0 1px 3px rgba(0,0,0,.1))"></div>
 
 
 
@@ -729,12 +729,12 @@ body.embed-mode #backToTop { display: none }
     <div class="nav-sections">
       <a href="javascript:void(0)" data-target="s_2_0" class="nav-link">Как построить отношения</a>
       <a href="javascript:void(0)" data-target="s_2_1" class="nav-link">Установление связи (ПАП)</a>
-      <a href="javascript:void(0)" data-target="s_2_11" class="nav-link">Оценка навыков родителя</a>
       <a href="javascript:void(0)" data-target="s_2_2" class="nav-link">Терапевтический альянс</a>
       <a href="javascript:void(0)" data-target="s_2_3" class="nav-link">Мотивационное интервьюирование</a>
       <a href="javascript:void(0)" data-target="s_2_4" class="nav-link">Границы компетенции BCBA</a>
       <a href="javascript:void(0)" data-target="s_2_5" class="nav-link">Партнёрство с родителем</a>
       <a href="javascript:void(0)" data-target="s_2_6" class="nav-link">Что делать и чего избегать</a>
+      <a href="javascript:void(0)" data-target="s_2_11" class="nav-link">Оценка навыков родителя</a>
       <a href="javascript:void(0)" data-target="s_2_7" class="nav-link" style="margin-top:.4rem;padding-top:.4rem;border-top:1px solid rgba(255,255,255,.06)">ACT-тренинг для родителя</a>
       <a href="javascript:void(0)" data-target="s_2_8" class="nav-link">Упражнения ACT</a>
       <a href="javascript:void(0)" data-target="s_2_9" class="nav-link">Выгорание родителей</a>
@@ -772,7 +772,6 @@ body.embed-mode #backToTop { display: none }
     <a href="javascript:void(0)" data-target="part_weekly" class="nav-part-title" style="--pc:#7aab95" data-part="weekly">ЧАСТЬ VI. 17-НЕДЕЛЬНАЯ ПРОГРАММА</a>
     <div class="nav-sections">
       <a href="javascript:void(0)" data-target="s_6_8" class="nav-link">Еженедельный шаблон (17 недель)</a>
-      <a href="javascript:void(0)" data-target="s_6_3" class="nav-link">Когда всё идёт не по плану</a>
     </div></div>
 
     <div class="nav-part">
@@ -784,6 +783,7 @@ body.embed-mode #backToTop { display: none }
       <a href="javascript:void(0)" data-target="s_5_3" class="nav-link">Обучение сиблингов</a>
       <a href="javascript:void(0)" data-target="s_5_4" class="nav-link">Адаптация для подростков</a>
       <a href="javascript:void(0)" data-target="s_5_5" class="nav-link">Дистанционный тренинг</a>
+      <a href="javascript:void(0)" data-target="s_6_3" class="nav-link">Когда всё идёт не по плану</a>
       <a href="javascript:void(0)" data-target="s_5_6" class="nav-link">Культурная чувствительность</a>
       <a href="javascript:void(0)" data-target="s_5_7" class="nav-link">Обязательное информирование</a>
     </div></div>
@@ -834,6 +834,16 @@ body.embed-mode #backToTop { display: none }
 <div style="margin-top:.8rem;padding:.5rem .7rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-sm);border:1px solid #e5e7eb;font-size:.78rem;color:var(--text2);line-height:1.5">
   <strong style="color:var(--pri)">Нужна супервизия?</strong> Вы можете обратиться к любому квалифицированному супервизору. Если ищете специалиста с опытом в ПАП и родительском тренинге — на <a href="https://www.abapsy.com/faculty" target="_blank" style="color:var(--pri);font-weight:600;text-decoration:none">abapsy.com/faculty</a> представлены супервизоры, работающие с ABA&Psy (внутри каждого профиля — форма заявки).
 </div>
+</div></div>
+<div style="margin:2rem auto;max-width:800px;padding:1.5rem 1.8rem;background:linear-gradient(135deg,#fdf8f6,#f9f5f1);box-sizing:border-box;border-radius:var(--radius-lg);border:1px solid #e5e7eb;box-sizing:border-box">
+<div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:.5rem">Сквозной кейс</div>
+<div style="font-family:var(--hf);font-size:1.3rem;font-weight:600;color:var(--dark);margin-bottom:.8rem">Семья Пак: Минджун, 5 лет</div>
+<div style="font-size:.88rem;color:var(--text2);line-height:1.7">
+<p><strong>Мама:</strong> Сохи Пак, 34 года, работает удалённо, первый ребёнок. Диагноз РАС получен 8 месяцев назад. Находится в стадии принятия — периодически плачет на сессиях, задаёт много вопросов.</p>
+<p><strong>Папа:</strong> Джунхо Пак, 36 лет, работает в офисе, скептически относится к терапии. «Он просто маленький, перерастёт.» На сессии не приходит.</p>
+<p><strong>Ребёнок:</strong> Минджун, 5 лет. РАС, уровень 2. Использует ~15 слов. Целевые поведения: (1) крик при отказе (функция: доступ к предмету), (2) убегание при требовании (функция: избегание). Получает 20 ч/нед АВА-терапию.</p>
+<p><strong>Бабушка:</strong> Ёнджа, живёт отдельно, приходит 2 раза в неделю. Выполняет все требования Минджуна немедленно. «Он же маленький, зачем мучить.»</p>
+<p style="font-size:.82rem;color:var(--mut);font-style:italic;margin-top:.8rem">Этот кейс будет появляться на протяжении руководства — вы увидите, как применяются инструменты на конкретной семье. Ищите блоки с пометкой <strong style="color:var(--acc)">📋 Кейс Пак</strong>.</p>
 </div></div>
 <div class="section" id="s_0_1" data-idx="1">
       <h2>ТЕРМИНОЛОГИЯ И ГЛОССАРИЙ</h2>
@@ -1070,25 +1080,16 @@ body.embed-mode #backToTop { display: none }
     </div>
   </div>
 </div>
-</div></section><div style="margin:2rem auto;max-width:800px;padding:1.5rem 1.8rem;background:linear-gradient(135deg,#fdf8f6,#f9f5f1);box-sizing:border-box;border-radius:var(--radius-lg);border:1px solid #e5e7eb;box-sizing:border-box">
-<div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:.5rem">Сквозной кейс</div>
-<div style="font-family:var(--hf);font-size:1.3rem;font-weight:600;color:var(--dark);margin-bottom:.8rem">Семья Пак: Минджун, 5 лет</div>
-<div style="font-size:.88rem;color:var(--text2);line-height:1.7">
-<p><strong>Мама:</strong> Сохи Пак, 34 года, работает удалённо, первый ребёнок. Диагноз РАС получен 8 месяцев назад. Находится в стадии принятия — периодически плачет на сессиях, задаёт много вопросов.</p>
-<p><strong>Папа:</strong> Джунхо Пак, 36 лет, работает в офисе, скептически относится к терапии. «Он просто маленький, перерастёт.» На сессии не приходит.</p>
-<p><strong>Ребёнок:</strong> Минджун, 5 лет. РАС, уровень 2. Использует ~15 слов. Целевые поведения: (1) крик при отказе (функция: доступ к предмету), (2) убегание при требовании (функция: избегание). Получает 20 ч/нед АВА-терапию.</p>
-<p><strong>Бабушка:</strong> Ёнджа, живёт отдельно, приходит 2 раза в неделю. Выполняет все требования Минджуна немедленно. «Он же маленький, зачем мучить.»</p>
-<p style="font-size:.82rem;color:var(--mut);font-style:italic;margin-top:.8rem">Этот кейс будет появляться на протяжении руководства — вы увидите, как применяются инструменты на конкретной семье. Ищите блоки с пометкой <strong style="color:var(--acc)">📋 Кейс Пак</strong>.</p>
-</div></div>
+</div></section>
 <section class="part " id="part_1" style="--pc:#c47a72">
     <div class="part-header">
       <div class="part-num">ЧАСТЬ II</div>
       <h1>ОСНОВЫ И ОБОСНОВАНИЕ</h1>
     <div style="margin-top:1rem;padding:.6rem .8rem;background:#f0f5ff;border-radius:var(--radius-sm);border:1px solid #e5e7eb;font-size:.85rem;color:var(--text2)"><strong style="color:var(--pri)">📋 Подробный протокол первой сессии</strong> с пошаговыми инструкциями и чек-листом — в Части IV «Методы и Протоколы» (секция «Протокол первой сессии»).</div></div><div class="section" id="s_1_0" data-idx="4">
       <h2>ЗАЧЕМ ОБУЧАТЬ РОДИТЕЛЕЙ: ДАННЫЕ И ОБОСНОВАНИЕ</h2>
-      <div class="section-body"><div class="visual-block"><div class="viz-stat-compare"><div class="viz-stat-box viz-stat-hero"><div class="viz-stat-num">47.7%</div><div class="viz-stat-label">снижение проблемного поведения<br><small>группа тренинга</small></div></div><div class="viz-stat-vs">vs</div><div class="viz-stat-box viz-stat-muted"><div class="viz-stat-num">31.8%</div><div class="viz-stat-label">снижение<br><small>группа образования</small></div></div><div class="viz-stat-source">Bearss et al., 2015 · JAMA · 180 детей · 24-нед. РКИ</div></div></div><p>Между «общаться с родителями» и «систематически обучать родителей» — огромная пропасть. Это руководство поможет эту пропасть преодолеть.</p>
+      <div class="section-body"><div class="visual-block"><div class="viz-stat-compare"><div class="viz-stat-box viz-stat-hero"><div class="viz-stat-num">47.7%</div><div class="viz-stat-label">снижение проблемного поведения<br><small>группа тренинга навыков</small></div></div><div class="viz-stat-vs">vs</div><div class="viz-stat-box viz-stat-muted"><div class="viz-stat-num">31.8%</div><div class="viz-stat-label">снижение<br><small>группа психообразования</small></div></div><div class="viz-stat-source">Bearss et al., 2015 · JAMA · 180 детей · 24-нед. РКИ</div></div></div><p>Между «общаться с родителями» и «систематически обучать родителей» — огромная пропасть. Это руководство поможет эту пропасть преодолеть.</p>
 <p>Исследования последних лет однозначно показывают: вовлечённость родителей — это тот самый фактор, который определяет долгосрочный успех терапии. Ozonoff и Cathcart ещё в 1998 году продемонстрировали, что дети, получавшие последовательное домашнее обучение от родителей в сочетании со структурированной программой раннего вмешательства, показывали значительно более высокие когнитивные и развивающие навыки. Этот вывод многократно подтверждался в более поздних работах.</p>
-<p>В 2015 году Bearss и коллеги опубликовали в журнале JAMA результаты крупнейшего на тот момент рандомизированного клинического исследования, посвящённого именно сравнению родительского тренинга и родительского образования для коррекции проблемного поведения при РАС. Важно отметить: участники были в возрасте 3--7 лет, и результаты не следует напрямую экстраполировать на подростков и взрослых. 180 детей с РАС в возрасте от 3 до 7 лет с проблемным поведением были распределены по двум группам. Результат: за 24 недели в группе родительского тренинга показатели по шкале раздражительности ABC снизились на 47,7%, тогда как в группе образования — на 31,8%. Обратите внимание: не просто лекции о том, что такое аутизм, а конкретные стратегии управления поведением — вот что дало значимый результат (Bearss et al., 2015, JAMA, 313(15), 1524--1533).</p>
+<p>В 2015 году Bearss и коллеги опубликовали в журнале JAMA результаты крупнейшего на тот момент рандомизированного клинического исследования, посвящённого именно сравнению родительского тренинга и родительского образования для коррекции проблемного поведения при РАС. Важно отметить: участники были в возрасте 3--7 лет, и результаты не следует напрямую экстраполировать на подростков и взрослых. 180 детей с РАС в возрасте от 3 до 7 лет с проблемным поведением были распределены по двум группам. Результат: за 24 недели в группе тренинга навыков показатели по шкале раздражительности ABC снизились на 47,7%, тогда как в группе психообразования — на 31,8%. Обратите внимание: не просто лекции о том, что такое аутизм, а конкретные стратегии управления поведением — вот что дало значимый результат (Bearss et al., 2015, JAMA, 313(15), 1524--1533).</p>
 <p>Ключевой тезис: родительский тренинг в ПАП — это не бонус, не приятное дополнение. Это профессиональная обязанность поведенческого аналитика, закреплённая в этическом кодексе BACB.</p>
 </div>
     </div><div class="section" id="s_1_1" data-idx="5">
@@ -1193,30 +1194,37 @@ body.embed-mode #backToTop { display: none }
 </div>
 
 <div class="visual-block">
-<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:min(720px, 100%);display:block;margin:0 auto">
+<svg viewBox="0 0 720 310" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:min(720px, 100%);display:block;margin:0 auto">
   <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3b7cb8" stop-opacity=".08"/><stop offset="100%" stop-color="#2da87a" stop-opacity=".04"/></linearGradient></defs>
-  <rect width="720" height="300" rx="12" fill="url(#g1)"/>
-  <circle cx="360" cy="150" r="60" fill="#252836" opacity=".9"/>
-  <text x="360" y="144" text-anchor="middle" fill="#fff" font-family="Playfair Display,serif" font-size="15" font-weight="600">РАППОРТ</text>
-  <text x="360" y="163" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="Plus Jakarta Sans,sans-serif" font-size="9">основа тренинга</text>
-  <circle cx="130" cy="95" r="50" fill="#3b7cb8" opacity=".12" stroke="#3b7cb8" stroke-width="1.5"/>
-  <text x="130" y="88" text-anchor="middle" fill="#3b7cb8" font-family="Playfair Display,serif" font-size="11" font-weight="600">Установление</text>
-  <text x="130" y="103" text-anchor="middle" fill="#3b7cb8" font-family="Playfair Display,serif" font-size="11" font-weight="600">связи</text>
-  <text x="130" y="120" text-anchor="middle" fill="#3b7cb8" font-family="Plus Jakarta Sans,sans-serif" font-size="8" opacity=".6">NCR · Следовать за инициативой</text>
-  <line x1="180" y1="105" x2="300" y2="140" stroke="#3b7cb8" stroke-width="1" stroke-dasharray="4,3" opacity=".3"/>
-  <circle cx="590" cy="95" r="50" fill="#c97b5a" opacity=".1" stroke="#c97b5a" stroke-width="1.5"/>
-  <text x="590" y="88" text-anchor="middle" fill="#c97b5a" font-family="Playfair Display,serif" font-size="11" font-weight="600">Альянс</text>
-  <text x="590" y="103" text-anchor="middle" fill="#c97b5a" font-family="Playfair Display,serif" font-size="11" font-weight="600">Bordin</text>
-  <text x="590" y="120" text-anchor="middle" fill="#c97b5a" font-family="Plus Jakarta Sans,sans-serif" font-size="8" opacity=".6">Связь · Цели · Задачи</text>
-  <line x1="540" y1="105" x2="420" y2="140" stroke="#c97b5a" stroke-width="1" stroke-dasharray="4,3" opacity=".3"/>
-  <circle cx="190" cy="235" r="50" fill="#2da87a" opacity=".1" stroke="#2da87a" stroke-width="1.5"/>
-  <text x="190" y="228" text-anchor="middle" fill="#2da87a" font-family="Playfair Display,serif" font-size="11" font-weight="600">MI</text>
-  <text x="190" y="248" text-anchor="middle" fill="#2da87a" font-family="Plus Jakarta Sans,sans-serif" font-size="8" opacity=".6">Эмпатия · Автономия</text>
-  <line x1="235" y1="215" x2="315" y2="175" stroke="#2da87a" stroke-width="1" stroke-dasharray="4,3" opacity=".3"/>
-  <circle cx="530" cy="235" r="50" fill="#d4a041" opacity=".1" stroke="#d4a041" stroke-width="1.5"/>
-  <text x="530" y="228" text-anchor="middle" fill="#d4a041" font-family="Playfair Display,serif" font-size="11" font-weight="600">Партнёрство</text>
-  <text x="530" y="248" text-anchor="middle" fill="#d4a041" font-family="Plus Jakarta Sans,sans-serif" font-size="8" opacity=".6">Совместные решения</text>
-  <line x1="485" y1="215" x2="400" y2="175" stroke="#d4a041" stroke-width="1" stroke-dasharray="4,3" opacity=".3"/>
+  <rect width="720" height="310" rx="12" fill="url(#g1)"/>
+  <!-- Central circle -->
+  <circle cx="360" cy="155" r="62" fill="#252836"/>
+  <text x="360" y="148" text-anchor="middle" fill="#fff" font-family="var(--hf),Georgia,serif" font-size="16" font-weight="600">РАППОРТ</text>
+  <text x="360" y="168" text-anchor="middle" fill="rgba(255,255,255,.7)" font-family="var(--bf),sans-serif" font-size="10">основа тренинга</text>
+  <!-- Card: Установление связи -->
+  <rect x="30" y="50" width="170" height="72" rx="10" fill="#fff" stroke="#3b7cb8" stroke-width="1.5"/>
+  <rect x="30" y="50" width="170" height="72" rx="10" fill="#3b7cb8" opacity=".05"/>
+  <text x="115" y="78" text-anchor="middle" fill="#2a5a8a" font-family="var(--hf),Georgia,serif" font-size="13" font-weight="600">Установление связи</text>
+  <text x="115" y="100" text-anchor="middle" fill="#4a7a9f" font-family="var(--bf),sans-serif" font-size="10">NCR · За инициативой</text>
+  <line x1="200" y1="95" x2="298" y2="140" stroke="#3b7cb8" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/>
+  <!-- Card: Альянс Bordin -->
+  <rect x="520" y="50" width="170" height="72" rx="10" fill="#fff" stroke="#c97b5a" stroke-width="1.5"/>
+  <rect x="520" y="50" width="170" height="72" rx="10" fill="#c97b5a" opacity=".05"/>
+  <text x="605" y="78" text-anchor="middle" fill="#9a5535" font-family="var(--hf),Georgia,serif" font-size="13" font-weight="600">Альянс Bordin</text>
+  <text x="605" y="100" text-anchor="middle" fill="#ad7050" font-family="var(--bf),sans-serif" font-size="10">Связь · Цели · Задачи</text>
+  <line x1="520" y1="95" x2="422" y2="140" stroke="#c97b5a" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/>
+  <!-- Card: MI -->
+  <rect x="70" y="196" width="170" height="72" rx="10" fill="#fff" stroke="#2da87a" stroke-width="1.5"/>
+  <rect x="70" y="196" width="170" height="72" rx="10" fill="#2da87a" opacity=".05"/>
+  <text x="155" y="224" text-anchor="middle" fill="#1c7050" font-family="var(--hf),Georgia,serif" font-size="13" font-weight="600">MI</text>
+  <text x="155" y="246" text-anchor="middle" fill="#358a68" font-family="var(--bf),sans-serif" font-size="10">Эмпатия · Автономия</text>
+  <line x1="240" y1="222" x2="310" y2="180" stroke="#2da87a" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/>
+  <!-- Card: Партнёрство -->
+  <rect x="480" y="196" width="170" height="72" rx="10" fill="#fff" stroke="#d4a041" stroke-width="1.5"/>
+  <rect x="480" y="196" width="170" height="72" rx="10" fill="#d4a041" opacity=".05"/>
+  <text x="565" y="224" text-anchor="middle" fill="#8a6820" font-family="var(--hf),Georgia,serif" font-size="13" font-weight="600">Партнёрство</text>
+  <text x="565" y="246" text-anchor="middle" fill="#a58535" font-family="var(--bf),sans-serif" font-size="10">Совместные решения</text>
+  <line x1="480" y1="222" x2="410" y2="180" stroke="#d4a041" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/>
 </svg></div><p>Прежде чем мы сможем чему-то научить родителя, мы должны стать для него тем, кого он хочет слушать. Это не метафора — это буквальное описание процесса установление связи, который мы хорошо знаем по работе с детьми, но почему-то часто забываем применять к родителям. Если мы не стали подкрепляющим стимулом для родителя — никакой BST и никакой TIP не будет работать в полную силу.</p>
 <p>В опросе сертифицированных специалистов по ПАП, проведённом LeBlanc и коллегами (2020), 82% респондентов (221 человек) указали, что не получали формального обучения навыкам построения терапевтических отношений, но считают такое обучение необходимым. Участники также отмечали, что их подготовка не включала достаточных навыков для работы со сложными терапевтическими отношениями. Это серьёзный пробел в нашей профессии.</p>
 <p>В этом разделе мы разберём построение раппорта и установление связи с родителями через три призмы: (1) принципы ПАП, (2) концепцию терапевтического альянса из психологии, и (3) техники мотивационного интервьюирования.</p>
@@ -1252,79 +1260,10 @@ body.embed-mode #backToTop { display: none }
 <p><strong>Этап 4: Поддерживать установление связи на протяжении всей работы</strong></p>
 <p>Установление связи (pairing) — не одноразовое мероприятие. Это непрерывный процесс. Начинайте каждую встречу с неформального обмена, интересуйтесь жизнью семьи, отмечайте усилия родителя. Если отношения «сломались» (родитель злится, разочарован, замкнулся) — вернитесь к установлению связи, прежде чем продолжать обучение.</p>
 </div>
-    </div><div class="section" id="s_2_11" data-idx="19">
-      <h2>ОЦЕНКА НАВЫКОВ И РЕСУРСОВ РОДИТЕЛЯ</h2>
-      <div class="section-body"><div class="visual-block">
-<svg viewBox="0 0 720 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:min(720px, 100%);display:block;margin:0 auto">
-  <rect width="720" height="230" rx="12" fill="#fafbfc"/>
-  <line x1="180" y1="115" x2="360" y2="50" stroke="var(--border)" stroke-width="1"/>
-  <line x1="360" y1="50" x2="540" y2="115" stroke="var(--border)" stroke-width="1"/>
-  <line x1="540" y1="115" x2="360" y2="180" stroke="var(--border)" stroke-width="1"/>
-  <line x1="360" y1="180" x2="180" y2="115" stroke="var(--border)" stroke-width="1"/>
-  <line x1="180" y1="115" x2="540" y2="115" stroke="var(--border)" stroke-width="1" stroke-dasharray="4,4" opacity=".4"/>
-  <line x1="360" y1="50" x2="360" y2="180" stroke="var(--border)" stroke-width="1" stroke-dasharray="4,4" opacity=".4"/>
-  <circle cx="180" cy="115" r="45" fill="#3b7cb8" opacity=".08" stroke="#3b7cb8" stroke-width="1.5"/>
-  <text x="180" y="105" text-anchor="middle" fill="#3b7cb8" font-family="Playfair Display,serif" font-size="16" font-weight="600">A</text>
-  <text x="180" y="122" text-anchor="middle" fill="#3b7cb8" font-family="Plus Jakarta Sans,sans-serif" font-size="10" font-weight="600">Навыки</text>
-  <text x="180" y="138" text-anchor="middle" fill="#3b7cb8" font-family="Plus Jakarta Sans,sans-serif" font-size="8" opacity=".6">Инструкции</text>
-  <text x="180" y="150" text-anchor="middle" fill="#3b7cb8" font-family="Plus Jakarta Sans,sans-serif" font-size="8" opacity=".6">Подкрепление</text>
-  <circle cx="360" cy="50" r="45" fill="#c97b5a" opacity=".08" stroke="#c97b5a" stroke-width="1.5"/>
-  <text x="360" y="40" text-anchor="middle" fill="#c97b5a" font-family="Playfair Display,serif" font-size="16" font-weight="600">B</text>
-  <text x="360" y="57" text-anchor="middle" fill="#c97b5a" font-family="Plus Jakarta Sans,sans-serif" font-size="10" font-weight="600">Знания</text>
-  <text x="360" y="73" text-anchor="middle" fill="#c97b5a" font-family="Plus Jakarta Sans,sans-serif" font-size="8" opacity=".6">Функции · Принципы</text>
-  <circle cx="540" cy="115" r="45" fill="#2da87a" opacity=".08" stroke="#2da87a" stroke-width="1.5"/>
-  <text x="540" y="105" text-anchor="middle" fill="#2da87a" font-family="Playfair Display,serif" font-size="16" font-weight="600">C</text>
-  <text x="540" y="122" text-anchor="middle" fill="#2da87a" font-family="Plus Jakarta Sans,sans-serif" font-size="10" font-weight="600">Ресурсы</text>
-  <text x="540" y="138" text-anchor="middle" fill="#2da87a" font-family="Plus Jakarta Sans,sans-serif" font-size="8" opacity=".6">Время · Поддержка</text>
-  <text x="540" y="150" text-anchor="middle" fill="#2da87a" font-family="Plus Jakarta Sans,sans-serif" font-size="8" opacity=".6">Стресс · Финансы</text>
-  <circle cx="360" cy="180" r="45" fill="#d4a041" opacity=".08" stroke="#d4a041" stroke-width="1.5"/>
-  <text x="360" y="170" text-anchor="middle" fill="#d4a041" font-family="Playfair Display,serif" font-size="16" font-weight="600">D</text>
-  <text x="360" y="187" text-anchor="middle" fill="#d4a041" font-family="Plus Jakarta Sans,sans-serif" font-size="10" font-weight="600">Контекст</text>
-  <text x="360" y="203" text-anchor="middle" fill="#d4a041" font-family="Plus Jakarta Sans,sans-serif" font-size="8" opacity=".6">Культура · Язык · Опыт</text>
-</svg><div style="margin:1rem 0;padding:.7rem .9rem;background:#fef7f4;border-radius:var(--radius-sm);border-left:3px solid var(--acc);font-size:.85rem;line-height:1.65;color:var(--text2)"><strong style="color:var(--acc)">📋 Кейс Пак:</strong> Оценка навыков Сохи: знания — 3/10 (не понимает функции поведения), навыки — 1/10 (реагирует криком на крик), мотивация — 8/10 (очень хочет помочь), ресурсы — 6/10 (время ограничено из-за работы, но бабушка может помочь). Вывод: начинать с психообразования (функции), затем BST для FCT.</div></div><h3>4.1. Оценка навыков и определение целей</h3>
-<p>Прежде чем обучать, нужно понять, что родитель уже умеет и чему его нужно научить. Это полностью соответствует принципу ПАП — мы начинаем с оценки, а не с интервенции.</p>
-<p><strong>Что оценивать:</strong></p>
-<ul>
-<li><p>Текущий уровень понимания принципов поведения</p>
-</li>
-<li><p>Способность следовать пошаговым инструкциям</p>
-</li>
-<li><p>Навыки предоставления подкрепления (своевременность, последовательность)</p>
-</li>
-<li><p>Навыки реагирования на нежелательное поведение</p>
-</li>
-<li><p>Способность к сбору данных (пусть в упрощённой форме)</p>
-</li>
-<li><p>Эмоциональное состояние и уровень стресса</p>
-</li>
-<li><p>Культурный контекст и языковые предпочтения</p>
-</li>
-</ul>
-<h3>4.2. Оценка ресурсов и возможностей</h3>
-<p>Этический кодекс BACB (стандарт 2.16) напрямую требует от аналитика оценки необходимых условий для успеха, включая ресурсы семьи. Это критически важный этап, который многие пропускают.</p>
-<p><strong>Факторы для оценки:</strong></p>
-<ul>
-<li><p>Временнûе ресурсы: сколько времени родитель реально может уделять?</p>
-</li>
-<li><p>Физические возможности: может ли родитель физически реализовать стратегии?</p>
-</li>
-<li><p>Когнитивные возможности: грамотность, способность к обучению</p>
-</li>
-<li><p>Эмоциональные ресурсы: уровень стресса, признаки выгорания, психическое здоровье</p>
-</li>
-<li><p>Социоэкономический статус: исследования Bennett (2012) показали, что стресс и базовые потребности — главные причины низкой вовлечённости родителей</p>
-</li>
-<li><p>Система поддержки: есть ли второй родитель, бабушки-дедушки, другие помощники?</p>
-</li>
-</ul>
-<h3>4.3. Раппорт как фундамент</h3>
-<p>Ни один тренинг не будет эффективным без доверительных отношений с родителем. Раппорт — это не просто «быть милым». Это систематическое построение условий, при которых родитель: доверяет специалисту, чувствует себя в безопасности при совершении ошибок, готов пробовать новое, воспринимает специалиста как партнёра, а не как судью.</p>
-<p>Практический совет: начинайте с того, что важно для родителя. Не с того, что вы считаете приоритетным, а с того, что болит у семьи прямо сейчас. Это увеличивает мотивацию и показывает, что вы слышите.</p>
-</div>
     </div><div class="section" id="s_2_2" data-idx="10">
       <h2>ТЕРАПЕВТИЧЕСКИЙ АЛЬЯНС: ВЗГЛЯД ИЗ ПСИХОЛОГИИ</h2>
       <div class="section-body"><div class="visual-block"><div class="viz-triad"><div class="viz-triad-item viz-card-blue"><div class="viz-triad-icon viz-icon-a"></div><div class="viz-triad-title">Связь</div><div class="viz-triad-text">Доверие и уважение</div></div><div class="viz-triad-item viz-card-red"><div class="viz-triad-icon viz-icon-b"></div><div class="viz-triad-title">Цели (Goals)</div><div class="viz-triad-text">Общие приоритеты</div></div><div class="viz-triad-item viz-card-teal"><div class="viz-triad-icon viz-icon-c"></div><div class="viz-triad-title">Задачи (Tasks)</div><div class="viz-triad-text">Понятные и посильные</div></div></div></div><h3>2.1. Модель Bordin: три компонента альянса</h3>
-<p>В психологии существует мощная концепция, которую мы, поведенческие аналитики, можем и должны заимствовать — терапевтический альянс (therapeutic alliance). Bordin (1979) предложил модель рабочего альянса, которая стала одной из наиболее исследованных конструкций в психотерапии. Мета-анализы последовательно демонстрируют умеренный, но стабильный размер эффекта связи между альянсом и результатами терапии (Flückiger et al., 2012, Clinical Psychology Review, 32(7), 642--649).</p>
+<p>В психологии существует мощная концепция, которую мы, поведенческие аналитики, можем и должны заимствовать — терапевтический альянс (therapeutic alliance). Bordin (1979) предложил модель рабочего альянса, которая стала одной из наиболее исследованных конструкций в психотерапии. Мета-анализы последовательно демонстрируют умеренный, но стабильный размер эффекта связи между альянсом и результатами терапии (Flückiger et al., 2012, Journal of Counseling Psychology, 59(1), 10--17).</p>
 <p>Bordin выделил три компонента альянса:</p>
 <p><strong>1. Связь</strong> — аффективная составляющая: доверие, уважение, искренний интерес. Это ощущение, что «этот человек заботится обо мне и моём ребёнке». Без эмоциональной связи не будет ни готовности учиться, ни готовности следовать рекомендациям.</p>
 <p><strong>2. Согласие по целям (Goals)</strong> — специалист и родитель работают ради одних и тех же целей. Если BCBA хочет работать над функциональной коммуникацией, а родитель хочет, чтобы ребёнок перестал кусаться — нужно найти точку пересечения и начать с неё. Несогласие по целям — одна из главных причин «потери» родителя.</p>
@@ -1332,13 +1271,13 @@ body.embed-mode #backToTop { display: none }
 <strong style="color:var(--dark)">Каждый родитель по-разному принимает обратную связь.</strong> Кто-то воспринимает любое замечание как «вы считаете меня плохой матерью» — даже если вы просто хотели помочь. Кто-то, наоборот, замыкается и молча уходит. Это не сопротивление — это способ защитить себя от боли. Поэтому прежде чем давать обратную связь, спросите себя: достаточно ли прочный у нас контакт? Чувствует ли этот человек, что я на его стороне? И начинайте всегда с того, что получилось: «Вот это было здорово — а вот одну вещь мы можем ещё подкрутить.»
 </div>
 <h3>2.2. Почему это важно именно для родительского тренинга</h3>
-<p>Исследование, опубликованное в PMC (2022), показало, что терапевтический альянс играет ключевую роль именно в родительских интервенциях. Поведение терапевта, направленное на построение альянса, — такое как активное слушание и проявление эмпатии, — предсказывало более выраженные позитивные изменения в наблюдаемом поведении родителей (Eames et al., 2010). Точность реализации модели, включая установление прочного альянса, была связана с вовлечённостью родителей и последующим улучшением позитивного родительства (Smith et al., 2013).</p>
+<p>Исследования показывают, что терапевтический альянс играет ключевую роль именно в родительских интервенциях. Поведение терапевта, направленное на построение альянса, — такое как активное слушание и проявление эмпатии, — предсказывало более выраженные позитивные изменения в наблюдаемом поведении родителей (Eames et al., 2010). Точность реализации модели, включая установление прочного альянса, была связана с вовлечённостью родителей и последующим улучшением позитивного родительства (Smith et al., 2013).</p>
 <p>Опрос родителей аутичных детей (Callahan et al., 2019) показал: репертуар специалиста, включающий навыки построения раппорта, ассоциировался с восприятием эффективной терапии. Проще говоря, родители считают терапию эффективной, когда чувствуют хорошие отношения со специалистом.</p>
 <h3>2.3. Три условия Rogers&#39;а для работы с родителями</h3>
 <p>Carl Rogers (1957) определил три ключевых условия терапевтического изменения, которые идеально применимы к родительскому тренингу:</p>
 <p><strong>1. Эмпатия (Empathy).</strong> Способность видеть ситуацию глазами родителя. Не снисхождение, а искреннее понимание: «Да, это действительно тяжело. Я вижу, сколько усилий вы вкладываете.» Когда родитель чувствует, что его понимают, его защита снижается и готовность к обучению растёт.</p>
 <p><strong>2. Безусловное позитивное отношение (Unconditional Positive Regard).</strong> Принятие родителя таким, какой он есть, без осуждения. Родитель, который не выполнил домашнее задание — не «несоблюдающий» (non-compliant). У него были причины. Наша задача — понять эти причины и адаптировать подход, а не осуждать.</p>
-<p><strong>3. Конгруэнтность (Congruence / Genuineness).</strong> Подлинность и честность. Не играйте роль всезнающего эксперта. Признавайте, когда вы чего-то не знаете. Будьте собой. Исследование в PMC (2022) показало, что клиенты описывали эффективных терапевтов как «активных, вовлечённых, исключительно сфокусированных на них, искренних и настоящих».</p>
+<p><strong>3. Конгруэнтность (Congruence / Genuineness).</strong> Подлинность и честность. Не играйте роль всезнающего эксперта. Признавайте, когда вы чего-то не знаете. Будьте собой. Исследования показывают, что родители описывают эффективных специалистов как «активных, вовлечённых, сфокусированных, искренних и настоящих» (Callahan et al., 2019).</p>
 </div>
     </div><div class="section" id="s_2_3" data-idx="11">
       <h2>МОТИВАЦИОННОЕ ИНТЕРВЬЮИРОВАНИЕ: ИНСТРУМЕНТ ДЛЯ РАППОРТА</h2>
@@ -1378,7 +1317,7 @@ body.embed-mode #backToTop { display: none }
 </div>
     </div><div class="section" id="s_2_5" data-idx="13">
       <h2>ПАРТНЁРСТВО С РОДИТЕЛЕМ: ПРАКТИЧЕСКИЙ ПОДХОД</h2>
-      <div class="section-body"><div class="visual-block"><div class="viz-grid viz-grid-2"><div class="viz-card viz-card-blue"><div class="viz-card-badge">1</div><div class="viz-card-title">Экспертиза родителя</div><div class="viz-card-text">Вы — ПАП, родитель — ребёнок</div></div><div class="viz-card viz-card-red"><div class="viz-card-badge">2</div><div class="viz-card-title">Совместные решения</div><div class="viz-card-text">«Что изменило бы жизнь?»</div></div><div class="viz-card viz-card-teal"><div class="viz-card-badge">3</div><div class="viz-card-title">Властная динамика</div><div class="viz-card-text">Осознавайте, выравнивайте</div></div><div class="viz-card viz-card-gold"><div class="viz-card-badge">4</div><div class="viz-card-title">Культурный контекст</div><div class="viz-card-text">Адаптируйте подход</div></div></div></div><p>Исследование, опубликованное в PMC (2024), описывает четыре фундаментальных принципа построения коллаборативного партнёрства между поведенческими аналитиками и семьями, объединяя стратегии из позитивной поведенческой поддержки (PBS), семейно-центрированной практики (FCP) и ПАП. Авторы подчёркивают, что BST и другие инструменты обучения не содержат встроенного руководства по учёту семейной экспертизы и построению коллаборативных отношений (Taylor et al., 2019).</p>
+      <div class="section-body"><div class="visual-block"><div class="viz-grid viz-grid-2"><div class="viz-card viz-card-blue"><div class="viz-card-badge">1</div><div class="viz-card-title">Экспертиза родителя</div><div class="viz-card-text">Вы — ПАП, родитель — ребёнок</div></div><div class="viz-card viz-card-red"><div class="viz-card-badge">2</div><div class="viz-card-title">Совместные решения</div><div class="viz-card-text">«Что изменило бы жизнь?»</div></div><div class="viz-card viz-card-teal"><div class="viz-card-badge">3</div><div class="viz-card-title">Властная динамика</div><div class="viz-card-text">Осознавайте, выравнивайте</div></div><div class="viz-card viz-card-gold"><div class="viz-card-badge">4</div><div class="viz-card-title">Культурный контекст</div><div class="viz-card-text">Адаптируйте подход</div></div></div></div><p>Horbanczuk, Fettig и Luna (2024) описывают четыре фундаментальных принципа построения коллаборативного партнёрства между поведенческими аналитиками и семьями, объединяя стратегии из позитивной поведенческой поддержки (PBS), семейно-центрированной практики (FCP) и ПАП. Авторы подчёркивают, что BST и другие инструменты обучения не содержат встроенного руководства по учёту семейной экспертизы и построению коллаборативных отношений (Taylor et al., 2019).</p>
 <h3>4.1. Четыре принципа партнёрства</h3>
 <p><strong>1. Признание экспертизы родителя.</strong> Вы эксперт в ПАП. Родитель — эксперт в своём ребёнке. Оба знания необходимы. Fong и коллеги (2016, 2017) выявили, что аналитики иногда не учитывают приоритеты семьи при составлении планов терапии. Это ошибка, которая разрушает альянс.</p>
 <p><strong>2. Совместное принятие решений.</strong> Не «я решил, что цели будут такими», а «какие навыки, если бы Маша их освоила, больше всего изменили бы вашу жизнь к лучшему?». Родитель, участвовавший в выборе целей, мотивирован их достигать.</p>
@@ -1466,6 +1405,79 @@ body.embed-mode #backToTop { display: none }
 </li>
 </ul>
 <p>Если этих индикаторов нет — вернитесь к установлению связи. Если родитель отменяет встречи, не выполняет рекомендации, закрыт — это не «несоблюдение», это сигнал о том, что раппорт не установлен или разрушен. Реагируйте как на поведенческие данные: проведите функциональную оценку ситуации и адаптируйте свой подход.</p>
+</div>
+    </div><div class="section" id="s_2_11" data-idx="19">
+      <h2>ОЦЕНКА НАВЫКОВ И РЕСУРСОВ РОДИТЕЛЯ</h2>
+      <div class="section-body"><div class="visual-block">
+<svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:min(720px, 100%);display:block;margin:0 auto">
+  <rect width="720" height="260" rx="12" fill="#fafbfc"/>
+  <line x1="170" y1="130" x2="360" y2="42" stroke="var(--border)" stroke-width="1"/>
+  <line x1="360" y1="42" x2="550" y2="130" stroke="var(--border)" stroke-width="1"/>
+  <line x1="550" y1="130" x2="360" y2="218" stroke="var(--border)" stroke-width="1"/>
+  <line x1="360" y1="218" x2="170" y2="130" stroke="var(--border)" stroke-width="1"/>
+  <line x1="170" y1="130" x2="550" y2="130" stroke="var(--border)" stroke-width="1" stroke-dasharray="4,4" opacity=".4"/>
+  <line x1="360" y1="42" x2="360" y2="218" stroke="var(--border)" stroke-width="1" stroke-dasharray="4,4" opacity=".4"/>
+  <!-- A: Навыки -->
+  <circle cx="170" cy="130" r="52" fill="#fff" stroke="#3b7cb8" stroke-width="1.5"/><circle cx="170" cy="130" r="52" fill="#3b7cb8" opacity=".06"/>
+  <text x="170" y="118" text-anchor="middle" fill="#2a5a8a" font-family="var(--hf),Georgia,serif" font-size="17" font-weight="600">A</text>
+  <text x="170" y="136" text-anchor="middle" fill="#2a5a8a" font-family="var(--bf),sans-serif" font-size="11" font-weight="600">Навыки</text>
+  <text x="170" y="153" text-anchor="middle" fill="#4a7a9f" font-family="var(--bf),sans-serif" font-size="9">Инструкции</text>
+  <text x="170" y="166" text-anchor="middle" fill="#4a7a9f" font-family="var(--bf),sans-serif" font-size="9">Подкрепление</text>
+  <!-- B: Знания -->
+  <circle cx="360" cy="42" r="52" fill="#fff" stroke="#c97b5a" stroke-width="1.5"/><circle cx="360" cy="42" r="52" fill="#c97b5a" opacity=".06"/>
+  <text x="360" y="30" text-anchor="middle" fill="#9a5535" font-family="var(--hf),Georgia,serif" font-size="17" font-weight="600">B</text>
+  <text x="360" y="48" text-anchor="middle" fill="#9a5535" font-family="var(--bf),sans-serif" font-size="11" font-weight="600">Знания</text>
+  <text x="360" y="65" text-anchor="middle" fill="#ad7050" font-family="var(--bf),sans-serif" font-size="9">Функции · Принципы</text>
+  <!-- C: Ресурсы -->
+  <circle cx="550" cy="130" r="52" fill="#fff" stroke="#2da87a" stroke-width="1.5"/><circle cx="550" cy="130" r="52" fill="#2da87a" opacity=".06"/>
+  <text x="550" y="118" text-anchor="middle" fill="#1c7050" font-family="var(--hf),Georgia,serif" font-size="17" font-weight="600">C</text>
+  <text x="550" y="136" text-anchor="middle" fill="#1c7050" font-family="var(--bf),sans-serif" font-size="11" font-weight="600">Ресурсы</text>
+  <text x="550" y="153" text-anchor="middle" fill="#358a68" font-family="var(--bf),sans-serif" font-size="9">Время · Поддержка</text>
+  <text x="550" y="166" text-anchor="middle" fill="#358a68" font-family="var(--bf),sans-serif" font-size="9">Стресс · Финансы</text>
+  <!-- D: Контекст -->
+  <circle cx="360" cy="218" r="52" fill="#fff" stroke="#d4a041" stroke-width="1.5"/><circle cx="360" cy="218" r="52" fill="#d4a041" opacity=".06"/>
+  <text x="360" y="206" text-anchor="middle" fill="#8a6820" font-family="var(--hf),Georgia,serif" font-size="17" font-weight="600">D</text>
+  <text x="360" y="224" text-anchor="middle" fill="#8a6820" font-family="var(--bf),sans-serif" font-size="11" font-weight="600">Контекст</text>
+  <text x="360" y="241" text-anchor="middle" fill="#a58535" font-family="var(--bf),sans-serif" font-size="9">Культура · Язык · Опыт</text>
+</svg><div style="margin:1rem 0;padding:.7rem .9rem;background:#fef7f4;border-radius:var(--radius-sm);border-left:3px solid var(--acc);font-size:.85rem;line-height:1.65;color:var(--text2)"><strong style="color:var(--acc)">📋 Кейс Пак:</strong> Оценка навыков Сохи: знания — 3/10 (не понимает функции поведения), навыки — 1/10 (реагирует криком на крик), мотивация — 8/10 (очень хочет помочь), ресурсы — 6/10 (время ограничено из-за работы, но бабушка может помочь). Вывод: начинать с психообразования (функции), затем BST для FCT.</div></div><h3>4.1. Оценка навыков и определение целей</h3>
+<p>Прежде чем обучать, нужно понять, что родитель уже умеет и чему его нужно научить. Это полностью соответствует принципу ПАП — мы начинаем с оценки, а не с интервенции.</p>
+<p><strong>Что оценивать:</strong></p>
+<ul>
+<li><p>Текущий уровень понимания принципов поведения</p>
+</li>
+<li><p>Способность следовать пошаговым инструкциям</p>
+</li>
+<li><p>Навыки предоставления подкрепления (своевременность, последовательность)</p>
+</li>
+<li><p>Навыки реагирования на нежелательное поведение</p>
+</li>
+<li><p>Способность к сбору данных (пусть в упрощённой форме)</p>
+</li>
+<li><p>Эмоциональное состояние и уровень стресса</p>
+</li>
+<li><p>Культурный контекст и языковые предпочтения</p>
+</li>
+</ul>
+<h3>4.2. Оценка ресурсов и возможностей</h3>
+<p>Этический кодекс BACB (стандарт 2.16) напрямую требует от аналитика оценки необходимых условий для успеха, включая ресурсы семьи. Это критически важный этап, который многие пропускают.</p>
+<p><strong>Факторы для оценки:</strong></p>
+<ul>
+<li><p>Временнûе ресурсы: сколько времени родитель реально может уделять?</p>
+</li>
+<li><p>Физические возможности: может ли родитель физически реализовать стратегии?</p>
+</li>
+<li><p>Когнитивные возможности: грамотность, способность к обучению</p>
+</li>
+<li><p>Эмоциональные ресурсы: уровень стресса, признаки выгорания, психическое здоровье</p>
+</li>
+<li><p>Социоэкономический статус: исследования Bennett (2012) показали, что стресс и базовые потребности — главные причины низкой вовлечённости родителей</p>
+</li>
+<li><p>Система поддержки: есть ли второй родитель, бабушки-дедушки, другие помощники?</p>
+</li>
+</ul>
+<h3>4.3. Раппорт как фундамент</h3>
+<p>Ни один тренинг не будет эффективным без доверительных отношений с родителем. Раппорт — это не просто «быть милым». Это систематическое построение условий, при которых родитель: доверяет специалисту, чувствует себя в безопасности при совершении ошибок, готов пробовать новое, воспринимает специалиста как партнёра, а не как судью.</p>
+<p>Практический совет: начинайте с того, что важно для родителя. Не с того, что вы считаете приоритетным, а с того, что болит у семьи прямо сейчас. Это увеличивает мотивацию и показывает, что вы слышите.</p>
 </div>
     </div><div style="margin:3rem auto 2rem;padding:1.5rem 0;border-top:2px solid var(--border);max-width:860px"><div style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:.3rem">Часть III-Б</div><div style="font-family:var(--hf);font-size:1.3rem;font-weight:500;color:var(--dark)">Углублённые навыки и самопомощь</div><div style="font-size:.85rem;color:var(--mut);margin-top:.4rem">ACT-тренинг, выгорание, типичные ошибки, оценка и обратная связь</div></div><div class="section" id="s_2_7" data-idx="15">
       <h2>ACT-ТРЕНИНГ: РАБОТА С ВНУТРЕННИМ МИРОМ РОДИТЕЛЯ</h2>
@@ -2162,7 +2174,7 @@ body.embed-mode #backToTop { display: none }
       <div style="color:var(--text2)">Наблюдение вместо практики. Установление связи.</div>
     </div>
   </div>
-</div></div><p>Исследование, опубликованное в PMC (2025), на основе фокус-групп с родителями и BCBA/RBT, выявило три ключевые темы: барьеры к вовлечению, факторы, способствующие вовлечению, и рекомендации по улучшению. Среди логистических барьеров — то, что домашняя терапия часто проводится в вечерние часы, когда семья и так занята множеством дел. Родители также отмечали неясность своей роли и сложности в коммуникации с RBT в отличие от BCBA.</p>
+</div></div><p>Ferretti, Zawacki и Cohen (2025), на основе фокус-групп с родителями и BCBA/RBT, выявили три ключевые темы: барьеры к вовлечению, факторы, способствующие вовлечению, и рекомендации по улучшению. Среди логистических барьеров — то, что домашняя терапия часто проводится в вечерние часы, когда семья и так занята множеством дел. Родители также отмечали неясность своей роли и сложности в коммуникации с RBT в отличие от BCBA.</p>
 <p>Ниже — самые частые аргументы родителей и стратегии ответа:</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1.2rem 0">
   <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden">
@@ -2214,23 +2226,24 @@ body.embed-mode #backToTop { display: none }
     </div><div class="section" id="s_4_3" data-idx="29">
       <h2>СВЯЗЬ ТРЕНИНГА С ПРОГРАММОЙ РЕБЁНКА</h2>
       <div class="section-body"><div class="visual-block">
-<svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:min(720px, 100%);display:block;margin:0 auto">
+<svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:min(720px, 100%);display:block;margin:0 auto">
   <defs><linearGradient id="gvenn" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3b7cb8" stop-opacity=".05"/><stop offset="100%" stop-color="#c97b5a" stop-opacity=".05"/></linearGradient></defs>
-  <rect width="720" height="220" rx="12" fill="url(#gvenn)"/>
-  <circle cx="290" cy="110" r="88" fill="#3b7cb8" opacity=".08" stroke="#3b7cb8" stroke-width="1.5"/>
-  <circle cx="430" cy="110" r="88" fill="#c97b5a" opacity=".08" stroke="#c97b5a" stroke-width="1.5"/>
-  <text x="240" y="85" text-anchor="middle" fill="#3b7cb8" font-family="Playfair Display,serif" font-size="13" font-weight="600">Программа</text>
-  <text x="240" y="102" text-anchor="middle" fill="#3b7cb8" font-family="Playfair Display,serif" font-size="13" font-weight="600">ребёнка</text>
-  <text x="240" y="125" text-anchor="middle" fill="#3b7cb8" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Цели · Навыки</text>
-  <text x="240" y="140" text-anchor="middle" fill="#3b7cb8" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Процедуры · Данные</text>
-  <text x="480" y="85" text-anchor="middle" fill="#c97b5a" font-family="Playfair Display,serif" font-size="13" font-weight="600">Тренинг</text>
-  <text x="480" y="102" text-anchor="middle" fill="#c97b5a" font-family="Playfair Display,serif" font-size="13" font-weight="600">родителя</text>
-  <text x="480" y="125" text-anchor="middle" fill="#c97b5a" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Навыки · BST/TIP</text>
-  <text x="480" y="140" text-anchor="middle" fill="#c97b5a" font-family="Plus Jakarta Sans,sans-serif" font-size="9" opacity=".6">Верность · Фейдинг</text>
-  <text x="360" y="92" text-anchor="middle" fill="#252836" font-family="Playfair Display,serif" font-size="11" font-weight="700">СИНХРОНИЗАЦИЯ</text>
-  <text x="360" y="110" text-anchor="middle" fill="#3b7cb8" font-family="Plus Jakarta Sans,sans-serif" font-size="9">Те же цели</text>
-  <text x="360" y="125" text-anchor="middle" fill="#3b7cb8" font-family="Plus Jakarta Sans,sans-serif" font-size="9">Те же процедуры</text>
-  <text x="360" y="140" text-anchor="middle" fill="#3b7cb8" font-family="Plus Jakarta Sans,sans-serif" font-size="9">Общие данные</text>
+  <rect width="720" height="240" rx="12" fill="url(#gvenn)"/>
+  <circle cx="280" cy="120" r="100" fill="#3b7cb8" opacity=".08" stroke="#3b7cb8" stroke-width="1.5"/>
+  <circle cx="440" cy="120" r="100" fill="#c97b5a" opacity=".08" stroke="#c97b5a" stroke-width="1.5"/>
+  <text x="225" y="95" text-anchor="middle" fill="#2a5a8a" font-family="var(--hf),Georgia,serif" font-size="14" font-weight="600">Программа</text>
+  <text x="225" y="114" text-anchor="middle" fill="#2a5a8a" font-family="var(--hf),Georgia,serif" font-size="14" font-weight="600">ребёнка</text>
+  <text x="225" y="138" text-anchor="middle" fill="#4a7a9f" font-family="var(--bf),sans-serif" font-size="10">Цели · Навыки</text>
+  <text x="225" y="154" text-anchor="middle" fill="#4a7a9f" font-family="var(--bf),sans-serif" font-size="10">Процедуры · Данные</text>
+  <text x="495" y="95" text-anchor="middle" fill="#9a5535" font-family="var(--hf),Georgia,serif" font-size="14" font-weight="600">Тренинг</text>
+  <text x="495" y="114" text-anchor="middle" fill="#9a5535" font-family="var(--hf),Georgia,serif" font-size="14" font-weight="600">родителя</text>
+  <text x="495" y="138" text-anchor="middle" fill="#ad7050" font-family="var(--bf),sans-serif" font-size="10">Навыки · BST/TIP</text>
+  <text x="495" y="154" text-anchor="middle" fill="#ad7050" font-family="var(--bf),sans-serif" font-size="10">Верность · Фейдинг</text>
+  <text x="360" y="96" text-anchor="middle" fill="#252836" font-family="var(--hf),Georgia,serif" font-size="12" font-weight="700">СИНХРОНИ-</text>
+  <text x="360" y="112" text-anchor="middle" fill="#252836" font-family="var(--hf),Georgia,serif" font-size="12" font-weight="700">ЗАЦИЯ</text>
+  <text x="360" y="132" text-anchor="middle" fill="#3b7cb8" font-family="var(--bf),sans-serif" font-size="10">Те же цели</text>
+  <text x="360" y="148" text-anchor="middle" fill="#3b7cb8" font-family="var(--bf),sans-serif" font-size="10">Те же процедуры</text>
+  <text x="360" y="164" text-anchor="middle" fill="#3b7cb8" font-family="var(--bf),sans-serif" font-size="10">Общие данные</text>
 </svg></div><p>Один из ключевых принципов, который отличает индивидуальный кейсовый тренинг от общих курсов: всё обучение привязано к текущей программе конкретного ребёнка.
 
 <div style="margin:1rem 0;padding:1rem 1.2rem;background:var(--cream);border-radius:var(--radius-md);border:1px solid var(--border)">
@@ -3996,72 +4009,6 @@ iv>
     <strong style="color:var(--dark)">Если критерии не достигнуты:</strong> Не переходите к следующей фазе. Повторите, адаптируйте, упростите. Проверьте: раппорт сохранён? Нет ли выгорания? Нужно ли вернуться к установлению связи? <em>Критерий готовности важнее графика.</em>
   </div>
 </div>
-
-    
-    <div class="section" id="s_6_3" data-idx="42">
-      <h2>КОГДА ВСЁ ИДЁТ НЕ ПО ПЛАНУ: РЕШЕНИЯ</h2>
-      <div class="section-body"><div class="visual-block"><div class="viz-grid viz-grid-2"><div class="viz-card viz-card-red"><div class="viz-card-title">Всплеск угасания</div><div class="viz-card-text">Предупредите с цифрами · поддерживающая сессия через 2–3 дня</div></div><div class="viz-card viz-card-gold"><div class="viz-card-title">Саботаж второго родителя</div><div class="viz-card-text">MI · привлеките отдельно · 1 стратегия</div></div><div class="viz-card viz-card-blue"><div class="viz-card-title">Дифференциация сред</div><div class="viz-card-text">Видеоанализ · передача контроля</div></div><div class="viz-card viz-card-teal"><div class="viz-card-title">Родитель перестал приходить</div><div class="viz-card-text">Функция ухода · упростить · установление связи</div></div></div></div><h3>2.1. Всплеск угасания (всплеск угасания) дома</h3>
-<p>Это САМАЯ частая проблема. Родитель начинает применять стратегию угасания, и поведение ребёнка временно ухудшается. Родитель пугается и сдаётся — подкрепляя ещё более интенсивное поведение.</p>
-<p><strong>Что делать:</strong></p>
-<ul>
-<li><p>ОБЯЗАТЕЛЬНО предупредите заранее: «Когда вы начнёте игнорировать крик, первые 2--3 дня он будет кричать ГРОМЧЕ и ДОЛЬШЕ. Это называется всплеск угасания и это нормально. Это признак того, что стратегия работает»</p>
-</li>
-<li><p>Дайте конкретные цифры: «Если сейчас истерика длится 5 минут, в первые дни она может длиться 15--20 минут. К концу первой недели — уменьшится до 3 минут»</p>
-</li>
-<li><p>Дайте «план побега»: «Если ребёнок причиняет вред себе или другим — вот что делать... Если вы чувствуете, что не справляетесь — позвоните мне»</p>
-</li>
-<li><p>Запросите данные: попросите родителя записывать длительность и интенсивность — так он увидит тренд снижения</p>
-</li>
-<li><p>Запланируйте поддерживающая сессияную сессию через 2--3 дня после начала, не через неделю</p>
-</li>
-</ul>
-<h3>2.2. Один родитель саботирует</h3>
-<p>Один родитель применяет стратегии, другой — нет. Или бабушка жалеет и подкрепляет нежелательное поведение. Это проблема непоследовательности, которая может полностью нивелировать результаты.</p>
-<p><strong>Стратегии:</strong></p>
-<ul>
-<li><p>Привлеките второго взрослого на сессию. Не обвиняйте — объясните через данные: «Когда подход одинаковый у обоих — ребёнок учится быстрее. Когда разный — ребёнок путается и поведение ухудшается»</p>
-</li>
-<li><p>Используйте MI: «Что вас беспокоит в этом подходе?» — часто за «саботажем» стоят страхи, непонимание или культурные убеждения</p>
-</li>
-<li><p>Найдите компромисс: может, второй родитель готов применять одну стратегию из пяти? Начните с этого</p>
-</li>
-<li><p>Дайте второму родителю отдельную, адаптированную версию обучения — не через пересказ первого</p>
-</li>
-<li><p>В крайнем случае: договоритесь хотя бы о «не навреди» — если не можете применять стратегию, хотя бы не подкрепляйте нежелательное поведение</p>
-</li>
-</ul>
-<h3>2.3. Ребёнок ведёт себя иначе при родителе</h3>
-<p>Это нормальная поведенческая дифференциация: ребёнок научился, что при терапевте одни правила, при родителе — другие. Это не вина родителя, это данные о средовом контроле.</p>
-<p><strong>Стратегии:</strong></p>
-<ul>
-<li><p>Объясните: «Это означает, что ваш ребёнок очень умный — он различает условия. Наша задача — сделать условия дома похожими на терапию»</p>
-</li>
-<li><p>Проведите наблюдение в натуральной среде: придите домой и понаблюдайте за взаимодействием</p>
-</li>
-<li><p>Используйте видео: попросите родителя записать типичный эпизод — это даст вам данные для анализа</p>
-</li>
-<li><p>Постепенно передавайте контроль: начните с совместных сессий (вы + родитель), затем родитель ведёт — вы наблюдаете, затем родитель ведёт самостоятельно</p>
-</li>
-<li><p>Работайте над превентивными стратегиями: визуальное расписание, структура среды, предсказуемые рутины дома</p>
-</li>
-</ul>
-<h3>2.4. Родитель перестал приходить / отвечать</h3>
-<p>Это не «несоблюдение» — это поведение, у которого есть функция. Проведите функциональную оценку:</p>
-<ul>
-<li><p>Функция избегания: тренинг воспринимается как неприятный стимул → Упростите требования, верните установление связи</p>
-</li>
-<li><p>Функция внимания: родитель чувствует себя непонятым → Дайте больше пространства для голоса родителя</p>
-</li>
-<li><p>Базовые потребности: просто нет сил и времени → Адаптируйте формат (короче, реже, дистанционно)</p>
-</li>
-<li><p>Кризис в семье → Поставьте тренинг на паузу, предложите ресурсы поддержки</p>
-</li>
-</ul>
-</div>
-    </div>
-<div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:var(--radius-md);border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
-      <span style="font-weight:600;color:var(--dark)">Далее:</span> Программа выполнена. Далее — <strong>особые ситуации</strong>: этические дилеммы, несогласный родитель, сиблинги, подростки и дистанционный формат.
-    </div>
     </section><section class="part " id="part_5" style="--pc:#7aab95">
     <div class="part-header">
       <div class="part-num">ЧАСТЬ VII</div>
@@ -4390,58 +4337,7 @@ iv>
 <p>Наиболее эффективный подход: комбинация очных и дистанционных сессий. Например: очный BST/TIP для обучения навыку → телехелс для follow-up и анализа видео → очная поддерживающая сессия при необходимости. Это увеличивает дозировку контакта без увеличения нагрузки на семью.</p>
 </div>
     
-    <div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:var(--radius-md);border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
-      <span style="font-weight:600;color:var(--dark)">Далее:</span> Теперь у вас есть всё для работы. В последней части — <strong>формы, протоколы и примеры</strong>, которые можно распечатать и использовать.
-    </div></div></section><section class="part " id="part_6" style="--pc:#8a95a5">
-    <div class="part-header">
-      <div class="part-num">ЧАСТЬ VIII</div>
-      <h1>ИНСТРУМЕНТЫ И ЗАВЕРШЕНИЕ</h1>
-    </div><div class="section" id="s_6_0" data-idx="39">
-      <h2>ШАБЛОНЫ И ЧЕК-ЛИСТЫ (ГОТОВЫЕ К ПЕЧАТИ)</h2>
-      <div class="section-body"><div style="margin-bottom:1.5rem;padding:1.2rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;line-height:1.7">
-<p style="font-weight:600;color:var(--dark);margin-bottom:.6rem">Как пользоваться формами</p>
-<p>В этом разделе собраны все формы, которые вам понадобятся на протяжении программы. Каждая форма — шаблон, который нужно адаптировать под конкретную семью и требования вашей организации.</p>
-
-<p style="margin-top:.8rem;font-weight:600;color:var(--dark)">Порядок использования:</p>
-<ul>
-<li><strong>До начала программы:</strong> Информированное согласие (отдельный раздел) → Форма первичной оценки (секции A–D)</li>
-<li><strong>Неделя 1:</strong> Первичная оценка + пустой бланк BSP + ABC-дневник для родителя</li>
-<li><strong>Каждая сессия:</strong> Чек-лист точности (для наблюдения за практикой родителя) + Бланк записи сессии</li>
-<li><strong>Неделя 7 и далее:</strong> BSP (обновлённый) с конкретными стратегиями по функциям</li>
-<li><strong>Неделя 12:</strong> Промежуточный опросник социальной валидности</li>
-<li><strong>Неделя 17:</strong> Финальный опросник + финальный BSP (распечатать для родителя)</li>
-</ul>
-
-<p style="margin-top:.6rem;font-size:.88rem;color:var(--mut)"><strong>Совет:</strong> Распечатайте все формы заранее и сложите в папку для каждой семьи. На сессии не тратьте время на поиск нужного бланка. Если работаете дистанционно — используйте электронные версии (Google Forms, PDF-заполнение).</p>
-</div>
-<h3>1.1. Форма первичной оценки родителя</h3>
-<div class="disclaimer-box">Примерный шаблон. Адаптируйте под ваш кейс, организацию и требования плательщика.</div>
-
-<div class="intake-form">
-  <div class="intake-header">
-    <div class="intake-title">ФОРМА ПЕРВИЧНОЙ ОЦЕНКИ РОДИТЕЛЯ / ОПЕКУНА</div>
-    <div class="intake-meta">
-      <div class="intake-row"><span class="intake-label">Дата оценки:</span><span class="intake-line"></span></div>
-      <div class="intake-row"><span class="intake-label">BCBA:</span><span class="intake-line"></span></div>
-      <div class="intake-row"><span class="intake-label">Ребёнок (ФИО, возраст):</span><span class="intake-line"></span></div>
-    </div>
-  </div>
-
-  <div class="intake-section">
-    <div class="intake-section-header">A. ОБЩАЯ ИНФОРМАЦИЯ</div>
-    <div class="intake-grid">
-      <div class="intake-field"><span class="intake-label">ФИО родителя/опекуна</span><span class="intake-line"></span></div>
-      <div class="intake-field"><span class="intake-label">Отношение к ребёнку</span><span class="intake-line"></span></div>
-      <div class="intake-field"><span class="intake-label">Телефон</span><span class="intake-line"></span></div>
-      <div class="intake-field"><span class="intake-label">Email</span><span class="intake-line"></span></div>
-      <div class="intake-field full"><span class="intake-label">Предпочитаемый способ связи</span><span class="intake-line"></span></div>
-      <div class="intake-field full"><span class="intake-label">Языки общения</span><span class="intake-line"></span></div>
-      <div class="intake-field full"><span class="intake-label">Культурные особенности (если релевантно)</span><span class="intake-line"></span></div>
-      <div class="intake-field"><span class="intake-label">Рабочий график</span><span class="intake-line"></span></div>
-      <div class="intake-field"><span class="intake-label">Доступное время для тренинга</span><span class="intake-line"></span></div>
-      <div class="intake-field full"><span class="intake-label">Другие дети в доме (имена, возраст)</span><span class="intake-line"></span></div>
-      <div class="intake-field full"><span class="intake-label">Другие взрослые в доме (роль)</span><span class="intake-line"></span></div>
-    </div><div class="section" id="s_5_6" data-idx="39">
+<div class="section" id="s_5_6" data-idx="39">
       <h2>КУЛЬТУРНАЯ ЧУВСТВИТЕЛЬНОСТЬ: РАБОТА С РАЗНЫМИ СЕМЬЯМИ</h2>
       <div class="section-body">
 <p>Семьи, с которыми вы работаете, могут иметь разный культурный, религиозный и языковой бэкграунд. Это влияет на восприятие диагноза, отношение к терапии, стиль родительства и готовность к тренингу.</p>
@@ -4490,7 +4386,123 @@ iv>
 
 <p><strong>Важно:</strong> Обязательное информирование — это НЕ предательство семьи. Это защита ребёнка. Если вы не уверены — проконсультируйтесь с супервизором. Лучше сообщить и ошибиться, чем промолчать и допустить вред.</p>
 </div></div>
+
+
+    
+    <div class="section" id="s_6_3" data-idx="42">
+      <h2>КОГДА ВСЁ ИДЁТ НЕ ПО ПЛАНУ: РЕШЕНИЯ</h2>
+      <div class="section-body"><div class="visual-block"><div class="viz-grid viz-grid-2"><div class="viz-card viz-card-red"><div class="viz-card-title">Всплеск угасания</div><div class="viz-card-text">Предупредите с цифрами · поддерживающая сессия через 2–3 дня</div></div><div class="viz-card viz-card-gold"><div class="viz-card-title">Саботаж второго родителя</div><div class="viz-card-text">MI · привлеките отдельно · 1 стратегия</div></div><div class="viz-card viz-card-blue"><div class="viz-card-title">Дифференциация сред</div><div class="viz-card-text">Видеоанализ · передача контроля</div></div><div class="viz-card viz-card-teal"><div class="viz-card-title">Родитель перестал приходить</div><div class="viz-card-text">Функция ухода · упростить · установление связи</div></div></div></div><h3>2.1. Всплеск угасания (всплеск угасания) дома</h3>
+<p>Это САМАЯ частая проблема. Родитель начинает применять стратегию угасания, и поведение ребёнка временно ухудшается. Родитель пугается и сдаётся — подкрепляя ещё более интенсивное поведение.</p>
+<p><strong>Что делать:</strong></p>
+<ul>
+<li><p>ОБЯЗАТЕЛЬНО предупредите заранее: «Когда вы начнёте игнорировать крик, первые 2--3 дня он будет кричать ГРОМЧЕ и ДОЛЬШЕ. Это называется всплеск угасания и это нормально. Это признак того, что стратегия работает»</p>
+</li>
+<li><p>Дайте конкретные цифры: «Если сейчас истерика длится 5 минут, в первые дни она может длиться 15--20 минут. К концу первой недели — уменьшится до 3 минут»</p>
+</li>
+<li><p>Дайте «план побега»: «Если ребёнок причиняет вред себе или другим — вот что делать... Если вы чувствуете, что не справляетесь — позвоните мне»</p>
+</li>
+<li><p>Запросите данные: попросите родителя записывать длительность и интенсивность — так он увидит тренд снижения</p>
+</li>
+<li><p>Запланируйте поддерживающая сессияную сессию через 2--3 дня после начала, не через неделю</p>
+</li>
+</ul>
+<h3>2.2. Один родитель саботирует</h3>
+<p>Один родитель применяет стратегии, другой — нет. Или бабушка жалеет и подкрепляет нежелательное поведение. Это проблема непоследовательности, которая может полностью нивелировать результаты.</p>
+<p><strong>Стратегии:</strong></p>
+<ul>
+<li><p>Привлеките второго взрослого на сессию. Не обвиняйте — объясните через данные: «Когда подход одинаковый у обоих — ребёнок учится быстрее. Когда разный — ребёнок путается и поведение ухудшается»</p>
+</li>
+<li><p>Используйте MI: «Что вас беспокоит в этом подходе?» — часто за «саботажем» стоят страхи, непонимание или культурные убеждения</p>
+</li>
+<li><p>Найдите компромисс: может, второй родитель готов применять одну стратегию из пяти? Начните с этого</p>
+</li>
+<li><p>Дайте второму родителю отдельную, адаптированную версию обучения — не через пересказ первого</p>
+</li>
+<li><p>В крайнем случае: договоритесь хотя бы о «не навреди» — если не можете применять стратегию, хотя бы не подкрепляйте нежелательное поведение</p>
+</li>
+</ul>
+<h3>2.3. Ребёнок ведёт себя иначе при родителе</h3>
+<p>Это нормальная поведенческая дифференциация: ребёнок научился, что при терапевте одни правила, при родителе — другие. Это не вина родителя, это данные о средовом контроле.</p>
+<p><strong>Стратегии:</strong></p>
+<ul>
+<li><p>Объясните: «Это означает, что ваш ребёнок очень умный — он различает условия. Наша задача — сделать условия дома похожими на терапию»</p>
+</li>
+<li><p>Проведите наблюдение в натуральной среде: придите домой и понаблюдайте за взаимодействием</p>
+</li>
+<li><p>Используйте видео: попросите родителя записать типичный эпизод — это даст вам данные для анализа</p>
+</li>
+<li><p>Постепенно передавайте контроль: начните с совместных сессий (вы + родитель), затем родитель ведёт — вы наблюдаете, затем родитель ведёт самостоятельно</p>
+</li>
+<li><p>Работайте над превентивными стратегиями: визуальное расписание, структура среды, предсказуемые рутины дома</p>
+</li>
+</ul>
+<h3>2.4. Родитель перестал приходить / отвечать</h3>
+<p>Это не «несоблюдение» — это поведение, у которого есть функция. Проведите функциональную оценку:</p>
+<ul>
+<li><p>Функция избегания: тренинг воспринимается как неприятный стимул → Упростите требования, верните установление связи</p>
+</li>
+<li><p>Функция внимания: родитель чувствует себя непонятым → Дайте больше пространства для голоса родителя</p>
+</li>
+<li><p>Базовые потребности: просто нет сил и времени → Адаптируйте формат (короче, реже, дистанционно)</p>
+</li>
+<li><p>Кризис в семье → Поставьте тренинг на паузу, предложите ресурсы поддержки</p>
+</li>
+</ul>
+</div>
+    </div>
+    <div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:var(--radius-md);border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
+      <span style="font-weight:600;color:var(--dark)">Далее:</span> Теперь у вас есть всё для работы. В последней части — <strong>формы, протоколы и примеры</strong>, которые можно распечатать и использовать.
+    </div>
+</div></section><section class="part " id="part_6" style="--pc:#8a95a5">
+    <div class="part-header">
+      <div class="part-num">ЧАСТЬ VIII</div>
+      <h1>ИНСТРУМЕНТЫ И ЗАВЕРШЕНИЕ</h1>
+    </div><div class="section" id="s_6_0" data-idx="39">
+      <h2>ШАБЛОНЫ И ЧЕК-ЛИСТЫ (ГОТОВЫЕ К ПЕЧАТИ)</h2>
+      <div class="section-body"><div style="margin-bottom:1.5rem;padding:1.2rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;line-height:1.7">
+<p style="font-weight:600;color:var(--dark);margin-bottom:.6rem">Как пользоваться формами</p>
+<p>В этом разделе собраны все формы, которые вам понадобятся на протяжении программы. Каждая форма — шаблон, который нужно адаптировать под конкретную семью и требования вашей организации.</p>
+
+<p style="margin-top:.8rem;font-weight:600;color:var(--dark)">Порядок использования:</p>
+<ul>
+<li><strong>До начала программы:</strong> Информированное согласие (отдельный раздел) → Форма первичной оценки (секции A–D)</li>
+<li><strong>Неделя 1:</strong> Первичная оценка + пустой бланк BSP + ABC-дневник для родителя</li>
+<li><strong>Каждая сессия:</strong> Чек-лист точности (для наблюдения за практикой родителя) + Бланк записи сессии</li>
+<li><strong>Неделя 7 и далее:</strong> BSP (обновлённый) с конкретными стратегиями по функциям</li>
+<li><strong>Неделя 12:</strong> Промежуточный опросник социальной валидности</li>
+<li><strong>Неделя 17:</strong> Финальный опросник + финальный BSP (распечатать для родителя)</li>
+</ul>
+
+<p style="margin-top:.6rem;font-size:.88rem;color:var(--mut)"><strong>Совет:</strong> Распечатайте все формы заранее и сложите в папку для каждой семьи. На сессии не тратьте время на поиск нужного бланка. Если работаете дистанционно — используйте электронные версии (Google Forms, PDF-заполнение).</p>
+</div>
+<h3>1.1. Форма первичной оценки родителя</h3>
+<div class="disclaimer-box">Примерный шаблон. Адаптируйте под ваш кейс, организацию и требования плательщика.</div>
+
+<div class="intake-form">
+  <div class="intake-header">
+    <div class="intake-title">ФОРМА ПЕРВИЧНОЙ ОЦЕНКИ РОДИТЕЛЯ / ОПЕКУНА</div>
+    <div class="intake-meta">
+      <div class="intake-row"><span class="intake-label">Дата оценки:</span><span class="intake-line"></span></div>
+      <div class="intake-row"><span class="intake-label">BCBA:</span><span class="intake-line"></span></div>
+      <div class="intake-row"><span class="intake-label">Ребёнок (ФИО, возраст):</span><span class="intake-line"></span></div>
+    </div>
   </div>
+
+  <div class="intake-section">
+    <div class="intake-section-header">A. ОБЩАЯ ИНФОРМАЦИЯ</div>
+    <div class="intake-grid">
+      <div class="intake-field"><span class="intake-label">ФИО родителя/опекуна</span><span class="intake-line"></span></div>
+      <div class="intake-field"><span class="intake-label">Отношение к ребёнку</span><span class="intake-line"></span></div>
+      <div class="intake-field"><span class="intake-label">Телефон</span><span class="intake-line"></span></div>
+      <div class="intake-field"><span class="intake-label">Email</span><span class="intake-line"></span></div>
+      <div class="intake-field full"><span class="intake-label">Предпочитаемый способ связи</span><span class="intake-line"></span></div>
+      <div class="intake-field full"><span class="intake-label">Языки общения</span><span class="intake-line"></span></div>
+      <div class="intake-field full"><span class="intake-label">Культурные особенности (если релевантно)</span><span class="intake-line"></span></div>
+      <div class="intake-field"><span class="intake-label">Рабочий график</span><span class="intake-line"></span></div>
+      <div class="intake-field"><span class="intake-label">Доступное время для тренинга</span><span class="intake-line"></span></div>
+      <div class="intake-field full"><span class="intake-label">Другие дети в доме (имена, возраст)</span><span class="intake-line"></span></div>
+      <div class="intake-field full"><span class="intake-label">Другие взрослые в доме (роль)</span><span class="intake-line"></span></div>
+    </div></div>
 
   <div class="intake-section">
     <div class="intake-section-header">B. ЗНАНИЯ О ПОВЕДЕНИИ</div>
@@ -5285,7 +5297,8 @@ iv>
 <p>Ozonoff, S., &amp; Cathcart, K. (1998). Effectiveness of a home program intervention for young children with autism. Journal of Autism and Developmental Disorders, 28(1), 25--32.</p>
 <p>Postorino, V., Sharp, W. G., McCracken, C. E., Bearss, K., Burrell, T. L., Evans, A. N., &amp; Scahill, L. (2017). A Systematic Review and Meta-analysis of Parent Training for Disruptive Behavior in Children with Autism Spectrum Disorder. Clinical Child and Family Psychology Review, 20(4), 391--402. doi:10.1007/s10567-017-0237-2</p>
 <p>Scahill, L., Bearss, K., Lecavalier, L., Smith, T., Swiezy, N., Aman, M. G., ... &amp; Johnson, C. (2016). Effect of Parent Training on Adaptive Behavior in Children With Autism Spectrum Disorder and Disruptive Behavior: Results of a Randomized Trial. Journal of the American Academy of Child &amp; Adolescent Psychiatry, 55(7), 602--609.e3.</p>
-<p>Sneed, L. B., &amp; Samelson, D. (2022). Understanding Barriers and Facilitators of Parent/Caregiver Involvement in Home-Based Applied Behavioral Analysis Programming for Their Autistic Child. [Focus group study, published 2025 in PMC].</p>
+<p>Sneed, L., &amp; Samelson, D. (2022). Effectiveness of Parent-Led Applied Behavior Analysis at Improving Outcomes for Parents of Autistic Children. Journal of Social, Behavioral, and Health Sciences, 16(1), 160--177. doi:10.5590/JSBHS.2022.16.1.12</p>
+<p>Ferretti, L. A., Zawacki, J., &amp; Cohen, P. M. (2025). Understanding Barriers and Facilitators of Parent/Caregiver Involvement in Home-Based Applied Behavioral Analysis Programming for Their Autistic Child. Children, 12(7), 850. doi:10.3390/children12070850</p>
 <p>Gerow, S., Hagan-Burke, S., Rispoli, M., Gregori, E., Mason, R., &amp; Ninci, J. (2018). A Systematic Review of Parent-Implemented Functional Communication Training for Children With ASD. Behavior Modification, 42(3), 335--363.</p>
 <p>Dillenburger, K., Keenan, M., Doherty, A., Byrne, T., &amp; Gallagher, S. (2010). Living with children diagnosed with autistic spectrum disorder: parental and professional views. British Journal of Special Education, 37(1), 13--23.</p>
 <p>Eckes, T., Buhlmann, U., Holling, H. D., et al. (2023). Comprehensive ABA-based interventions in the treatment of children with autism spectrum disorder -- a meta-analysis. BMC Psychiatry, 23, 133. doi:10.1186/s12888-022-04412-1</p>
@@ -5307,7 +5320,8 @@ iv>
 <p>Dishion, T. J., &amp; Kavanagh, K. (2005). Intervening in Adolescent Problem Behavior: A Family-Centered Approach. New York: Guilford Press.</p>
 <p>Eames, C., Daley, D., Hutchings, J., Whitaker, C. J., Jones, K., Hughes, J. C., &amp; Bywater, T. (2010). Treatment fidelity as a predictor of behaviour change in parents attending group-based parent training. Child: Care, Health and Development, 36(4), 560--568.</p>
 <p>Ensor, A., et al. (2024). Evaluation of a rapport-building intervention for early interventionists working with children on the autism spectrum. Behavioral Interventions. doi:10.1002/bin.1983</p>
-<p>Flückiger, C., Del Re, A. C., Wampold, B. E., &amp; Horvath, A. O. (2012). The alliance in adult psychotherapy: A meta-analytic synthesis. Psychotherapy, 49(1), 60--71.</p>
+<p>Horbanczuk, S., Fettig, A., &amp; Luna, A. (2024). Building Collaborative Partnerships between Behavior Analysts and Families. Behavior Analysis in Practice, 17(4), 996--1007. doi:10.1007/s40617-024-00940-2</p>
+<p>Flückiger, C., Del Re, A. C., Wampold, B. E., Symonds, D., &amp; Horvath, A. O. (2012). How central is the alliance in psychotherapy? A multilevel longitudinal meta-analysis. Journal of Counseling Psychology, 59(1), 10--17.</p>
 <p>LeBlanc, L. A., Taylor, B. A., &amp; Marchese, N. V. (2020). The training experiences of behavior analysts: Compassionate care and therapeutic relationships with caregivers. Behavior Analysis in Practice, 13(2), 387--393.</p>
 <p>Lugo, A. M., King, M. L., Lamphere, J. C., &amp; McArdle, P. E. (2017). Developing Procedures to Improve Therapist--Child Rapport in Early Intervention. Behavior Analysis in Practice, 10(4), 395--401.</p>
 <p>Miller, W. R., &amp; Rollnick, S. (2002). Motivational Interviewing: Preparing People for Change (2nd ed.). New York: Guilford Press.</p>
@@ -5316,7 +5330,7 @@ iv>
 <p>Taylor, B. A., LeBlanc, L. A., &amp; Nosik, M. R. (2019). Compassionate care in behavior analytic treatment: Can outcomes be enhanced by attending to relationships with caregivers? Behavior Analysis in Practice, 12(1), 213--228.</p>
 <p>Blackledge, J. T., & Hayes, S. C. (2006). Using acceptance and commitment training in the support of parents of children diagnosed with autism. <em>Child & Family Behavior Therapy, 28</em>(1), 1–18.</p>
 <p>Leif, E. S., Hajiaghamohseni, F., & Giles, A. F. (2024). Providing culturally responsive applied behavior analysis services: A practical guide. <em>Behavior Analysis in Practice, 17</em>(1), 45–60.</p>
-<p>Maughan, D. R., & Hodgetts, S. (2024). Factors influencing parent engagement in behavioral interventions for children with autism: A systematic review. <em>Journal of Autism and Developmental Disorders, 54</em>(3), 1122–1139.</p>
+<p>Maughan, A. L., Lunsky, Y., Lake, J., Mills, J. S., Fung, K., Steel, L., &amp; Weiss, J. A. (2024). Parent, child, and family outcomes following Acceptance And Commitment Therapy for parents of autistic children: A randomized controlled trial. <em>Autism, 28</em>(2), 367–380. doi:10.1177/13623613231172241</p>
 <p>Reid, D. H., Parsons, M. B., & Jensen, J. M. (2013). Maintaining staff performance following a training intervention: Suggestions from a 30-year case example. <em>Behavior Analysis in Practice, 6</em>(2), 32–39.</p>
 <p>Schwartz, I. S., & Baer, D. M. (1991). Social validity assessments: Is current practice state of the art? <em>Journal of Applied Behavior Analysis, 24</em>(2), 189–204.</p>
 <p>Tarbox, J., Szabo, T. G., & Aclan, M. (2020). Acceptance and commitment training within the scope of practice of applied behavior analysis. <em>Behavior Analysis in Practice, 14</em>(1), 2–10.</p>
@@ -5494,6 +5508,24 @@ if (window.location.search.includes('embed=1')) {
 }
 
 
+
+// Logo: fade out on scroll, reappear at top
+(function() {
+  var logo = document.getElementById('siteLogo');
+  if (!logo) return;
+  var lastScroll = 0;
+  window.addEventListener('scroll', function() {
+    var y = window.scrollY;
+    if (y > 120) {
+      logo.style.opacity = '0';
+      logo.style.pointerEvents = 'none';
+    } else {
+      logo.style.opacity = '1';
+      logo.style.pointerEvents = 'auto';
+    }
+    lastScroll = y;
+  });
+})();
 
 // ESC key closes sidebar
 document.addEventListener('keydown', function(e) {
@@ -5691,6 +5723,6 @@ window.addEventListener('load', function() { setTimeout(fixMobile, 100); setTime
 window.addEventListener('resize', fixMobile);
 
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v81</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v85</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 </body>
 </html>
