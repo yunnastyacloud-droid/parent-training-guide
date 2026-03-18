@@ -2282,6 +2282,270 @@ body {
   }
 }
 
+
+@media (max-width: 768px) {
+  .main > div[style*='max-width:800px'] {
+    max-width: calc(100% - 1.6rem) !important;
+    margin-left: .8rem !important;
+    margin-right: .8rem !important;
+    padding: .8rem !important;
+  }
+}
+
+/* ============================================
+   2025 VISUAL MODERNIZATION
+   ============================================ */
+
+/* Cleaner, brighter background — less beige */
+:root {
+  --bg: #fafbfc !important;
+  --cream: #f6f7f9 !important;
+  --border: #e5e7eb !important;
+  --card: #ffffff !important;
+  --text: #1a1d26 !important;
+  --text2: #4b5068 !important;
+  --mut: #8b90a0 !important;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.04), 0 1px 3px rgba(0,0,0,.03) !important;
+  --shadow-md: 0 2px 8px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.03) !important;
+  --shadow-lg: 0 4px 12px rgba(0,0,0,.06), 0 12px 40px rgba(0,0,0,.04) !important;
+}
+
+/* Clean white background */
+body {
+  background: #fafbfc !important;
+  background-image: none !important;
+}
+
+/* Modern part headers — clean, spacious */
+.part-header {
+  padding: 4.5rem 0 2.5rem !important;
+  border-bottom: none !important;
+}
+.part-header::before {
+  display: none !important;
+}
+.part-header::after {
+  width: 32px !important;
+  height: 2px !important;
+  background: var(--acc) !important;
+  border-radius: 1px !important;
+}
+.part-header .part-num {
+  font-size: .6rem !important;
+  color: var(--acc) !important;
+  opacity: 1 !important;
+}
+.part-header .part-num::after {
+  display: none !important;
+}
+.part-header h1 {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -.03em !important;
+  line-height: 1.2 !important;
+}
+
+/* Section headers — minimal, modern */
+.section h2 {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -.02em !important;
+  padding-bottom: .8rem !important;
+  margin-bottom: 1.2rem !important;
+}
+.section h2::before {
+  display: none !important;
+}
+.section h2::after {
+  width: 24px !important;
+  height: 2px !important;
+  background: var(--acc) !important;
+  opacity: .6 !important;
+}
+
+/* h3 — subtle left border */
+.section-body h3 {
+  font-size: 1rem !important;
+  border-left: 2px solid rgba(201,123,90,.3) !important;
+  padding-left: .7rem !important;
+  margin: 1.5rem 0 .7rem !important;
+}
+
+/* Cards — modern flat with subtle border */
+.viz-card {
+  background: #fff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  transition: all .2s ease !important;
+}
+.viz-card::before {
+  display: none !important;
+}
+.viz-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,.06) !important;
+  transform: translateY(-1px) !important;
+  border-color: #d0d4dc !important;
+}
+
+/* Column boxes — cleaner */
+.viz-col-box {
+  border: 1px solid #e5e7eb !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+}
+
+/* Tables — modern, clean headers */
+.section-body table {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+}
+.section-body th {
+  background: #f3f4f6 !important;
+  color: var(--text) !important;
+  font-weight: 600 !important;
+  font-size: .8rem !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+.section-body td {
+  border-bottom: 1px solid #f3f4f6 !important;
+}
+
+/* Forms — cleaner, lighter headers */
+.intake-form {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+.intake-header {
+  background: #f3f4f6 !important;
+  border-bottom: 1px solid #e5e7eb;
+}
+.intake-title {
+  color: var(--text) !important;
+}
+
+/* Weekly cards — modern flat */
+[style*='overflow:hidden'][style*='margin-bottom:2.5rem'] {
+  border: 1px solid #e5e7eb !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+}
+[style*='overflow:hidden'][style*='margin-bottom:2.5rem']:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,.05) !important;
+}
+
+/* Tinted panels — much more subtle */
+[style*='background:#fdf8f6'],
+[style*='background:#f6faf7'],
+[style*='background:#f5f8fb'] {
+  border: 1px solid #e5e7eb !important;
+}
+
+/* Sidebar — modern dark */
+.sidebar {
+  background: #111318 !important;
+  background-image: none !important;
+}
+.nav-link {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,.55) !important;
+  padding: .35rem 1.5rem .35rem 1.8rem !important;
+  border-left: 2px solid transparent !important;
+}
+.nav-link:hover {
+  color: rgba(255,255,255,.85) !important;
+  background: rgba(255,255,255,.03) !important;
+  border-left-color: rgba(201,123,90,.25) !important;
+}
+.nav-link.active {
+  color: #fff !important;
+  background: rgba(201,123,90,.08) !important;
+  border-left-color: var(--acc) !important;
+  font-weight: 500 !important;
+}
+.nav-part-title {
+  color: rgba(255,255,255,.4) !important;
+  font-size: .65rem !important;
+}
+.sidebar-header {
+  border-bottom: 1px solid rgba(255,255,255,.04) !important;
+}
+
+/* Menu button — minimal */
+.menu-toggle {
+  background: #111318 !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12) !important;
+}
+
+/* Progress bar — thin, clean */
+.progress-bar {
+  height: 2px !important;
+}
+.progress-bar > div {
+  background: var(--acc) !important;
+  background-image: none !important;
+}
+
+/* Disclaimer box — cleaner */
+.disclaimer-box {
+  background: #f6f7f9 !important;
+  border-left: 2px solid #d0d4dc !important;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+/* Callout blocks — cleaner borders */
+.section-body blockquote {
+  border-left: 2px solid var(--acc) !important;
+  background: #fafbfc !important;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+/* Links — clean underline */
+.section-body a:not([style*='background']) {
+  color: var(--pri) !important;
+  background-image: none !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(74,124,155,.25) !important;
+  text-underline-offset: 2px !important;
+}
+.section-body a:not([style*='background']):hover {
+  text-decoration-color: var(--pri) !important;
+}
+
+/* Self-check, case study, and standalone blocks */
+[style*='background:linear-gradient(135deg,#f0f4f8'] {
+  background: #f6f7f9 !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: none !important;
+}
+[style*='background:linear-gradient(135deg,#f0f4f8']::before {
+  display: none !important;
+}
+
+/* Version badge — invisible unless hover */
+[style*='position:fixed;bottom:5px;right:5px;font-size:10px'] {
+  opacity: .15;
+  transition: opacity .2s;
+}
+[style*='position:fixed;bottom:5px;right:5px;font-size:10px']:hover {
+  opacity: .6;
+}
+
+/* Overall text rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar — barely visible */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,.08); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,.15); }
+
 </style>
 </head>
 <body><div id="siteLogo" style="position:fixed;top:14px;right:16px;z-index:9999;cursor:pointer" onclick="window.open('https://www.abapsy.com','_blank')"><img src="data:image/png;base64,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" alt="" style="width:48px;height:48px;display:block"></div>
@@ -2657,7 +2921,7 @@ body {
     </div>
   </div>
 </div>
-</div></section><div style="margin:2rem auto;max-width:860px;padding:1.5rem 1.8rem;background:linear-gradient(135deg,#fdf8f6,#f9f5f1);border-radius:var(--radius-lg);border:1px solid #eae6df;box-sizing:border-box">
+</div></section><div style="margin:2rem auto;max-width:800px;padding:1.5rem 1.8rem;background:linear-gradient(135deg,#fdf8f6,#f9f5f1);box-sizing:border-box;border-radius:var(--radius-lg);border:1px solid #eae6df;box-sizing:border-box">
 <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:.5rem">Сквозной кейс</div>
 <div style="font-family:var(--hf);font-size:1.3rem;font-weight:600;color:var(--dark);margin-bottom:.8rem">Семья Пак: Минджун, 5 лет</div>
 <div style="font-size:.88rem;color:var(--text2);line-height:1.7">
@@ -2743,12 +3007,12 @@ body {
 <p>Здесь важная ремарка. Существуют групповые образовательные программы для родителей — онлайн-курсы, серии лекций, вебинары. Они важны и полезны, но это психообразование, а не тренинг в нашем понимании. Мы рассматриваем о другом: об индивидуальном обучении родителей конкретным стратегиям для их конкретного ребёнка, с использованием поведенческо-аналитических методов обучения (BST), с оценкой навыков и мониторингом точности выполнения.</p>
 <p>Теперь, когда мы понимаем, ЧТО такое родительский тренинг и ПОЧЕМУ он необходим, давайте перейдём к тому, КАК его проводить. И начнём мы с самого фундаментального вопроса: как построить отношения с родителем, без которых никакое обучение невозможно.</p>
 </div>
-    </div></section><div style="margin:2rem 0;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-lg);border:1px solid #d5dbe3"><div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);margin-bottom:.6rem">Самопроверка перед Частью III</div><div style="font-family:var(--hf);font-size:1.1rem;font-weight:500;color:var(--dark);margin-bottom:.8rem">Готовы ли вы к работе с семьёй?</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я могу назвать 3 причины, почему родительский тренинг — этическое обязательство BCBA</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я понимаю разницу между психообразованием и тренингом навыков</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я знаю, чем консультирование отличается от тренинга</div><div style="font-size:.8rem;color:var(--mut);margin-top:.6rem;font-style:italic">Если на какой-то пункт ответ «нет» — вернитесь к соответствующему разделу Части II.</div></div>
+    </div></section><div style="margin:2rem auto;max-width:800px;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-lg);border:1px solid #d5dbe3;box-sizing:border-box"><div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);margin-bottom:.6rem">Самопроверка перед Частью III</div><div style="font-family:var(--hf);font-size:1.1rem;font-weight:500;color:var(--dark);margin-bottom:.8rem">Готовы ли вы к работе с семьёй?</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я могу назвать 3 причины, почему родительский тренинг — этическое обязательство BCBA</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я понимаю разницу между психообразованием и тренингом навыков</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я знаю, чем консультирование отличается от тренинга</div><div style="font-size:.8rem;color:var(--mut);margin-top:.6rem;font-style:italic">Если на какой-то пункт ответ «нет» — вернитесь к соответствующему разделу Части II.</div></div>
 <section class="part " id="part_2" style="--pc:#14b8a6">
     <div class="part-header">
       <div class="part-num">ЧАСТЬ III</div>
       <h1>ПОСТРОЕНИЕ ОТНОШЕНИЙ</h1>
-    </div><div style="margin:0 auto 1.5rem;max-width:860px;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);opacity:.6">Часть III-А · Установление контакта</div><div class="section" <div style="margin:1.5rem 0;padding:1rem 1.2rem;background:linear-gradient(135deg,#f5f8fb,#eef3f9);border-radius:var(--radius-md);border:1px solid #d5dbe3">
+    </div><div style="margin:0 auto 1.5rem;max-width:860px;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);opacity:.6">Часть III-А · Установление контакта</div><div class="section" <div style="margin:1.5rem auto;max-width:800px;padding:1rem 1.2rem;background:linear-gradient(135deg,#f5f8fb,#eef3f9);border-radius:var(--radius-md);border:1px solid #d5dbe3;box-sizing:border-box">
 <p style="font-family:var(--hf);font-weight:600;font-size:1.05rem;color:var(--dark);margin-bottom:.6rem">Прежде чем начать: горевание родителя</p>
 <p style="font-size:.88rem;color:var(--text2);line-height:1.7">Для многих родителей диагноз ребёнка — это потеря «ожидаемого будущего». Родитель горюет — и это нормальная, здоровая реакция. Горевание проявляется по-разному: отрицание («может, ошиблись»), гнев («почему мой ребёнок?»), торг («если мы будем делать больше терапии — всё пройдёт»), депрессия, и — со временем — принятие.</p>
 <p style="font-size:.88rem;color:var(--text2);line-height:1.7"><strong>Что это значит для вас:</strong> если родитель только получил диагноз — <strong>не начинайте с BST</strong>. Начните с раппорта и MI. Дайте время. Родитель, который плачет на первой сессии, не готов практиковать FCT. Но через 2–3 встречи, когда он почувствует, что его слышат — готовность появится.</p>
@@ -3280,7 +3544,7 @@ id="s_2_0" data-idx="8">
     
     <div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:var(--radius-md);border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
       <span style="font-weight:600;color:var(--dark)">Далее:</span> Отношения с родителем — фундамент. Теперь перейдём к конкретным <strong>методам обучения</strong>: как проводить BST и TIP.
-    </div></div></section><div style="margin:2rem 0;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-lg);border:1px solid #d5dbe3"><div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);margin-bottom:.6rem">Самопроверка перед Частью IV</div><div style="font-family:var(--hf);font-size:1.1rem;font-weight:500;color:var(--dark);margin-bottom:.8rem">Готовы ли вы обучать родителя?</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я могу описать 5 принципов установления раппорта</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я знаю, как провести оценку навыков и ресурсов родителя</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я понимаю основы MI и могу использовать рефлективное слушание</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я знаю границы своей компетенции: что я могу, а что — направить к психологу</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я понимаю, что такое ACT-тренинг и когда он уместен в рамках ПАП</div><div style="font-size:.8rem;color:var(--mut);margin-top:.6rem;font-style:italic">Если на 3+ пункта ответ «нет» — рекомендуем пройти дополнительное обучение по MI или ACT.</div></div>
+    </div></div></section><div style="margin:2rem auto;max-width:800px;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-lg);border:1px solid #d5dbe3;box-sizing:border-box"><div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);margin-bottom:.6rem">Самопроверка перед Частью IV</div><div style="font-family:var(--hf);font-size:1.1rem;font-weight:500;color:var(--dark);margin-bottom:.8rem">Готовы ли вы обучать родителя?</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я могу описать 5 принципов установления раппорта</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я знаю, как провести оценку навыков и ресурсов родителя</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я понимаю основы MI и могу использовать рефлективное слушание</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я знаю границы своей компетенции: что я могу, а что — направить к психологу</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я понимаю, что такое ACT-тренинг и когда он уместен в рамках ПАП</div><div style="font-size:.8rem;color:var(--mut);margin-top:.6rem;font-style:italic">Если на 3+ пункта ответ «нет» — рекомендуем пройти дополнительное обучение по MI или ACT.</div></div>
 <section class="part " id="part_3" style="--pc:#f59e0b">
     <div class="part-header">
       <div class="part-num">ЧАСТЬ IV</div>
@@ -3955,7 +4219,7 @@ id="s_2_0" data-idx="8">
     
     <div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:var(--radius-md);border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
       <span style="font-weight:600;color:var(--dark)">Далее:</span> Барьеры разобраны. Далее — <strong>17-недельная программа</strong>: пошаговый план каждой сессии с таймингом, скриптами и критериями перехода.
-    </div></div></section><div style="margin:2rem 0;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-lg);border:1px solid #d5dbe3"><div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);margin-bottom:.6rem">Самопроверка перед 17-недельной программой</div><div style="font-family:var(--hf);font-size:1.1rem;font-weight:500;color:var(--dark);margin-bottom:.8rem">Всё ли готово к старту?</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я выбрал метод: BST или TIP (или комбинацию)</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ У меня есть все формы: первичная оценка, ABC-дневник, BSP, чек-лист точности, информированное согласие</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я знаю, как реагировать на типичные барьеры («нет времени», «терапевт справится»)</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я провёл первичную оценку навыков родителя</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я обсудил формат, расписание и ожидания с родителем</div><div style="font-size:.8rem;color:var(--mut);margin-top:.6rem;font-style:italic">Если все пункты отмечены — переходите к Неделе 1. Если нет — вернитесь к нужной части.</div></div>
+    </div></div></section><div style="margin:2rem auto;max-width:800px;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-lg);border:1px solid #d5dbe3;box-sizing:border-box"><div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);margin-bottom:.6rem">Самопроверка перед 17-недельной программой</div><div style="font-family:var(--hf);font-size:1.1rem;font-weight:500;color:var(--dark);margin-bottom:.8rem">Всё ли готово к старту?</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я выбрал метод: BST или TIP (или комбинацию)</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ У меня есть все формы: первичная оценка, ABC-дневник, BSP, чек-лист точности, информированное согласие</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я знаю, как реагировать на типичные барьеры («нет времени», «терапевт справится»)</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я провёл первичную оценку навыков родителя</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я обсудил формат, расписание и ожидания с родителем</div><div style="font-size:.8rem;color:var(--mut);margin-top:.6rem;font-style:italic">Если все пункты отмечены — переходите к Неделе 1. Если нет — вернитесь к нужной части.</div></div>
 <section class="part " id="part_weekly" style="--pc:#14b8a6">
     <div class="part-header">
       <div class="part-num">ЧАСТЬ VI</div>
@@ -6853,7 +7117,7 @@ iv>
 </div>
 </section>
 
-<div style="margin:2rem auto;max-width:860px;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f5f8fb,#eef3f9);border-radius:var(--radius-lg);border:1px solid #d5dbe3;box-sizing:border-box">
+<div style="margin:2rem auto;max-width:800px;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f5f8fb,#eef3f9);border-radius:var(--radius-lg);border:1px solid #d5dbe3;box-sizing:border-box">
 <p style="font-family:var(--hf);font-weight:600;font-size:1.1rem;color:var(--dark);margin-bottom:.6rem">Заботьтесь о себе</p>
 <p style="font-size:.88rem;color:var(--text2);line-height:1.7">Работа с семьями в кризисе — эмоционально тяжёлая. Домашнее насилие, тяжёлое поведение ребёнка, суицидальные мысли родителя, выгорание — вы сталкиваетесь с этим регулярно. Вторичная травматизация (vicarious trauma) — реальный риск для специалистов помогающих профессий.</p>
 <p style="font-size:.88rem;color:var(--text2);line-height:1.7"><strong>Что делать:</strong></p>
@@ -6865,7 +7129,7 @@ iv>
 </ul>
 <p style="font-size:.82rem;color:var(--mut);font-style:italic;margin-top:.5rem">Вы не сможете помочь семье, если сами выгорите. Забота о себе — это не эгоизм, это профессиональная ответственность.</p>
 </div>
-<div style="margin:2rem auto;max-width:860px;padding:1.5rem 1.8rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-lg);border:1px solid #d5dbe3;box-sizing:border-box">
+<div style="margin:2rem auto;max-width:800px;padding:1.5rem 1.8rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-lg);border:1px solid #d5dbe3;box-sizing:border-box">
 <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);margin-bottom:.4rem">Финальная самопроверка</div>
 <p style="font-family:var(--hf);font-weight:600;font-size:1.2rem;color:var(--dark);margin-bottom:.8rem">10 вопросов: готовы ли вы?</p>
 <p style="font-size:.85rem;color:var(--text2);line-height:1.7;margin-bottom:1rem">Ответьте мысленно. Если на 8+ вопросов ответ «да» — вы готовы начать работу с семьёй. Если менее 6 — вернитесь к соответствующим разделам.</p>
@@ -7286,6 +7550,6 @@ window.addEventListener('load', function() { setTimeout(fixMobile, 100); setTime
 window.addEventListener('resize', fixMobile);
 
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v60</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:var(--dark);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v62</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:var(--dark);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 </body>
 </html>
