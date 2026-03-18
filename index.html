@@ -341,7 +341,7 @@ body{
 .menu-toggle{display:flex;align-items:center;justify-content:center;position:fixed;top:14px;left:14px;z-index:2000;width:40px;height:40px;border-radius:var(--radius-md);border:none;background:var(--dark);color:#fff;font-size:1.1rem;cursor:pointer;box-shadow:var(--shadow-md)}
 
 /* Animations */
-.section{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.section{opacity:1;transform:translateY(0);transition:opacity .55s ease,transform .55s ease}
 .section.visible{opacity:1;transform:translateY(0)}
 .part-header{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
 .part-header.visible{opacity:1;transform:translateY(0)}
@@ -650,9 +650,8 @@ a[href*="abapsy"][style*="background"] {
 
 /* Smooth scroll reveal */
 .section {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity .6s ease, transform .6s ease;
+  opacity: 1;
+  transform: none;
 }
 .section.visible {
   opacity: 1;
@@ -5821,6 +5820,15 @@ document.querySelectorAll('.section-body table, .intake-form table, table').forE
     }
   });
 
+
+// If loaded with ?embed=1, hide logo and adjust padding
+if (window.location.search.includes('embed=1')) {
+  document.getElementById('siteLogo')?.style.setProperty('display','none','important');
+  document.querySelector('.progress-bar')?.style.setProperty('display','none','important');
+  document.body.style.background = 'transparent';
+  document.documentElement.style.background = 'transparent';
+}
+
 // Expand first part by default
 document.querySelector('.nav-part')?.classList.add('expanded');
 
@@ -5872,6 +5880,16 @@ function sendHeight() {
 window.addEventListener('load', sendHeight);
 new MutationObserver(sendHeight).observe(document.body, {childList:true, subtree:true});
 setInterval(sendHeight, 2000);
+
+// Auto-resize iframe: send height to parent
+function sendHeight() {
+  const h = document.documentElement.scrollHeight;
+  window.parent.postMessage({ type: 'resize', height: h }, '*');
+}
+window.addEventListener('load', () => { setTimeout(sendHeight, 500); setTimeout(sendHeight, 2000); });
+window.addEventListener('resize', sendHeight);
+new MutationObserver(sendHeight).observe(document.body, { childList: true, subtree: true, attributes: true });
+
 </script>
 <div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v7.0</div></body>
 </html>
