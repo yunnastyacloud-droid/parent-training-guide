@@ -6321,7 +6321,7 @@ window.addEventListener('resize', fixMobile);
       'html,body{font-family:"DM Sans",-apple-system,sans-serif;font-size:10.5pt;line-height:1.6;color:#2d3142;background:#fff;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
 
       /* PAGE */
-      '@page{size:A4 portrait;margin:28mm 13mm 18mm 13mm}',
+      '@page{size:A4 portrait;margin:22mm 13mm 16mm 13mm}',
 
       /* HEADER inside thead */
       '.pdf-hdr{display:flex;align-items:center;justify-content:space-between;padding:8pt 0 0}',
@@ -6418,14 +6418,18 @@ window.addEventListener('resize', fixMobile);
     // thead/tfoot repeat on every printed page — the only reliable cross-browser way
     // for logo/header on every page
     var tableCSS = [
-      'table.pdf-layout{display:table;width:100%;border-collapse:collapse;border:none}',
+      /* outer layout table */
+      'table.pdf-layout{display:table;width:100%;border-collapse:collapse;border:none;overflow:visible}',
       'table.pdf-layout>thead{display:table-header-group}',
       'table.pdf-layout>tfoot{display:table-footer-group}',
       'table.pdf-layout>tbody{display:table-row-group}',
-      'table.pdf-layout td{display:table-cell;border:none;padding:0;vertical-align:top}',
-      '.pdf-hdr-cell{padding:4pt 0 8pt;border-bottom:2.5pt solid #c97b5a;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
+      'table.pdf-layout>thead>tr>td,table.pdf-layout>tfoot>tr>td,table.pdf-layout>tbody>tr>td{display:table-cell;border:none;padding:0;vertical-align:top;overflow:visible}',
+      /* thead row itself gets top padding so logo never clips */
+      'table.pdf-layout>thead>tr{height:auto}',
+      'table.pdf-layout>thead>tr>td{padding-top:6pt!important}',
+      '.pdf-hdr-cell{padding-bottom:9pt;border-bottom:2.5pt solid #c97b5a;overflow:visible;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
       '.pdf-ftr-cell{padding:7pt 0 0;border-top:1pt solid #e5e7eb}',
-      '.pdf-body-cell{padding-top:14pt}',
+      '.pdf-body-cell{padding-top:12pt}',
     ].join('');
 
     var fullHTML = '<!DOCTYPE html><html lang="ru"><head>'
@@ -6437,7 +6441,7 @@ window.addEventListener('resize', fixMobile);
       + '<table class="pdf-layout">'
 
       // THEAD — repeats on every page
-      + '<thead><tr><td><div class="pdf-hdr-cell">'
+      + '<thead><tr style="line-height:1"><td style="padding-top:6pt;overflow:visible"><div class="pdf-hdr-cell">'
         + '<div class="pdf-hdr">'
           + '<div class="pdf-hdr-logo">' + logoHtml
             + '<div class="pdf-hdr-meta">'
