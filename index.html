@@ -523,21 +523,22 @@ section.part {
   background: #fff;
 }
 .intake-header {
-  background: #f8f9fb;
-  color: var(--dark);
+  background: #252836;
+  color: #fff;
   padding: .75rem 1.2rem;
-  border-bottom: 1px solid #e2e5ea;
+  border-bottom: none;
 }
 .intake-title {
   font-family: var(--mono);
   font-size: .65rem;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--dark);
-  opacity: .7;
+  color: rgba(255,255,255,.92);
 }
-.intake-meta { font-size: .7rem; color: var(--mut); margin-top: .2rem }
-.intake-meta .intake-label { color: var(--text2) }
+.intake-meta { font-size: .7rem; color: rgba(255,255,255,.5); margin-top: .2rem }
+.intake-meta .intake-label { color: rgba(255,255,255,.7) }
+.intake-meta .intake-line { border-bottom-color: rgba(255,255,255,.25) }
+.intake-meta span:not(.intake-label):not(.intake-line) { color: rgba(255,255,255,.55) }
 .intake-section { padding: .7rem .9rem; border-bottom: 1px solid #f0f1f3 }
 .intake-section:last-child { border-bottom: none }
 .intake-section-header {
@@ -5268,12 +5269,12 @@ iv>
 <p style="font-size:.85rem;color:var(--mut);font-style:italic;margin-top:.8rem"><strong>Примечание о биллинге (США):</strong> Сессия RBT с родителем может документироваться как CPT 97156 только при условии, что BCBA присутствует или непосредственно направляет (concurrent/directive supervision). Требования различаются по плательщикам — уточняйте у вашей организации.</p>
 </div>
     </div>
-<div class="supervision-banner" style="background:linear-gradient(135deg,#1a1e28,#252a35);color:var(--text);border-radius:var(--radius-lg);padding:2rem;margin:2.5rem 0;position:relative">
-  <div style="font-size:.55rem;color:var(--mut);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem">Поддержка специалистов</div>
-  <div style="font-size:1.15rem;font-weight:500;line-height:1.3;margin-bottom:.5rem">Есть вопросы по применению руководства?</div>
-  <div style="font-size:.85rem;color:var(--mut);line-height:1.7;max-width:620px;margin-bottom:1rem">Данное руководство — отправная точка, но каждый кейс уникален. Если вы столкнулись со сложной ситуацией — вы можете записаться на индивидуальную или групповую супервизию.</div>
+<div class="supervision-banner" style="background:linear-gradient(135deg,#1a1e28,#252a35);color:rgba(255,255,255,.85);border-radius:var(--radius-lg);padding:2rem;margin:2.5rem 0;position:relative">
+  <div style="font-size:.55rem;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem">Поддержка специалистов</div>
+  <div style="font-size:1.15rem;font-weight:500;line-height:1.3;margin-bottom:.5rem;color:#fff">Есть вопросы по применению руководства?</div>
+  <div style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.7;max-width:620px;margin-bottom:1rem">Данное руководство — отправная точка, но каждый кейс уникален. Если вы столкнулись со сложной ситуацией — вы можете записаться на индивидуальную или групповую супервизию.</div>
   <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-md);padding:.8rem 1rem;margin-bottom:1rem">
-    <div style="font-weight:600;color:var(--text2);font-size:.85rem;margin-bottom:.4rem">Супервизия и консультации</div>
+    <div style="font-weight:600;color:rgba(255,255,255,.8);font-size:.85rem;margin-bottom:.4rem">Супервизия и консультации</div>
     <div style="font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:.5rem">Супервизором может быть любой квалифицированный специалист. Если вы ищете супервизора с опытом в ПАП — на странице ниже представлены специалисты, работающие с ABA&amp;Psy. Внутри профиля каждого есть форма заявки.</div>
     <a href="https://www.abapsy.com/faculty" target="_blank" style="display:inline-block;background:#fef7f4;color:#c97b5a;font-size:.82rem;padding:.55rem 1.2rem;border-radius:var(--radius-md);text-decoration:none;font-weight:600;letter-spacing:.02em;box-shadow:0 2px 8px rgba(201,123,90,.25)">Выбрать супервизора → abapsy.com/faculty</a>
   </div>
@@ -5761,6 +5762,6 @@ window.addEventListener('load', function() { setTimeout(fixMobile, 100); setTime
 window.addEventListener('resize', fixMobile);
 
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v92</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v93</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 </body>
 </html>
