@@ -1118,6 +1118,10 @@ body.pdf-printing #pdf-print-area { display: block !important; }
   .intake-grid { grid-template-columns: 1fr }
   .intake-row { flex-direction: column }
 
+  /* Authors card — stack on mobile */
+  .authors-grid { grid-template-columns: 1fr !important }
+  .authors-grid > div:first-child { border-right: none !important; border-bottom: 1px solid var(--border) !important }
+
   /* Force ALL inline grids to stack on mobile */
   .section-body [style*="grid-template-columns"] { grid-template-columns: 1fr !important }
 
@@ -1260,6 +1264,66 @@ body.pdf-printing #pdf-print-area { display: block !important; }
 
 
 <main class="main">
+
+<!-- AUTHORS CARD -->
+<div style="max-width:860px;margin:2.5rem auto 0;padding:0 2rem;box-sizing:border-box">
+  <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)">
+
+    <!-- Header strip -->
+    <div style="background:var(--dark);padding:.65rem 1.4rem;display:flex;align-items:center;gap:.5rem">
+      <span style="font-family:var(--mono);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)">Авторы руководства</span>
+    </div>
+
+    <!-- Authors row -->
+    <div class="authors-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+
+      <!-- Author 1 -->
+      <div style="padding:1.4rem 1.6rem;border-right:1px solid var(--border)">
+        <div style="display:flex;align-items:flex-start;gap:1rem">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--plum),#6d55a0);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--hf);font-size:1.1rem;font-weight:600;color:#fff;letter-spacing:-.01em">АЮ</div>
+          <div>
+            <div style="font-family:var(--hf);font-size:1.05rem;font-weight:600;color:var(--dark);line-height:1.2">Анастасия Юн</div>
+            <div style="display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.45rem">
+              <span style="font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;background:#f0ecf8;color:var(--plum);padding:.15rem .45rem;border-radius:4px;font-weight:500">PhD</span>
+              <span style="font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;background:#f0ecf8;color:var(--plum);padding:.15rem .45rem;border-radius:4px;font-weight:500">LP</span>
+              <span style="font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;background:#f0ecf8;color:var(--plum);padding:.15rem .45rem;border-radius:4px;font-weight:500">BCBA-D</span>
+              <span style="font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;background:#fdf2ed;color:var(--acc);padding:.15rem .45rem;border-radius:4px;font-weight:500">EMDR</span>
+              <span style="font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;background:#fdf2ed;color:var(--acc);padding:.15rem .45rem;border-radius:4px;font-weight:500">EFT</span>
+            </div>
+            <div style="margin-top:.6rem;font-size:.78rem;color:var(--text2);line-height:1.55">Лицензированный психолог, лицензированный поведенческий аналитик, супервизор</div>
+            <a href="https://www.abapsy.com" target="_blank" style="display:inline-block;margin-top:.5rem;font-size:.72rem;color:var(--pri);text-decoration:none;font-weight:500;opacity:.8">abapsy.com ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Author 2 -->
+      <div style="padding:1.4rem 1.6rem">
+        <div style="display:flex;align-items:flex-start;gap:1rem">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--teal),#1a8060);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--hf);font-size:1.1rem;font-weight:600;color:#fff;letter-spacing:-.01em">МС</div>
+          <div>
+            <div style="font-family:var(--hf);font-size:1.05rem;font-weight:600;color:var(--dark);line-height:1.2">Марина Сорокина</div>
+            <div style="display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.45rem">
+              <span style="font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;background:#e8f6f0;color:var(--teal);padding:.15rem .45rem;border-radius:4px;font-weight:500">M.A.</span>
+              <span style="font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;background:#e8f6f0;color:var(--teal);padding:.15rem .45rem;border-radius:4px;font-weight:500">M.B.A.</span>
+              <span style="font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;background:#e8f6f0;color:var(--teal);padding:.15rem .45rem;border-radius:4px;font-weight:500">BCaBA</span>
+              <span style="font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;background:#e8f6f0;color:var(--teal);padding:.15rem .45rem;border-radius:4px;font-weight:500">IBA</span>
+            </div>
+            <div style="margin-top:.6rem;font-size:.78rem;color:var(--text2);line-height:1.55">Поведенческий аналитик</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+
+    <!-- Bottom note -->
+    <div style="padding:.6rem 1.6rem;background:var(--cream);border-top:1px solid var(--border);font-size:.72rem;color:var(--mut);line-height:1.5">
+      Все рекомендации основаны на peer-reviewed исследованиях и стандартах BACB. Руководство носит образовательный характер; клиническое суждение специалиста всегда первично.
+    </div>
+
+  </div>
+</div>
+<!-- /AUTHORS CARD -->
+
 <section class="part " id="part_0" style="--pc:#7c92ab">
     <div class="part-header"><div class="part-num">ЧАСТЬ I</div><h1>РОДИТЕЛЬСКИЙ ТРЕНИНГ В ПРИКЛАДНОМ АНАЛИЗЕ ПОВЕДЕНИЯ</h1></div>
     <div class="section" id="s_0_0" data-idx="0"><h2>О руководстве</h2><div class="section-body">
