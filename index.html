@@ -515,27 +515,30 @@ section.part {
 
 /* --- Intake Forms --- */
 .intake-form {
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 1px solid #e2e5ea;
+  border-radius: 14px;
   overflow: hidden;
   margin: 1rem 0;
-  box-shadow: 0 1px 4px rgba(0,0,0,.03);
+  box-shadow: 0 2px 8px rgba(0,0,0,.03);
+  background: #fff;
 }
 .intake-header {
-  background: var(--dark);
-  color: #fff;
+  background: #f8f9fb;
+  color: var(--dark);
   padding: .75rem 1.2rem;
-  border-bottom: 2px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid #e2e5ea;
 }
 .intake-title {
   font-family: var(--mono);
   font-size: .65rem;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.88);
+  color: var(--dark);
+  opacity: .7;
 }
-.intake-meta { font-size: .7rem; color: rgba(255,255,255,.45); margin-top: .2rem }
-.intake-section { padding: .7rem .9rem; border-bottom: 1px solid var(--border) }
+.intake-meta { font-size: .7rem; color: var(--mut); margin-top: .2rem }
+.intake-meta .intake-label { color: var(--text2) }
+.intake-section { padding: .7rem .9rem; border-bottom: 1px solid #f0f1f3 }
 .intake-section:last-child { border-bottom: none }
 .intake-section-header {
   font-family: var(--hf);
@@ -544,7 +547,7 @@ section.part {
   color: var(--dark);
   padding: .35rem 0;
   margin-bottom: .35rem;
-  border-bottom: 1.5px solid var(--border);
+  border-bottom: 1.5px solid #e2e5ea;
 }
 .intake-instruction { font-size: .78rem; color: var(--mut); font-style: italic; margin-bottom: .5rem }
 .intake-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem }
@@ -553,7 +556,7 @@ section.part {
 .intake-label { font-size: .78rem; color: var(--text2); font-weight: 500 }
 .intake-line {
   display: inline-block;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #d5d8de;
   min-width: 80px;
   min-height: 1.2rem;
 }
@@ -563,47 +566,48 @@ section.part {
 }
 .intake-scale-table th, .intake-check-table th {
   padding: .35rem .5rem;
-  border: 1px solid var(--border);
+  border: 1px solid #e2e5ea;
   text-align: center;
   font-size: .7rem;
-  background: var(--dark);
-  color: rgba(255,255,255,.85);
-  font-weight: 500;
+  background: #f4f5f7;
+  color: var(--dark);
+  font-weight: 600;
 }
 .intake-scale-table td, .intake-check-table td {
   padding: .3rem .4rem;
-  border: 1px solid var(--border);
+  border: 1px solid #e2e5ea;
   text-align: center;
   font-size: .72rem;
 }
 .intake-scale-table tr:nth-child(even), .intake-check-table tr:nth-child(even) {
-  background: #f8f9fb;
+  background: #fafbfc;
 }
 .ck, .sc { font-size: .82rem }
 .section-body table:not(.intake-scale-table):not(.intake-check-table) th {
-  background: var(--dark);
-  color: rgba(255,255,255,.85);
-  font-weight: 500;
+  background: #f4f5f7;
+  color: var(--dark);
+  font-weight: 600;
   font-size: .75rem;
 }
 .section-body table:not(.intake-scale-table):not(.intake-check-table) th,
 .section-body table:not(.intake-scale-table):not(.intake-check-table) td {
   padding: .4rem .6rem;
-  border: 1px solid var(--border);
+  border: 1px solid #e2e5ea;
 }
 .section-body table:not(.intake-scale-table):not(.intake-check-table) tr:nth-child(even) {
-  background: #f8f9fb;
+  background: #fafbfc;
 }
 
 /* --- Form Blocks --- */
-.form-block { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 1rem 0; box-shadow: 0 1px 4px rgba(0,0,0,.03) }
+.form-block { border: 1px solid #e2e5ea; border-radius: 14px; overflow: hidden; margin: 1rem 0; box-shadow: 0 2px 8px rgba(0,0,0,.03); background: #fff }
 .form-header {
-  background: var(--dark);
-  color: #fff;
+  background: #f8f9fb;
+  color: var(--dark);
   padding: .6rem 1rem;
   font-family: var(--mono);
   font-size: .65rem;
   letter-spacing: .1em;
+  border-bottom: 1px solid #e2e5ea;
 }
 .form-body { padding: .8rem 1rem }
 .form-tag {
@@ -877,7 +881,7 @@ body.embed-mode #backToTop { display: none }
       <div class="section-body">
 <div class="disclaimer-box">Краткий справочник основных терминов и аббревиатур, используемых в руководстве.</div>
 
-<div class="intake-form">
+<div class="intake-form" style="border-top:3px solid #3b7cb8">
 <div class="intake-header"><div class="intake-title">АББРЕВИАТУРЫ СЕРТИФИКАЦИЙ И ОРГАНИЗАЦИЙ</div></div>
 <div class="intake-section" style="padding:.4rem">
 <table class="intake-check-table" style="font-size:.78rem">
@@ -894,8 +898,8 @@ body.embed-mode #backToTop { display: none }
 </table>
 </div></div>
 
-<div class="intake-form" style="margin-top:1rem">
-<div class="intake-header" style="background:var(--dark)"><div class="intake-title">МЕТОДЫ ОБУЧЕНИЯ И ПРОЦЕДУРЫ</div></div>
+<div class="intake-form" style="border-top:3px solid #3b7cb8;margin-top:1rem">
+<div class="intake-header"><div class="intake-title">МЕТОДЫ ОБУЧЕНИЯ И ПРОЦЕДУРЫ</div></div>
 <div class="intake-section" style="padding:.4rem">
 <table class="intake-check-table" style="font-size:.78rem">
 <thead><tr><th style="width:12%">Аббр.</th><th style="width:35%">Полное название / Перевод</th><th style="width:53%">Описание</th></tr></thead>
@@ -913,8 +917,8 @@ body.embed-mode #backToTop { display: none }
 </table>
 </div></div>
 
-<div class="intake-form" style="margin-top:1rem">
-<div class="intake-header" style="background:var(--dark)"><div class="intake-title">ДОКУМЕНТАЦИЯ И ОЦЕНКА</div></div>
+<div class="intake-form" style="border-top:3px solid #2da87a;margin-top:1rem">
+<div class="intake-header"><div class="intake-title">ДОКУМЕНТАЦИЯ И ОЦЕНКА</div></div>
 <div class="intake-section" style="padding:.4rem">
 <table class="intake-check-table" style="font-size:.78rem">
 <thead><tr><th style="width:12%">Термин</th><th style="width:35%">Полное название / Перевод</th><th style="width:53%">Описание</th></tr></thead>
@@ -932,8 +936,8 @@ body.embed-mode #backToTop { display: none }
 </table>
 </div></div>
 
-<div class="intake-form" style="margin-top:1rem">
-<div class="intake-header" style="background:var(--dark)"><div class="intake-title">КЛЮЧЕВЫЕ КОНЦЕПЦИИ</div></div>
+<div class="intake-form" style="border-top:3px solid #d4a041;margin-top:1rem">
+<div class="intake-header"><div class="intake-title">КЛЮЧЕВЫЕ КОНЦЕПЦИИ</div></div>
 <div class="intake-section" style="padding:.4rem">
 <table class="intake-check-table" style="font-size:.78rem">
 <thead><tr><th style="width:22%">Термин</th><th style="width:78%">Определение</th></tr></thead>
@@ -1656,8 +1660,8 @@ body.embed-mode #backToTop { display: none }
 </div>
     <div style="font-size:.82rem;color:var(--mut);font-style:italic;margin-bottom:.5rem">Готовый опросник — в следующей секции ниже.</div></div><div class="section" id="s_2_13" data-idx="21">
       <h2>ОПРОСНИК СОЦИАЛЬНОЙ ВАЛИДНОСТИ ДЛЯ РОДИТЕЛЯ</h2>
-      <div class="section-body"><div class="intake-form">
-  <div class="intake-header" style="background:var(--dark)">
+      <div class="section-body"><div class="intake-form" style="border-top:3px solid #d4a041">
+  <div class="intake-header">
     <div class="intake-title"><a href="javascript:void(0)" data-scroll="s_2_13" onclick="document.getElementById(this.dataset.scroll).scrollIntoView({behavior:'smooth'})" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">ОПРОСНИК СОЦИАЛЬНОЙ ВАЛИДНОСТИ</a></div>
     <div class="intake-meta">
       <div class="intake-row"><span class="intake-label">Дата:</span><span class="intake-line"></span><span class="intake-label" style="margin-left:1rem">Неделя программы:</span><span class="intake-line" style="width:40px"></span></div>
@@ -3928,8 +3932,8 @@ iv>
     </div>
   </div>
 </div></div><h3>ЕЖЕНЕДЕЛЬНЫЙ ЧЕК-ЛИСТ BCBA</h3>
-<div class="intake-form">
-  <div class="intake-header" style="background:var(--dark)">
+<div class="intake-form" style="border-top:3px solid #c97b5a">
+  <div class="intake-header">
     <div class="intake-title">ЕЖЕНЕДЕЛЬНЫЙ ЧЕК-ЛИСТ СЕССИИ</div>
     <div style="font-size:.88rem;color:var(--mut);margin-top:.2rem">Заполняйте после каждой сессии родительского тренинга</div>
   </div>
@@ -4512,7 +4516,7 @@ iv>
 <h3>1.1. Форма первичной оценки родителя</h3>
 <div class="disclaimer-box">Примерный шаблон. Адаптируйте под ваш кейс, организацию и требования плательщика.</div>
 
-<div class="intake-form">
+<div class="intake-form" style="border-top:3px solid #3b7cb8">
   <div class="intake-header">
     <div class="intake-title">ФОРМА ПЕРВИЧНОЙ ОЦЕНКИ РОДИТЕЛЯ / ОПЕКУНА</div>
     <div class="intake-meta">
@@ -4595,8 +4599,8 @@ iv>
 <h3>1.2. Чек-лист точности выполнения</h3>
 <div class="disclaimer-box">Примерный шаблон. Адаптируйте компоненты под конкретную процедуру.</div>
 
-<div class="intake-form">
-  <div class="intake-header" style="background:var(--dark)">
+<div class="intake-form" style="border-top:3px solid #2da87a">
+  <div class="intake-header">
     <div class="intake-title">ЧЕК-ЛИСТ ВЕРНОСТИ РЕАЛИЗАЦИИ</div>
     <div class="intake-meta">
       <div class="intake-row"><span class="intake-label">Дата:</span><span class="intake-line"></span><span class="intake-label" style="margin-left:1rem">Сессия #:</span><span class="intake-line" style="width:60px"></span></div>
@@ -4629,8 +4633,8 @@ iv>
 
 <h3>1.3. ABC-дневник для родителя (бланк на неделю)</h3>
 <div class="disclaimer-box">Примерный шаблон. Адаптируйте поведения и колонки под конкретный кейс.</div>
-<div class="intake-form">
-  <div class="intake-header" style="background:var(--dark)">
+<div class="intake-form" style="border-top:3px solid #d4a041">
+  <div class="intake-header">
     <div class="intake-title">ABC-ДНЕВНИК (Антецедент — Поведение — Последствие)</div>
     <div class="intake-meta">
       <div class="intake-row"><span class="intake-label">Ребёнок:</span><span class="intake-line"></span><span class="intake-label" style="margin-left:1rem">Неделя:</span><span class="intake-line"></span></div>
@@ -4656,8 +4660,8 @@ iv>
 
 <h3>1.4. Таблица подбора стратегии по функции поведения</h3>
 <div class="disclaimer-box">Основа для подбора стратегий. Конкретные процедуры адаптируйте под кейс.</div>
-<div class="intake-form">
-  <div class="intake-header" style="background:var(--dark)">
+<div class="intake-form" style="border-top:3px solid #d4a041">
+  <div class="intake-header">
     <div class="intake-title">ПОДБОР СТРАТЕГИИ ПО ФУНКЦИИ ПОВЕДЕНИЯ</div>
   </div>
   <div class="intake-section" style="padding:.6rem">
@@ -4676,16 +4680,16 @@ iv>
 <h3>1.5. Карточки «Что делать, когда...» (памятка для родителя)</h3>
 <div class="disclaimer-box">Распечатайте и заламинируйте. Заполните конкретные стратегии для данного ребёнка.</div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0">
-  <div class="intake-form" style="margin:0"><div class="intake-header" style="background:#2563eb;padding:.5rem .8rem"><div class="intake-title" style="font-size:.82rem;margin:0">ФУНКЦИЯ: ВНИМАНИЕ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. Не реагирую на нежелательное</p><p>2. Жду приемлемого поведения</p><p>3. Немедленно даю внимание за:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не уговариваю, не ругаю, не объясняю</p></div></div>
-  <div class="intake-form" style="margin:0"><div class="intake-header" style="background:#dc4a3f;padding:.5rem .8rem"><div class="intake-title" style="font-size:.82rem;margin:0">ФУНКЦИЯ: ИЗБЕГАНИЕ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. НЕ убираю требование</p><p>2. Помогаю выполнить (подсказка)</p><p>3. Подкрепляю выполнение:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не говорю «ладно, не надо»</p></div></div>
-  <div class="intake-form" style="margin:0"><div class="intake-header" style="background:#0d9474;padding:.5rem .8rem"><div class="intake-title" style="font-size:.82rem;margin:0">ФУНКЦИЯ: ДОСТУП К ПРЕДМЕТУ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. НЕ даю предмет за нежелательное</p><p>2. Жду / подсказываю просьбу</p><p>3. Даю предмет за:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не отдаю «лишь бы замолчал»</p></div></div>
-  <div class="intake-form" style="margin:0"><div class="intake-header" style="background:#b8860b;padding:.5rem .8rem"><div class="intake-title" style="font-size:.82rem;margin:0">ФУНКЦИЯ: СЕНСОРНАЯ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. Предлагаю приемлемую альтернативу</p><p>2. Перенаправляю спокойно</p><p>3. Альтернативная стимуляция:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не наказываю за стимминг</p></div></div>
+  <div class="intake-form" style="border-top:3px solid #2563eb;margin:0"><div class="intake-header" style="border-left:3px solid #3b7cb8;padding:.5rem .8rem"><div class="intake-title" style="font-size:.78rem;margin:0;font-weight:600;opacity:1">ФУНКЦИЯ: ВНИМАНИЕ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. Не реагирую на нежелательное</p><p>2. Жду приемлемого поведения</p><p>3. Немедленно даю внимание за:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не уговариваю, не ругаю, не объясняю</p></div></div>
+  <div class="intake-form" style="border-top:3px solid #dc4a3f;margin:0"><div class="intake-header" style="border-left:3px solid #d4564a;padding:.5rem .8rem"><div class="intake-title" style="font-size:.78rem;margin:0;font-weight:600;opacity:1">ФУНКЦИЯ: ИЗБЕГАНИЕ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. НЕ убираю требование</p><p>2. Помогаю выполнить (подсказка)</p><p>3. Подкрепляю выполнение:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не говорю «ладно, не надо»</p></div></div>
+  <div class="intake-form" style="border-top:3px solid #0d9474;margin:0"><div class="intake-header" style="border-left:3px solid #2da87a;padding:.5rem .8rem"><div class="intake-title" style="font-size:.78rem;margin:0;font-weight:600;opacity:1">ФУНКЦИЯ: ДОСТУП К ПРЕДМЕТУ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. НЕ даю предмет за нежелательное</p><p>2. Жду / подсказываю просьбу</p><p>3. Даю предмет за:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не отдаю «лишь бы замолчал»</p></div></div>
+  <div class="intake-form" style="border-top:3px solid #b8860b;margin:0"><div class="intake-header" style="border-left:3px solid #c49a2a;padding:.5rem .8rem"><div class="intake-title" style="font-size:.78rem;margin:0;font-weight:600;opacity:1">ФУНКЦИЯ: СЕНСОРНАЯ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. Предлагаю приемлемую альтернативу</p><p>2. Перенаправляю спокойно</p><p>3. Альтернативная стимуляция:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не наказываю за стимминг</p></div></div>
 </div>
 
 <h3>1.6. Шаблон визуального расписания</h3>
 <div class="disclaimer-box">Заполните вместе с родителем. Используйте картинки или фотографии для неговорящих детей.</div>
-<div class="intake-form">
-  <div class="intake-header" style="background:var(--dark)"><div class="intake-title">ВИЗУАЛЬНОЕ РАСПИСАНИЕ</div>
+<div class="intake-form" style="border-top:3px solid #2da87a">
+  <div class="intake-header"><div class="intake-title">ВИЗУАЛЬНОЕ РАСПИСАНИЕ</div>
     <div class="intake-row"><span class="intake-label">Рутина:</span><span class="intake-line"></span><span class="intake-label" style="margin-left:1rem">Для:</span><span class="intake-line"></span></div>
   </div>
   <div class="intake-section" style="padding:.6rem">
@@ -4708,8 +4712,8 @@ iv>
 
 <h3>1.7. Контракт поведения (для подростков 10+)</h3>
 <div class="disclaimer-box">Составляется ВМЕСТЕ с подростком. Подросток должен согласиться с условиями.</div>
-<div class="intake-form">
-  <div class="intake-header" style="background:var(--dark)"><div class="intake-title">КОНТРАКТ ПОВЕДЕНИЯ</div></div>
+<div class="intake-form" style="border-top:3px solid #8b72b8">
+  <div class="intake-header"><div class="intake-title">КОНТРАКТ ПОВЕДЕНИЯ</div></div>
   <div class="intake-section" style="padding:1rem 1.2rem;font-size:.85rem;line-height:1.8">
     <p>Я, <span class="intake-line" style="width:200px;display:inline-block"></span> (имя), соглашаюсь:</p>
     <div class="intake-field full" style="margin:.6rem 0"><span class="intake-label">Что я буду делать:</span><span class="intake-line tall"></span></div>
@@ -4730,7 +4734,7 @@ iv>
 
 <h3>1.8. Таблица отслеживания прогресса (17 недель)</h3>
 <div class="disclaimer-box">Заполняйте еженедельно. Показывайте родителю для наглядности прогресса.</div>
-<div class="intake-form">
+<div class="intake-form" style="border-top:3px solid #2da87a">
   <div class="intake-header"><div class="intake-title">ОТСЛЕЖИВАНИЕ ПРОГРЕССА РОДИТЕЛЬСКОГО ТРЕНИНГА</div>
     <div class="intake-row"><span class="intake-label">Родитель:</span><span class="intake-line"></span><span class="intake-label" style="margin-left:1rem">Ребёнок:</span><span class="intake-line"></span></div>
   </div>
@@ -4761,8 +4765,8 @@ iv>
 
 <h3>1.9. Чек-лист готовности к фейдингу</h3>
 <div class="disclaimer-box">Все пункты должны быть отмечены перед переходом к снижению частоты сессий.</div>
-<div class="intake-form">
-  <div class="intake-header" style="background:var(--dark)"><div class="intake-title">ГОТОВНОСТЬ К ФЕЙДИНГУ: ЧЕК-ЛИСТ</div>
+<div class="intake-form" style="border-top:3px solid #2da87a">
+  <div class="intake-header"><div class="intake-title">ГОТОВНОСТЬ К ФЕЙДИНГУ: ЧЕК-ЛИСТ</div>
     <div class="intake-row"><span class="intake-label">Родитель:</span><span class="intake-line"></span><span class="intake-label" style="margin-left:1rem">Дата оценки:</span><span class="intake-line"></span></div>
   </div>
   <div class="intake-section" style="padding:.8rem 1rem">
@@ -4788,8 +4792,8 @@ iv>
 
 <h3>1.10. Бланк записи сессии (CPT 97156 — для США)</h3>
 <div class="disclaimer-box">Пустой бланк для документации. Проверьте требования вашего страхового плательщика (insurance payer) или организации, финансирующей терапию.</div>
-<div class="intake-form">
-  <div class="intake-header" style="background:var(--dark)"><div class="intake-title">ЗАПИСЬ СЕССИИ РОДИТЕЛЬСКОГО ТРЕНИНГА — CPT 97156</div></div>
+<div class="intake-form" style="border-top:3px solid #2da87a">
+  <div class="intake-header"><div class="intake-title">ЗАПИСЬ СЕССИИ РОДИТЕЛЬСКОГО ТРЕНИНГА — CPT 97156</div></div>
   <div class="intake-section" style="padding:.8rem 1rem">
     <div class="intake-grid">
       <div class="intake-field"><span class="intake-label">Дата:</span><span class="intake-line"></span></div>
@@ -4824,8 +4828,8 @@ iv>
 
 <h3>1.11. Карточка экстренного плана</h3>
 <div class="disclaimer-box">Заполните вместе с родителем. Разместите на видном месте дома (холодильник).</div>
-<div class="intake-form">
-  <div class="intake-header" style="background:var(--dark)"><div class="intake-title">ЭКСТРЕННЫЙ ПЛАН: ЕСЛИ ПОВЕДЕНИЕ ВЫХОДИТ ИЗ-ПОД КОНТРОЛЯ</div>
+<div class="intake-form" style="border-top:3px solid #c97b5a">
+  <div class="intake-header"><div class="intake-title">ЭКСТРЕННЫЙ ПЛАН: ЕСЛИ ПОВЕДЕНИЕ ВЫХОДИТ ИЗ-ПОД КОНТРОЛЯ</div>
     <div class="intake-row"><span class="intake-label">Ребёнок:</span><span class="intake-line"></span><span class="intake-label" style="margin-left:1rem">Дата:</span><span class="intake-line"></span></div>
   </div>
   <div class="intake-section" style="padding:.8rem 1rem;font-size:.85rem">
@@ -4842,7 +4846,7 @@ iv>
 
 <h3>1.12. Таблица совместимости стратегий</h3>
 <div class="disclaimer-box">Справочная таблица. Используйте при составлении BSP.</div>
-<div class="intake-form">
+<div class="intake-form" style="border-top:3px solid #3b7cb8">
   <div class="intake-header"><div class="intake-title">СОВМЕСТИМОСТЬ СТРАТЕГИЙ</div></div>
   <div class="intake-section" style="padding:.4rem;overflow-x:auto">
     <table class="intake-check-table" style="font-size:.73rem">
@@ -4863,8 +4867,8 @@ iv>
   </div>
 </div>
 <h3>1.2а. План поведенческой поддержки (BSP) — пустой бланк</h3>
-<div class="intake-form">
-  <div class="intake-header" style="background:var(--dark)">
+<div class="intake-form" style="border-top:3px solid #d4a041">
+  <div class="intake-header">
     <div class="intake-title">ПЛАН ПОВЕДЕНЧЕСКОЙ ПОДДЕРЖКИ (BSP)</div>
     <div style="font-size:.7rem;color:var(--mut);margin-top:.2rem">Заполняйте совместно с родителем · обновляйте каждую сессию</div>
   </div>
@@ -4968,8 +4972,8 @@ iv>
 <div class="section" id="s_6_12" data-idx="52">
       <h2>ШАБЛОН: ИНФОРМИРОВАННОЕ СОГЛАСИЕ НА РОДИТЕЛЬСКИЙ ТРЕНИНГ</h2>
       <div class="section-body">
-<div class="intake-form">
-<div class="intake-header" style="background:var(--dark)"><div class="intake-title">ИНФОРМИРОВАННОЕ СОГЛАСИЕ</div></div>
+<div class="intake-form" style="border-top:3px solid #8b72b8">
+<div class="intake-header"><div class="intake-title">ИНФОРМИРОВАННОЕ СОГЛАСИЕ</div></div>
 <div class="intake-section" style="padding:1rem 1.2rem;font-size:.88rem;line-height:1.7">
 <p><strong>Я, </strong><span class="intake-line" style="display:inline-block;width:250px;border-bottom:1px solid #999"></span> (ФИО родителя/опекуна),</p>
 <p>даю согласие на участие в программе родительского тренинга для моего ребёнка</p>
@@ -5757,6 +5761,6 @@ window.addEventListener('load', function() { setTimeout(fixMobile, 100); setTime
 window.addEventListener('resize', fixMobile);
 
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v90</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v91</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 </body>
 </html>
