@@ -708,347 +708,324 @@ body.embed-mode #backToTop { display: none }
 /* --- Print overlay (popup-free PDF) --- */
 #pdf-print-area { display: none; }
 
+/* Body class set by JS while printing */
+body.pdf-printing > *:not(#pdf-print-area) { display: none !important; }
+body.pdf-printing #pdf-print-area { display: block !important; }
+
 @media print {
-  /* Hide everything except our print area */
-  body > *:not(#pdf-print-area) { display: none !important }
+  /* ── Page setup ── */
+  @page { size: A4 portrait; margin: 52mm 14mm 18mm 14mm; }
+  /* top margin leaves room for the fixed header */
 
-  @page { size: A4; margin: 18mm 16mm 22mm }
+  body > *:not(#pdf-print-area) { display: none !important; }
 
-  /* ── Base ── */
   #pdf-print-area {
     display: block !important;
     font-family: 'DM Sans', -apple-system, sans-serif;
-    font-size: 11.5pt;
-    line-height: 1.6;
+    font-size: 10.5pt;
+    line-height: 1.65;
     color: #2d3142;
     background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  /* ── Page header (logo bar) ── */
+  /* ── FIXED HEADER — repeats on every page ── */
   #pdf-print-area .pdf-hdr {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 44mm;
+    background: #fff;
     display: flex !important;
     align-items: center;
     justify-content: space-between;
-    padding: 0 0 10pt;
-    margin-bottom: 18pt;
-    border-bottom: 2.5pt solid #c97b5a;
+    padding: 8mm 14mm 5mm;
+    border-bottom: 2pt solid #c97b5a;
+    z-index: 9999;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   #pdf-print-area .pdf-hdr-logo {
-    display: flex !important; align-items: center; gap: 9pt;
+    display: flex !important;
+    align-items: center;
+    gap: 9pt;
   }
   #pdf-print-area .pdf-hdr-logo img {
-    width: 36pt; height: 36pt; object-fit: contain; display: block;
+    width: 38pt; height: 38pt;
+    object-fit: contain; display: block;
   }
   #pdf-print-area .pdf-hdr-meta {
-    display: flex !important; flex-direction: column; gap: 1pt;
+    display: flex !important;
+    flex-direction: column;
+    gap: 2pt;
   }
   #pdf-print-area .pdf-hdr-link {
-    color: #3b7cb8; text-decoration: none;
-    font-size: 9pt; font-weight: 700; letter-spacing: .02em;
+    font-size: 10pt; font-weight: 700;
+    color: #c97b5a; text-decoration: none;
+    letter-spacing: .02em;
   }
   #pdf-print-area .pdf-hdr-guide {
-    font-size: 7.5pt; color: #8b90a0; letter-spacing: .03em; text-transform: uppercase;
+    font-size: 7pt; color: #8b90a0;
+    letter-spacing: .06em; text-transform: uppercase;
   }
   #pdf-print-area .pdf-hdr-right {
-    text-align: right; font-size: 8pt; color: #8b90a0; line-height: 1.5;
+    text-align: right;
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2pt;
   }
   #pdf-print-area .pdf-hdr-right strong {
-    display: block; font-size: 9pt; color: #2d3142; font-weight: 600;
+    font-size: 9pt; font-weight: 700;
+    color: #1e2028; display: block;
+    max-width: 220pt;
+    line-height: 1.3;
+  }
+  #pdf-print-area .pdf-hdr-right span {
+    font-size: 8pt; color: #8b90a0;
   }
 
-  /* ── Footer ── */
+  /* ── FIXED FOOTER — repeats on every page ── */
   #pdf-print-area .pdf-ftr {
-    margin-top: 18pt; padding-top: 8pt;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 12mm;
+    background: #fff;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14mm;
     border-top: 1pt solid #e5e7eb;
-    display: flex !important; justify-content: space-between; align-items: center;
     font-size: 7.5pt; color: #adb5bd;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
-  #pdf-print-area .pdf-ftr a { color: #3b7cb8; text-decoration: none; font-weight: 600 }
+  #pdf-print-area .pdf-ftr a {
+    color: #c97b5a; text-decoration: none; font-weight: 700;
+  }
 
-  /* ── Hide PDF buttons ── */
+  /* Hide PDF buttons in print */
   #pdf-print-area .pdf-btn-bar,
-  #pdf-print-area .pdf-download-btn { display: none !important }
+  #pdf-print-area .pdf-download-btn { display: none !important; }
 
-  /* ══════════════════════════════════════════
-     INTAKE FORM — full redesign for print
-  ══════════════════════════════════════════ */
+  /* ── FORM CONTENT wrapper ── */
+  #pdf-print-area .pdf-body {
+    display: block !important;
+    /* pushed down below fixed header, up above fixed footer */
+    padding-top: 2mm;
+    padding-bottom: 4mm;
+  }
+
+  /* ══════════════════════════════════
+     INTAKE FORM
+  ══════════════════════════════════ */
   #pdf-print-area .intake-form {
     display: block !important;
+    border-radius: 8pt !important;
     border: none !important;
-    border-radius: 0 !important;
     box-shadow: none !important;
     margin: 0 !important;
     background: #fff !important;
+    overflow: visible !important;
     page-break-inside: avoid;
   }
+
+  /* Coloured top accent bar */
+  #pdf-print-area .intake-form::before {
+    content: '';
+    display: block;
+    height: 4pt;
+    border-radius: 8pt 8pt 0 0;
+    background: #3b7cb8;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  #pdf-print-area .intake-form[style*="#3b7cb8"]::before { background: #3b7cb8 !important; }
+  #pdf-print-area .intake-form[style*="#2da87a"]::before { background: #2da87a !important; }
+  #pdf-print-area .intake-form[style*="#d4a041"]::before { background: #d4a041 !important; }
+  #pdf-print-area .intake-form[style*="#c97b5a"]::before { background: #c97b5a !important; }
+  #pdf-print-area .intake-form[style*="#8b72b8"]::before { background: #8b72b8 !important; }
 
   /* Header strip */
   #pdf-print-area .intake-header {
     display: block !important;
     background: #1e2028 !important;
-    color: #fff !important;
-    padding: 10pt 14pt !important;
-    border-radius: 6pt 6pt 0 0 !important;
+    padding: 10pt 14pt 10pt !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   #pdf-print-area .intake-title {
     display: block !important;
-    font-size: 10pt !important;
+    font-size: 9.5pt !important;
     font-weight: 700 !important;
-    letter-spacing: .08em !important;
+    letter-spacing: .1em !important;
     text-transform: uppercase !important;
     color: #fff !important;
     margin: 0 !important;
   }
-  #pdf-print-area .intake-title a { color: #fff !important; text-decoration: none !important }
-  #pdf-print-area .intake-subtitle,
+  #pdf-print-area .intake-title a { color: #fff !important; text-decoration: none !important; }
   #pdf-print-area .intake-header > div:not(.intake-title):not(.intake-meta) {
-    font-size: 8pt !important;
-    color: rgba(255,255,255,.65) !important;
-    margin-top: 3pt !important;
-    display: block !important;
+    font-size: 7.5pt !important; color: rgba(255,255,255,.55) !important;
+    margin-top: 2pt !important; display: block !important;
   }
 
-  /* Meta row (date / name / etc) */
+  /* Meta row in header */
   #pdf-print-area .intake-meta {
     display: block !important;
     margin-top: 8pt !important;
     padding-top: 8pt !important;
-    border-top: 1pt solid rgba(255,255,255,.15) !important;
+    border-top: 1pt solid rgba(255,255,255,.12) !important;
   }
-  #pdf-print-area .intake-row {
+  #pdf-print-area .intake-header .intake-row {
     display: flex !important;
     align-items: baseline !important;
-    gap: 6pt !important;
-    margin-bottom: 5pt !important;
     flex-wrap: wrap !important;
+    gap: 4pt 12pt !important;
+    margin-bottom: 4pt !important;
   }
-  #pdf-print-area .intake-label {
-    font-size: 8pt !important;
-    color: rgba(255,255,255,.6) !important;
-    font-weight: 500 !important;
-    white-space: nowrap !important;
-    flex-shrink: 0 !important;
+  #pdf-print-area .intake-header .intake-label {
+    font-size: 7.5pt !important;
+    color: rgba(255,255,255,.5) !important;
+    font-weight: 500 !important; white-space: nowrap !important;
   }
-  #pdf-print-area .intake-row .intake-line {
-    flex: 1 !important;
-    min-width: 60pt !important;
-    border-bottom: 1pt solid rgba(255,255,255,.35) !important;
-    height: 14pt !important;
-    display: inline-block !important;
+  #pdf-print-area .intake-header .intake-line {
+    flex: 1 !important; min-width: 50pt !important;
+    border-bottom: 1pt solid rgba(255,255,255,.25) !important;
+    height: 13pt !important; display: inline-block !important;
   }
 
-  /* Body / section */
+  /* Body section */
   #pdf-print-area .intake-section {
     display: block !important;
     padding: 12pt 14pt !important;
-    border: 1.5pt solid #e5e7eb !important;
+    border: 1.5pt solid #e8eaef !important;
     border-top: none !important;
-    border-radius: 0 0 6pt 6pt !important;
+    border-radius: 0 0 8pt 8pt !important;
   }
-  #pdf-print-area .intake-section p {
+  #pdf-print-area .intake-section > p {
     display: block !important;
-    margin: 0 0 6pt !important;
-    font-size: 10pt !important;
-    color: #2d3142 !important;
-    line-height: 1.55 !important;
+    margin: 0 0 5pt !important;
+    font-size: 9.5pt !important; color: #2d3142 !important; line-height: 1.6 !important;
   }
+  #pdf-print-area .intake-section > p strong { color: #1e2028 !important; font-weight: 600 !important; }
   #pdf-print-area .intake-section ul,
   #pdf-print-area .intake-section ol {
-    display: block !important;
-    padding-left: 16pt !important;
-    margin: 4pt 0 8pt !important;
+    display: block !important; padding-left: 14pt !important; margin: 4pt 0 8pt !important;
   }
   #pdf-print-area .intake-section li {
-    display: list-item !important;
-    font-size: 10pt !important;
-    color: #2d3142 !important;
-    margin-bottom: 3pt !important;
-    line-height: 1.5 !important;
+    display: list-item !important; font-size: 9.5pt !important;
+    color: #2d3142 !important; margin-bottom: 3pt !important; line-height: 1.5 !important;
   }
-  #pdf-print-area .intake-section strong { color: #1e2028 !important; font-weight: 600 !important }
 
-  /* Inline input lines */
-  #pdf-print-area .intake-field {
-    display: block !important;
-    margin: 5pt 0 !important;
-  }
-  #pdf-print-area .intake-field label {
-    display: block !important;
-    font-size: 8pt !important;
-    color: #8b90a0 !important;
-    margin-bottom: 2pt !important;
-    text-transform: uppercase !important;
-    letter-spacing: .05em !important;
-  }
-  #pdf-print-area .intake-line {
-    display: block !important;
-    border-bottom: 1pt solid #c8ccd6 !important;
-    min-height: 18pt !important;
-    margin: 3pt 0 !important;
-    width: 100% !important;
-  }
-  #pdf-print-area .intake-line.tall {
-    min-height: 32pt !important;
-  }
+  /* Body-level rows & input lines */
   #pdf-print-area .intake-section .intake-row {
-    display: flex !important;
-    align-items: baseline !important;
-    gap: 6pt !important;
-    margin-bottom: 5pt !important;
-    flex-wrap: wrap !important;
+    display: flex !important; align-items: baseline !important;
+    flex-wrap: wrap !important; gap: 4pt 10pt !important; margin-bottom: 6pt !important;
   }
   #pdf-print-area .intake-section .intake-label {
-    font-size: 8.5pt !important;
-    color: #4b5068 !important;
-    font-weight: 600 !important;
-    white-space: nowrap !important;
+    font-size: 8pt !important; color: #6b7280 !important;
+    font-weight: 600 !important; white-space: nowrap !important;
   }
   #pdf-print-area .intake-section .intake-line {
-    flex: 1 !important; min-width: 50pt !important;
+    flex: 1 !important; min-width: 60pt !important;
+    border-bottom: 1pt solid #d1d5db !important;
+    height: 16pt !important; display: inline-block !important;
   }
+  #pdf-print-area .intake-field { display: block !important; margin: 5pt 0 !important; }
+  #pdf-print-area .intake-field label {
+    display: block !important; font-size: 7.5pt !important; color: #8b90a0 !important;
+    text-transform: uppercase !important; letter-spacing: .06em !important; margin-bottom: 2pt !important;
+  }
+  #pdf-print-area .intake-field.full .intake-line,
+  #pdf-print-area .intake-section > .intake-field .intake-line {
+    display: block !important; width: 100% !important;
+    border-bottom: 1pt solid #d1d5db !important; min-height: 16pt !important;
+  }
+  #pdf-print-area .intake-line.tall { min-height: 30pt !important; }
 
-  /* Intake grid (2-col) */
+  /* 2-col grid */
   #pdf-print-area .intake-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 8pt !important;
-    margin: 6pt 0 !important;
+    gap: 8pt !important; margin: 6pt 0 !important;
   }
 
-  /* Sub-section headers */
+  /* Sub-section headings */
   #pdf-print-area .intake-section-header {
     display: block !important;
-    font-size: 8pt !important;
-    font-weight: 700 !important;
-    letter-spacing: .07em !important;
-    text-transform: uppercase !important;
-    color: #3b7cb8 !important;
-    margin: 12pt 0 6pt !important;
-    padding-bottom: 3pt !important;
-    border-bottom: 1pt solid #e5e7eb !important;
+    font-size: 7.5pt !important; font-weight: 700 !important;
+    letter-spacing: .08em !important; text-transform: uppercase !important;
+    color: #3b7cb8 !important; margin: 12pt 0 6pt !important;
+    padding-bottom: 3pt !important; border-bottom: 1pt solid #e8eaef !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
 
-  /* Checkbox rows */
-  #pdf-print-area .intake-check-row {
-    display: flex !important;
-    align-items: baseline !important;
-    gap: 8pt !important;
-    padding: 4pt 0 !important;
-    border-bottom: .5pt solid #f0f1f3 !important;
-    font-size: 10pt !important;
-  }
-  #pdf-print-area .intake-check-row:last-child { border-bottom: none !important }
-
-  /* Tables inside forms */
+  /* ── TABLES ── */
   #pdf-print-area table {
-    display: table !important;
-    width: 100% !important;
-    border-collapse: collapse !important;
-    margin: 8pt 0 !important;
-    font-size: 9pt !important;
+    display: table !important; width: 100% !important;
+    border-collapse: collapse !important; margin: 8pt 0 !important;
+    font-size: 8.5pt !important;
   }
-  #pdf-print-area thead { display: table-header-group !important }
-  #pdf-print-area tbody { display: table-row-group !important }
-  #pdf-print-area tr { display: table-row !important }
+  #pdf-print-area thead { display: table-header-group !important; }
+  #pdf-print-area tbody { display: table-row-group !important; }
+  #pdf-print-area tr    { display: table-row !important; }
   #pdf-print-area th {
     display: table-cell !important;
-    background: #3b4a5c !important;
-    color: #fff !important;
-    padding: 5pt 7pt !important;
-    font-size: 8pt !important;
-    font-weight: 600 !important;
-    text-align: left !important;
-    letter-spacing: .02em !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    background: #2d3748 !important; color: #fff !important;
+    padding: 5pt 8pt !important; font-size: 7.5pt !important;
+    font-weight: 700 !important; text-align: left !important;
+    letter-spacing: .04em !important; text-transform: uppercase !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
   #pdf-print-area td {
     display: table-cell !important;
-    padding: 5pt 7pt !important;
-    border-bottom: .5pt solid #e5e7eb !important;
-    font-size: 9pt !important;
-    color: #2d3142 !important;
-    vertical-align: top !important;
+    padding: 5pt 8pt !important; border-bottom: .5pt solid #e8eaef !important;
+    font-size: 8.5pt !important; color: #2d3142 !important; vertical-align: top !important;
   }
-  #pdf-print-area tr:last-child td { border-bottom: none !important }
-  #pdf-print-area tr.alt td { background: #f8f9fb !important }
+  #pdf-print-area tr:last-child td { border-bottom: none !important; }
+  #pdf-print-area tr.alt td {
+    background: #f8f9fb !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
 
-  /* .form-block / .form-record / .form-checklist / .form-bsp */
+  /* ── FORM-BLOCK / RECORD / CHECKLIST / BSP ── */
   #pdf-print-area .form-block,
   #pdf-print-area .form-record,
   #pdf-print-area .form-parent,
   #pdf-print-area .form-checklist,
   #pdf-print-area .form-bsp {
     display: block !important;
-    border: 1.5pt solid #e5e7eb !important;
-    border-radius: 6pt !important;
-    overflow: visible !important;
-    margin: 0 !important;
+    border: 1.5pt solid #e8eaef !important;
+    border-radius: 8pt !important;
+    overflow: visible !important; margin: 0 !important;
     page-break-inside: avoid;
   }
   #pdf-print-area .form-header {
-    display: flex !important;
-    align-items: center !important;
-    gap: 6pt !important;
-    background: #1e2028 !important;
-    color: #fff !important;
-    padding: 9pt 12pt !important;
-    font-size: 9pt !important;
-    font-weight: 700 !important;
-    letter-spacing: .06em !important;
-    text-transform: uppercase !important;
-    border-radius: 4pt 4pt 0 0 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    display: flex !important; align-items: center !important; gap: 6pt !important;
+    background: #1e2028 !important; color: #fff !important;
+    padding: 9pt 13pt !important;
+    font-size: 8.5pt !important; font-weight: 700 !important;
+    letter-spacing: .08em !important; text-transform: uppercase !important;
+    border-radius: 6pt 6pt 0 0 !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
   #pdf-print-area .form-tag {
     display: inline-block !important;
-    background: rgba(255,255,255,.18) !important;
-    color: #fff !important;
-    padding: 1pt 5pt !important;
-    border-radius: 3pt !important;
-    font-size: 7pt !important;
-    font-weight: 400 !important;
-    letter-spacing: .04em !important;
-    margin-left: 4pt !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    background: rgba(255,255,255,.15) !important; color: #fff !important;
+    padding: 1pt 5pt !important; border-radius: 3pt !important;
+    font-size: 6.5pt !important; font-weight: 500 !important;
+    letter-spacing: .04em !important; margin-left: 4pt !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
   #pdf-print-area .form-body {
-    display: block !important;
-    padding: 12pt 14pt !important;
-    font-size: 10pt !important;
-    line-height: 1.6 !important;
-    color: #2d3142 !important;
+    display: block !important; padding: 12pt 14pt !important;
+    font-size: 9.5pt !important; line-height: 1.6 !important; color: #2d3142 !important;
   }
-  #pdf-print-area .form-body p { display: block !important; margin: 0 0 5pt !important }
+  #pdf-print-area .form-body p  { display: block !important; margin: 0 0 5pt !important; }
   #pdf-print-area .form-body ul,
-  #pdf-print-area .form-body ol { display: block !important; padding-left: 16pt !important; margin: 4pt 0 !important }
-  #pdf-print-area .form-body li { display: list-item !important; margin-bottom: 3pt !important }
-  #pdf-print-area .form-body strong { font-weight: 600 !important; color: #1e2028 !important }
-
-  /* Disclaimer boxes inside forms */
-  #pdf-print-area .disclaimer-box {
-    display: block !important;
-    background: #f8f9fb !important;
-    border-left: 3pt solid #3b7cb8 !important;
-    border-radius: 0 4pt 4pt 0 !important;
-    padding: 6pt 10pt !important;
-    font-size: 8.5pt !important;
-    color: #4b5068 !important;
-    margin: 6pt 0 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  /* Coloured accent on form top border */
-  #pdf-print-area .intake-form[style*="border-top:3px solid #3b7cb8"] .intake-header { background: #2a5a8f !important }
-  #pdf-print-area .intake-form[style*="border-top:3px solid #2da87a"] .intake-header { background: #1e7a5a !important }
-  #pdf-print-area .intake-form[style*="border-top:3px solid #d4a041"] .intake-header { background: #9a6e1e !important }
-  #pdf-print-area .intake-form[style*="border-top:3px solid #c97b5a"] .intake-header { background: #8f4a28 !important }
-  #pdf-print-area .intake-form[style*="border-top:3px solid #8b72b8"] .intake-header { background: #5e4a8a !important }
+  #pdf-print-area .form-body ol { display: block !important; padding-left: 14pt !important; margin: 4pt 0 !important; }
+  #pdf-print-area .form-body li { display: list-item !important; margin-bottom: 3pt !important; font-size: 9.5pt !important; }
+  #pdf-print-area .form-body strong { font-weight: 600 !important; color: #1e2028 !important; }
 }
 
 /* --- Print --- */
@@ -6203,24 +6180,56 @@ window.addEventListener('resize', fixMobile);
   function printForm(formEl) {
     if (!printArea) printArea = document.getElementById('pdf-print-area');
     if (!printArea) { window.print(); return; }
+
     var titleEl = formEl.querySelector('.intake-title, .form-header');
     var docTitle = titleEl ? titleEl.textContent.trim().replace(/\s+/g,' ').slice(0,80) : GUIDE;
     var today = new Date().toLocaleDateString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric'});
     var logoHtml = LOGO_SRC ? '<img src="' + LOGO_SRC + '" alt="">' : '';
+
+    // Fixed header (repeats every page via position:fixed in @media print)
     var header = '<div class="pdf-hdr">'
       + '<div class="pdf-hdr-logo">' + logoHtml
       + '<div class="pdf-hdr-meta">'
       + '<a class="pdf-hdr-link" href="' + SITE_URL + '">' + SITE_LABEL + '</a>'
-      + '<span class="pdf-hdr-guide">' + GUIDE + '</span>'
+      + '<span class="pdf-hdr-guide">Руководство для специалистов</span>'
       + '</div></div>'
-      + '<div class="pdf-hdr-right"><strong>' + docTitle + '</strong>' + today + '</div></div>';
-    var footer = '<div class="pdf-ftr"><span>' + GUIDE + '</span>'
-      + '<a href="' + SITE_URL + '">' + SITE_URL + '</a></div>';
+      + '<div class="pdf-hdr-right">'
+      + '<strong>' + docTitle + '</strong>'
+      + '<span>' + today + '</span>'
+      + '</div></div>';
+
+    // Fixed footer (repeats every page)
+    var footer = '<div class="pdf-ftr">'
+      + '<span>' + GUIDE + '</span>'
+      + '<a href="' + SITE_URL + '">' + SITE_URL + '</a>'
+      + '</div>';
+
+    // Clone form, strip buttons, wrap in pdf-body
     var clone = formEl.cloneNode(true);
-    clone.querySelectorAll('.pdf-btn-bar').forEach(function(el){ el.remove(); });
-    printArea.innerHTML = header + clone.outerHTML + footer;
+    clone.querySelectorAll('.pdf-btn-bar, .pdf-download-btn').forEach(function(el){ el.remove(); });
+    var body = '<div class="pdf-body">' + clone.outerHTML + '</div>';
+
+    printArea.innerHTML = header + footer + body;
+
+    // Move printArea to be FIRST child of body so nothing above it causes blank page
+    document.body.insertBefore(printArea, document.body.firstChild);
+
+    // Add class so non-print view also hides everything
+    document.body.classList.add('pdf-printing');
+
     window.print();
-    setTimeout(function(){ printArea.innerHTML = ''; }, 200);
+
+    // Restore after print dialog closes
+    function restore() {
+      document.body.classList.remove('pdf-printing');
+      document.body.appendChild(printArea); // move back to end
+      printArea.innerHTML = '';
+    }
+    if (window.onafterprint !== undefined) {
+      var once = function() { restore(); window.removeEventListener('afterprint', once); };
+      window.addEventListener('afterprint', once);
+    }
+    setTimeout(restore, 1500); // fallback
   }
 })();
 
