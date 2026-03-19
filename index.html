@@ -707,41 +707,37 @@ body.embed-mode #backToTop { display: none }
 
 /* --- Print overlay (popup-free PDF) --- */
 #pdf-print-area { display: none; }
-
-/* Body class set by JS while printing */
 body.pdf-printing > *:not(#pdf-print-area) { display: none !important; }
 body.pdf-printing #pdf-print-area { display: block !important; }
 
 @media print {
-  /* ── Page setup ── */
-  @page { size: A4 portrait; margin: 52mm 14mm 18mm 14mm; }
-  /* top margin leaves room for the fixed header */
+  /* ── Zero out browser default header/footer, own margins ── */
+  @page {
+    size: A4 portrait;
+    margin: 14mm 13mm 14mm 13mm;
+  }
 
   body > *:not(#pdf-print-area) { display: none !important; }
 
   #pdf-print-area {
     display: block !important;
     font-family: 'DM Sans', -apple-system, sans-serif;
-    font-size: 10.5pt;
-    line-height: 1.65;
+    font-size: 10pt;
+    line-height: 1.6;
     color: #2d3142;
     background: #fff;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  /* ── FIXED HEADER — repeats on every page ── */
+  /* ══ HEADER — flows naturally at top, not fixed ══ */
   #pdf-print-area .pdf-hdr {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 44mm;
-    background: #fff;
     display: flex !important;
     align-items: center;
     justify-content: space-between;
-    padding: 8mm 14mm 5mm;
-    border-bottom: 2pt solid #c97b5a;
-    z-index: 9999;
+    padding: 0 0 10pt;
+    margin-bottom: 14pt;
+    border-bottom: 2.5pt solid #c97b5a;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -751,90 +747,79 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     gap: 9pt;
   }
   #pdf-print-area .pdf-hdr-logo img {
-    width: 38pt; height: 38pt;
-    object-fit: contain; display: block;
+    width: 40pt; height: 40pt;
+    object-fit: contain;
+    display: block;
   }
   #pdf-print-area .pdf-hdr-meta {
     display: flex !important;
     flex-direction: column;
-    gap: 2pt;
+    gap: 1pt;
   }
   #pdf-print-area .pdf-hdr-link {
-    font-size: 10pt; font-weight: 700;
+    font-size: 11pt; font-weight: 800;
     color: #c97b5a; text-decoration: none;
-    letter-spacing: .02em;
+    letter-spacing: .01em;
   }
   #pdf-print-area .pdf-hdr-guide {
-    font-size: 7pt; color: #8b90a0;
-    letter-spacing: .06em; text-transform: uppercase;
+    font-size: 7pt; color: #9ca3af;
+    letter-spacing: .07em; text-transform: uppercase;
   }
   #pdf-print-area .pdf-hdr-right {
     text-align: right;
-    display: flex !important;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 2pt;
   }
   #pdf-print-area .pdf-hdr-right strong {
-    font-size: 9pt; font-weight: 700;
-    color: #1e2028; display: block;
-    max-width: 220pt;
-    line-height: 1.3;
+    display: block;
+    font-size: 9.5pt; font-weight: 700; color: #1e2028;
+    line-height: 1.3; max-width: 200pt;
   }
   #pdf-print-area .pdf-hdr-right span {
-    font-size: 8pt; color: #8b90a0;
+    display: block;
+    font-size: 7.5pt; color: #9ca3af; margin-top: 2pt;
   }
 
-  /* ── FIXED FOOTER — repeats on every page ── */
+  /* ══ FOOTER ══ */
   #pdf-print-area .pdf-ftr {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    height: 12mm;
-    background: #fff;
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 14mm;
+    margin-top: 14pt; padding-top: 7pt;
     border-top: 1pt solid #e5e7eb;
-    font-size: 7.5pt; color: #adb5bd;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7pt; color: #b0b7c3;
   }
   #pdf-print-area .pdf-ftr a {
     color: #c97b5a; text-decoration: none; font-weight: 700;
   }
 
-  /* Hide PDF buttons in print */
+  /* hide buttons */
   #pdf-print-area .pdf-btn-bar,
   #pdf-print-area .pdf-download-btn { display: none !important; }
 
-  /* ── FORM CONTENT wrapper ── */
+  /* ══ FORM CONTENT wrapper ══ */
   #pdf-print-area .pdf-body {
     display: block !important;
-    /* pushed down below fixed header, up above fixed footer */
-    padding-top: 2mm;
-    padding-bottom: 4mm;
   }
 
-  /* ══════════════════════════════════
-     INTAKE FORM
-  ══════════════════════════════════ */
+  /* ════════════════════════════════════════
+     INTAKE FORM — beautiful print design
+  ════════════════════════════════════════ */
+
   #pdf-print-area .intake-form {
     display: block !important;
+    margin: 0 0 16pt !important;
     border-radius: 8pt !important;
     border: none !important;
     box-shadow: none !important;
-    margin: 0 !important;
-    background: #fff !important;
     overflow: visible !important;
+    background: #fff !important;
     page-break-inside: avoid;
   }
 
-  /* Coloured top accent bar */
+  /* Accent top stripe — colour matched to form type */
   #pdf-print-area .intake-form::before {
     content: '';
-    display: block;
-    height: 4pt;
+    display: block !important;
+    height: 5pt;
     border-radius: 8pt 8pt 0 0;
     background: #3b7cb8;
     -webkit-print-color-adjust: exact;
@@ -846,58 +831,64 @@ body.pdf-printing #pdf-print-area { display: block !important; }
   #pdf-print-area .intake-form[style*="#c97b5a"]::before { background: #c97b5a !important; }
   #pdf-print-area .intake-form[style*="#8b72b8"]::before { background: #8b72b8 !important; }
 
-  /* Header strip */
+  /* Dark header strip */
   #pdf-print-area .intake-header {
     display: block !important;
     background: #1e2028 !important;
-    padding: 10pt 14pt 10pt !important;
+    padding: 11pt 14pt !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   #pdf-print-area .intake-title {
     display: block !important;
-    font-size: 9.5pt !important;
+    font-size: 9pt !important;
     font-weight: 700 !important;
-    letter-spacing: .1em !important;
+    letter-spacing: .12em !important;
     text-transform: uppercase !important;
     color: #fff !important;
     margin: 0 !important;
   }
-  #pdf-print-area .intake-title a { color: #fff !important; text-decoration: none !important; }
+  #pdf-print-area .intake-title a {
+    color: #fff !important; text-decoration: none !important;
+  }
   #pdf-print-area .intake-header > div:not(.intake-title):not(.intake-meta) {
-    font-size: 7.5pt !important; color: rgba(255,255,255,.55) !important;
-    margin-top: 2pt !important; display: block !important;
+    font-size: 7.5pt !important;
+    color: rgba(255,255,255,.5) !important;
+    margin-top: 3pt !important;
+    display: block !important;
   }
 
-  /* Meta row in header */
+  /* Meta (date/name fields inside dark header) */
   #pdf-print-area .intake-meta {
     display: block !important;
-    margin-top: 8pt !important;
-    padding-top: 8pt !important;
-    border-top: 1pt solid rgba(255,255,255,.12) !important;
+    margin-top: 9pt !important;
+    padding-top: 9pt !important;
+    border-top: 1pt solid rgba(255,255,255,.1) !important;
   }
   #pdf-print-area .intake-header .intake-row {
     display: flex !important;
-    align-items: baseline !important;
     flex-wrap: wrap !important;
-    gap: 4pt 12pt !important;
-    margin-bottom: 4pt !important;
+    gap: 4pt 16pt !important;
+    margin-bottom: 5pt !important;
+    align-items: baseline !important;
   }
   #pdf-print-area .intake-header .intake-label {
-    font-size: 7.5pt !important;
-    color: rgba(255,255,255,.5) !important;
-    font-weight: 500 !important; white-space: nowrap !important;
+    font-size: 7pt !important;
+    color: rgba(255,255,255,.45) !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
   }
   #pdf-print-area .intake-header .intake-line {
-    flex: 1 !important; min-width: 50pt !important;
-    border-bottom: 1pt solid rgba(255,255,255,.25) !important;
-    height: 13pt !important; display: inline-block !important;
+    flex: 1 !important; min-width: 60pt !important;
+    border-bottom: 1pt solid rgba(255,255,255,.2) !important;
+    height: 14pt !important;
+    display: inline-block !important;
   }
 
-  /* Body section */
+  /* Body section — light border, clean padding */
   #pdf-print-area .intake-section {
     display: block !important;
-    padding: 12pt 14pt !important;
+    padding: 13pt 15pt !important;
     border: 1.5pt solid #e8eaef !important;
     border-top: none !important;
     border-radius: 0 0 8pt 8pt !important;
@@ -905,41 +896,66 @@ body.pdf-printing #pdf-print-area { display: block !important; }
   #pdf-print-area .intake-section > p {
     display: block !important;
     margin: 0 0 5pt !important;
-    font-size: 9.5pt !important; color: #2d3142 !important; line-height: 1.6 !important;
+    font-size: 9.5pt !important;
+    color: #2d3142 !important;
+    line-height: 1.6 !important;
   }
-  #pdf-print-area .intake-section > p strong { color: #1e2028 !important; font-weight: 600 !important; }
+  #pdf-print-area .intake-section > p strong {
+    color: #1e2028 !important; font-weight: 600 !important;
+  }
   #pdf-print-area .intake-section ul,
   #pdf-print-area .intake-section ol {
-    display: block !important; padding-left: 14pt !important; margin: 4pt 0 8pt !important;
+    display: block !important;
+    padding-left: 14pt !important;
+    margin: 4pt 0 8pt !important;
   }
   #pdf-print-area .intake-section li {
-    display: list-item !important; font-size: 9.5pt !important;
-    color: #2d3142 !important; margin-bottom: 3pt !important; line-height: 1.5 !important;
+    display: list-item !important;
+    font-size: 9.5pt !important;
+    color: #2d3142 !important;
+    margin-bottom: 3pt !important;
+    line-height: 1.55 !important;
   }
 
-  /* Body-level rows & input lines */
+  /* Inline rows & write-on lines inside body */
   #pdf-print-area .intake-section .intake-row {
-    display: flex !important; align-items: baseline !important;
-    flex-wrap: wrap !important; gap: 4pt 10pt !important; margin-bottom: 6pt !important;
+    display: flex !important;
+    align-items: baseline !important;
+    flex-wrap: wrap !important;
+    gap: 4pt 12pt !important;
+    margin-bottom: 7pt !important;
   }
   #pdf-print-area .intake-section .intake-label {
-    font-size: 8pt !important; color: #6b7280 !important;
-    font-weight: 600 !important; white-space: nowrap !important;
+    font-size: 8pt !important;
+    color: #6b7280 !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
   }
   #pdf-print-area .intake-section .intake-line {
-    flex: 1 !important; min-width: 60pt !important;
+    flex: 1 !important;
+    min-width: 55pt !important;
     border-bottom: 1pt solid #d1d5db !important;
-    height: 16pt !important; display: inline-block !important;
+    height: 16pt !important;
+    display: inline-block !important;
   }
-  #pdf-print-area .intake-field { display: block !important; margin: 5pt 0 !important; }
+  #pdf-print-area .intake-field {
+    display: block !important;
+    margin: 6pt 0 !important;
+  }
   #pdf-print-area .intake-field label {
-    display: block !important; font-size: 7.5pt !important; color: #8b90a0 !important;
-    text-transform: uppercase !important; letter-spacing: .06em !important; margin-bottom: 2pt !important;
+    display: block !important;
+    font-size: 7.5pt !important;
+    color: #9ca3af !important;
+    text-transform: uppercase !important;
+    letter-spacing: .06em !important;
+    margin-bottom: 2pt !important;
   }
-  #pdf-print-area .intake-field.full .intake-line,
-  #pdf-print-area .intake-section > .intake-field .intake-line {
-    display: block !important; width: 100% !important;
-    border-bottom: 1pt solid #d1d5db !important; min-height: 16pt !important;
+  #pdf-print-area .intake-field .intake-line,
+  #pdf-print-area .intake-field.full .intake-line {
+    display: block !important;
+    width: 100% !important;
+    border-bottom: 1pt solid #d1d5db !important;
+    min-height: 16pt !important;
   }
   #pdf-print-area .intake-line.tall { min-height: 30pt !important; }
 
@@ -947,48 +963,67 @@ body.pdf-printing #pdf-print-area { display: block !important; }
   #pdf-print-area .intake-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 8pt !important; margin: 6pt 0 !important;
+    gap: 8pt !important;
+    margin: 6pt 0 !important;
   }
 
-  /* Sub-section headings */
+  /* Section sub-headers */
   #pdf-print-area .intake-section-header {
     display: block !important;
-    font-size: 7.5pt !important; font-weight: 700 !important;
-    letter-spacing: .08em !important; text-transform: uppercase !important;
-    color: #3b7cb8 !important; margin: 12pt 0 6pt !important;
-    padding-bottom: 3pt !important; border-bottom: 1pt solid #e8eaef !important;
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    font-size: 7.5pt !important;
+    font-weight: 700 !important;
+    letter-spacing: .1em !important;
+    text-transform: uppercase !important;
+    color: #3b7cb8 !important;
+    margin: 14pt 0 7pt !important;
+    padding-bottom: 4pt !important;
+    border-bottom: 1pt solid #e8eaef !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  /* ── TABLES ── */
+  /* ══ TABLES ══ */
   #pdf-print-area table {
-    display: table !important; width: 100% !important;
-    border-collapse: collapse !important; margin: 8pt 0 !important;
+    display: table !important;
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 8pt 0 !important;
     font-size: 8.5pt !important;
+    border-radius: 4pt !important;
+    overflow: hidden !important;
   }
   #pdf-print-area thead { display: table-header-group !important; }
   #pdf-print-area tbody { display: table-row-group !important; }
   #pdf-print-area tr    { display: table-row !important; }
   #pdf-print-area th {
     display: table-cell !important;
-    background: #2d3748 !important; color: #fff !important;
-    padding: 5pt 8pt !important; font-size: 7.5pt !important;
-    font-weight: 700 !important; text-align: left !important;
-    letter-spacing: .04em !important; text-transform: uppercase !important;
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    background: #2d3748 !important;
+    color: #fff !important;
+    padding: 5pt 8pt !important;
+    font-size: 7.5pt !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    letter-spacing: .05em !important;
+    text-transform: uppercase !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   #pdf-print-area td {
     display: table-cell !important;
-    padding: 5pt 8pt !important; border-bottom: .5pt solid #e8eaef !important;
-    font-size: 8.5pt !important; color: #2d3142 !important; vertical-align: top !important;
+    padding: 5pt 8pt !important;
+    border-bottom: .5pt solid #eef0f4 !important;
+    font-size: 8.5pt !important;
+    color: #2d3142 !important;
+    vertical-align: top !important;
   }
   #pdf-print-area tr:last-child td { border-bottom: none !important; }
   #pdf-print-area tr.alt td {
-    background: #f8f9fb !important;
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    background: #f8fafc !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  /* ── FORM-BLOCK / RECORD / CHECKLIST / BSP ── */
+  /* ══ .form-block / .form-record / .form-checklist / .form-bsp ══ */
   #pdf-print-area .form-block,
   #pdf-print-area .form-record,
   #pdf-print-area .form-parent,
@@ -997,29 +1032,44 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     display: block !important;
     border: 1.5pt solid #e8eaef !important;
     border-radius: 8pt !important;
-    overflow: visible !important; margin: 0 !important;
+    overflow: visible !important;
+    margin: 0 !important;
     page-break-inside: avoid;
   }
   #pdf-print-area .form-header {
-    display: flex !important; align-items: center !important; gap: 6pt !important;
-    background: #1e2028 !important; color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6pt !important;
+    background: #1e2028 !important;
+    color: #fff !important;
     padding: 9pt 13pt !important;
-    font-size: 8.5pt !important; font-weight: 700 !important;
-    letter-spacing: .08em !important; text-transform: uppercase !important;
+    font-size: 8.5pt !important;
+    font-weight: 700 !important;
+    letter-spacing: .08em !important;
+    text-transform: uppercase !important;
     border-radius: 6pt 6pt 0 0 !important;
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   #pdf-print-area .form-tag {
     display: inline-block !important;
-    background: rgba(255,255,255,.15) !important; color: #fff !important;
-    padding: 1pt 5pt !important; border-radius: 3pt !important;
-    font-size: 6.5pt !important; font-weight: 500 !important;
-    letter-spacing: .04em !important; margin-left: 4pt !important;
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    background: rgba(255,255,255,.15) !important;
+    color: #fff !important;
+    padding: 1pt 5pt !important;
+    border-radius: 3pt !important;
+    font-size: 6.5pt !important;
+    font-weight: 500 !important;
+    letter-spacing: .04em !important;
+    margin-left: 4pt !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   #pdf-print-area .form-body {
-    display: block !important; padding: 12pt 14pt !important;
-    font-size: 9.5pt !important; line-height: 1.6 !important; color: #2d3142 !important;
+    display: block !important;
+    padding: 12pt 14pt !important;
+    font-size: 9.5pt !important;
+    line-height: 1.6 !important;
+    color: #2d3142 !important;
   }
   #pdf-print-area .form-body p  { display: block !important; margin: 0 0 5pt !important; }
   #pdf-print-area .form-body ul,
@@ -6186,7 +6236,6 @@ window.addEventListener('resize', fixMobile);
     var today = new Date().toLocaleDateString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric'});
     var logoHtml = LOGO_SRC ? '<img src="' + LOGO_SRC + '" alt="">' : '';
 
-    // Fixed header (repeats every page via position:fixed in @media print)
     var header = '<div class="pdf-hdr">'
       + '<div class="pdf-hdr-logo">' + logoHtml
       + '<div class="pdf-hdr-meta">'
@@ -6198,38 +6247,30 @@ window.addEventListener('resize', fixMobile);
       + '<span>' + today + '</span>'
       + '</div></div>';
 
-    // Fixed footer (repeats every page)
     var footer = '<div class="pdf-ftr">'
       + '<span>' + GUIDE + '</span>'
       + '<a href="' + SITE_URL + '">' + SITE_URL + '</a>'
       + '</div>';
 
-    // Clone form, strip buttons, wrap in pdf-body
     var clone = formEl.cloneNode(true);
     clone.querySelectorAll('.pdf-btn-bar, .pdf-download-btn').forEach(function(el){ el.remove(); });
-    var body = '<div class="pdf-body">' + clone.outerHTML + '</div>';
 
-    printArea.innerHTML = header + footer + body;
+    printArea.innerHTML = header + '<div class="pdf-body">' + clone.outerHTML + '</div>' + footer;
 
-    // Move printArea to be FIRST child of body so nothing above it causes blank page
+    // Move print area to very start of body — prevents blank first page
     document.body.insertBefore(printArea, document.body.firstChild);
-
-    // Add class so non-print view also hides everything
     document.body.classList.add('pdf-printing');
 
     window.print();
 
-    // Restore after print dialog closes
     function restore() {
       document.body.classList.remove('pdf-printing');
-      document.body.appendChild(printArea); // move back to end
+      document.body.appendChild(printArea);
       printArea.innerHTML = '';
     }
-    if (window.onafterprint !== undefined) {
-      var once = function() { restore(); window.removeEventListener('afterprint', once); };
-      window.addEventListener('afterprint', once);
-    }
-    setTimeout(restore, 1500); // fallback
+    var once = function() { restore(); window.removeEventListener('afterprint', once); };
+    window.addEventListener('afterprint', once);
+    setTimeout(restore, 2000); // fallback for browsers without afterprint
   }
 })();
 
