@@ -1318,7 +1318,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
 
     <!-- Bottom note -->
     <div style="padding:.6rem 1.6rem;background:var(--cream);border-top:1px solid var(--border);font-size:.72rem;color:var(--mut);line-height:1.5">
-      Все рекомендации основаны на peer-reviewed исследованиях и стандартах BACB. Руководство носит образовательный характер; клиническое суждение специалиста всегда первично.
+      Все рекомендации основаны на рецензируемых научных исследованиях и стандартах BACB. Руководство носит образовательный характер; клиническое суждение специалиста всегда первично.
     </div>
 
   </div>
@@ -5798,7 +5798,7 @@ iv>
 <section class="part refs" id="part_7" style="--pc:#7c92ab">
     <div class="part-header">
       <div class="part-num"></div>
-      <h1>ПОЛНЫЙ СПИСОК ЛИТЕРАТУРЫ (Peer-Reviewed)</h1>
+      <h1>СПИСОК ЛИТЕРАТУРЫ</h1>
     </div>
 <div class="section" id="s_8_0" data-idx="51">
       <h2>СПИСОК ЛИТЕРАТУРЫ</h2>
@@ -6293,49 +6293,177 @@ window.addEventListener('resize', fixMobile);
   EXTRA_IDS.forEach(function(id){ addBtn(document.getElementById(id)); });
 
   function printForm(formEl) {
-    if (!printArea) printArea = document.getElementById('pdf-print-area');
-    if (!printArea) { window.print(); return; }
-
     var titleEl = formEl.querySelector('.intake-title, .form-header');
     var docTitle = titleEl ? titleEl.textContent.trim().replace(/\s+/g,' ').slice(0,80) : GUIDE;
     var today = new Date().toLocaleDateString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric'});
     var logoHtml = LOGO_SRC ? '<img src="' + LOGO_SRC + '" alt="">' : '';
 
-    var header = '<div class="pdf-hdr">'
-      + '<div class="pdf-hdr-logo">' + logoHtml
-      + '<div class="pdf-hdr-meta">'
-      + '<a class="pdf-hdr-link" href="' + SITE_URL + '">' + SITE_LABEL + '</a>'
-      + '<span class="pdf-hdr-guide">Руководство для специалистов</span>'
-      + '</div></div>'
-      + '<div class="pdf-hdr-right">'
-      + '<strong>' + docTitle + '</strong>'
-      + '<span>' + today + '</span>'
-      + '</div></div>';
-
-    var footer = '<div class="pdf-ftr">'
-      + '<span>' + GUIDE + '</span>'
-      + '<a href="' + SITE_URL + '">' + SITE_URL + '</a>'
-      + '</div>';
-
+    // Clone form and strip buttons
     var clone = formEl.cloneNode(true);
     clone.querySelectorAll('.pdf-btn-bar, .pdf-download-btn').forEach(function(el){ el.remove(); });
 
-    printArea.innerHTML = header + '<div class="pdf-body">' + clone.outerHTML + '</div>' + footer;
+    // Collect all page-level CSS variables + form styles from the main document
+    var cssVars = ':root{'
+      + '--bf:"DM Sans",-apple-system,sans-serif;'
+      + '--hf:"DM Sans",Georgia,serif;'
+      + '--mono:monospace;'
+      + '--bg:#f9f8f6;--dark:#1e2028;--text:#1a1d26;--text2:#4b5068;--mut:#8b90a0;'
+      + '--border:#e5e7eb;--card:#fff;--cream:#f2f1ef;--pri:#3b7cb8;--acc:#c97b5a;'
+      + '--acc2:#b8956a;--teal:#2da87a;--plum:#8b72b8;--gold:#d4a041;'
+      + '--radius-sm:6px;--radius-md:10px;--radius-lg:14px;}';
 
-    // Move print area to very start of body — prevents blank first page
-    document.body.insertBefore(printArea, document.body.firstChild);
-    document.body.classList.add('pdf-printing');
+    var formCSS = [
+      '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+      'html,body{font-family:"DM Sans",-apple-system,sans-serif;font-size:10.5pt;line-height:1.6;color:#2d3142;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
 
-    window.print();
+      /* PAGE */
+      '@page{size:A4 portrait;margin:14mm 13mm 18mm 13mm}',
 
-    function restore() {
-      document.body.classList.remove('pdf-printing');
-      document.body.appendChild(printArea);
-      printArea.innerHTML = '';
-    }
-    var once = function() { restore(); window.removeEventListener('afterprint', once); };
-    window.addEventListener('afterprint', once);
-    setTimeout(restore, 2000); // fallback for browsers without afterprint
+      /* HEADER */
+      '.pdf-hdr{display:flex;align-items:center;justify-content:space-between;padding:0 0 10pt;margin-bottom:16pt;border-bottom:2.5pt solid #c97b5a}',
+      '.pdf-hdr-logo{display:flex;align-items:center;gap:9pt}',
+      '.pdf-hdr-logo img{width:40pt;height:40pt;object-fit:contain;display:block}',
+      '.pdf-hdr-meta{display:flex;flex-direction:column;gap:2pt}',
+      '.pdf-hdr-link{font-size:11pt;font-weight:800;color:#c97b5a;text-decoration:none}',
+      '.pdf-hdr-guide{font-size:7pt;color:#9ca3af;letter-spacing:.07em;text-transform:uppercase}',
+      '.pdf-hdr-right{text-align:right}',
+      '.pdf-hdr-right strong{display:block;font-size:9.5pt;font-weight:700;color:#1e2028;line-height:1.3;max-width:200pt}',
+      '.pdf-hdr-right span{display:block;font-size:7.5pt;color:#9ca3af;margin-top:2pt}',
+
+      /* FOOTER */
+      '.pdf-ftr{margin-top:16pt;padding-top:7pt;border-top:1pt solid #e5e7eb;display:flex;justify-content:space-between;align-items:center;font-size:7pt;color:#b0b7c3}',
+      '.pdf-ftr a{color:#c97b5a;text-decoration:none;font-weight:700}',
+
+      /* INTAKE FORM */
+      '.intake-form{display:block;margin:0 0 14pt;border-radius:8pt;overflow:visible;background:#fff;page-break-inside:avoid}',
+      '.intake-form::before{content:"";display:block;height:5pt;border-radius:8pt 8pt 0 0;background:#3b7cb8;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
+
+      /* colour accent variants */
+      '.accent-blue::before{background:#3b7cb8!important}',
+      '.accent-green::before{background:#2da87a!important}',
+      '.accent-gold::before{background:#d4a041!important}',
+      '.accent-orange::before{background:#c97b5a!important}',
+      '.accent-purple::before{background:#8b72b8!important}',
+
+      /* header strip */
+      '.intake-header{display:block;background:#1e2028;padding:11pt 14pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
+      '.intake-title{display:block;font-size:9pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin:0}',
+      '.intake-title a{color:#fff!important;text-decoration:none!important}',
+      '.intake-header .sub{font-size:7.5pt;color:rgba(255,255,255,.5);margin-top:3pt;display:block}',
+
+      /* meta in header */
+      '.intake-meta{display:block;margin-top:9pt;padding-top:9pt;border-top:1pt solid rgba(255,255,255,.1)}',
+      '.intake-header .intake-row{display:flex;flex-wrap:wrap;gap:4pt 16pt;margin-bottom:5pt;align-items:baseline}',
+      '.intake-header .intake-label{font-size:7pt;color:rgba(255,255,255,.45);font-weight:500;white-space:nowrap}',
+      '.intake-header .intake-line{flex:1;min-width:60pt;border-bottom:1pt solid rgba(255,255,255,.2);height:14pt;display:inline-block}',
+
+      /* body */
+      '.intake-section{display:block;padding:13pt 15pt;border:1.5pt solid #e8eaef;border-top:none;border-radius:0 0 8pt 8pt}',
+      '.intake-section p{display:block;margin:0 0 5pt;font-size:9.5pt;color:#2d3142;line-height:1.6}',
+      '.intake-section p strong{color:#1e2028;font-weight:600}',
+      '.intake-section ul,.intake-section ol{display:block;padding-left:14pt;margin:4pt 0 8pt}',
+      '.intake-section li{display:list-item;font-size:9.5pt;color:#2d3142;margin-bottom:3pt;line-height:1.55}',
+
+      /* rows & lines in body */
+      '.intake-section .intake-row{display:flex;align-items:baseline;flex-wrap:wrap;gap:4pt 12pt;margin-bottom:7pt}',
+      '.intake-section .intake-label{font-size:8pt;color:#6b7280;font-weight:600;white-space:nowrap}',
+      '.intake-section .intake-line{flex:1;min-width:55pt;border-bottom:1pt solid #d1d5db;height:16pt;display:inline-block}',
+      '.intake-field{display:block;margin:6pt 0}',
+      '.intake-field label{display:block;font-size:7.5pt;color:#9ca3af;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2pt}',
+      '.intake-field .intake-line,.intake-field.full .intake-line{display:block;width:100%;border-bottom:1pt solid #d1d5db;min-height:16pt}',
+      '.intake-line.tall{min-height:30pt!important}',
+
+      /* grid & sub-headers */
+      '.intake-grid{display:grid;grid-template-columns:1fr 1fr;gap:8pt;margin:6pt 0}',
+      '.intake-section-header{display:block;font-size:7.5pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3b7cb8;margin:14pt 0 7pt;padding-bottom:4pt;border-bottom:1pt solid #e8eaef;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
+
+      /* tables */
+      'table{display:table;width:100%;border-collapse:collapse;margin:8pt 0;font-size:8.5pt}',
+      'thead{display:table-header-group}',
+      'tbody{display:table-row-group}',
+      'tr{display:table-row}',
+      'th{display:table-cell;background:#2d3748;color:#fff;padding:5pt 8pt;font-size:7.5pt;font-weight:700;text-align:left;letter-spacing:.05em;text-transform:uppercase;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
+      'td{display:table-cell;padding:5pt 8pt;border-bottom:.5pt solid #eef0f4;font-size:8.5pt;color:#2d3142;vertical-align:top}',
+      'tr:last-child td{border-bottom:none}',
+      'tr.alt td{background:#f8fafc;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
+
+      /* form-block / record / checklist / bsp */
+      '.form-block,.form-record,.form-parent,.form-checklist,.form-bsp{display:block;border:1.5pt solid #e8eaef;border-radius:8pt;overflow:visible;margin:0;page-break-inside:avoid}',
+      '.form-header{display:flex;align-items:center;gap:6pt;background:#1e2028;color:#fff;padding:9pt 13pt;font-size:8.5pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:6pt 6pt 0 0;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
+      '.form-tag{display:inline-block;background:rgba(255,255,255,.15);color:#fff;padding:1pt 5pt;border-radius:3pt;font-size:6.5pt;font-weight:500;letter-spacing:.04em;margin-left:4pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
+      '.form-body{display:block;padding:12pt 14pt;font-size:9.5pt;line-height:1.6;color:#2d3142}',
+      '.form-body p{display:block;margin:0 0 5pt}',
+      '.form-body ul,.form-body ol{display:block;padding-left:14pt;margin:4pt 0}',
+      '.form-body li{display:list-item;margin-bottom:3pt;font-size:9.5pt}',
+      '.form-body strong{font-weight:600;color:#1e2028}',
+
+      /* disclaimer */
+      '.disclaimer-box{display:block;background:#f8f9fb;border-left:3pt solid #3b7cb8;padding:6pt 10pt;font-size:8.5pt;color:#4b5068;margin:6pt 0;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
+    ].join('\n');
+
+    // Add colour accent class to clone based on inline style
+    var style = formEl.getAttribute('style') || '';
+    if (style.indexOf('#3b7cb8') !== -1) clone.classList.add('accent-blue');
+    else if (style.indexOf('#2da87a') !== -1) clone.classList.add('accent-green');
+    else if (style.indexOf('#d4a041') !== -1) clone.classList.add('accent-gold');
+    else if (style.indexOf('#c97b5a') !== -1) clone.classList.add('accent-orange');
+    else if (style.indexOf('#8b72b8') !== -1) clone.classList.add('accent-purple');
+    // Remove the inline border-top (we use ::before now)
+    clone.style.borderTop = '';
+
+    var fullHTML = '<!DOCTYPE html><html lang="ru"><head>'
+      + '<meta charset="UTF-8">'
+      + '<meta name="viewport" content="width=device-width,initial-scale=1">'
+      + '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">'
+      + '<title>' + docTitle + '</title>'
+      + '<style>' + cssVars + formCSS + '</style>'
+      + '</head><body>'
+      + '<div class="pdf-hdr">'
+        + '<div class="pdf-hdr-logo">' + logoHtml
+          + '<div class="pdf-hdr-meta">'
+            + '<a class="pdf-hdr-link" href="' + SITE_URL + '">' + SITE_LABEL + '</a>'
+            + '<span class="pdf-hdr-guide">Руководство для специалистов</span>'
+          + '</div>'
+        + '</div>'
+        + '<div class="pdf-hdr-right">'
+          + '<strong>' + docTitle + '</strong>'
+          + '<span>' + today + '</span>'
+        + '</div>'
+      + '</div>'
+      + clone.outerHTML
+      + '<div class="pdf-ftr">'
+        + '<span>' + GUIDE + '</span>'
+        + '<a href="' + SITE_URL + '">' + SITE_URL + '</a>'
+      + '</div>'
+      + '</body></html>';
+
+    // Create hidden iframe, write HTML, print, remove
+    var iframe = document.createElement('iframe');
+    iframe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:0;border:none;visibility:hidden';
+    document.body.appendChild(iframe);
+
+    iframe.contentDocument.open();
+    iframe.contentDocument.write(fullHTML);
+    iframe.contentDocument.close();
+
+    // Wait for fonts/images to load then print
+    iframe.onload = function() {
+      setTimeout(function() {
+        iframe.contentWindow.focus();
+        iframe.contentWindow.print();
+        setTimeout(function() { document.body.removeChild(iframe); }, 1000);
+      }, 300);
+    };
+    // Fallback if onload already fired
+    setTimeout(function() {
+      try {
+        iframe.contentWindow.focus();
+        iframe.contentWindow.print();
+      } catch(e) {}
+      setTimeout(function() {
+        try { document.body.removeChild(iframe); } catch(e) {}
+      }, 1000);
+    }, 800);
   }
 })();
 
