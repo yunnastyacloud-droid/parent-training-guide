@@ -6295,6 +6295,7 @@ window.addEventListener('resize', fixMobile);
     clone.style.marginTop = '0';
     clone.style.marginBottom = '0';
     clone.style.paddingTop = '0';
+    clone.style.pageBreakInside = 'auto';
 
     // Collect all page-level CSS variables + form styles from the main document
     var cssVars = ':root{'
@@ -6310,8 +6311,7 @@ window.addEventListener('resize', fixMobile);
       '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
       'html,body{font-family:"DM Sans",-apple-system,sans-serif;font-size:10.5pt;line-height:1.6;color:#2d3142;background:#fff;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
 
-      /* PAGE */
-      '@page{size:A4 portrait;margin:22mm 13mm 16mm 13mm}',
+      /* PAGE — defined in fullHTML below */
 
       /* HEADER inside thead */
       '.pdf-hdr{display:flex;align-items:center;justify-content:space-between;padding:8pt 0 0}',
@@ -6329,7 +6329,7 @@ window.addEventListener('resize', fixMobile);
       '.pdf-ftr a{color:#c97b5a;text-decoration:none;font-weight:700}',
 
       /* INTAKE FORM */
-      '.intake-form{display:block;margin:0 0 14pt;border-radius:8pt;overflow:visible;background:#fff;page-break-inside:avoid}',
+      '.intake-form{display:block;margin:0 0 14pt;border-radius:8pt;overflow:visible;background:#fff}',
       '.intake-form::before{content:"";display:block;height:5pt;border-radius:8pt 8pt 0 0;background:#3b7cb8;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
 
       /* colour accent variants */
@@ -6437,28 +6437,30 @@ window.addEventListener('resize', fixMobile);
       /* ── Footer ── */
       + '.pdf-ftr{margin-top:14pt;padding-top:7pt;border-top:1pt solid #e5e7eb;display:flex;justify-content:space-between;font-size:7pt;color:#b0b7c3}'
       + '.pdf-ftr a{color:#c97b5a;text-decoration:none;font-weight:700}'
-      /* Watermark — faded logo on every page via position:fixed on ::before */
-      + 'body::before{'
-      + 'content:"";'
+      /* Watermark — real fixed div with img for reliable print rendering */
+      + '.pdf-watermark{'
       + 'position:fixed;'
-      + 'top:50%;left:50%;'
-      + 'transform:translate(-50%,-50%);'
-      + 'width:52%;height:52%;'
-      + 'background-image:url("' + LOGO_B64_JS + '");'
-      + 'background-repeat:no-repeat;'
-      + 'background-position:center center;'
-      + 'background-size:contain;'
-      + 'opacity:0.06;'
+      + 'top:0;left:0;right:0;bottom:0;'
+      + 'display:flex;align-items:center;justify-content:center;'
       + 'z-index:-1;'
       + 'pointer-events:none;'
+      + '-webkit-print-color-adjust:exact;'
+      + 'print-color-adjust:exact'
+      + '}'
+      + '.pdf-watermark img{'
+      + 'width:52%;height:auto;'
+      + 'opacity:0.06;'
       + '-webkit-print-color-adjust:exact;'
       + 'print-color-adjust:exact'
       + '}'
       + '</style>'
       + '</head><body>'
 
+      + (LOGO_B64_JS ? '<div class="pdf-watermark"><img src="' + LOGO_B64_JS + '" alt=""></div>' : '')
+
       + '<div class="pdf-hdr">'
         + '<div class="pdf-hdr-logo">'
+          + (LOGO_B64_JS ? '<img src="' + LOGO_B64_JS + '" alt="">' : '')
           + '<div class="pdf-hdr-meta">'
             + '<a class="pdf-hdr-link" href="' + SITE_URL + '">' + SITE_LABEL + '</a>'
             + '<span class="pdf-hdr-guide">Руководство для специалистов</span>'
@@ -6589,7 +6591,7 @@ window.addEventListener('resize', fixMobile);
 })();
 
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v97</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v98</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 <div id="pdf-print-area"></div>
 </body>
 </html>
