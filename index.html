@@ -6417,56 +6417,56 @@ window.addEventListener('resize', fixMobile);
 
     // thead/tfoot repeat on every printed page — the only reliable cross-browser way
     // for logo/header on every page
-    // No thead/tfoot — use position:fixed which Chrome supports in @media print
-    var hdrHeight = '17mm';
-
-    var fixedCSS = [
-      '@page{size:A4 portrait;margin:22mm 13mm 14mm 13mm}',
-
-      /* Fixed header — Chrome repeats position:fixed in @media print on every page */
-      '.pdf-hdr{',
-        'position:fixed;top:0;left:0;right:0;',
-        'height:' + hdrHeight + ';',
-        'display:flex;align-items:center;justify-content:space-between;',
-        'padding:3mm 13mm 2mm;',
-        'background:#fff;',
-        'border-bottom:2.5pt solid #c97b5a;',
-        'z-index:9999;',
-        '-webkit-print-color-adjust:exact;print-color-adjust:exact',
-      '}',
-      '.pdf-hdr-logo{display:flex;align-items:center;gap:7pt}',
-      '.pdf-hdr-logo img{width:28pt;height:28pt;object-fit:contain;display:block}',
-      '.pdf-hdr-meta{display:flex;flex-direction:column;gap:1pt}',
-      '.pdf-hdr-link{font-size:9pt;font-weight:800;color:#c97b5a;text-decoration:none}',
-      '.pdf-hdr-guide{font-size:6pt;color:#9ca3af;letter-spacing:.07em;text-transform:uppercase}',
-      '.pdf-hdr-right{text-align:right}',
-      '.pdf-hdr-right strong{display:block;font-size:8.5pt;font-weight:700;color:#1e2028;line-height:1.3;max-width:180pt}',
-      '.pdf-hdr-right span{display:block;font-size:7pt;color:#9ca3af;margin-top:1pt}',
-
-      /* Fixed footer */
-      '.pdf-ftr{',
-        'position:fixed;bottom:0;left:0;right:0;',
-        'display:flex;justify-content:space-between;align-items:center;',
-        'padding:2mm 13mm;',
-        'background:#fff;',
-        'border-top:1pt solid #e5e7eb;',
-        'font-size:7pt;color:#b0b7c3;',
-        '-webkit-print-color-adjust:exact;print-color-adjust:exact',
-      '}',
-      '.pdf-ftr a{color:#c97b5a;text-decoration:none;font-weight:700}',
-
-      /* Form content — pushed down below fixed header */
-      '.pdf-body{display:block;padding-top:2mm}',
-    ].join('');
-
+    var LOGO_B64_JS = LOGO_SRC;
     var fullHTML = '<!DOCTYPE html><html lang="ru"><head>'
       + '<meta charset="UTF-8">'
       + '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">'
       + '<title>' + docTitle + '</title>'
-      + '<style>' + cssVars + formCSS + fixedCSS + '</style>'
+      + '<style>'
+      + cssVars + formCSS
+      + '@page{size:A4 portrait;margin:12mm 13mm 12mm 13mm}'
+      + 'html,body{margin:0;padding:0}'
+
+      /* ── Header (first page only, no fights with browser chrome) ── */
+      + '.pdf-hdr{'
+        + 'display:flex;align-items:center;justify-content:space-between;'
+        + 'padding:10pt 0 10pt;'
+        + 'margin-bottom:14pt;'
+        + 'border-bottom:2.5pt solid #c97b5a;'
+        + '-webkit-print-color-adjust:exact;print-color-adjust:exact'
+      + '}'
+      + '.pdf-hdr-logo{display:flex;align-items:center;gap:9pt}'
+      + '.pdf-hdr-logo img{width:36pt;height:36pt;object-fit:contain;display:block}'
+      + '.pdf-hdr-meta{display:flex;flex-direction:column;gap:2pt}'
+      + '.pdf-hdr-link{font-size:10pt;font-weight:800;color:#c97b5a;text-decoration:none}'
+      + '.pdf-hdr-guide{font-size:6.5pt;color:#9ca3af;letter-spacing:.07em;text-transform:uppercase}'
+      + '.pdf-hdr-right{text-align:right}'
+      + '.pdf-hdr-right strong{display:block;font-size:9pt;font-weight:700;color:#1e2028;line-height:1.3;max-width:190pt}'
+      + '.pdf-hdr-right span{display:block;font-size:7pt;color:#9ca3af;margin-top:2pt}'
+
+      /* ── Footer ── */
+      + '.pdf-ftr{margin-top:14pt;padding-top:7pt;border-top:1pt solid #e5e7eb;display:flex;justify-content:space-between;font-size:7pt;color:#b0b7c3}'
+      + '.pdf-ftr a{color:#c97b5a;text-decoration:none;font-weight:700}'
+      /* Watermark — faded logo on every page via position:fixed on ::before */
+      + 'body::before{'
+      + 'content:"";'
+      + 'position:fixed;'
+      + 'top:50%;left:50%;'
+      + 'transform:translate(-50%,-50%);'
+      + 'width:52%;height:52%;'
+      + 'background-image:url("' + LOGO_B64_JS + '");'
+      + 'background-repeat:no-repeat;'
+      + 'background-position:center center;'
+      + 'background-size:contain;'
+      + 'opacity:0.05;'
+      + 'z-index:-1;'
+      + 'pointer-events:none;'
+      + '-webkit-print-color-adjust:exact;'
+      + 'print-color-adjust:exact'
+      + '}'
+      + '</style>'
       + '</head><body>'
 
-      // Fixed header
       + '<div class="pdf-hdr">'
         + '<div class="pdf-hdr-logo">' + logoHtml
           + '<div class="pdf-hdr-meta">'
@@ -6480,15 +6480,11 @@ window.addEventListener('resize', fixMobile);
         + '</div>'
       + '</div>'
 
-      // Fixed footer
+      + clone.outerHTML
+
       + '<div class="pdf-ftr">'
         + '<span>' + GUIDE + '</span>'
         + '<a href="' + SITE_URL + '">' + SITE_URL + '</a>'
-      + '</div>'
-
-      // Form content
-      + '<div class="pdf-body">'
-        + clone.outerHTML
       + '</div>'
 
       + '</body></html>';
@@ -6509,16 +6505,19 @@ window.addEventListener('resize', fixMobile);
       try {
         iframe.contentWindow.print();
       } catch(e) {}
-      // Restore scroll position immediately
-      window.scrollTo(savedX, savedY);
-      // Remove iframe after dialog closes
       function cleanup() {
         try { document.body.removeChild(iframe); } catch(e) {}
+        // Restore scroll and ensure logo opacity is correct
         window.scrollTo(savedX, savedY);
+        var logo = document.getElementById('siteLogo');
+        if (logo) {
+          logo.style.opacity = savedY > 120 ? '0' : '1';
+          logo.style.pointerEvents = savedY > 120 ? 'none' : 'auto';
+        }
         window.removeEventListener('afterprint', cleanup);
       }
       window.addEventListener('afterprint', cleanup);
-      setTimeout(cleanup, 3000);
+      setTimeout(cleanup, 2500);
     }
 
     if (iframe.contentDocument.readyState === 'complete') {
