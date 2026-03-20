@@ -6476,19 +6476,20 @@ window.addEventListener('resize', fixMobile);
       /* ── Footer ── */
       + '.pdf-ftr{margin-top:14pt;padding-top:7pt;border-top:1pt solid #e5e7eb;display:flex;justify-content:space-between;font-size:7pt;color:#b0b7c3}'
       + '.pdf-ftr a{color:#c97b5a;text-decoration:none;font-weight:700}'
-      /* Watermark — real fixed div with img for reliable print rendering */
+      /* Watermark — fixed div repeats on every printed page */
       + '.pdf-watermark{'
       + 'position:fixed;'
-      + 'top:0;left:0;right:0;bottom:0;'
+      + 'top:0;left:0;'
+      + 'width:100%;height:100%;'
       + 'display:flex;align-items:center;justify-content:center;'
-      + 'z-index:-1;'
+      + 'z-index:9999;'
       + 'pointer-events:none;'
       + '-webkit-print-color-adjust:exact;'
       + 'print-color-adjust:exact'
       + '}'
       + '.pdf-watermark img{'
-      + 'width:52%;height:auto;'
-      + 'opacity:0.06;'
+      + 'width:50%;height:auto;'
+      + 'opacity:0.045;'
       + '-webkit-print-color-adjust:exact;'
       + 'print-color-adjust:exact'
       + '}'
@@ -6630,7 +6631,7 @@ window.addEventListener('resize', fixMobile);
 })();
 
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v99</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v100</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 <div id="pdf-print-area"></div>
 </body>
 </html>
