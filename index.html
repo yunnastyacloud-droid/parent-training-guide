@@ -481,11 +481,11 @@ section.part {
 .viz-stat-box {
   background: #fff; border: 1px solid var(--border);
   border-radius: 10px; padding: 1rem 1.5rem; text-align: center;
-  min-width: 140px; flex: 1; max-width: 220px;
+  min-width: 160px; flex: 1; max-width: 200px;
 }
-.viz-stat-num { font-family: var(--hf); font-weight: 700; letter-spacing: -.02em }
-.viz-stat-hero .viz-stat-num { font-size: 2.2rem; color: var(--teal) }
-.viz-stat-muted .viz-stat-num { font-size: 1.6rem; color: var(--mut) }
+.viz-stat-num { font-family: var(--hf); font-weight: 700; letter-spacing: -.02em; font-size: 1.8rem }
+.viz-stat-hero .viz-stat-num { color: var(--teal) }
+.viz-stat-muted .viz-stat-num { color: var(--mut) }
 .viz-stat-label { font-size: .85rem; color: var(--text2); margin-top: .2rem }
 .viz-stat-vs { font-size: .7rem; color: var(--mut); font-style: italic }
 .viz-stat-source { font-family: var(--mono); font-size: .6rem; color: var(--mut); margin-top: .3rem; width: 100%; text-align: center }
@@ -1126,8 +1126,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
   .viz-card { padding: .7rem .8rem }
   .viz-stat-compare { flex-direction: column; gap: .6rem; padding: .8rem }
   .viz-stat-box { max-width: 100%; min-width: 0; width: 100% }
-  .viz-stat-hero .viz-stat-num { font-size: 1.8rem }
-  .viz-stat-muted .viz-stat-num { font-size: 1.4rem }
+  .viz-stat-num { font-size: 1.5rem }
   .viz-col-box { padding: .5rem .6rem }
   .intake-grid { grid-template-columns: 1fr }
   .intake-row { flex-direction: column }
@@ -1358,6 +1357,13 @@ body.pdf-printing #pdf-print-area { display: block !important; }
   <strong style="color:var(--pri)">Нужна супервизия?</strong> Вы можете обратиться к любому квалифицированному супервизору. Если ищете специалиста с опытом в ПАП и родительском тренинге — на <a href="https://www.abapsy.com/faculty" target="_blank" style="color:var(--pri);font-weight:600;text-decoration:none">abapsy.com/faculty</a> представлены супервизоры, работающие с ABA&Psy (внутри каждого профиля — форма заявки).
 </div>
 </div></div>
+
+<div style="margin:1.5rem auto;max-width:800px;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f5f8fb,#eef3f9);border-radius:var(--radius-lg);border:1px solid #e5e7eb;box-sizing:border-box">
+  <div style="font-family:var(--hf);font-size:1.15rem;font-weight:600;color:var(--dark);margin-bottom:.5rem">Сертификат с 20 часами CE по данному руководству</div>
+  <div style="font-size:.85rem;color:var(--text2);line-height:1.7;margin-bottom:.6rem">По итогам изучения руководства можно получить сертификат с 20 часами непрерывного образования, признаваемый BACB, IBAO и QABA. Распределение часов: 10 — общая ABA, 4 — этика, 3 — культурное разнообразие, 3 — супервизия. В стоимость ($400) включена индивидуальная супервизия (60 мин) с Анастасией Юн, PhD, LP, BCBA-D, на которой можно обсудить результаты теста, разобрать вопросы по применению руководства или любой другой вопрос из вашей практики.</div>
+  <div style="font-size:.82rem;color:var(--mut);line-height:1.6">Для получения сертификата напишите на <a href="mailto:info@abapsy.com?subject=CEU%20%E2%80%94%20%D0%A0%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3%20(20%20%D1%87%D0%B0%D1%81%D0%BE%D0%B2)" style="color:var(--pri);font-weight:600;text-decoration:none">info@abapsy.com</a> — мы отправим инструкцию по оплате. После оплаты вы получите доступ к тесту (проходной балл — 80%, ссылка действительна в течение суток) и сможете выбрать время для супервизии.</div>
+</div>
+
 <div style="margin:2rem auto;max-width:800px;padding:1.5rem 1.8rem;background:linear-gradient(135deg,#fdf8f6,#f9f5f1);box-sizing:border-box;border-radius:var(--radius-lg);border:1px solid #e5e7eb">
 <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:.5rem">Сквозной кейс</div>
 <div style="font-family:var(--hf);font-size:1.3rem;font-weight:600;color:var(--dark);margin-bottom:.8rem">Семья Пак: Минджун, 5 лет</div>
@@ -1610,7 +1616,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
       <h1>ОСНОВЫ И ОБОСНОВАНИЕ</h1>
     <div style="margin-top:1rem;padding:.6rem .8rem;background:#f0f5ff;border-radius:var(--radius-sm);border:1px solid #e5e7eb;font-size:.85rem;color:var(--text2)"><strong style="color:var(--pri)">📋 Подробный протокол первой сессии</strong> с пошаговыми инструкциями и чек-листом — в Части IV «Методы и Протоколы» (секция «Протокол первой сессии»).</div></div><div class="section" id="s_1_0" data-idx="4">
       <h2>ЗАЧЕМ ОБУЧАТЬ РОДИТЕЛЕЙ: ДАННЫЕ И ОБОСНОВАНИЕ</h2>
-      <div class="section-body"><div class="visual-block"><div class="viz-stat-compare"><div class="viz-stat-box viz-stat-hero"><div class="viz-stat-num">47.7%</div><div class="viz-stat-label">снижение проблемного поведения<br><small>группа тренинга навыков</small></div></div><div class="viz-stat-vs">vs</div><div class="viz-stat-box viz-stat-muted"><div class="viz-stat-num">31.8%</div><div class="viz-stat-label">снижение<br><small>группа психообразования</small></div></div><div class="viz-stat-source">Bearss et al., 2015 · JAMA · 180 детей · 24-нед. РКИ</div></div></div><p>Между «общаться с родителями» и «систематически обучать родителей» — огромная пропасть. Это руководство поможет эту пропасть преодолеть.</p>
+      <div class="section-body"><div class="visual-block"><div class="viz-stat-compare"><div class="viz-stat-box viz-stat-hero"><div class="viz-stat-num">47.7%</div><div class="viz-stat-label">снижение проблемного поведения<br><small>тренинг навыков</small></div></div><div class="viz-stat-vs">vs</div><div class="viz-stat-box viz-stat-muted"><div class="viz-stat-num">31.8%</div><div class="viz-stat-label">снижение проблемного поведения<br><small>психообразование</small></div></div><div class="viz-stat-source">Bearss et al., 2015 · JAMA · 180 детей · 24-нед. РКИ</div></div></div><p>Между «общаться с родителями» и «систематически обучать родителей» — огромная пропасть. Это руководство поможет эту пропасть преодолеть.</p>
 <p>Исследования однозначно показывают: вовлечённость родителей — это тот самый фактор, который определяет долгосрочный успех терапии. Ozonoff и Cathcart ещё в 1998 году продемонстрировали, что дети, получавшие последовательное домашнее обучение от родителей в сочетании со структурированной программой раннего вмешательства, показывали значительно более высокие когнитивные и развивающие навыки. Этот вывод многократно подтверждался в более поздних работах.</p>
 <p>В 2015 году Bearss и коллеги опубликовали в журнале JAMA результаты крупнейшего на тот момент рандомизированного клинического исследования, посвящённого именно сравнению родительского тренинга и родительского образования для коррекции проблемного поведения при РАС. Важно отметить: участники были в возрасте 3--7 лет, и результаты не следует напрямую экстраполировать на подростков и взрослых. 180 детей с РАС в возрасте от 3 до 7 лет с проблемным поведением были распределены по двум группам. Результат: за 24 недели в группе тренинга навыков показатели по шкале раздражительности ABC снизились на 47,7%, тогда как в группе психообразования — на 31,8%. Обратите внимание: не просто лекции о том, что такое аутизм, а конкретные стратегии управления поведением — вот что дало значимый результат (Bearss et al., 2015, JAMA, 313(15), 1524--1533).</p>
 <p>Ключевой тезис: родительский тренинг в ПАП — это не бонус, не приятное дополнение. Это профессиональная обязанность поведенческого аналитика, закреплённая в этическом кодексе BACB.</p>
@@ -2022,6 +2028,9 @@ body.pdf-printing #pdf-print-area { display: block !important; }
 <div style="margin-top:1.2rem;padding:.9rem 1.1rem;background:linear-gradient(135deg,#f0faf4,#edf7f2);border-radius:var(--radius-md);border:1px solid #c8e0c4;font-size:.85rem;color:var(--text2);line-height:1.65">
 <strong style="color:#1c7050">Развитие эмоционального интеллекта у ребёнка.</strong> ACT-тренинг помогает родителю справляться с собственными эмоциями. Но многие родители хотят большего — научиться развивать эмоциональный интеллект <em>у ребёнка</em>: замечать его переживания, правильно на них реагировать, помогать ему называть и регулировать эмоции. Для этого существует научно обоснованная программа <strong>Tuning in to Kids®</strong> (Havighurst &amp; Harley, Университет Мельбурна, 1999), включённая в California Evidence-Based Clearinghouse. Программа доступна в трёх форматах: <em>Tuning in to Kids</em> (дети 3–10 лет), <em>Tuning in to Teens</em> (подростки) и <em>Dads Tuning in to Kids</em> (специально для отцов и мужчин в жизни ребёнка). Ведущий коуч — Анастасия Юн, PhD, LP, BCBA-D. Подробнее и запись: <a href="https://www.abapsy.com/tuning-in-to-kids" target="_blank" style="color:#1c7050;font-weight:600;text-decoration:none">abapsy.com/tuning-in-to-kids</a>
 </div>
+<div style="margin-top:.6rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f5f0f8,#f0ecf5);border-radius:var(--radius-sm);border:1px solid #e5e0eb;font-size:.8rem;color:var(--text2);line-height:1.6">
+<strong style="color:var(--plum)">Работа над отношениями родитель–ребёнок.</strong> Если проблема не только в поведении, но и в самих отношениях — родитель отстранён, избегает контакта, не чувствует связи с ребёнком — стоит рассмотреть <strong>PCIT</strong> (Parent-Child Interaction Therapy). Это доказательная терапия, направленная на улучшение качества взаимодействия родителя и ребёнка через прямое коучинг в реальном времени. Подробнее: <a href="https://www.abapsy.com/pcit" target="_blank" style="color:var(--plum);font-weight:600;text-decoration:none">abapsy.com/pcit</a>
+</div>
 </div>
     </div><div class="section" id="s_2_8" data-idx="16">
       <h2>УПРАЖНЕНИЯ ACT-ТРЕНИНГА ДЛЯ РОДИТЕЛЕЙ</h2>
@@ -2409,7 +2418,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
 <div style="margin:1.5rem 0;padding:1rem 1.2rem;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:var(--radius-md);color:var(--text2)">
 <p style="font-family:var(--hf);font-weight:500;font-size:1rem;color:#fff;margin-bottom:.5rem">🎬 Видеоматериалы</p>
-<p style="font-size:.85rem;line-height:1.7;color:var(--text2)">Текстовые описания BST и TIP ограничены — моделирование лучше смотреть в видеоформате. На <a href="https://www.abapsy.com/ceus" target="_blank" style="color:var(--acc);text-decoration:none;font-weight:500">abapsy.com/ceus</a> и <a href="https://www.abapsy.com/free-training" target="_blank" style="color:var(--acc);text-decoration:none;font-weight:500">abapsy.com/free-training</a> вы найдёте видеоматериалы по:</p>
+<p style="font-size:.85rem;line-height:1.7;color:var(--text2)">Текстовые описания BST и TIP ограничены — моделирование лучше смотреть в видеоформате. На <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="color:var(--acc);text-decoration:none;font-weight:500">abapsy.com/abapsy-podcast</a> и <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="color:var(--acc);text-decoration:none;font-weight:500">abapsy.com/rbt-ibt-abat</a> вы найдёте видеоматериалы по:</p>
 <ul style="font-size:.85rem;line-height:1.7;color:var(--text2);padding-left:1.2rem;margin:.5rem 0">
 <li>Поведенческим вмешательствам (FCT, DRA, угасание)</li>
 <li>Академическим интервенциям</li>
@@ -2908,6 +2917,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     <div style="margin-top:2rem;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--cream),#f5f3ef);border-radius:var(--radius-md);border-left:3px solid var(--acc);font-size:.88rem;color:var(--text2);line-height:1.6">
       <span style="font-weight:600;color:var(--dark)">Далее:</span> Барьеры разобраны. Далее — <strong>17-недельная программа</strong>: пошаговый план каждой сессии с таймингом, скриптами и критериями перехода.
     </div></div></section><div style="margin:2rem auto;max-width:800px;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-lg);border:1px solid #e5e7eb;box-sizing:border-box"><div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pri);margin-bottom:.6rem">Самопроверка перед 17-недельной программой</div><div style="font-family:var(--hf);font-size:1.1rem;font-weight:500;color:var(--dark);margin-bottom:.8rem">Всё ли готово к старту?</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я выбрал метод: BST или TIP (или комбинацию)</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ У меня есть все формы: первичная оценка, <a href="javascript:void(0)" data-scroll="form_abc" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">ABC-дневник</a>, <a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>, <a href="javascript:void(0)" data-scroll="s_6_7" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">чек-лист точности</a>, <a href="javascript:void(0)" data-scroll="s_6_12" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">информированное согласие</a></div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я знаю, как реагировать на типичные барьеры («нет времени», «терапевт справится»)</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я провёл первичную оценку навыков родителя</div><div style="padding:.35rem 0;font-size:.88rem;color:var(--text2);line-height:1.6">☐ Я обсудил формат, расписание и ожидания с родителем</div><div style="font-size:.8rem;color:var(--mut);margin-top:.6rem;font-style:italic">Если все пункты отмечены — переходите к Неделе 1. Если нет — вернитесь к нужной части.</div></div>
+<div style="margin:.8rem auto 2rem;max-width:800px;padding:.6rem 1rem;background:var(--cream);border-radius:var(--radius-sm);border-left:3px solid var(--pri);font-size:.78rem;color:var(--mut);line-height:1.5;box-sizing:border-box">По итогам изучения руководства можно получить сертификат с 20 часами CE (BACB · IBAO · QABA). Подробности — в начале руководства или напишите на <a href="mailto:info@abapsy.com?subject=CEU%20%E2%80%94%20%D0%A0%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3%20(20%20%D1%87%D0%B0%D1%81%D0%BE%D0%B2)" style="color:var(--pri);font-weight:500;text-decoration:none">info@abapsy.com</a>.</div>
 <section class="part " id="part_weekly" style="--pc:#7aab95">
     <div class="part-header">
       <div class="part-num">ЧАСТЬ VI</div>
@@ -2941,14 +2951,14 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     <div style="padding:.8rem 1rem;background:linear-gradient(135deg,#f5f8fb,#edf1f5);border-radius:var(--radius-md);border:1px solid #e5e7eb">
       <div style="font-weight:600;color:var(--pri);font-size:.88rem;margin-bottom:.4rem">Для специалистов: CEU-курсы, подкасты, вебинары</div>
       <div style="font-size:.95rem;color:var(--text2);line-height:1.6;margin-bottom:.4rem">Углублённые материалы по темам программы. Рекомендуется ознакомиться с тренингами и подкастами <strong>заранее</strong>, чтобы знать, какие конкретные модули рекомендовать родителю и какую дополнительную информацию давать на сессии.</div>
-      <a href="https://www.abapsy.com/ceus" target="_blank" style="color:var(--pri);text-decoration:none;font-weight:600;font-size:.82rem">www.Подкасты, вебинары, CEU → abapsy.com/ceus</a>
+      <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="color:var(--pri);text-decoration:none;font-weight:600;font-size:.82rem">Подкасты, вебинары, CEU → abapsy.com/abapsy-podcast</a>
     </div>
     <div style="padding:.8rem 1rem;background:linear-gradient(135deg,#f2f8f5,#edf5f0);border-radius:var(--radius-md);border:1px solid #c8dcd0">
       <div style="font-weight:600;color:var(--teal);font-size:.88rem;margin-bottom:.4rem">Бесплатный курс «Поведенческий инструктор»</div>
       <div style="font-size:.95rem;color:var(--text2);line-height:1.6;margin-bottom:.4rem">Структурированный бесплатный курс для специалистов и родителей, построенный по стандартам BACB, IBAO и QABA. Подходит как дополнение к этому руководству — и для специалистов, желающих углубить знания, и для родителей, которые хотят пройти полноценное обучение.</div>
-      <a href="https://www.abapsy.com/free-training" target="_blank" style="color:var(--teal);text-decoration:none;font-weight:600;font-size:.82rem">www.Бесплатный курс → abapsy.com/free-training</a>
+      <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="color:var(--teal);text-decoration:none;font-weight:600;font-size:.82rem">Бесплатный курс RBT/IBT/ABAT → abapsy.com/rbt-ibt-abat</a>
       <div style="margin-top:.5rem;padding:.4rem .6rem;background:rgba(95,166,138,.08);border-radius:var(--radius-sm);border:1px solid rgba(95,166,138,.15);font-size:.9rem;color:var(--text2);line-height:1.5">
-        <strong style="color:var(--teal)">Сертификация:</strong> По завершении курса на abapsy.com/free-training можно сдать экзамен и получить сертификат <strong>поведенческого инструктора</strong> (по стандартам BACB, IBAO, QABA). Курс подходит и для специалистов, и для мотивированных родителей. Это отдельная структурированная программа, не являющаяся частью этого руководства, но отлично дополняющая его.
+        <strong style="color:var(--teal)">Сертификация:</strong> По завершении курса на abapsy.com/rbt-ibt-abat можно сдать экзамен и получить сертификат <strong>поведенческого инструктора</strong> (по стандартам BACB, IBAO, QABA). Курс подходит и для специалистов, и для мотивированных родителей. Это отдельная структурированная программа, не являющаяся частью этого руководства, но отлично дополняющая его.
       </div>
     </div>
   </div>
@@ -3024,9 +3034,9 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: раппорт и первая встреча → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс RBT/IBT/ABAT → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -3106,9 +3116,9 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: ABC-анализ и функции → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: основы ABA → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -3198,9 +3208,9 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: как работает BSP → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: сбор данных → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -3290,9 +3300,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: визуальное расписание → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: превентивные стратегии → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -3372,9 +3382,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: подкрепление и DRA → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: подкрепление → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -3454,9 +3464,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: расписания подкрепления → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: расписания подкрепления → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -3544,9 +3554,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: угасание и extinction burst → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: угасание → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -3583,7 +3593,7 @@ iv>
         <span style="font-weight:700;color:var(--plum,var(--plum))">Данные для сбора:</span><br><span style="color:var(--text2)">Точность по 4 компонентам: безопасность → не реагировать → ждать → подкрепить спокойное.</span>
       </div>
       <div style="padding:.6rem .8rem;background:#fef7f4;border-radius:var(--radius-sm);font-size:.86rem;line-height:1.4;border-left:2px solid #c44">
-        <span style="font-weight:700;color:#b44">Красные флаги:</span><br><span style="color:var(--text2)">Родитель плачет / говорит «я не смогу» → СТОП. Не назначайте ДЗ по игнорированию. Вернитесь к превенции. Если дистресс выраженный — порекомендуйте обратиться к <a href="https://www.abapsy.com/psychologist" target="_blank" style="color:#b44;text-decoration:none;font-weight:500">психологу</a>.</span>
+        <span style="font-weight:700;color:#b44">Красные флаги:</span><br><span style="color:var(--text2)">Родитель плачет / говорит «я не смогу» → СТОП. Не назначайте ДЗ по игнорированию. Вернитесь к превенции. Если дистресс выраженный — порекомендуйте обратиться к <a href="https://www.abapsy.com/psychologist" target="_blank" style="color:#b44;text-decoration:none;font-weight:500">психологу → abapsy.com/psychologist</a>.</span>
       </div>
     </div>
   </div>
@@ -3626,9 +3636,11 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: FCT — обучение коммуникации → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: FCT → abapsy.com</a>
+        <span style="color:var(--mut)">|</span>
+        <a href="https://www.abapsy.com/faculty" target="_blank" style="font-size:.86rem;color:var(--acc);text-decoration:none;font-weight:500">Сложный кейс? → супервизия</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -3708,9 +3720,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: инструкции и подсказки → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: инструкции → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -3790,9 +3802,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: анализ задачи и цепочки → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: обучение цепочкам → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -3880,9 +3892,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: социальные навыки и игра → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: социальные навыки → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -3962,9 +3974,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: обзор всех стратегий → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: обзор стратегий → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -4044,9 +4056,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: генерализация навыков → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: генерализация → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -4126,9 +4138,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: дополнительная тема → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: дополнительные навыки → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -4216,9 +4228,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: кризисные ситуации → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: кризис → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -4298,9 +4310,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: фейдинг и самостоятельность → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: фейдинг → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -4380,9 +4392,9 @@ iv>
     <div style="margin-bottom:.5rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0f4f8,#e9eef4);border-radius:var(--radius-md);border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem">
       <span style="font-size:.95rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.06em">Дополнительные материалы</span>
       <div style="display:flex;gap:.6rem;align-items:center">
-        <a href="https://www.abapsy.com/ceus" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Для специалиста → abapsy.com/ceus</a>
+        <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="font-size:.86rem;color:var(--pri);text-decoration:none;font-weight:500">Видео: завершение и план поддержки → подкаст</a>
         <span style="color:var(--mut)">|</span>
-        <a href="https://www.abapsy.com/free-training" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс → abapsy.com/free-training</a>
+        <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: завершение программы → abapsy.com</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
@@ -4584,6 +4596,7 @@ iv>
 <li><p>Если отказ создаёт риск для ребёнка: следуйте протоколу обязательного информирования (mandated reporting)</p>
 </li>
 </ul>
+<div style="margin-top:.8rem;font-size:.78rem;color:var(--mut);font-style:italic">Столкнулись с подобной дилеммой? Разобрать конкретный случай можно на супервизии — <a href="https://www.abapsy.com/faculty" target="_blank" style="color:var(--pri);text-decoration:none;font-weight:500">abapsy.com/faculty</a></div>
 </div>
     </div><div class="section" id="s_5_1" data-idx="34">
       <h2>КРАСНЫЕ ФЛАГИ: КОГДА УГАСАНИЕ ДОМА ОПАСНО</h2>
@@ -4630,6 +4643,7 @@ iv>
 <p style="font-size:.88rem;color:var(--text2);line-height:1.7"><strong>Мы не обучаем родителей процедурам наказания.</strong> Response cost (забрать предмет), time-out (изоляция), overcorrection — это процедуры, которые требуют точного применения, контроля побочных эффектов и постоянного мониторинга данных. В руках неподготовленного родителя они легко превращаются в эмоциональную реакцию, а не в систематическую процедуру.</p>
 <p style="font-size:.88rem;color:var(--text2);line-height:1.7"><strong>Что говорить:</strong> «Я понимаю желание остановить поведение быстро. Но наша задача — научить Минджуна <em>что делать вместо</em>, а не наказать за то, что он делает сейчас. Когда он научится просить словами — крик уйдёт сам, потому что слова будут работать лучше.»</p>
 <p style="font-size:.82rem;color:var(--mut);font-style:italic;margin-top:.5rem">Если клинический случай требует punishment-based интервенции — это решение BCBA на основе данных, с информированным согласием родителя и планом мониторинга побочных эффектов. Не навык для самостоятельного применения родителем.</p>
+<div style="margin-top:.8rem;font-size:.78rem;color:var(--mut);font-style:italic">Нужна помощь с планом безопасности или сложным случаем угасания? Обсудите на супервизии — <a href="https://www.abapsy.com/faculty" target="_blank" style="color:var(--pri);text-decoration:none;font-weight:500">abapsy.com/faculty</a></div>
 </div></div>
 <div class="section" id="s_5_2" data-idx="35">
       <h2>НЕСОГЛАСНЫЙ ВТОРОЙ РОДИТЕЛЬ: ЧТО ДЕЛАТЬ</h2>
@@ -4716,12 +4730,14 @@ iv>
 </ul>
 
 <div style="margin-top:.8rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f4f0f8,#f0ecf5);border-radius:var(--radius-sm);border:1px solid #e5e7eb;font-size:.8rem;color:var(--text2);line-height:1.6">
-  <strong style="color:var(--plum,var(--plum))">Если конфликт глубже, чем поведенческий план:</strong> Иногда разногласия между родителями касаются не столько стратегий, сколько отношений в паре, разных ценностей или непереработанного горя. В таких случаях помощь семейного психолога может быть полезнее, чем ещё одна сессия BST. Порекомендуйте родителям найти специалиста, которому они оба доверяют. Один из ресурсов — Анастасия Юн (PhD, LP, BCBA-D, EMDR &amp; EFT терапевт): <a href="https://www.abapsy.com/psychologist" target="_blank" style="color:var(--plum,var(--plum));font-weight:500;text-decoration:none">abapsy.com/psychologist</a>
+  <strong style="color:var(--plum,var(--plum))">Если конфликт глубже, чем поведенческий план:</strong> Иногда разногласия между родителями касаются не столько стратегий, сколько отношений в паре, разных ценностей или непереработанного горя. В таких случаях помощь семейного психолога может быть полезнее, чем ещё одна сессия BST. Порекомендуйте родителям найти специалиста, которому они оба доверяют. Один из ресурсов — Анастасия Юн (PhD, LP, BCBA-D, EMDR &amp; EFT терапевт): <a href="https://www.abapsy.com/psychologist" target="_blank" style="color:var(--plum,var(--plum));font-weight:500;text-decoration:none">abapsy.com/psychologist</a>. Если проблема в самих отношениях родителя и ребёнка — рассмотрите <a href="https://www.abapsy.com/pcit" target="_blank" style="color:var(--plum,var(--plum));font-weight:500;text-decoration:none">PCIT (Parent-Child Interaction Therapy)</a>.
 </div>
 
 <div style="margin-top:.8rem;padding:.6rem .9rem;background:linear-gradient(135deg,#f0faf4,#edf7f2);border-radius:var(--radius-sm);border:1px solid #c8e0c4;font-size:.8rem;color:var(--text2);line-height:1.6">
   <strong style="color:#1c7050">Для пап, которые хотят включиться:</strong> Если отец готов к контакту, но не знает, с чего начать — программа <strong>Dads Tuning in to Kids®</strong> создана специально для этого. Это научно обоснованный тренинг (Havighurst et al., 2019), который помогает мужчинам выстроить эмоционально тёплые отношения с ребёнком: научиться замечать его чувства, реагировать с поддержкой, сохранять спокойствие в трудных моментах. 6–7 онлайн-сессий. Ведущий коуч — Анастасия Юн, PhD, LP, BCBA-D. Подробнее: <a href="https://www.abapsy.com/tuning-in-to-kids" target="_blank" style="color:#1c7050;font-weight:600;text-decoration:none">abapsy.com/tuning-in-to-kids</a>
-</div></div>
+</div>
+<div style="margin-top:.6rem;font-size:.78rem;color:var(--mut);font-style:italic">Конфликт между родителями влияет на программу? Разберём стратегию на супервизии — <a href="https://www.abapsy.com/faculty" target="_blank" style="color:var(--pri);text-decoration:none;font-weight:500">abapsy.com/faculty</a></div>
+</div>
     </div><div class="section" id="s_5_3" data-idx="36">
       <h2>ОБУЧЕНИЕ СИБЛИНГОВ</h2>
       <div class="section-body"><div class="visual-block"><div class="viz-two-col"><div class="viz-col-box viz-col-blue"><div class="viz-col-header">Чему обучать</div><div class="viz-col-items"><div class="viz-col-item">Инициация игры</div><div class="viz-col-item">Реакция на поведение</div><div class="viz-col-item">Просьба о помощи</div><div class="viz-col-item">Очерёдность</div></div></div><div class="viz-col-box viz-col-green"><div class="viz-col-header">Как обучать</div><div class="viz-col-items"><div class="viz-col-item">TIP + обоснование</div><div class="viz-col-item">«Правильно / Неправильно»</div><div class="viz-col-item">Через игру, не уроки</div><div class="viz-col-item">НЕ превращать в терапевта</div></div></div></div></div><p>Oppenheim-Leaf и коллеги (2012) продемонстрировали, что сиблинги могут быть эффективно обучены через TIP для улучшения взаимодействия с братьями и сёстрами с РАС — без прямой интервенции с самим ребёнком с РАС.</p>
@@ -4915,6 +4931,7 @@ iv>
 </ol>
 
 <p><strong>Важно:</strong> Обязательное информирование — это НЕ предательство семьи. Это защита ребёнка. Если вы не уверены — проконсультируйтесь с супервизором. Лучше сообщить и ошибиться, чем промолчать и допустить вред.</p>
+<div style="margin-top:.8rem;font-size:.78rem;color:var(--mut);font-style:italic">Не уверены, нужно ли информировать? Это тот случай, когда супервизия необходима — <a href="https://www.abapsy.com/faculty" target="_blank" style="color:var(--pri);text-decoration:none;font-weight:500">abapsy.com/faculty</a></div>
 </div></div>
 
 
@@ -5914,11 +5931,17 @@ iv>
     <a href="https://www.abapsy.com/faculty" target="_blank" style="display:inline-block;background:#fef7f4;color:#c97b5a;font-size:.82rem;padding:.55rem 1.2rem;border-radius:var(--radius-md);text-decoration:none;font-weight:600;letter-spacing:.02em;box-shadow:0 2px 8px rgba(201,123,90,.25)">Выбрать супервизора → abapsy.com/faculty</a>
   </div>
   <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-    <a href="https://www.abapsy.com/ceus" target="_blank" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:var(--mut);font-size:.75rem;padding:.4rem .8rem;border-radius:var(--radius-sm);text-decoration:none">CEU-курсы и вебинары</a>
-    <a href="https://www.abapsy.com/free-training" target="_blank" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:var(--mut);font-size:.75rem;padding:.4rem .8rem;border-radius:var(--radius-sm);text-decoration:none">Курс «Поведенческий инструктор»</a>
+    <a href="https://www.abapsy.com/abapsy-podcast" target="_blank" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:var(--mut);font-size:.75rem;padding:.4rem .8rem;border-radius:var(--radius-sm);text-decoration:none">Подкасты и CEU</a>
+    <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:var(--mut);font-size:.75rem;padding:.4rem .8rem;border-radius:var(--radius-sm);text-decoration:none">Курс RBT / IBT / ABAT</a>
     <a href="https://www.abapsy.com/psychologist" target="_blank" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:var(--mut);font-size:.75rem;padding:.4rem .8rem;border-radius:var(--radius-sm);text-decoration:none">Психологическая поддержка</a>
   </div>
 </div>
+
+<div style="margin:1.5rem 0;padding:.8rem 1.2rem;background:var(--cream);border-radius:var(--radius-md);border-left:3px solid var(--pri);font-size:.82rem;color:var(--text2);line-height:1.6">
+  <strong style="color:var(--dark)">Сертификат с 20 часами CE</strong> по данному руководству
+ — доступен для BACB, IBAO, QABA. Подробности и запись — <a href="mailto:info@abapsy.com?subject=CEU%20%E2%80%94%20%D0%A0%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3%20(20%20%D1%87%D0%B0%D1%81%D0%BE%D0%B2)" style="color:var(--pri);font-weight:600;text-decoration:none">info@abapsy.com</a>
+</div>
+
 </section>
 
 <div style="margin:2rem auto;max-width:800px;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f5f8fb,#eef3f9);border-radius:var(--radius-lg);border:1px solid #e5e7eb;box-sizing:border-box">
@@ -5952,7 +5975,7 @@ iv>
 </div>
 
 <div style="margin-top:1.2rem;padding:.8rem;background:rgba(201,123,90,.06);border-radius:var(--radius-sm)">
-<p style="font-size:.85rem;color:var(--text2);line-height:1.6"><strong style="color:var(--acc)">Хотите официальный сертификат?</strong> Пройдите CEU-курс на <a href="https://www.abapsy.com/ceus" target="_blank" style="color:var(--acc);font-weight:500;text-decoration:none">abapsy.com/ceus</a> — тест, сертификат и кредиты для BACB/IBAO/QABA.</p>
+<p style="font-size:.85rem;color:var(--text2);line-height:1.6"><strong style="color:var(--acc)">Сертификат с 20 часами CE</strong> по данному руководству доступен для BACB, IBAO и QABA. Подробности — в начале руководства или напишите на <a href="mailto:info@abapsy.com?subject=CEU%20%E2%80%94%20%D0%A0%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3%20(20%20%D1%87%D0%B0%D1%81%D0%BE%D0%B2)" style="color:var(--acc);font-weight:500;text-decoration:none">info@abapsy.com</a>.</p>
 </div>
 </div>
 <section class="part refs" id="part_7" style="--pc:#7c92ab">
@@ -5963,63 +5986,60 @@ iv>
 <div class="section" id="s_8_0" data-idx="51">
       <h2>СПИСОК ЛИТЕРАТУРЫ</h2>
       <div class="section-body">
-<p>Bearss, K., Burrell, T. L., Stewart, L., &amp; Scahill, L. (2015). Parent Training in Autism Spectrum Disorder: What&#39;s in a Name? Clinical Child and Family Psychology Review, 18(2), 170--182. doi:10.1007/s10567-015-0179-5</p>
-<p>Bearss, K., Johnson, C., Smith, T., Lecavalier, L., Swiezy, N., Aman, M., ... &amp; Scahill, L. (2015). Effect of Parent Training vs Parent Education on Behavioral Problems in Children With Autism Spectrum Disorder: A Randomized Clinical Trial. JAMA, 313(15), 1524--1533. doi:10.1001/jama.2015.3150</p>
-<p>Behavior Analyst Certification Board (2020, updated 2024). Ethics Code for Behavior Analysts. Littleton, CO: BACB.</p>
-<p>Garikipati, A., Ciobanu, M., Singh, N. P., Barnes, G., Dinenno, F. A., Geisel, J., ... &amp; Das, R. (2024). Parent-Led Applied Behavior Analysis to Impact Clinical Outcomes for Individuals on the Autism Spectrum: Retrospective Chart Review. JMIR Pediatrics and Parenting, 7, e62878. doi:10.2196/62878</p>
-<p>Iadarola, S., Levato, L., Harrison, B., Smith, T., Lecavalier, L., Johnson, C., ... &amp; Scahill, L. (2018). Teaching Parents Behavioral Strategies for Autism Spectrum Disorder (ASD): Effects on Stress, Strain, and Competence. Journal of Autism and Developmental Disorders, 48(4), 1031--1040. doi:10.1007/s10803-017-3339-2</p>
-<p>Ozonoff, S., &amp; Cathcart, K. (1998). Effectiveness of a home program intervention for young children with autism. Journal of Autism and Developmental Disorders, 28(1), 25--32.</p>
-<p>Postorino, V., Sharp, W. G., McCracken, C. E., Bearss, K., Burrell, T. L., Evans, A. N., &amp; Scahill, L. (2017). A Systematic Review and Meta-analysis of Parent Training for Disruptive Behavior in Children with Autism Spectrum Disorder. Clinical Child and Family Psychology Review, 20(4), 391--402. doi:10.1007/s10567-017-0237-2</p>
-<p>Scahill, L., Bearss, K., Lecavalier, L., Smith, T., Swiezy, N., Aman, M. G., ... &amp; Johnson, C. (2016). Effect of Parent Training on Adaptive Behavior in Children With Autism Spectrum Disorder and Disruptive Behavior: Results of a Randomized Trial. Journal of the American Academy of Child &amp; Adolescent Psychiatry, 55(7), 602--609.e3.</p>
-<p>Sneed, L., &amp; Samelson, D. (2022). Effectiveness of Parent-Led Applied Behavior Analysis at Improving Outcomes for Parents of Autistic Children. Journal of Social, Behavioral, and Health Sciences, 16(1), 160--177. doi:10.5590/JSBHS.2022.16.1.12</p>
-<p>Ferretti, L. A., Zawacki, J., &amp; Cohen, P. M. (2025). Understanding Barriers and Facilitators of Parent/Caregiver Involvement in Home-Based Applied Behavioral Analysis Programming for Their Autistic Child. Children, 12(7), 850. doi:10.3390/children12070850</p>
-<p>Gerow, S., Hagan-Burke, S., Rispoli, M., Gregori, E., Mason, R., &amp; Ninci, J. (2018). A Systematic Review of Parent-Implemented Functional Communication Training for Children With ASD. Behavior Modification, 42(3), 335--363.</p>
-<p>Dillenburger, K., Keenan, M., Doherty, A., Byrne, T., &amp; Gallagher, S. (2010). Living with children diagnosed with autistic spectrum disorder: parental and professional views. British Journal of Special Education, 37(1), 13--23.</p>
-<p>Eckes, T., Buhlmann, U., Holling, H. D., et al. (2023). Comprehensive ABA-based interventions in the treatment of children with autism spectrum disorder -- a meta-analysis. BMC Psychiatry, 23, 133. doi:10.1186/s12888-022-04412-1</p>
-<p>Kirkpatrick, M., et al. (2019). Behavioral Skill Training: A Single-Case Meta-Analysis. Journal of Human Services: Training, Research, and Practice, 9(2).</p>
-
-<p>Bukszpan, A. (2025). Utilizing the Teaching Interaction Procedure to Train Special Education Teachers in Behavioral Artistry. Behavioral Interventions. doi:10.1002/bin.70017</p>
-<p>Green, D. R., Ferguson, J. L., Cihon, J. H., et al. (2020). The Teaching Interaction Procedure as a Staff Training Tool. Behavior Analysis in Practice, 13(2), 421--433. doi:10.1007/s40617-019-00357-2</p>
-<p>Kassardjian, A., Leaf, J. B., Ravid, D., Leaf, J. A., Alcalay, A., Dale, S., ... &amp; Oppenheim-Leaf, M. L. (2014). Comparing the Teaching Interaction Procedure to Social Stories: A Replication Study. Journal of Autism and Developmental Disorders, 44(9), 2329--2340.</p>
-<p>Leaf, J. B., Oppenheim-Leaf, M. L., Call, N. A., Sheldon, J. B., Sherman, J. A., Taubman, M., et al. (2012). Comparing the Teaching Interaction Procedure to Social Stories for People with Autism. Journal of Applied Behavior Analysis, 45(2), 281--298.</p>
-<p>Leaf, J. B., Townley-Cochran, D., Taubman, M., Cihon, J. H., Oppenheim-Leaf, M. L., Kassardjian, A., ... &amp; Pentz, T. G. (2015). The Teaching Interaction Procedure and Behavioral Skills Training for Individuals Diagnosed with Autism Spectrum Disorder: A Review and Commentary. Review Journal of Autism and Developmental Disorders, 2, 402--413. doi:10.1007/s40489-015-0060-y</p>
-<p>Leaf, J. B., Taubman, M., Bloomfield, S., Palos-Rafuse, L., Leaf, R., McEachin, J., &amp; Oppenheim, M. L. (2009). Increasing Social Skills and Pro-Social Behavior for Three Children Diagnosed with Autism Through the Use of a Teaching Package. Research in Autism Spectrum Disorders, 3(1), 275--289.</p>
-<p>Ng, A. H. S., Schulze, K., Rudrud, E., &amp; Leaf, J. B. (2016). Using the Teaching Interaction Procedure to Teach Social Skills to Children with Autism and Intellectual Disability. American Journal on Intellectual and Developmental Disabilities, 121(6), 501--519.</p>
-<p>Peters, B., Tullis, C. A., &amp; Gallagher, P. A. (2016). Effects of a Group Teaching Interaction Procedure on the Social Skills of Students with Autism Spectrum Disorders. Education and Training in Autism and Developmental Disabilities, 51(4), 421--433.</p>
-<p>Phillips, E. L. (1968). Achievement Place: Token Reinforcement Procedures in a Home-Style Rehabilitation Setting for &quot;Pre-Delinquent&quot; Boys. Journal of Applied Behavior Analysis, 1(3), 213--223.</p>
-<p>Taubman, M. T., Leaf, R. B., &amp; McEachin, J. (2011). Crafting Connections: Contemporary Applied Behavior Analysis for Enriching the Social Lives of Persons with Autism Spectrum Disorder. New York: DRL Books.</p>
-
-<p>Bordin, E. S. (1979). The Generalizability of the Psychoanalytic Concept of the Working Alliance. Psychotherapy: Theory, Research &amp; Practice, 16(3), 252--260.</p>
-<p>Callahan, K., Foxx, R. M., Swierczynski, A., Aerts, X., Mehta, S., Patel, S., &amp; Rakhshani, J. (2019). Behavioral artistry: Examining the relationship between the interpersonal skills and effective practice repertoires of applied behavior analysis practitioners. Journal of Autism and Developmental Disorders, 49(9), 3557--3570.</p>
-<p>Dishion, T. J., &amp; Kavanagh, K. (2005). Intervening in Adolescent Problem Behavior: A Family-Centered Approach. New York: Guilford Press.</p>
-<p>Eames, C., Daley, D., Hutchings, J., Whitaker, C. J., Jones, K., Hughes, J. C., &amp; Bywater, T. (2010). Treatment fidelity as a predictor of behaviour change in parents attending group-based parent training. Child: Care, Health and Development, 36(4), 560--568.</p>
-<p>Ensor, A., et al. (2024). Evaluation of a rapport-building intervention for early interventionists working with children on the autism spectrum. Behavioral Interventions. doi:10.1002/bin.1983</p>
-<p>Horbanczuk, S., Fettig, A., &amp; Luna, A. (2024). Building Collaborative Partnerships between Behavior Analysts and Families. Behavior Analysis in Practice, 17(4), 996--1007. doi:10.1007/s40617-024-00940-2</p>
-<p>Flückiger, C., Del Re, A. C., Wampold, B. E., Symonds, D., &amp; Horvath, A. O. (2012). How central is the alliance in psychotherapy? A multilevel longitudinal meta-analysis. Journal of Counseling Psychology, 59(1), 10--17.</p>
-<p>LeBlanc, L. A., Taylor, B. A., &amp; Marchese, N. V. (2020). The training experiences of behavior analysts: Compassionate care and therapeutic relationships with caregivers. Behavior Analysis in Practice, 13(2), 387--393.</p>
-<p>Lugo, A. M., King, M. L., Lamphere, J. C., &amp; McArdle, P. E. (2017). Developing Procedures to Improve Therapist--Child Rapport in Early Intervention. Behavior Analysis in Practice, 10(4), 395--401.</p>
-<p>Miller, W. R., &amp; Rollnick, S. (2002). Motivational Interviewing: Preparing People for Change (2nd ed.). New York: Guilford Press.</p>
-<p>Rogers, C. R. (1957). The Necessary and Sufficient Conditions of Therapeutic Personality Change. Journal of Consulting Psychology, 21(2), 95--103.</p>
-<p>Smith, J. D., Dishion, T. J., Shaw, D. S., Wilson, M. N., Winter, C. C., &amp; Patterson, G. R. (2013). Coercive family process and early-onset conduct problems from age 2 to school entry. Development and Psychopathology, 26(4), 917--932.</p>
-<p>Taylor, B. A., LeBlanc, L. A., &amp; Nosik, M. R. (2019). Compassionate care in behavior analytic treatment: Can outcomes be enhanced by attending to relationships with caregivers? Behavior Analysis in Practice, 12(1), 213--228.</p>
-<p>Blackledge, J. T., & Hayes, S. C. (2006). Using acceptance and commitment training in the support of parents of children diagnosed with autism. <em>Child & Family Behavior Therapy, 28</em>(1), 1–18.</p>
-<p>Leif, E. S., Hajiaghamohseni, F., & Giles, A. F. (2024). Providing culturally responsive applied behavior analysis services: A practical guide. <em>Behavior Analysis in Practice, 17</em>(1), 45–60.</p>
-<p>Maughan, A. L., Lunsky, Y., Lake, J., Mills, J. S., Fung, K., Steel, L., &amp; Weiss, J. A. (2024). Parent, child, and family outcomes following Acceptance And Commitment Therapy for parents of autistic children: A randomized controlled trial. <em>Autism, 28</em>(2), 367–380. doi:10.1177/13623613231172241</p>
-<p>Reid, D. H., Parsons, M. B., & Jensen, J. M. (2013). Maintaining staff performance following a training intervention: Suggestions from a 30-year case example. <em>Behavior Analysis in Practice, 6</em>(2), 32–39.</p>
-<p>Schwartz, I. S., & Baer, D. M. (1991). Social validity assessments: Is current practice state of the art? <em>Journal of Applied Behavior Analysis, 24</em>(2), 189–204.</p>
-<p>Tarbox, J., Szabo, T. G., & Aclan, M. (2020). Acceptance and commitment training within the scope of practice of applied behavior analysis. <em>Behavior Analysis in Practice, 14</em>(1), 2–10.</p>
-<p>Wolf, M. M. (1978). Social validity: The case for subjective measurement or how applied behavior analysis is finding its heart. <em>Journal of Applied Behavior Analysis, 11</em>(2), 203–214.</p>
-
+<p>Bearss, K., Burrell, T. L., Stewart, L., &amp; Scahill, L. (2015). <em>Parent Training in Autism Spectrum Disorder: What&#39;s in a Name? Clinical Child and Family Psychology Review, 18</em>(2), 170–182. doi:10.1007/s10567-015-0179-5</p>
+<p>Bearss, K., Johnson, C., Smith, T., Lecavalier, L., Swiezy, N., Aman, M., ... &amp; Scahill, L. (2015). Effect of Parent Training vs Parent Education on Behavioral Problems in Children With Autism Spectrum Disorder: A Randomized Clinical Trial. <em>JAMA, 313</em>(15), 1524–1533. doi:10.1001/jama.2015.3150</p>
+<p>Behavior Analyst Certification Board (2020, updated 2024). <em>Ethics Code for Behavior Analysts.</em> Littleton, CO: BACB.</p>
 <p>Best, C., Arora, S., Porter, F., &amp; Doherty, M. (2015). The Relationship Between Subthreshold Autistic Traits, Ambiguous Figure Perception and Divergent Thinking. <em>Journal of Autism and Developmental Disorders, 45</em>(12), 4064–4073. doi:10.1007/s10803-015-2518-2</p>
+<p>Blackledge, J. T., &amp; Hayes, S. C. (2006). Using acceptance and commitment training in the support of parents of children diagnosed with autism. <em>Child &amp; Family Behavior Therapy, 28</em>(1), 1–18.</p>
+<p>Bordin, E. S. (1979). The Generalizability of the Psychoanalytic Concept of the Working Alliance. <em>Psychotherapy: Theory, Research &amp; Practice, 16</em>(3), 252–260.</p>
+<p>Bukszpan, A. (2025). Utilizing the Teaching Interaction Procedure to Train Special Education Teachers in Behavioral Artistry. <em>Behavioral Interventions.</em> doi:10.1002/bin.70017</p>
+<p>Callahan, K., Foxx, R. M., Swierczynski, A., Aerts, X., Mehta, S., Patel, S., &amp; Rakhshani, J. (2019). Behavioral artistry: Examining the relationship between the interpersonal skills and effective practice repertoires of applied behavior analysis practitioners. <em>Journal of Autism and Developmental Disorders, 49</em>(9), 3557–3570.</p>
 <p>Cancer, A., Schiattone, S., Monfredini, M., Antonietti, A., &amp; Colombo, B. (2024). Creative performance and attitudes toward creativity in adults with autism spectrum disorder. <em>Research in Autism Spectrum Disorders, 101</em>, 102088.</p>
 <p>Craig, J., &amp; Baron-Cohen, S. (1999). Creativity and Imagination in Autism and Asperger Syndrome. <em>Journal of Autism and Developmental Disorders, 29</em>(4), 319–326.</p>
+<p>Dillenburger, K., Keenan, M., Doherty, A., Byrne, T., &amp; Gallagher, S. (2010). Living with children diagnosed with autistic spectrum disorder: parental and professional views. <em>British Journal of Special Education, 37</em>(1), 13–23.</p>
+<p>Dishion, T. J., &amp; Kavanagh, K. (2005). <em>Intervening in Adolescent Problem Behavior: A Family-Centered Approach.</em> New York: Guilford Press.</p>
+<p>Eames, C., Daley, D., Hutchings, J., Whitaker, C. J., Jones, K., Hughes, J. C., &amp; Bywater, T. (2010). Treatment fidelity as a predictor of behaviour change in parents attending group-based parent training. <em>Child: Care, Health and Development, 36</em>(4), 560–568.</p>
+<p>Eckes, T., Buhlmann, U., Holling, H. D., et al. (2023). Comprehensive ABA-based interventions in the treatment of children with autism spectrum disorder – a meta-analysis. <em>BMC Psychiatry, 23</em>, 133. doi:10.1186/s12888-022-04412-1</p>
+<p>Ensor, A., et al. (2024). Evaluation of a rapport-building intervention for early interventionists working with children on the autism spectrum. <em>Behavioral Interventions.</em> doi:10.1002/bin.1983</p>
+<p>Ferretti, L. A., Zawacki, J., &amp; Cohen, P. M. (2025). Understanding Barriers and Facilitators of Parent/Caregiver Involvement in Home-Based Applied Behavioral Analysis Programming for Their Autistic Child. <em>Children, 12</em>(7), 850. doi:10.3390/children12070850</p>
 <p>Fitzgerald, M. (2004). <em>Autism and Creativity: Is There a Link Between Autism in Men and Exceptional Ability?</em> Hove: Brunner-Routledge.</p>
+<p>Flückiger, C., Del Re, A. C., Wampold, B. E., Symonds, D., &amp; Horvath, A. O. (2012). How central is the alliance in psychotherapy? A multilevel longitudinal meta-analysis. <em>Journal of Counseling Psychology, 59</em>(1), 10–17.</p>
+<p>Garikipati, A., Ciobanu, M., Singh, N. P., Barnes, G., Dinenno, F. A., Geisel, J., ... &amp; Das, R. (2024). Parent-Led Applied Behavior Analysis to Impact Clinical Outcomes for Individuals on the Autism Spectrum: Retrospective Chart Review. <em>JMIR Pediatrics and Parenting, 7</em>, e62878. doi:10.2196/62878</p>
+<p>Gerow, S., Hagan-Burke, S., Rispoli, M., Gregori, E., Mason, R., &amp; Ninci, J. (2018). A Systematic Review of Parent-Implemented Functional Communication Training for Children With ASD. <em>Behavior Modification, 42</em>(3), 335–363.</p>
+<p>Green, D. R., Ferguson, J. L., Cihon, J. H., et al. (2020). The Teaching Interaction Procedure as a Staff Training Tool. <em>Behavior Analysis in Practice, 13</em>(2), 421–433. doi:10.1007/s40617-019-00357-2</p>
+<p>Horbanczuk, S., Fettig, A., &amp; Luna, A. (2024). Building Collaborative Partnerships between Behavior Analysts and Families. <em>Behavior Analysis in Practice, 17</em>(4), 996–1007. doi:10.1007/s40617-024-00940-2</p>
+<p>Iadarola, S., Levato, L., Harrison, B., Smith, T., Lecavalier, L., Johnson, C., ... &amp; Scahill, L. (2018). Teaching Parents Behavioral Strategies for Autism Spectrum Disorder (ASD): Effects on Stress, Strain, and Competence. <em>Journal of Autism and Developmental Disorders, 48</em>(4), 1031–1040. doi:10.1007/s10803-017-3339-2</p>
 <p>Kasirer, A., Adi-Japha, E., &amp; Mashal, N. (2020). Verbal and Figural Creativity in Children with Autism Spectrum Disorder and Typical Development. <em>Frontiers in Psychology, 11</em>, 559238.</p>
+<p>Kassardjian, A., Leaf, J. B., Ravid, D., Leaf, J. A., Alcalay, A., Dale, S., ... &amp; Oppenheim-Leaf, M. L. (2014). Comparing the Teaching Interaction Procedure to Social Stories: A Replication Study. <em>Journal of Autism and Developmental Disorders, 44</em>(9), 2329–2340.</p>
+<p>Kirkpatrick, M., et al. (2019). Behavioral Skill Training: A Single-Case Meta-Analysis. <em>Journal of Human Services: Training, Research, and Practice, 9</em>(2).</p>
+<p>Leaf, J. B., Oppenheim-Leaf, M. L., Call, N. A., Sheldon, J. B., Sherman, J. A., Taubman, M., et al. (2012). Comparing the Teaching Interaction Procedure to Social Stories for People with Autism. <em>Journal of Applied Behavior Analysis, 45</em>(2), 281–298.</p>
+<p>Leaf, J. B., Taubman, M., Bloomfield, S., Palos-Rafuse, L., Leaf, R., McEachin, J., &amp; Oppenheim, M. L. (2009). Increasing Social Skills and Pro-Social Behavior for Three Children Diagnosed with Autism Through the Use of a Teaching Package. <em>Research in Autism Spectrum Disorders, 3</em>(1), 275–289.</p>
+<p>Leaf, J. B., Townley-Cochran, D., Taubman, M., Cihon, J. H., Oppenheim-Leaf, M. L., Kassardjian, A., ... &amp; Pentz, T. G. (2015). The Teaching Interaction Procedure and Behavioral Skills Training for Individuals Diagnosed with Autism Spectrum Disorder: A Review and Commentary. <em>Review Journal of Autism and Developmental Disorders, 2</em>, 402–413. doi:10.1007/s40489-015-0060-y</p>
+<p>LeBlanc, L. A., Taylor, B. A., &amp; Marchese, N. V. (2020). The training experiences of behavior analysts: Compassionate care and therapeutic relationships with caregivers. <em>Behavior Analysis in Practice, 13</em>(2), 387–393.</p>
 <p>Lee, R., Sturmey, P., &amp; Fields, L. (2007). Schedule-Induced and Operant Mechanisms that Influence Response Variability: A Review and Implications for Future Investigations. <em>The Psychological Record, 57</em>, 429–455.</p>
+<p>Leif, E. S., Hajiaghamohseni, F., &amp; Giles, A. F. (2024). Providing culturally responsive applied behavior analysis services: A practical guide. <em>Behavior Analysis in Practice, 17</em>(1), 45–60.</p>
 <p>Liu, J., Chang, H., Abrams, D. A., Kang, J. B., Chen, L., Rosenberg-Lee, M., &amp; Menon, V. (2023). Atypical cognitive training-induced learning and brain plasticity and their relation to insistence on sameness in children with autism. <em>eLife, 12</em>, e86035. doi:10.7554/eLife.86035</p>
+<p>Lugo, A. M., King, M. L., Lamphere, J. C., &amp; McArdle, P. E. (2017). Developing Procedures to Improve Therapist–Child Rapport in Early Intervention. <em>Behavior Analysis in Practice, 10</em>(4), 395–401.</p>
+<p>Maughan, A. L., Lunsky, Y., Lake, J., Mills, J. S., Fung, K., Steel, L., &amp; Weiss, J. A. (2024). Parent, child, and family outcomes following Acceptance And Commitment Therapy for parents of autistic children: A randomized controlled trial. <em>Autism, 28</em>(2), 367–380. doi:10.1177/13623613231172241</p>
+<p>Miller, W. R., &amp; Rollnick, S. (2002). <em>Motivational Interviewing: Preparing People for Change</em> (2nd ed.). New York: Guilford Press.</p>
+<p>Ng, A. H. S., Schulze, K., Rudrud, E., &amp; Leaf, J. B. (2016). Using the Teaching Interaction Procedure to Teach Social Skills to Children with Autism and Intellectual Disability. <em>American Journal on Intellectual and Developmental Disabilities, 121</em>(6), 501–519.</p>
+<p>Ozonoff, S., &amp; Cathcart, K. (1998). Effectiveness of a home program intervention for young children with autism. <em>Journal of Autism and Developmental Disorders, 28</em>(1), 25–32.</p>
 <p>Pennisi, P., Giallongo, L., Milintenda, G., &amp; Cannarozzo, M. (2021). Autism, autistic traits and creativity: A systematic review and meta-analysis. <em>Cognitive Processing, 22</em>, 1–36. doi:10.1007/s10339-020-00992-6</p>
+<p>Peters, B., Tullis, C. A., &amp; Gallagher, P. A. (2016). Effects of a Group Teaching Interaction Procedure on the Social Skills of Students with Autism Spectrum Disorders. <em>Education and Training in Autism and Developmental Disabilities, 51</em>(4), 421–433.</p>
+<p>Phillips, E. L. (1968). Achievement Place: Token Reinforcement Procedures in a Home-Style Rehabilitation Setting for &quot;Pre-Delinquent&quot; Boys. <em>Journal of Applied Behavior Analysis, 1</em>(3), 213–223.</p>
+<p>Postorino, V., Sharp, W. G., McCracken, C. E., Bearss, K., Burrell, T. L., Evans, A. N., &amp; Scahill, L. (2017). A Systematic Review and Meta-analysis of Parent Training for Disruptive Behavior in Children with Autism Spectrum Disorder. <em>Clinical Child and Family Psychology Review, 20</em>(4), 391–402. doi:10.1007/s10567-017-0237-2</p>
+<p>Reid, D. H., Parsons, M. B., &amp; Jensen, J. M. (2013). Maintaining staff performance following a training intervention: Suggestions from a 30-year case example. <em>Behavior Analysis in Practice, 6</em>(2), 32–39.</p>
+<p>Rogers, C. R. (1957). The Necessary and Sufficient Conditions of Therapeutic Personality Change. <em>Journal of Consulting Psychology, 21</em>(2), 95–103.</p>
+<p>Scahill, L., Bearss, K., Lecavalier, L., Smith, T., Swiezy, N., Aman, M. G., ... &amp; Johnson, C. (2016). Effect of Parent Training on Adaptive Behavior in Children With Autism Spectrum Disorder and Disruptive Behavior: Results of a Randomized Trial. <em>Journal of the American Academy of Child &amp; Adolescent Psychiatry, 55</em>(7), 602–609.e3.</p>
+<p>Schwartz, I. S., &amp; Baer, D. M. (1991). Social validity assessments: Is current practice state of the art? <em>Journal of Applied Behavior Analysis, 24</em>(2), 189–204.</p>
+<p>Smith, J. D., Dishion, T. J., Shaw, D. S., Wilson, M. N., Winter, C. C., &amp; Patterson, G. R. (2013). Coercive family process and early-onset conduct problems from age 2 to school entry. <em>Development and Psychopathology, 26</em>(4), 917–932.</p>
+<p>Sneed, L., &amp; Samelson, D. (2022). Effectiveness of Parent-Led Applied Behavior Analysis at Improving Outcomes for Parents of Autistic Children. <em>Journal of Social, Behavioral, and Health Sciences, 16</em>(1), 160–177. doi:10.5590/JSBHS.2022.16.1.12</p>
+<p>Tarbox, J., Szabo, T. G., &amp; Aclan, M. (2020). Acceptance and commitment training within the scope of practice of applied behavior analysis. <em>Behavior Analysis in Practice, 14</em>(1), 2–10.</p>
+<p>Taubman, M. T., Leaf, R. B., &amp; McEachin, J. (2011). <em>Crafting Connections: Contemporary Applied Behavior Analysis for Enriching the Social Lives of Persons with Autism Spectrum Disorder.</em> New York: DRL Books.</p>
+<p>Taylor, B. A., LeBlanc, L. A., &amp; Nosik, M. R. (2019). <em>Compassionate care in behavior analytic treatment: Can outcomes be enhanced by attending to relationships with caregivers? Behavior Analysis in Practice, 12</em>(1), 213–228.</p>
 <p>Taylor, E. C., Gocłowska, M. A., Callan, M. J., &amp; Livingston, L. A. (2025). Enhanced Creativity in Autism Is Due to Co-Occurring Attention-Deficit/Hyperactivity Disorder. <em>Journal of Experimental Psychology: General.</em></p>
 <p>Treffert, D. A. (1999). The Savant Syndrome and Autistic Disorder. <em>CNS Spectrums, 4</em>(12), 57–60.</p>
+<p>Wolf, M. M. (1978). Social validity: The case for subjective measurement or how applied behavior analysis is finding its heart. <em>Journal of Applied Behavior Analysis, 11</em>(2), 203–214.</p>
 </div>
     </div></section>
 
@@ -6762,7 +6782,7 @@ window.addEventListener('resize', fixMobile);
 })();
 
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v109</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v115</div><button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 <div id="pdf-print-area"></div>
 </body>
 </html>
