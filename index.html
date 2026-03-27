@@ -5295,11 +5295,14 @@ body.pdf-printing #pdf-print-area { display: block !important; }
 
 <h3>1.5. Карточки «Что делать, когда...» (памятка для родителя)</h3>
 <div class="disclaimer-box">Распечатайте и заламинируйте. Заполните конкретные стратегии для данного ребёнка.</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0">
+<div class="intake-form" id="form_cards" style="border-top:3px solid var(--pri);margin:1rem 0;padding:0">
+<div class="intake-header"><div class="intake-title">КАРТОЧКИ «ЧТО ДЕЛАТЬ, КОГДА...»</div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;padding:1rem">
   <div class="intake-form" style="border-top:3px solid #2563eb;margin:0"><div class="intake-header" style="border-left:3px solid #3b7cb8;padding:.5rem .8rem"><div class="intake-title" style="font-size:.78rem;margin:0;font-weight:600;opacity:1">ФУНКЦИЯ: ВНИМАНИЕ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. Не реагирую на нежелательное</p><p>2. Жду приемлемого поведения</p><p>3. Немедленно даю внимание за:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не уговариваю, не ругаю, не объясняю</p></div></div>
   <div class="intake-form" style="border-top:3px solid #dc4a3f;margin:0"><div class="intake-header" style="border-left:3px solid #d4564a;padding:.5rem .8rem"><div class="intake-title" style="font-size:.78rem;margin:0;font-weight:600;opacity:1">ФУНКЦИЯ: ИЗБЕГАНИЕ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. НЕ убираю требование</p><p>2. Помогаю выполнить (подсказка)</p><p>3. Подкрепляю выполнение:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не говорю «ладно, не надо»</p></div></div>
   <div class="intake-form" style="border-top:3px solid #0d9474;margin:0"><div class="intake-header" style="border-left:3px solid #2da87a;padding:.5rem .8rem"><div class="intake-title" style="font-size:.78rem;margin:0;font-weight:600;opacity:1">ФУНКЦИЯ: ДОСТУП К ПРЕДМЕТУ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. НЕ даю предмет за нежелательное</p><p>2. Жду / подсказываю просьбу</p><p>3. Даю предмет за:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не отдаю «лишь бы замолчал»</p></div></div>
   <div class="intake-form" style="border-top:3px solid #b8860b;margin:0"><div class="intake-header" style="border-left:3px solid #c49a2a;padding:.5rem .8rem"><div class="intake-title" style="font-size:.78rem;margin:0;font-weight:600;opacity:1">ФУНКЦИЯ: СЕНСОРНАЯ</div></div><div class="intake-section" style="padding:.6rem .8rem;font-size:.78rem"><p><strong>Когда ребёнок:</strong></p><div class="intake-field full"><span class="intake-line tall"></span></div><p style="margin-top:.4rem"><strong>Я делаю:</strong></p><p>1. Предлагаю приемлемую альтернативу</p><p>2. Перенаправляю спокойно</p><p>3. Альтернативная стимуляция:</p><div class="intake-field full"><span class="intake-line"></span></div><p style="margin-top:.4rem;color:var(--acc)"><strong>Я НЕ делаю:</strong> не наказываю за стимминг</p></div></div>
+</div>
 </div>
 
 <h3>1.6. Шаблон визуального расписания</h3>
@@ -6438,7 +6441,7 @@ window.addEventListener('resize', fixMobile);
     'form_compat','form_consent','form_schedule','form_contract'
   ];
   // Extra: outside Part VIII
-  var EXTRA_IDS = ['form_validity','form_weekly'];
+  var EXTRA_IDS = ['form_validity','form_weekly','form_cards'];
 
   // BSP: id is on inner title, find parent .intake-form
   var bspTitle = document.getElementById('form_bsp');
