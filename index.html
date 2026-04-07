@@ -177,9 +177,14 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,.12);
   transition: all .25s ease;
 }
+.menu-toggle .menu-label { display: none }
 .menu-toggle:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 16px rgba(0,0,0,.2);
+}
+@keyframes menu-pulse {
+  0%, 100% { box-shadow: 0 2px 10px rgba(59,124,184,.15); }
+  50% { box-shadow: 0 2px 20px rgba(59,124,184,.45); }
 }
 
 /* --- Progress Bar --- */
@@ -1116,7 +1121,8 @@ body.pdf-printing #pdf-print-area { display: block !important; }
   .section-body h3 { font-size: 1rem }
 
   .sidebar { width: 85vw; max-width: 320px }
-  .menu-toggle { top: 8px; left: 8px; width: 36px; height: 36px; font-size: .95rem }
+  .menu-toggle { top: 8px; left: 8px; width: auto; height: 38px; font-size: .85rem; border-radius: 20px; padding: 0 14px 0 12px; gap: .35rem; background: var(--pri); border-color: rgba(255,255,255,.15); animation: menu-pulse 1.5s ease 3 }
+  .menu-toggle .menu-label { display: inline; font-size: .75rem; font-weight: 600; letter-spacing: .03em }
   #siteLogo { top: 8px !important; right: 8px !important }
   #siteLogo img { width: 46px !important; height: 46px !important }
   #backToTop { width: 34px; height: 34px; bottom: 12px; right: 12px; font-size: .9rem }
@@ -1158,7 +1164,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
 
 <div class="progress-bar"><div id="progressBar" style="width:0%"></div></div>
 
-<button class="menu-toggle" id="menuToggle" aria-label="Меню">☰</button>
+<button class="menu-toggle" id="menuToggle" aria-label="Меню">☰<span class="menu-label">Меню</span></button>
 
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-header">
@@ -3040,7 +3046,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс RBT/IBT/ABAT → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)"><a href="javascript:void(0)" data-scroll="form_abc" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">ABC-дневник</a>: 3–5 эпизодов за неделю. ПОКАЖИТЕ, как заполнять.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">Начало: 2–3 целевых поведения</span></div>
@@ -3080,6 +3086,46 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_01" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 1: ЗНАКОМСТВО И ОЦЕНКА</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Представился(ась), объяснил(а) свою роль</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Спросил(а) о ребёнке: сильные стороны, интересы</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Форма первичной оценки заполнена (разделы A–D)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Приоритеты семьи определены (что изменить прямо сейчас?)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Формат тренинга объяснён (частота, длительность, ожидания)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>BSP начат: 2–3 целевых поведения записаны</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Информированное согласие подписано</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ABC-дневник выдан и объяснён (как заполнять + пример)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель задал вопросы — ответил(а)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:#e5e7eb"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -3122,7 +3168,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: основы ABA → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)"><a href="javascript:void(0)" data-scroll="form_abc" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">ABC-дневник</a> + определить функцию самостоятельно в 3 эпизодах.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ Функции целевых поведений</span></div>
@@ -3161,6 +3207,43 @@ body.pdf-printing #pdf-print-area { display: block !important; }
       </div>
     </div>
   </div></div>
+<div class="intake-form" id="form_checklist_02" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 2: ПРИНЦИПЫ И ФУНКЦИИ</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Обзор ABC-дневника: записи разобраны вместе</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>4 функции объяснены с примерами из жизни семьи</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель назвал функции целевых поведений ребёнка</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Непреднамеренное подкрепление обсуждено на примерах</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель понимает: поведение = коммуникация</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: продолжать вести ABC-дневник</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:#e5e7eb"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -3214,7 +3297,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: сбор данных → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">Практиковать 2–3 выбранных навыка. Записать: сколько раз, получилось ли.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ Навыки для домашней практики (из ABLLS-R/VB-MAPP)</span></div>
@@ -3253,6 +3336,44 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_03" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 3: ПРОФИЛЬ НАВЫКОВ РЕБЁНКА</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Обзор ДЗ (ABC-дневник) — похвалил(а) усилия</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Инструмент оценки объяснён (ABLLS-R / VB-MAPP / другой)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Профиль навыков ребёнка составлен совместно</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Связь навыков с домашней средой обсуждена</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Приоритетные навыки для обучения выбраны</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>BSP обновлён: навыки для замены добавлены</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: практика 2–3 навыков, записать результат</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 </div>
 </div>
 </div></div>
@@ -3306,7 +3427,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: превентивные стратегии → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">Внедрить 1 визуальное расписание для проблемной рутины.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ Превентивные стратегии</span></div>
@@ -3346,6 +3467,45 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_04" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 4: ПРЕВЕНТИВНЫЕ СТРАТЕГИИ</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Обзор ДЗ — что получилось, что нет</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Превенция vs реакция — объяснена разница</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Визуальное расписание: зачем, как, для кого</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Моделирование: показал(а) расписание с ребёнком</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель практиковал с ребёнком</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Точность записана: ____%</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Обратная связь дана (2:1 — два позитива на одну корректировку)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: внедрить 1 визуальное расписание для проблемной рутины</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:var(--acc)"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -3388,7 +3548,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: подкрепление → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">Мин. 3 раза в день «поймать за хорошим» и подкрепить. Записать.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ Стратегии подкрепления, список подкрепителей</span></div>
@@ -3428,6 +3588,44 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_05" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 5: ПОДКРЕПЛЕНИЕ — ЧАСТЬ 1</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Обзор ДЗ (расписание) — разобрали трудности</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Что подкрепляет ИХ ребёнка — список составлен с родителем</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Своевременность подкрепления (≤3 сек) объяснена</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Моделирование: как подкреплять во время игры</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель практиковал с ребёнком: «поймать за хорошим»</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Точность записана: ____%</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: мин. 3 раза в день «поймать за хорошим» и подкрепить</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:var(--acc)"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -3470,7 +3668,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: расписания подкрепления → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">Выбрать 1 нежелательное → определить альтернативу → подкреплять.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ DRA для конкретного поведения</span></div>
@@ -3509,7 +3707,47 @@ body.pdf-printing #pdf-print-area { display: block !important; }
       </div>
     </div>
   </div>
-</div></div>
+</div>
+<div class="intake-form" id="form_checklist_06" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 6: ПОДКРЕПЛЕНИЕ — ЧАСТЬ 2 (DRA)</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Обзор данных за неделю (лист домашней практики)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Непрерывное vs переменное подкрепление — объяснено</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>«Неправильно» продемонстрировано (случайное подкрепление)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>«Правильно» продемонстрировано (целенаправленное DRA)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель практиковал DRA с ребёнком</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Точность записана: ____%</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>BSP обновлён: + стратегии подкрепления</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: 1 нежелательное → определить альтернативу → подкреплять</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
+</div>
 <div style="margin-top:3.5rem;margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem">
   <div style="width:4px;height:32px;background:var(--sage);border-radius:2px;flex-shrink:0"></div>
   <div>
@@ -3560,7 +3798,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: угасание → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">Попробовать для ОДНОГО поведения, ОДНОЙ функции. Позвонить BCBA, если что-то пошло не так.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ Запланированное игнорирование + план безопасности</span></div>
@@ -3600,6 +3838,47 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_07" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 7: ЗАПЛАНИРОВАННОЕ ИГНОРИРОВАНИЕ</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Обзор DRA за неделю</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Угасание объяснено пошагово: безопасность → не реагировать → ждать → подкрепить</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Extinction burst предупреждён: «станет хуже перед тем, как станет лучше»</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>«Неправильно» показано: реакция на крик</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>«Правильно» показано: спокойное игнорирование + подкрепление тихого</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Ролевая игра проведена (специалист = ребёнок)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Чувства родителя обсуждены</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>План безопасности составлен</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Точность записана: ____%</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: 1 поведение, 1 функция. Позвонить BCBA если сложно</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:var(--sage)"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -3644,7 +3923,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/faculty" target="_blank" style="font-size:.86rem;color:var(--acc);text-decoration:none;font-weight:500">Сложный кейс? → супервизия</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">5 инструкций в день: чёткая формулировка + подкрепление при выполнении.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ Стратегия работы с инструкциями</span></div>
@@ -3684,6 +3963,44 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_08" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 8: ВЫПОЛНЕНИЕ ИНСТРУКЦИЙ</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Обзор ДЗ (угасание) — как прошло дома</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Правила инструкций: чёткая, короткая, одна за раз</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Моделирование: как давать инструкцию + подкрепление</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель практиковал с ребёнком</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Точность записана: ____%</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Обратная связь дана</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: 5 инструкций в день с подкреплением при выполнении</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:var(--sage)"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -3726,7 +4043,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: инструкции → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">FCT в 3 ситуациях за день. Записать: получилось ли подождать? Подсказала ли?</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ FCT для конкретного поведения и функции</span></div>
@@ -3766,6 +4083,45 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_09" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 9: ФУНКЦИОНАЛЬНАЯ КОММУНИКАЦИЯ (FCT)</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Обзор данных (инструкции за неделю)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>FCT объяснена: функция → замена → как обучать</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Выбрана форма коммуникации (слово / жест / карточка / устройство)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Моделирование FCT с ребёнком</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель практиковал FCT</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Уровень подсказки определён и объяснён</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Точность записана: ____%</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: 3 раза в день создать ситуацию для FCT, записать результат</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:var(--sage)"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -3808,7 +4164,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: обучение цепочкам → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">1 навык самообслуживания: анализ задачи + обратная цепочка.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ Обучение цепочкам для конкретного навыка</span></div>
@@ -3847,7 +4203,47 @@ body.pdf-printing #pdf-print-area { display: block !important; }
       </div>
     </div>
   </div>
-</div></div>
+</div>
+<div class="intake-form" id="form_checklist_10" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 10: ПОВЕДЕНЧЕСКИЕ ЦЕПОЧКИ</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Обзор FCT за неделю</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Анализ задачи объяснён: разбить навык на шаги</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Прямая / обратная цепочка — разница объяснена</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Совместный анализ задачи для 1 навыка самообслуживания</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Моделирование обратной цепочки</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель практиковал с ребёнком</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Точность записана: ____%</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: 1 навык самообслуживания — анализ задачи + обратная цепочка</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
+</div>
 <div style="margin-top:3.5rem;margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem">
   <div style="width:4px;height:32px;background:var(--acc2);border-radius:2px;flex-shrink:0"></div>
   <div>
@@ -3898,7 +4294,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: социальные навыки → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">1 совместная игра в день (15 мин): инициация, очерёдность, комментирование.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ Социальные цели</span></div>
@@ -3938,6 +4334,44 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_11" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 11: СОЦИАЛЬНЫЕ И ИГРОВЫЕ НАВЫКИ</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Обзор ДЗ (цепочки) — результат и трудности</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Социальные навыки: инициация, очерёдность, комментирование</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Описание + моделирование совместной игры</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель практиковал с ребёнком</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Точность записана: ____%</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Обратная связь дана</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: 1 совместная игра в день (15 мин)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:var(--acc2)"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -3980,7 +4414,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: обзор стратегий → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">Применить 1 стратегию в новой среде. Записать результат.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ План генерализации</span></div>
@@ -4020,6 +4454,44 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_12" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 12: ГЕНЕРАЛИЗАЦИЯ</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Обзор ДЗ — что получилось</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Генерализация объяснена: среды, люди, материалы</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>План генерализации составлен (какие среды, кто ещё будет применять)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель практиковал стратегию в новой среде / с новым человеком</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Чек-лист генерализации начат</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Школа / сад обсуждены (если применимо)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: применить 1 стратегию в новой среде, записать результат</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:var(--acc2)"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -4062,7 +4534,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: генерализация → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">Заполнить <a href="javascript:void(0)" data-scroll="s_2_13" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">опросник социальной валидности</a> (если не успели на сессии).</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">Полное обновление всех разделов</span></div>
@@ -4102,6 +4574,43 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_13" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 13: ОБЗОР ПРОГРЕССА</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Графики точности за 12 недель показаны родителю</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Прогресс обсуждён: что работает, что нет</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>BSP пересмотрен и обновлён</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Промежуточный опросник социальной валидности заполнен</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Обратная связь от родителя получена</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>План на следующие 4 недели согласован</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:var(--acc2)"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -4144,7 +4653,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: дополнительные навыки → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">По теме сессии.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">+ По необходимости</span></div>
@@ -4183,7 +4692,44 @@ body.pdf-printing #pdf-print-area { display: block !important; }
       </div>
     </div>
   </div>
-</div></div>
+</div>
+<div class="intake-form" id="form_checklist_14" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 14: ДОПОЛНИТЕЛЬНАЯ ТЕМА</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Тема выбрана совместно с родителем</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Обучение по теме проведено (BST / TIP)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель практиковал</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Обратная связь дана</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ по теме выдано</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
+</div>
 <div style="margin-top:3.5rem;margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem">
   <div style="width:4px;height:32px;background:var(--plum);border-radius:2px;flex-shrink:0"></div>
   <div>
@@ -4234,7 +4780,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: кризис → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">Самостоятельно решить 1 новую ситуацию. Записать: что сделал(а), что получилось.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">—</span></div>
@@ -4274,6 +4820,44 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_15" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 15: САМОСТОЯТЕЛЬНОЕ РЕШЕНИЕ ПРОБЛЕМ</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Новый сценарий предложен (ситуация, которой не было)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель самостоятельно определил функцию</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Родитель самостоятельно выбрал стратегию</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Решение обсуждено: что хорошо, что можно улучшить</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>2–3 дополнительных сценария разобраны</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>План фейдинга (снижение частоты сессий) обсуждён</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>ДЗ: самостоятельно решить 1 новую ситуацию, записать</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:var(--plum)"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -4316,7 +4900,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: фейдинг → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">—</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">Финальная версия → распечатка родителю</span></div>
@@ -4356,6 +4940,43 @@ body.pdf-printing #pdf-print-area { display: block !important; }
     </div>
   </div>
 </div>
+<div class="intake-form" id="form_checklist_16" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 16: ИТОГОВАЯ ОЦЕНКА</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Финальная оценка точности по ВСЕМ целевым процедурам</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Графики показаны: «Вот где вы начали → вот где вы сейчас»</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Итоговый опросник социальной валидности заполнен</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>План поддержки: расписание сессий (2 нед → 1 мес → 3 мес → 6 мес)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>BSP финальная версия отдана родителю (распечатка)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Достижения подчёркнуты, родитель поблагодарён</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
 <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:.2s;margin-bottom:2.5rem" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.05)'" onmouseout="this.style.boxShadow='none'">
   <div style="height:3px;background:var(--plum)"></div>
   <div style="padding:1.5rem 1.8rem">
@@ -4398,7 +5019,7 @@ body.pdf-printing #pdf-print-area { display: block !important; }
         <span style="color:var(--mut)">|</span>
         <a href="https://www.abapsy.com/rbt-ibt-abat" target="_blank" style="font-size:.86rem;color:var(--teal);text-decoration:none;font-weight:500">Курс: завершение программы → abapsy.com</a>
       </div>
-    </div>
+</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;font-size:.92rem;padding-top:.8rem;border-top:1.5px solid #e5e7eb">
       <div><span style="font-weight:600;color:var(--mut)">ДЗ:</span> <span style="color:var(--text2)">Продолжать вести данные. Связаться при необходимости.</span></div>
       <div><span style="font-weight:600;color:var(--mut)"><a href="javascript:void(0)" data-scroll="form_bsp" onclick="var t=document.getElementById(this.dataset.scroll);if(t){var s=t.closest('.section');if(s)s.classList.remove('collapsed');t.scrollIntoView({behavior:'smooth'})}" style="color:var(--pri);text-decoration:underline;text-decoration-color:rgba(59,124,184,.25);text-underline-offset:2px;cursor:pointer">BSP</a>:</span> <span style="color:var(--text2)">Обновить при необходимости</span></div>
@@ -4437,7 +5058,44 @@ body.pdf-printing #pdf-print-area { display: block !important; }
       </div>
     </div>
   </div>
-</div></div><h3>ЕЖЕНЕДЕЛЬНЫЙ ЧЕК-ЛИСТ BCBA</h3>
+</div>
+<div class="intake-form" id="form_checklist_17" style="border-top:3px solid var(--pri);margin:1rem 0">
+  <div class="intake-header"><div class="intake-title">ЧЕК-ЛИСТ СЕССИИ · НЕДЕЛЯ 17: ЗАВЕРШЕНИЕ И ПЛАН ПОДДЕРЖКИ</div></div>
+  <div class="intake-section" style="padding:.8rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-bottom:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark);font-size:.9rem">Дата:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Специалист:</strong> <span class="intake-line" style="display:inline-block;width:55%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Родитель:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+      <div><strong style="color:var(--dark);font-size:.9rem">Ребёнок:</strong> <span class="intake-line" style="display:inline-block;width:60%;border-bottom:1.5px solid #999"></span></div>
+    </div>
+    <table class="intake-check-table" style="font-size:.82rem">
+      <tbody>
+        <tr><td class="ck" style="width:5%"></td><td>Что сохранилось с последней сессии — обзор</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Что угасло — обсуждение и план</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Новые проблемы (если есть) — решение</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>План поддержки подтверждён (следующая сессия через ___)</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td>Контакты для вопросов переданы</td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+        <tr><td class="ck" style="width:5%"></td><td><span class="intake-line" style="display:inline-block;width:90%;border-bottom:1px solid #ccc"></span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.8rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;font-size:.85rem">
+      <div><strong style="color:var(--dark)">Точность родителя:</strong> <span class="intake-line" style="display:inline-block;width:50px;border-bottom:1.5px solid #999"></span> %</div>
+      <div><strong style="color:var(--dark)">Метод:</strong> ☐ BST &nbsp; ☐ TIP &nbsp; ☐ Комбинация</div>
+    </div>
+    <div style="margin-top:.8rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">Заметки:</strong></div>
+      <div style="margin-top:.3rem;min-height:3rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+    <div style="margin-top:.6rem">
+      <div style="font-size:.85rem"><strong style="color:var(--dark)">План на следующую сессию:</strong></div>
+      <div style="margin-top:.3rem;min-height:2.5rem;border:1px solid #ddd;border-radius:var(--radius-sm);padding:.4rem"></div>
+    </div>
+  </div>
+</div>
+
+</div><h3>ЕЖЕНЕДЕЛЬНЫЙ ЧЕК-ЛИСТ BCBA</h3>
 <div class="intake-form" id="form_weekly" style="border-top:3px solid #c97b5a">
   <div class="intake-header">
     <div class="intake-title">ЕЖЕНЕДЕЛЬНЫЙ ЧЕК-ЛИСТ СЕССИИ</div>
@@ -6698,7 +7356,7 @@ window.addEventListener('resize', fixMobile);
     'form_compat','form_consent','form_schedule','form_contract'
   ];
   // Extra: outside Part VIII
-  var EXTRA_IDS = ['form_validity','form_weekly','form_cards','form_preferences','form_homedata','form_memo','form_telehealth','form_transfer','form_generalization'];
+  var EXTRA_IDS = ['form_validity','form_weekly','form_cards','form_preferences','form_homedata','form_memo','form_telehealth','form_transfer','form_generalization','form_checklist_01','form_checklist_02','form_checklist_03','form_checklist_04','form_checklist_05','form_checklist_06','form_checklist_07','form_checklist_08','form_checklist_09','form_checklist_10','form_checklist_11','form_checklist_12','form_checklist_13','form_checklist_14','form_checklist_15','form_checklist_16','form_checklist_17'];
 
   // BSP: id is on inner title, find parent .intake-form
   var bspTitle = document.getElementById('form_bsp');
@@ -7044,7 +7702,7 @@ window.addEventListener('resize', fixMobile);
   });
 })();
 </script>
-<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v121</div>
+<div style="position:fixed;bottom:5px;right:5px;font-size:10px;color:#ccc;z-index:9999">v124</div>
 <button id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1500;width:44px;height:44px;border-radius:50%;border:none;background:#252836;color:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .3s ease;opacity:.7" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
 </body>
 </html>
